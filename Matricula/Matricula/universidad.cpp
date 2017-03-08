@@ -29,6 +29,11 @@ void Universidad::setDireccion(string unDireccion)
 	direccion = unDireccion;
 }
 
+void Universidad::setNombre(string unNombre)
+{
+	nombre = unNombre;
+}
+
 string Universidad::getNombre()
 {
 	return nombre;

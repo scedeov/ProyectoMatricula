@@ -18,6 +18,7 @@ public:
 	~Universidad();
 	void setTelefono(string);
 	void setDireccion(string);
+	void setNombre(string);
 	string getNombre();
 	string getNumero();
 	string getDireccion();
