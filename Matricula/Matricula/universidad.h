@@ -14,6 +14,7 @@ private:
 	string direccion;
 public:
 	Universidad();
+	Universidad(string, string, string);
 	~Universidad();
 	void setTelefono(string);
 	void setDireccion(string);

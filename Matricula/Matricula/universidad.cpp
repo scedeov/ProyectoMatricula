@@ -7,6 +7,13 @@ Universidad::Universidad()
 	direccion = "Undefined";
 }
 
+Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
+{
+	nombre = unNombre;
+	numeroTelefono = xNumero;
+	direccion = unDireccion;
+}
+
 Universidad::~Universidad()
 {
 	//Bye
