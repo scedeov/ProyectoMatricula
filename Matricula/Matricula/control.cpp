@@ -11,11 +11,14 @@ void Control::Inicio()
 
 
 	cout << string("Bienvenido al Sistema de Matricula") << endl;
-	cout << string("Ingrese los datos de la Universidad.....") << endl;
+	cout << string("Ingrese los datos de la Universidad.....") << endl << endl;
+
 	cout << string("Ingrese el nombre de la Universidad -> "); string nombre; getline(std::cin, nombre); cout << endl;
 	U1.setNombre(nombre);
-	cout << string("Ingrese el numero de telefono -> "); string numero; std::cin >> numero; U1.setTelefono(numero); cout << endl;
-	cout << string("Ingrese la direccion -> "); string direccion; std::cin >> direccion; U1.setDireccion(direccion); cout << endl;
+
+	cout << string("Ingrese el numero de telefono -> "); string numero; std::cin >> numero; U1.setTelefono(numero); cout << endl << endl;
+
+	cout << string("Ingrese la direccion -> "); string direccion; std::cin >> direccion; U1.setDireccion(direccion); cout << endl << endl;
 
 	do
 	{
