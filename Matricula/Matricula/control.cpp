@@ -10,11 +10,7 @@ void Control::Inicio()
 	bool end = false;
 
 
-	cout << string("----------------PROBANDO---------------") << endl;
-	cout << string("-------------SIN PARAMETROS-------------") << endl;
-	cout << U1.toString() << endl;
-
-	cout << string("Bienvenido Tio") << endl;
+	cout << string("Bienvenido al Sistema de Matricula") << endl;
 	cout << string("Ingrese los datos de la Universidad.....") << endl;
 	cout << string("Ingrese el nombre de la Universidad -> "); string nombre; getline(std::cin, nombre); cout << endl;
 	U1.setNombre(nombre);
