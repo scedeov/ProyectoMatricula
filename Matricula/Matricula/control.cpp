@@ -46,12 +46,12 @@ void Control::Inicio()
 		cout << string("Ingrese el numero de telefono -> "); string numero;
 		std::cin >> numero; cin.ignore();
 
-		while (!chequeaNumero(numero)) //No le permite al usuario ingresar un algo que no sean numeros
+		while (chequeaNumero(numero) == false) //No le permite al usuario ingresar un algo que no sean numeros
 		{
 			cout << string("Numero Invalido. Intente de nuevo");
 			Sleep(800);
 			system("cls");
-			cout << string("Ingrese el numero de telefono -> "); string numero;
+			cout << string("Ingrese el numero de telefono -> "); cin.clear();
 			std::cin >> numero; cin.ignore();
 		}
 
@@ -145,12 +145,16 @@ void Control::Inicio()
 
 bool Control::chequeaNumero(string num)
 {
-	bool esNumero = true;
+	bool esNumero;
+
 	for (size_t x = 0; x < num.length(); x++)
 	{
-		if (isdigit(num[x]) == false)
+		if (isdigit(num[x]))
+			esNumero = true;
+		else
 		{
 			esNumero = false;
+			return esNumero;
 		}
 	}
 	return esNumero;
