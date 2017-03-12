@@ -42,7 +42,19 @@ void Control::Inicio()
 	do // igual que el anterior
 	{
 		Sleep(500);
-		cout << string("Ingrese el numero de telefono -> "); string numero; std::cin >> numero; cin.ignore(); cout << endl << endl;
+		cout << string("Ingrese el numero de telefono -> "); string numero;
+		std::cin >> numero; cin.ignore();
+
+		while (!chequeaNumero(numero)) //No le permite al usuario ingresar un algo que no sean numeros
+		{
+			cout << string("Numero Invalido. Intente de nuevo");
+			Sleep(800);
+			system("cls");
+			cout << string("Ingrese el numero de telefono -> "); string numero;
+			std::cin >> numero; cin.ignore();
+		}
+
+		cout << endl << endl;
 		cout << "Numero : " << "\"" << numero << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
 
 		ans = toupper(_getch());
@@ -130,6 +142,21 @@ void Control::Inicio()
 	} while (end == false);
 }
 
+bool Control::chequeaNumero(string num)
+{
+	bool esNumero = true;
+	for (int x = 0; x < num.length(); x++)
+	{
+		if (isdigit(num[x]) == false);
+		{
+			esNumero = false;
+		}
+	}
+	return esNumero;
+}
+
 Control::~Control()
 {
 }
+
+

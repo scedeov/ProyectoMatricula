@@ -13,6 +13,7 @@ private:
 public:
 	Control();
 	void Inicio();
+	bool chequeaNumero(string);
 	~Control();
 };
 
