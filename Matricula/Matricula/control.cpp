@@ -26,7 +26,10 @@ void Control::Inicio()
 		}
 
 		if (ans == 'S') //Solo ingresa al nombre si el usuario confirma
+		{
 			U1.setNombre(nombre);
+			cout << string("Perfecto!"); Sleep(1500); system("cls");
+		}
 
 	} while (ans == 'N');
 
@@ -44,7 +47,10 @@ void Control::Inicio()
 		}
 
 		if (ans == 'S')
+		{
 			U1.setTelefono(numero);
+			cout << string("Perfecto!"); Sleep(1500); system("cls");
+		}
 
 	} while (ans == 'N');
 
@@ -61,7 +67,10 @@ void Control::Inicio()
 		}
 
 		if (ans == 'S')
+		{
 			U1.setDireccion(direccion);
+			cout << string("Perfecto!"); Sleep(1500); system("cls");
+		}
 
 	} while (ans == 'N');
 
