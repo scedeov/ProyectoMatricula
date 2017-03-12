@@ -13,6 +13,7 @@ void Control::Inicio()
 	cout << string("Bienvenido al Sistema de Matricula") << endl;
 	Sleep(1500);
 	cout << string("Ingrese los datos de la Universidad.....") << endl << endl; // Al incio del programa pregunta una vez por los datos de la Universidad (solo una)
+	Sleep(1500);
 	system("pause");
 
 	system("cls");
