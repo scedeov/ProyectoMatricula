@@ -15,7 +15,7 @@ void Control::Inicio()
 
 	do //Pide los datos al usuario y le da la opcion de cambiarlos las veces que quiera mientras no confirme su opcion
 	{
-		cout << string("Ingrese el nombre de la Universidad -> "); string nombre; getline(std::cin, nombre); cout << endl;
+		cout << string("Ingrese el nombre de la Universidad -> "); string nombre; getline(std::cin, nombre); cout << endl << endl;
 		cout << "Universidad : " << "\"" << nombre << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
 
 		ans = toupper(_getch());
@@ -56,7 +56,7 @@ void Control::Inicio()
 
 	do
 	{
-		cout << string("Ingrese la direccion -> "); string direccion; std::cin >> direccion; U1.setDireccion(direccion); cout << endl << endl;
+		cout << string("Ingrese la direccion -> "); string direccion; getline(std::cin, direccion); cout << endl << endl;
 		cout << "Direccion : " << "\"" << direccion << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
 
 		ans = toupper(_getch());
