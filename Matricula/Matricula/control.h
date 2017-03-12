@@ -3,6 +3,7 @@
 
 #include "universidad.h"
 #include <conio.h>
+#include <Windows.h>
 
 
 class Control
