@@ -11,9 +11,10 @@ void Control::Inicio()
 
 	char ans;
 	cout << string("Bienvenido al Sistema de Matricula") << endl;
-	Sleep(500);
-	cout << string("Ingrese los datos de la Universidad.....") << endl << endl; // Al incio del programa pregunta una vez por los datos de la Universidad (solo una)
 	Sleep(1500);
+	cout << string("Ingrese los datos de la Universidad.....") << endl << endl; // Al incio del programa pregunta una vez por los datos de la Universidad (solo una)
+	system("pause");
+
 	system("cls");
 
 	do //Pide los datos al usuario y le da la opcion de cambiarlos las veces que quiera mientras no confirme su opcion
