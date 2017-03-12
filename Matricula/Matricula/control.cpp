@@ -11,10 +11,14 @@ void Control::Inicio()
 
 	char ans;
 	cout << string("Bienvenido al Sistema de Matricula") << endl;
+	Sleep(500);
 	cout << string("Ingrese los datos de la Universidad.....") << endl << endl; // Al incio del programa pregunta una vez por los datos de la Universidad (solo una)
+	Sleep(1500);
+	system("cls");
 
 	do //Pide los datos al usuario y le da la opcion de cambiarlos las veces que quiera mientras no confirme su opcion
 	{
+		Sleep(500);
 		cout << string("Ingrese el nombre de la Universidad -> "); string nombre; getline(std::cin, nombre); cout << endl << endl;
 		cout << "Universidad : " << "\"" << nombre << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
 
@@ -36,6 +40,7 @@ void Control::Inicio()
 
 	do // igual que el anterior
 	{
+		Sleep(500);
 		cout << string("Ingrese el numero de telefono -> "); string numero; std::cin >> numero;  cout << endl << endl;
 		cout << "Numero : " << "\"" << numero << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
 
@@ -56,6 +61,7 @@ void Control::Inicio()
 
 	do
 	{
+		Sleep(500);
 		cout << string("Ingrese la direccion -> "); string direccion; getline(std::cin, direccion); cout << endl << endl;
 		cout << "Direccion : " << "\"" << direccion << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
 
@@ -80,6 +86,7 @@ void Control::Inicio()
 
 	do
 	{
+		Sleep(500);
 		system("cls");
 		cout << U1.toString() << endl;
 
