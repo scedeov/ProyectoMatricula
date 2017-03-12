@@ -145,9 +145,9 @@ void Control::Inicio()
 bool Control::chequeaNumero(string num)
 {
 	bool esNumero = true;
-	for (int x = 0; x < num.length(); x++)
+	for (size_t x = 0; x < num.length(); x++)
 	{
-		if (isdigit(num[x]) == false);
+		if (isdigit(num[x]) == false)
 		{
 			esNumero = false;
 		}
