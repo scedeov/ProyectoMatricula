@@ -20,7 +20,7 @@ void Control::Inicio()
 	do //Pide los datos al usuario y le da la opcion de cambiarlos las veces que quiera mientras no confirme su opcion
 	{
 		Sleep(500);
-		cout << string("Ingrese el nombre de la Universidad -> "); string nombre; getline(std::cin, nombre); cout << endl << endl;
+		cout << string("Ingrese el nombre de la Universidad -> "); string nombre; std::getline(std::cin, nombre); cout << endl << endl;
 		cout << "Universidad : " << "\"" << nombre << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
 
 		ans = toupper(_getch());
@@ -42,7 +42,7 @@ void Control::Inicio()
 	do // igual que el anterior
 	{
 		Sleep(500);
-		cout << string("Ingrese el numero de telefono -> "); string numero; std::cin >> numero;  cout << endl << endl;
+		cout << string("Ingrese el numero de telefono -> "); string numero; std::cin >> numero; cin.ignore(); cout << endl << endl;
 		cout << "Numero : " << "\"" << numero << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
 
 		ans = toupper(_getch());
