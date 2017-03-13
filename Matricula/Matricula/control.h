@@ -14,6 +14,9 @@ public:
 	Control();
 	void Inicio();
 	bool chequeaNumero(string);
+	void ingresarNumero();
+	void ingresarDireccion();
+	void ingresarNombre();
 	~Control();
 };
 
