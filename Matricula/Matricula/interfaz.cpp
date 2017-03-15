@@ -56,7 +56,7 @@ void Interfaz::vIngresarNumero(Universidad* U)
 		if (ans == 'S')
 		{
 			U->setTelefono(numero);
-			cout << "Perfecto!"; Sleep(1500); system("cls");
+			msjPerfecto();
 		}
 
 	} while (ans == 'N');
@@ -82,7 +82,7 @@ void Interfaz::vIngresarDireccion(Universidad* U)
 		if (ans == 'S')
 		{
 			U->setDireccion(direccion);
-			cout << "Perfecto!"; Sleep(1500); system("cls");
+			msjPerfecto();
 		}
 
 	} while (ans == 'N');
@@ -107,7 +107,7 @@ void Interfaz::vIngresarNombre(Universidad* U)
 		if (ans == 'S') //Solo ingresa al nombre si el usuario confirma
 		{
 			U->setNombre(nombre);
-			cout << string("Perfecto!"); Sleep(1500); system("cls");
+			msjPerfecto();
 		}
 
 	} while (ans == 'N');
@@ -128,6 +128,13 @@ bool Interfaz::chequeaNumero(string num)
 		}
 	}
 	return esNumero;
+}
+
+void Interfaz::msjPerfecto()
+{
+	cout << string("Perfecto!"); 
+	Sleep(1500); 
+	system("cls");
 }
 
 void Interfaz::vtoString(Universidad* U)
