@@ -1,17 +1,19 @@
 #ifndef CONTENEDOR_ESCUELAS
 #define CONTENEDOR_ESCUELAS
 
-#include "escuela.h"
-
-#include <iostream>
-using namespace std;
+#include "nodoEscuelas.h" 
 
 class Contenedor_Escuelas
 {
 private:
-	Escuela* VEC;
+	Nodo_Escuelas* pinicio;
+	Nodo_Escuelas* paux;
 public:
 	Contenedor_Escuelas();
+
+	void insertaralInicio(Escuela*);
+	string toString();
+
 	~Contenedor_Escuelas();
 };
 

@@ -2,10 +2,33 @@
 
 Contenedor_Escuelas::Contenedor_Escuelas()
 {
-	for (size_t i = 0; i < 30; i++)
+	pinicio = NULL;
+	paux = NULL;
+}
+
+void Contenedor_Escuelas::insertaralInicio(Escuela* unEscuela)
+{
+	paux = new Nodo_Escuelas(unEscuela, NULL);
+
+	if (pinicio == NULL)
+		pinicio = paux;
+	else
 	{
-		VEC[i] = new Escuela();
+		paux->setNext(pinicio);
+		pinicio = paux;
 	}
+}
+
+string Contenedor_Escuelas::toString()
+{
+	stringstream s;
+	paux = pinicio;
+	while (pinicio != NULL)
+	{
+		paux->toStringNodo();
+		paux = paux->getNext();
+	}
+	return s.str();
 }
 
 Contenedor_Escuelas::~Contenedor_Escuelas()
