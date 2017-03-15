@@ -10,13 +10,11 @@
 class Control
 {
 private:
-	Universidad U1;
+	Universidad* U;
 public:
-	void Inicio();
+	void intro();
+	void body();
 	bool chequeaNumero(string);
-	void ingresarNumero();
-	void ingresarDireccion();
-	void ingresarNombre();
 };
 
 #endif
