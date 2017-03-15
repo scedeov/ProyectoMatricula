@@ -20,6 +20,8 @@ void Control::intro()
 
 void Control::body()
 {
+	Interfaz::vtoString(U);
+
 	bool end = false;
 
 	do
