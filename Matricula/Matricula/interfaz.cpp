@@ -25,6 +25,7 @@ char Interfaz::vMenuPrincipal()
 		ans = _getch();
 	}
 
+	system("cls");
 	return ans;
 }
 
@@ -44,6 +45,7 @@ char Interfaz::vMenuAjustes()
 		ans = _getch();
 	}
 
+	system("cls");
 	return ans;
 }
 
