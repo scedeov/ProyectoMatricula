@@ -132,7 +132,7 @@ bool Interfaz::chequeaNumero(string num)
 
 void Interfaz::msjPerfecto()
 {
-	cout << string("Perfecto!"); 
+	cout << endl << string("Perfecto!");
 	Sleep(1500); 
 	system("cls");
 }
