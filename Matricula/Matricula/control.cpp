@@ -1,10 +1,5 @@
 #include "control.h"
 
-Control::Control()
-{
-
-}
-
 void Control::Inicio()
 {
 	bool end = false;
@@ -81,12 +76,12 @@ void Control::ingresarNumero()
 	do
 	{
 		Sleep(500);
-		cout << string("Ingrese el numero de telefono -> "); string numero;
+		cout << "Ingrese el numero de telefono -> "; string numero;
 		std::cin >> numero; cin.ignore();
 
 		while (chequeaNumero(numero) == false) //No le permite al usuario ingresar un algo que no sean numeros
 		{
-			cout << string("Numero Invalido. Intente de nuevo");
+			cout << "Numero Invalido. Intente de nuevo";
 			Sleep(800);
 			system("cls");
 			cout << string("Ingrese el numero de telefono -> "); cin.clear();
@@ -106,7 +101,7 @@ void Control::ingresarNumero()
 		if (ans == 'S')
 		{
 			U1.setTelefono(numero);
-			cout << string("Perfecto!"); Sleep(1500); system("cls");
+			cout << "Perfecto!"; Sleep(1500); system("cls");
 		}
 
 	} while (ans == 'N');
@@ -161,10 +156,6 @@ void Control::ingresarNombre()
 		}
 
 	} while (ans == 'N');
-}
-
-Control::~Control()
-{
 }
 
 
