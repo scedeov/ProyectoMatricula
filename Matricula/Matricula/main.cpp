@@ -3,6 +3,6 @@
 int main()
 {
 	Control C;
-	C.intro();
+	C.principal();
 	return 0;
 }
