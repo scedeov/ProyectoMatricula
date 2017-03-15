@@ -18,6 +18,8 @@ public:
 	static void vIngresarNumero(Universidad*);
 	static void vIngresarDireccion(Universidad*);
 	static void vIngresarNombre(Universidad*);
+	static char vInfoConfirmacion();
+	
 	static bool chequeaNumero(string);
 	
 	static void msjPerfecto();

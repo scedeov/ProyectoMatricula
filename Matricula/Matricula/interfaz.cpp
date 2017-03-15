@@ -44,14 +44,9 @@ void Interfaz::vIngresarNumero(Universidad* U)
 		}
 
 		cout << endl << endl;
-		cout << "Numero : " << "\"" << numero << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
+		cout << "Numero : " << "\"" << numero << "\" "; 
 
-		ans = toupper(_getch());
-
-		while (ans != 'S' && ans != 'N') //Impide ingresar un valor diferente a S o N
-		{
-			ans = toupper(_getch());
-		}
+		ans = vInfoConfirmacion();
 
 		if (ans == 'S')
 		{
@@ -70,14 +65,9 @@ void Interfaz::vIngresarDireccion(Universidad* U)
 	{
 		Sleep(500);
 		cout << "Ingrese la direccion -> "; string direccion; getline(std::cin, direccion); cout << endl << endl;
-		cout << "Direccion : " << "\"" << direccion << "\" "; cout << "| es esta informacion correcta? SI (S) NO (N)" << endl;
+		cout << "Direccion : " << "\"" << direccion << "\" "; 
 
-		ans = toupper(_getch());
-
-		while (ans != 'S' && ans != 'N') //Impide ingresar un valor diferente a S o N
-		{
-			ans = toupper(_getch());
-		}
+		ans = vInfoConfirmacion();
 
 		if (ans == 'S')
 		{
@@ -95,14 +85,9 @@ void Interfaz::vIngresarNombre(Universidad* U)
 	{
 		Sleep(500);
 		cout << string("Ingrese el nombre de la Universidad -> "); string nombre; std::getline(std::cin, nombre); cout << endl << endl;
-		cout << "Universidad : " << "\"" << nombre << "\" "; cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
-
-		ans = toupper(_getch());
-
-		while (ans != 'S' && ans != 'N') //Impide ingresar un valor diferente a S o N
-		{
-			ans = toupper(_getch());
-		}
+		cout << "Universidad : " << "\"" << nombre << "\" "; 
+		
+		ans = vInfoConfirmacion();
 
 		if (ans == 'S') //Solo ingresa al nombre si el usuario confirma
 		{
@@ -111,6 +96,22 @@ void Interfaz::vIngresarNombre(Universidad* U)
 		}
 
 	} while (ans == 'N');
+}
+
+char Interfaz::vInfoConfirmacion()
+{
+	char ans;
+
+	cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
+
+	ans = toupper(_getch());
+
+	while (ans != 'S' && ans != 'N') //Impide ingresar un valor diferente a S o N
+	{
+		ans = toupper(_getch());
+	}
+
+	return ans;
 }
 
 bool Interfaz::chequeaNumero(string num)
