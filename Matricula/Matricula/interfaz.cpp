@@ -128,3 +128,10 @@ bool Interfaz::chequeaNumero(string num)
 	}
 	return esNumero;
 }
+
+void Interfaz::vtoString(Universidad* U)
+{
+	Sleep(500);
+	system("cls");
+	cout << U->toString() << endl;
+}

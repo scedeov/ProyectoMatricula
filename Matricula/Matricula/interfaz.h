@@ -19,6 +19,7 @@ public:
 	static void vIngresarDireccion(Universidad*);
 	static void vIngresarNombre(Universidad*);
 	static bool chequeaNumero(string);
+	static void vtoString(Universidad*);
 };
 #endif // !INTERFAZ
 

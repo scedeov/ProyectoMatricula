@@ -6,16 +6,13 @@ void Control::intro()
 
 	Interfaz::vBienvenida();
 
-	system("cls");
-
 	Interfaz::vIngresarNombre(U);
 
 	Interfaz::vIngresarNumero(U);
 
 	Interfaz::vIngresarDireccion(U);
 
-	system("cls");
-	cout << U->toString() << endl;
+	Interfaz::vtoString(U);
 }
 
 void Control::body()
@@ -24,11 +21,6 @@ void Control::body()
 
 	do
 	{
-		Sleep(500);
-		system("cls");
-		cout << U->toString() << endl;
-
-
 		char opcion = Interfaz::vMenu();
 
 		switch (opcion)
@@ -52,8 +44,6 @@ void Control::body()
 		default: break;
 
 		}
-
-		system("cls");
 
 	} while (end == false);
 }
