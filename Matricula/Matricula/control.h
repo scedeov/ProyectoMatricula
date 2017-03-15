@@ -14,7 +14,6 @@ private:
 public:
 	void intro();
 	void body();
-	bool chequeaNumero(string);
 };
 
 #endif
