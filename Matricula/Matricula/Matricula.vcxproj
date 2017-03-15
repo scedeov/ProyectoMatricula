@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClInclude Include="control.h" />
     <ClInclude Include="escuela.h" />
+    <ClInclude Include="interfaz.h" />
     <ClInclude Include="universidad.h" />
   </ItemGroup>
   <ItemGroup>
