@@ -9,11 +9,7 @@ void Control::Inicio()
 {
 	bool end = false;
 
-	cout << string("Bienvenido al Sistema de Matricula") << endl;
-	Sleep(1500);
-	cout << string("Ingrese los datos de la Universidad.....") << endl << endl; // Al incio del programa pregunta una vez por los datos de la Universidad (solo una)
-	Sleep(1500);
-	system("pause");
+	Interfaz::vBienvenida();
 
 	system("cls");
 
@@ -32,39 +28,31 @@ void Control::Inicio()
 		system("cls");
 		cout << U1.toString() << endl;
 
-		cout << string("Cambiar numero de telefono (1) Cambiar Direccion (2) Salir (3)") << endl;
-		char ans;
-		ans = _getch();
 
-		while (ans != '1' && ans != '2' && ans != '3')
+		char opcion = Interfaz::vMenu();
+
+		switch (opcion)
 		{
-			cout << string("Opcion Incorrecta. Try again ") << endl;
-			ans = _getch();
+		case '1':
+		{
+			ingresarNumero();
+			break;
+
+		}
+		case '2':
+		{
+			ingresarDireccion();
+			break;
+		}
+		case '3':
+		{
+			end = true;
+			break;
+		}
+		default: break;
+
 		}
 
-		{
-			switch (ans)
-			{
-			case '1':
-			{
-				ingresarNumero();
-				break;
-
-			}
-			case '2':
-			{
-				ingresarDireccion();
-				break;
-			}
-			case '3':
-			{
-				end = true;
-				break;
-			}
-			default: break;
-
-			}
-		}
 		system("cls");
 	} while (end == false);
 }

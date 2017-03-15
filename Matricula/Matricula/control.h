@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <Windows.h>
 
+#include "interfaz.h"
 
 class Control
 {

@@ -118,6 +118,7 @@
   <ItemGroup>
     <ClCompile Include="control.cpp" />
     <ClCompile Include="escuela.cpp" />
+    <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="universidad.cpp" />
   </ItemGroup>
