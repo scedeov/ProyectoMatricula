@@ -9,10 +9,33 @@ void Interfaz::vBienvenida()
 	system("cls");
 }
 
-char Interfaz::vMenu()
+char Interfaz::vMenuPrincipal()
 {
 	char ans;
-	cout << "Cambiar numero de telefono (1) Cambiar Direccion (2) Salir (3)" << endl;
+
+	cout << "**********MENU PRINCIPAL**********" << endl;
+	cout << "(1)--Ajustes" << endl;
+	cout << "(2)--Salir" << endl;
+
+	ans = _getch();
+
+	while (ans != '1' && ans != '2' && ans != '3')
+	{
+		cout << "Opcion Incorrecta. Try again " << endl;
+		ans = _getch();
+	}
+
+	return ans;
+}
+
+char Interfaz::vMenuAjustes()
+{
+	char ans;
+
+	cout << "-(1)-Cambiar Numero de Telefono" << endl;
+	cout << "-(2)-Cambiar Direccion" << endl;
+	cout << "-(3)-Salir" << endl;
+
 	ans = _getch();
 
 	while (ans != '1' && ans != '2' && ans != '3')
@@ -138,7 +161,7 @@ void Interfaz::msjPerfecto()
 	system("cls");
 }
 
-void Interfaz::vtoString(Universidad* U)
+void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula
 {
 	Sleep(500);
 	system("cls");

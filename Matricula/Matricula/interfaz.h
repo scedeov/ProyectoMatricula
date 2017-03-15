@@ -14,7 +14,8 @@ class Interfaz
 {
 public:
 	static void vBienvenida();
-	static char vMenu();
+	static char vMenuPrincipal();
+	static char vMenuAjustes();
 	static void vIngresarNumero(Universidad*);
 	static void vIngresarDireccion(Universidad*);
 	static void vIngresarNombre(Universidad*);

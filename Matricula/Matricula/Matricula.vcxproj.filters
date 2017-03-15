@@ -27,6 +27,9 @@
     <ClInclude Include="interfaz.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="contenedorEscuelas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="universidad.cpp">

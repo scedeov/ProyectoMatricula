@@ -12,8 +12,9 @@ class Control
 private:
 	Universidad* U;
 public:
-	void intro();
-	void body();
+	void principal();
+	void intro(Universidad*);
+	void ajustes();
 };
 
 #endif
