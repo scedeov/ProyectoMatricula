@@ -25,7 +25,6 @@ void Control::Inicio()
 
 	system("cls");
 	cout << U1.toString() << endl;
-	cin.get();
 
 	do
 	{
