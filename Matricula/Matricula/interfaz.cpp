@@ -6,6 +6,7 @@ void Interfaz::vBienvenida()
 	Sleep(1500);
 	cout << "Ingrese los datos de la Universidad....." << endl << endl; // Al inicio del programa pregunta una vez por los datos de la Universidad (solo una)
 	Sleep(1500);
+	system("cls");
 }
 
 char Interfaz::vMenu()
