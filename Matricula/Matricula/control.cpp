@@ -13,6 +13,9 @@ void Control::intro()
 	Interfaz::vIngresarDireccion(U);
 
 	Interfaz::vtoString(U);
+
+	body();
+
 }
 
 void Control::body()

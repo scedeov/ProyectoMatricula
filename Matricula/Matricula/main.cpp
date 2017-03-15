@@ -3,6 +3,6 @@
 int main()
 {
 	Control C;
-	C.Inicio();
+	C.intro();
 	return 0;
 }
