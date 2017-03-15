@@ -27,6 +27,7 @@ void Control::principal()
 	do
 	{
 		char ans = Interfaz::vMenuPrincipal();
+		system("cls");
 
 		switch (ans)
 		{
@@ -54,6 +55,7 @@ void Control::ajustes()
 	do
 	{
 		char opcion = Interfaz::vMenuAjustes();
+		system("cls");
 
 		switch (opcion)
 		{
