@@ -32,10 +32,18 @@ void Control::principal()
 		{
 		case '1':
 		{
-			ajustes();
 			break;
 		}
 		case '2':
+		{
+			break;
+		}
+		case '3':
+		{
+			ajustes();
+			break;
+		}
+		case '4':
 		{
 			end = true;
 			break;
