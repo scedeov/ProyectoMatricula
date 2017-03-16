@@ -12,10 +12,13 @@ void Interfaz::vBienvenida()
 char Interfaz::vMenuPrincipal()
 {
 	char ans;
-
-	cout << "**********MENU PRINCIPAL**********" << endl;
-	cout << "(1)--Ajustes" << endl;
-	cout << "(2)--Salir" << endl;
+	cout << endl << endl;
+	cout << "**************MENU PRINCIPAL**************" << endl;
+	cout << "(1)--Informacion acerca de la Universidad" << endl;
+	cout << "(2)--Lista de Escuelas" << endl;
+	cout << "(3)--Ajustes" << endl;
+	cout << "(4)--Salir" << endl;
+	cout << "******************************************" << endl;
 
 	ans = _getch();
 
