@@ -27,12 +27,15 @@ char Interfaz::vMenuPrincipal()
 char Interfaz::vMenuAjustes(Universidad* U)
 {
 	char ans;
+
 	if (U->getNombre() == "Undefined")
 	{
 		cout << "-(1)-Ingresar nombre de la Universidad" << endl;
 		cout << "-(2)-Cambiar Numero de Telefono de la Universidad" << endl;
 		cout << "-(3)-Cambiar Direccion de la Universidad" << endl;
 		cout << "-(4)-Salir" << endl;
+
+		ans = _getch();
 
 		while (ans != '1' && ans != '2' && ans != '3' && ans != '4')
 		{
@@ -46,14 +49,14 @@ char Interfaz::vMenuAjustes(Universidad* U)
 		cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
 		cout << "-(3)-Salir" << endl;
 
+		ans = _getch();
+
 		while (ans != '1' && ans != '2' && ans != '3')
 		{
 			cout << "Opcion Incorrecta. Try again " << endl;
 			ans = _getch();
 		}
 	}
-
-	ans = _getch();
 
 	system("cls");
 	return ans;
