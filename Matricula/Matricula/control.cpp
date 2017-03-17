@@ -6,6 +6,16 @@ void Control::principal()
 	U = new Universidad();
 	CE = new Contenedor_Escuelas();
 
+	Escuela* E1 = new Escuela();
+	Escuela* E2 = new Escuela();
+	Escuela* E3 = new Escuela();
+	E1->setNombre("Escuela de Ingles");
+	E2->setNombre("Escuela de Matematicas");
+	E3->setNombre("Escuela de Geologia");
+	CE->insertaralInicio(E1);
+	CE->insertaralInicio(E2);
+	CE->insertaralInicio(E3);
+
 	bool end = false;
 
 	do
@@ -24,7 +34,7 @@ void Control::principal()
 		}
 		case '2':
 		{
-			CE->toString();
+			cout << CE->toString();
 			break;
 		}
 		case '3':

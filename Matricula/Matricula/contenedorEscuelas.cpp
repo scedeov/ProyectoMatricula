@@ -11,7 +11,9 @@ void Contenedor_Escuelas::insertaralInicio(Escuela* unEscuela)
 	paux = new Nodo_Escuelas(unEscuela, NULL);
 
 	if (pinicio == NULL)
+	{
 		pinicio = paux;
+	}
 	else
 	{
 		paux->setNext(pinicio);
@@ -23,9 +25,9 @@ string Contenedor_Escuelas::toString()
 {
 	stringstream s;
 	paux = pinicio;
-	while (pinicio != NULL)
+	while (paux != NULL)
 	{
-		paux->toStringNodo();
+		s << paux->toStringNodo();
 		paux = paux->getNext();
 	}
 	return s.str();
