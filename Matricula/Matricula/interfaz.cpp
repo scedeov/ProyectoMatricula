@@ -14,7 +14,7 @@ char Interfaz::vMenuPrincipal()
 
 	ans = _getch();
 
-	while (ans != '1' && ans != '2' && ans != '3' && ans!= '4')
+	while (ans != '1' && ans != '2' && ans != '3' && ans != '4')
 	{
 		cout << "Opcion Incorrecta. Try again " << endl;
 		ans = _getch();
@@ -24,21 +24,36 @@ char Interfaz::vMenuPrincipal()
 	return ans;
 }
 
-char Interfaz::vMenuAjustes()
+char Interfaz::vMenuAjustes(Universidad* U)
 {
 	char ans;
+	if (U->getNombre() == "Undefined")
+	{
+		cout << "-(1)-Ingresar nombre de la Universidad" << endl;
+		cout << "-(2)-Cambiar Numero de Telefono de la Universidad" << endl;
+		cout << "-(3)-Cambiar Direccion de la Universidad" << endl;
+		cout << "-(4)-Salir" << endl;
 
-	cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
-	cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
-	cout << "-(3)-Salir" << endl;
+		while (ans != '1' && ans != '2' && ans != '3' && ans != '4')
+		{
+			cout << "Opcion Incorrecta. Try again " << endl;
+			ans = _getch();
+		}
+	}
+	else
+	{
+		cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
+		cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
+		cout << "-(3)-Salir" << endl;
+
+		while (ans != '1' && ans != '2' && ans != '3')
+		{
+			cout << "Opcion Incorrecta. Try again " << endl;
+			ans = _getch();
+		}
+	}
 
 	ans = _getch();
-
-	while (ans != '1' && ans != '2' && ans != '3')
-	{
-		cout << "Opcion Incorrecta. Try again " << endl;
-		ans = _getch();
-	}
 
 	system("cls");
 	return ans;
@@ -164,7 +179,7 @@ bool Interfaz::chequeaNumero(string num)
 void Interfaz::msjPerfecto()
 {
 	cout << endl << string("Perfecto!");
-	Sleep(1500); 
+	Sleep(1500);
 	system("cls");
 }
 

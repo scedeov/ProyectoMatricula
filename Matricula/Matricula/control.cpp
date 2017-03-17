@@ -60,27 +60,60 @@ void Control::ajustes()
 
 	do
 	{
-		char opcion = Interfaz::vMenuAjustes();
+		char opcion = Interfaz::vMenuAjustes(U);
 
-		switch (opcion)
-		{
-		case '1':
-		{
-			Interfaz::vIngresarNumero(U);
-			break;
-		}
-		case '2':
-		{
-			Interfaz::vIngresarDireccion(U);
-			break;
-		}
-		case '3':
-		{
-			end = true;
-			break;
-		}
-		default: break;
 
+		if (U->getNombre() == "Undefined")
+		{
+			switch (opcion)
+			{
+			case '1':
+			{
+				Interfaz::vIngresarNombre(U);
+				break;
+			}
+			case '2':
+			{
+				Interfaz::vIngresarNumero(U);
+				break;
+			}
+			case '3':
+			{
+				Interfaz::vIngresarDireccion(U);
+				break;
+			}
+			case '4':
+			{
+				end = true;
+				break;
+			}
+			default: break;
+
+			}
+		}
+		else
+		{
+
+			switch (opcion)
+			{
+			case '1':
+			{
+				Interfaz::vIngresarNumero(U);
+				break;
+			}
+			case '2':
+			{
+				Interfaz::vIngresarDireccion(U);
+				break;
+			}
+			case '3':
+			{
+				end = true;
+				break;
+			}
+			default: break;
+
+			}
 		}
 
 	} while (end == false);
