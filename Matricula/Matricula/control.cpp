@@ -26,7 +26,7 @@ void Control::principal()
 		{
 		case '1':
 		{
-			if (U->getNumero() == "Undefined")
+			if ( U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
 				Interfaz::msjNoDatosIngresadosUni();
 			else
 				Interfaz::vtoString(U);
@@ -35,6 +35,7 @@ void Control::principal()
 		case '2':
 		{
 			cout << CE->toString();
+			system("pause");
 			break;
 		}
 		case '3':
@@ -63,7 +64,7 @@ void Control::ajustes()
 		char opcion = Interfaz::vMenuAjustes(U);
 
 
-		if (U->getNombre() == "Undefined")
+		if (U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
 		{
 			switch (opcion)
 			{
