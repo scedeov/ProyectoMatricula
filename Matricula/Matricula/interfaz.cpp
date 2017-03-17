@@ -28,8 +28,8 @@ char Interfaz::vMenuAjustes()
 {
 	char ans;
 
-	cout << "-(1)-Cambiar Numero de Telefono" << endl;
-	cout << "-(2)-Cambiar Direccion" << endl;
+	cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
+	cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
 	cout << "-(3)-Salir" << endl;
 
 	ans = _getch();
