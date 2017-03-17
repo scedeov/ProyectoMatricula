@@ -126,15 +126,17 @@ void Interfaz::vIngresarNombre(Universidad* U)
 
 		cout << "Universidad : " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? (El nombre no se puede cambiar una vez confirmado)";
 
+		ans = vInfoConfirmacion();
+
 		while (nombre == "Undefined" || nombre == " ")
 		{
 			cout << "Nombre Invalido. Intente de nuevo -> ";
 			Sleep(800);
 			system("cls");
-			string nombre; std::getline(std::cin, nombre); cout << endl << endl;
+			cout << "Ingrese el nombre de la Universidad  -> "; string nombre; std::getline(std::cin, nombre); cout << endl << endl;
 		}
 
-		ans = vInfoConfirmacion();
+		
 
 		if (ans == 'S') //Solo ingresa al nombre si el usuario confirma
 		{

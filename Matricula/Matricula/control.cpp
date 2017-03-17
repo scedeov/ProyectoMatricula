@@ -65,7 +65,7 @@ void Control::ajustes()
 		char opcion = Interfaz::vMenuAjustes(U);
 
 
-		if (U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
+		if (U->getNombre() == "Undefined")
 		{
 			switch (opcion)
 			{
