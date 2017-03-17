@@ -36,6 +36,7 @@ void Control::principal()
 		{
 			cout << CE->toString();
 			system("pause");
+			system("cls");
 			break;
 		}
 		case '3':
