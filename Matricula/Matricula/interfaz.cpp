@@ -14,7 +14,7 @@ char Interfaz::vMenuPrincipal()
 
 	ans = _getch();
 
-	while (ans != '1' && ans != '2' && ans != '3')
+	while (ans != '1' && ans != '2' && ans != '3' && ans!= '4')
 	{
 		cout << "Opcion Incorrecta. Try again " << endl;
 		ans = _getch();

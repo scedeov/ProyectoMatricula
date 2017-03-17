@@ -17,16 +17,10 @@ void Control::principal()
 		case '1':
 		{
 			if (U->getNumero() == "Undefined")
-			{
-
 				Interfaz::msjNoDatosIngresadosUni();
-				break;
-			}
 			else
-			{
 				Interfaz::vtoString(U);
-				break;
-			}
+			break;
 		}
 		case '2':
 		{
