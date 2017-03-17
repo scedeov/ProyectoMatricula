@@ -180,4 +180,6 @@ void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informaci
 	Sleep(500);
 	system("cls");
 	cout << U->toString() << endl;
+	system("pause");
+	system("cls");
 }
