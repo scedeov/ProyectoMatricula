@@ -160,10 +160,6 @@ bool Interfaz::chequeaNumero(string num)
 	return esNumero;
 }
 
-bool Interfaz::chequeaNombre(string nom)
-{
-	
-}
 
 void Interfaz::msjPerfecto()
 {
@@ -172,7 +168,7 @@ void Interfaz::msjPerfecto()
 	system("cls");
 }
 
-char Interfaz::msjNoDatosIngresadosUni()
+void Interfaz::msjNoDatosIngresadosUni()
 {
 	cout << "Ups... parece que no se han ingresado los datos de la Universidad. Ve a Ajustes para agregarlos.";
 	Sleep(2000);

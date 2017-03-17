@@ -21,10 +21,9 @@ public:
 	static char vInfoConfirmacion();
 	
 	static bool chequeaNumero(string);
-	static bool chequeaNombre(string);
 	
 	static void msjPerfecto();
-	static char msjNoDatosIngresadosUni();
+	static void msjNoDatosIngresadosUni();
 	static void vtoString(Universidad*);
 };
 #endif // !INTERFAZ
