@@ -13,7 +13,6 @@ using namespace std;
 class Interfaz
 {
 public:
-	static void vBienvenida();
 	static char vMenuPrincipal();
 	static char vMenuAjustes();
 	static void vIngresarNumero(Universidad*);
@@ -22,8 +21,10 @@ public:
 	static char vInfoConfirmacion();
 	
 	static bool chequeaNumero(string);
+	static bool chequeaNombre(string);
 	
 	static void msjPerfecto();
+	static char msjNoDatosIngresadosUni();
 	static void vtoString(Universidad*);
 };
 #endif // !INTERFAZ

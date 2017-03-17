@@ -1,26 +1,10 @@
 #include "control.h"
 
-void Control::intro(Universidad* U)
-{
-
-
-	Interfaz::vBienvenida();
-
-	Interfaz::vIngresarNombre(U);
-
-	Interfaz::vIngresarNumero(U);
-
-	Interfaz::vIngresarDireccion(U);
-
-	Interfaz::vtoString(U);
-
-}
 
 void Control::principal()
 {
 	U = new Universidad();
-	if (U->getNombre() != "Undefined") //cambiar luego para que pida los datos al inicio
-		intro(U);
+	CE = new Contenedor_Escuelas();
 
 	bool end = false;
 
@@ -32,10 +16,21 @@ void Control::principal()
 		{
 		case '1':
 		{
-			break;
+			if (U->getNumero() == "Undefined")
+			{
+
+				Interfaz::msjNoDatosIngresadosUni();
+				break;
+			}
+			else
+			{
+				Interfaz::vtoString(U);
+				break;
+			}
 		}
 		case '2':
 		{
+			CE->toString();
 			break;
 		}
 		case '3':

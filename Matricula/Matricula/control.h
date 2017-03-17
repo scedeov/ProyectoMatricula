@@ -1,19 +1,21 @@
 #ifndef CONTROL
 #define CONTROL
 
-#include "universidad.h"
+
 #include <conio.h>
 #include <Windows.h>
 
+#include "universidad.h"
 #include "interfaz.h"
+#include "contenedorEscuelas.h"
 
 class Control
 {
 private:
 	Universidad* U;
+	Contenedor_Escuelas* CE;
 public:
 	void principal();
-	void intro(Universidad*);
 	void ajustes();
 };
 

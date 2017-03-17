@@ -1,13 +1,5 @@
 #include "interfaz.h"
 
-void Interfaz::vBienvenida()
-{
-	cout << "Bienvenido al Sistema de Matricula" << endl << endl;
-	Sleep(1500);
-	cout << "Ingrese los datos de la Universidad....." << endl << endl; // Al inicio del programa pregunta una vez por los datos de la Universidad (solo una)
-	Sleep(1500);
-	system("cls");
-}
 
 char Interfaz::vMenuPrincipal()
 {
@@ -72,7 +64,7 @@ void Interfaz::vIngresarNumero(Universidad* U)
 		}
 
 		cout << endl << endl;
-		cout << "Numero : " << "\"" << numero << "\" "; 
+		cout << "Numero : " << "\"" << numero << "\" "; cout << "| es esta informacion correcta?";
 
 		ans = vInfoConfirmacion();
 
@@ -93,7 +85,7 @@ void Interfaz::vIngresarDireccion(Universidad* U)
 	{
 		Sleep(500);
 		cout << "Ingrese la direccion -> "; string direccion; getline(std::cin, direccion); cout << endl << endl;
-		cout << "Direccion : " << "\"" << direccion << "\" "; 
+		cout << "Direccion : " << "\"" << direccion << "\" "; cout << "| es esta informacion correcta?";
 
 		ans = vInfoConfirmacion();
 
@@ -113,8 +105,17 @@ void Interfaz::vIngresarNombre(Universidad* U)
 	{
 		Sleep(500);
 		cout << string("Ingrese el nombre de la Universidad -> "); string nombre; std::getline(std::cin, nombre); cout << endl << endl;
-		cout << "Universidad : " << "\"" << nombre << "\" "; 
-		
+
+		cout << "Universidad : " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta?";
+
+		while (nombre == "Undefined" || nombre == " ")
+		{
+			cout << "Nombre Invalido. Intente de nuevo -> ";
+			Sleep(800);
+			system("cls");
+			string nombre; std::getline(std::cin, nombre); cout << endl << endl;
+		}
+
 		ans = vInfoConfirmacion();
 
 		if (ans == 'S') //Solo ingresa al nombre si el usuario confirma
@@ -130,7 +131,7 @@ char Interfaz::vInfoConfirmacion()
 {
 	char ans;
 
-	cout << string("| es esta informacion correcta? SI (S) NO (N)") << endl;
+	cout << string("| SI (S) NO (N)") << endl;
 
 	ans = toupper(_getch());
 
@@ -159,11 +160,22 @@ bool Interfaz::chequeaNumero(string num)
 	return esNumero;
 }
 
+bool Interfaz::chequeaNombre(string nom)
+{
+	
+}
+
 void Interfaz::msjPerfecto()
 {
 	cout << endl << string("Perfecto!");
 	Sleep(1500); 
 	system("cls");
+}
+
+char Interfaz::msjNoDatosIngresadosUni()
+{
+	cout << "Ups... parece que no se han ingresado los datos de la Universidad. Ve a Ajustes para agregarlos.";
+	Sleep(2000);
 }
 
 void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula
