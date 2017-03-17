@@ -172,6 +172,7 @@ void Interfaz::msjNoDatosIngresadosUni()
 {
 	cout << "Ups... parece que no se han ingresado los datos de la Universidad. Ve a Ajustes para agregarlos.";
 	Sleep(2000);
+	system("cls");
 }
 
 void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula
