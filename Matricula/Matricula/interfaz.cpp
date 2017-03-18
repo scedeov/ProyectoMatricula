@@ -42,15 +42,23 @@ char Interfaz::vDatosPrimeraVez(Universidad* U)
 	return 0;
 }
 
-char Interfaz::vMenuAjustes(Universidad* U)
+char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse mil veces
 {
 	char ans;
 
 	if (U->getNombre() == "Undefined")
 	{
 		cout << "-(1)-Ingresar nombre de la Universidad" << endl;
-		cout << "-(2)-Cambiar Numero de Telefono de la Universidad" << endl;
-		cout << "-(3)-Cambiar Direccion de la Universidad" << endl;
+
+		if (U->getNumero() == "Undefined")
+			cout << "-(2)-Ingresar Numero de Telefono de la Universidad" << endl;
+		else
+			cout << "-(2)-Cambiar Numero de Telefono de la Universidad" << endl;
+		if (U->getDireccion() == "Undefined")
+			cout << "-(3)-Ingresar Direccion de la Universidad" << endl;
+		else
+			cout << "-(3)-Cambiar Direccion de la Universidad" << endl;
+
 		cout << "-(4)-Salir" << endl;
 
 		ans = _getch();
@@ -63,8 +71,15 @@ char Interfaz::vMenuAjustes(Universidad* U)
 	}
 	else
 	{
-		cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
-		cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
+		if (U->getNumero() == "Undefined")
+			cout << "-(1)-Ingresar Numero de Telefono de la Universidad" << endl;
+		else
+			cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
+		if (U->getDireccion() == "Undefined")
+			cout << "-(2)-Ingresar Direccion de la Universidad" << endl;
+		else
+			cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
+
 		cout << "-(3)-Ingresar Escuela" << endl;
 		cout << "-(4)-Salir" << endl;
 
@@ -190,8 +205,10 @@ void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE)
 	cout << "Ingrese el nombre de la escuela -> "; getline(cin, nombre); cout << endl;
 
 	Escuela* escu = new Escuela(nombre);
+
 	CE->insertaralInicio(escu);
-	delete escu;
+
+	/*delete escu;*/
 }
 
 bool Interfaz::chequeaNumero(string num)
