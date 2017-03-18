@@ -247,6 +247,12 @@ void Interfaz::msjPerfecto()
 	system("cls");
 }
 
+void Interfaz::msjPausa()
+{
+	cout << "Presione cualquier tecla para continuar..." << endl;
+	_getch();
+}
+
 void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula
 {
 	if (U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
@@ -254,7 +260,7 @@ void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informaci
 	else
 		cout << U->toString() << endl;
 
-	system("pause");
+	msjPausa();
 	system("cls");
 }
 
@@ -267,7 +273,7 @@ void Interfaz::vtoStringEscuelas(Universidad* U, Contenedor_Escuelas* CE)
 		cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
 		cout << CE->toString() << endl;
 	}
-	system("pause");
+	msjPausa();
 	system("cls");
 }
 

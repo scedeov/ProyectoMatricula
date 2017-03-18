@@ -28,6 +28,7 @@ public:
 
 	static bool chequeaNumero(string);
 	static void msjPerfecto();
+	static void msjPausa();
 
 	static void vtoString(Universidad*);
 	static void vtoStringEscuelas(Universidad*, Contenedor_Escuelas*);

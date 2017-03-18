@@ -4,6 +4,6 @@ int main()
 {
 	Control C;
 	C.inicializador();
-	system("pause");
+	Interfaz::msjPausa();
 	return 0;
 }
