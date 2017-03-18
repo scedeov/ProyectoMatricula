@@ -136,7 +136,7 @@ void Interfaz::vIngresarNombre(Universidad* U)
 			cout << "Ingrese el nombre de la Universidad  -> "; string nombre; std::getline(std::cin, nombre); cout << endl << endl;
 		}
 
-		
+
 
 		if (ans == 'S') //Solo ingresa al nombre si el usuario confirma
 		{
@@ -178,6 +178,17 @@ bool Interfaz::chequeaNumero(string num)
 		}
 	}
 	return esNumero;
+}
+
+string Interfaz::convierteaMayusculas(string minuscula)
+{
+	string mayuscula;
+	for (size_t i = 0; i < minuscula.length(); i++)
+	{
+		mayuscula = toupper(minuscula[i]);
+	}
+
+	return mayuscula;
 }
 
 

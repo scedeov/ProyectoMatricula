@@ -1,6 +1,7 @@
 #ifndef ESCUELA
 #define ESCUELA
 
+#include "interfaz.h"
 #include <iostream>
 #include <sstream>
 #include <string>

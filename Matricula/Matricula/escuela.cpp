@@ -37,7 +37,8 @@ string Escuela::getCodigoEscuela()
 string Escuela::generaCodigo(string unNombre)
 {
 	string codEscuela;
-	codEscuela = toupper(unNombre[0]) + toupper(unNombre[1]) + toupper(unNombre[2]);
+	codEscuela = unNombre.substr(0, 3);
+	codEscuela = Interfaz::convierteaMayusculas(codEscuela);
 	codEscuela = codEscuela + to_string(codigo);
 	codigo++;
 	return codEscuela;

@@ -7,6 +7,7 @@
 #include <Windows.h>
 #include <conio.h>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -21,6 +22,7 @@ public:
 	static char vInfoConfirmacion();
 	
 	static bool chequeaNumero(string);
+	static string convierteaMayusculas(string);
 	
 	static void msjPerfecto();
 	static void msjNoDatosIngresadosUni();
