@@ -1,10 +1,12 @@
 #include "escuela.h"
 
-Escuela::Escuela()
+Escuela::Escuela(string unNombre = "Undefined") :
+	nombre(unNombre)
 {
-	nombre = "Undefined";
-	codigoEscuela = "Undefined";
-	codigo = 0;
+	if (nombre != "Undefined")
+		nombre = "Escuela de " + nombre;
+
+	codigoEscuela = generaCodigo(nombre);
 }
 
 Escuela::~Escuela()
@@ -32,11 +34,12 @@ string Escuela::getCodigoEscuela()
 	return codigoEscuela;
 }
 
-void Escuela::generaCodigo(string unNombre)
+string Escuela::generaCodigo(string unNombre)
 {
 	string codEscuela;
 	codEscuela = unNombre + to_string(codigo);
 	codigo++;
+	return codEscuela;
 }
 
 string Escuela::toString()

@@ -14,7 +14,7 @@ private:
 	string codigoEscuela;
 	static int codigo;
 public:
-	Escuela();
+	Escuela(string);
 	~Escuela();
 	
 	void setNombre(string);
@@ -22,7 +22,7 @@ public:
 	void setCodigoEscuela(string);
 	string getCodigoEscuela();
 
-	void generaCodigo(string);
+	string generaCodigo(string);
 
 	string toString();
 
