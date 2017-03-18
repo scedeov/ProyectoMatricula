@@ -52,7 +52,7 @@ string Escuela::generaCodigo(string unNombre)
 string Escuela::toString()
 {
 	stringstream s;
-	s << "| Nombre de la Escuela: " << nombre;
+	s << "Nombre de la Escuela: " << nombre;
 	s << "| Codigo: " << codigoEscuela << endl;
 
 	return s.str();
