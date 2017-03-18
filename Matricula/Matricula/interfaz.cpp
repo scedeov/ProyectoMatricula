@@ -36,7 +36,7 @@ char Interfaz::vDatosPrimeraVez(Universidad* U)
 	{
 		cout << "!Hola!" << endl;
 		cout << "Parece que es la primera vez que ingresas al sistema." << endl;
-		cout << "?Deseas ingresar ahora los datos de la Universidad?"; 
+		cout << "?Deseas ingresar ahora los datos de la Universidad?";
 		return vInfoConfirmacion();
 	}
 	return 0;
@@ -233,3 +233,13 @@ void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informaci
 	system("pause");
 	system("cls");
 }
+
+void Interfaz::vtoStringEscuelas(Universidad* U, Contenedor_Escuelas* CE)
+{
+	cout << "Nombre de la Universidad: " << U->getNombre() << endl;
+	cout << CE->toString() << endl;
+	system("pause");
+	system("cls");
+}
+
+

@@ -41,9 +41,7 @@ void Control::principal()
 		}
 		case '2':
 		{
-			cout << CE->toString();
-			system("pause");
-			system("cls");
+			Interfaz::vtoStringEscuelas(U, CE);
 			break;
 		}
 		case '3':

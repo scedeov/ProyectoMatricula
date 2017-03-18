@@ -53,7 +53,6 @@ string Escuela::generaCodigo(string unNombre)
 string Escuela::toString()
 {
 	stringstream s;
-	s << "Universidad: " << nombreU;
 	s << "| Nombre de la Escuela: " << nombre;
 	s << "| Codigo: " << codigoEscuela << endl;
 

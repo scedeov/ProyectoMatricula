@@ -12,7 +12,6 @@ class Escuela
 private:
 	string nombre;
 	string codigoEscuela;
-	string nombreU;
 	static int codigo;
 public:
 	Escuela(string);
