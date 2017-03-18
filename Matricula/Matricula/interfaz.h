@@ -2,6 +2,7 @@
 #define INTERFAZ
 
 #include "universidad.h"
+#include "contenedorEscuelas.h"
 
 #include <iostream>
 #include <Windows.h>
@@ -23,8 +24,9 @@ public:
 	static void vIngresarNombre(Universidad*);
 	static char vInfoConfirmacion();
 	
+	static void vIngresaEscuela(Contenedor_Escuelas*, Escuela*);
+
 	static bool chequeaNumero(string);
-	static string convierteaMayusculas(string);
 	
 	static void msjPerfecto();
 	static void msjNoDatosIngresadosUni();

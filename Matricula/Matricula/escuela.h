@@ -1,7 +1,6 @@
 #ifndef ESCUELA
 #define ESCUELA
 
-#include "interfaz.h"
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -11,13 +10,12 @@ using namespace std;
 class Escuela
 {
 private:
-	Universidad* Uni;
 	string nombre;
 	string codigoEscuela;
 	string nombreU;
 	static int codigo;
 public:
-	Escuela(string, Universidad*);
+	Escuela(string);
 	~Escuela();
 	
 	void setNombre(string);

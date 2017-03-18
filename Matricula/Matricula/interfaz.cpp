@@ -146,12 +146,12 @@ void Interfaz::vIngresarNombre(Universidad* U)
 
 		ans = vInfoConfirmacion();
 
-		while (nombre == "Undefined" || nombre == " ")
+		while (nombre == "Undefined" || nombre == " " || nombre == "")
 		{
 			cout << "Nombre Invalido. Intente de nuevo -> ";
 			Sleep(800);
 			system("cls");
-			cout << "Ingrese el nombre de la Universidad  -> "; string nombre; std::getline(std::cin, nombre); cout << endl << endl;
+			cout << "Ingrese el nombre de la Universidad  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 		}
 
 
@@ -183,6 +183,16 @@ char Interfaz::vInfoConfirmacion()
 	return ans;
 }
 
+void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE, Escuela* E)
+{
+	string nombre;
+	cout << "Ingrese el nombre de la escuela -> "; getline(cin, nombre); cout << endl;
+
+	Escuela* escu = new Escuela(nombre);
+	CE->insertaralInicio(E);
+	delete escu;
+}
+
 bool Interfaz::chequeaNumero(string num)
 {
 	bool esNumero;
@@ -198,17 +208,6 @@ bool Interfaz::chequeaNumero(string num)
 		}
 	}
 	return esNumero;
-}
-
-string Interfaz::convierteaMayusculas(string minuscula)
-{
-	string mayuscula;
-	for (size_t i = 0; i < minuscula.length(); i++)
-	{
-		mayuscula += toupper(minuscula[i]);
-	}
-
-	return mayuscula;
 }
 
 

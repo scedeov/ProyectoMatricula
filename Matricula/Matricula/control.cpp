@@ -16,9 +16,9 @@ void Control::principal()
 		Interfaz::vIngresarDireccion(U);
 	}
 
-	Escuela* E1 = new Escuela("Ingles", U);
-	Escuela* E2 = new Escuela("Matematicas", U);
-	Escuela* E3 = new Escuela("Geologia", U);
+	Escuela* E1 = new Escuela("Ingles");
+	Escuela* E2 = new Escuela("Matematicas");
+	Escuela* E3 = new Escuela("Geologia");
 	CE->insertaralInicio(E1);
 	CE->insertaralInicio(E2);
 	CE->insertaralInicio(E3);

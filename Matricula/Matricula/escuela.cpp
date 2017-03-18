@@ -1,9 +1,8 @@
 #include "escuela.h"
 
-Escuela::Escuela(string unNombre = "Undefined", Universidad* U = NULL) :
-	nombre(unNombre), Uni(U)
+Escuela::Escuela(string unNombre = "Undefined") :
+	nombre(unNombre)
 {
-	nombreU = U->getNombre();
 	codigoEscuela = generaCodigo(nombre);
 
 	if (nombre != "Undefined")
@@ -12,7 +11,8 @@ Escuela::Escuela(string unNombre = "Undefined", Universidad* U = NULL) :
 
 Escuela::~Escuela()
 {
-	//Murió
+	nombre = "Undefined";
+	codigoEscuela = "Undefined";
 }
 
 void Escuela::setNombre(string unNombre)
@@ -37,12 +37,17 @@ string Escuela::getCodigoEscuela()
 
 string Escuela::generaCodigo(string unNombre)
 {
-	string codEscuela;
-	codEscuela = unNombre.substr(0, 3);
-	codEscuela = Interfaz::convierteaMayusculas(codEscuela);
-	codEscuela = codEscuela + to_string(codigo);
+	codigoEscuela = unNombre.substr(0, 3);
+	string aux;
+	for (size_t i = 0; i < codigoEscuela.length(); i++)
+	{
+		aux += toupper(codigoEscuela[i]);
+	}
+
+	codigoEscuela = aux + to_string(codigo);
 	codigo++;
-	return codEscuela;
+
+	return codigoEscuela;
 }
 
 string Escuela::toString()
