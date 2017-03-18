@@ -48,8 +48,8 @@ string Escuela::toString()
 {
 	stringstream s;
 
-	s << "Nombre de la Escuela: " << nombre << endl;
-	s << "Codigo de la Escuela: " << codigoEscuela << endl;
+	s << "Nombre de la Escuela: " << nombre;
+	s << "| Codigo: " << codigoEscuela << endl;
 
 	return s.str();
 }
