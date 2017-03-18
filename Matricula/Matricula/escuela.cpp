@@ -3,10 +3,10 @@
 Escuela::Escuela(string unNombre = "Undefined") :
 	nombre(unNombre)
 {
+	codigoEscuela = generaCodigo(nombre);
+
 	if (nombre != "Undefined")
 		nombre = "Escuela de " + nombre;
-
-	codigoEscuela = generaCodigo(nombre);
 }
 
 Escuela::~Escuela()
@@ -37,7 +37,8 @@ string Escuela::getCodigoEscuela()
 string Escuela::generaCodigo(string unNombre)
 {
 	string codEscuela;
-	codEscuela = unNombre + to_string(codigo);
+	codEscuela = toupper(unNombre[0]) + toupper(unNombre[1]) + toupper(unNombre[2]);
+	codEscuela = codEscuela + to_string(codigo);
 	codigo++;
 	return codEscuela;
 }
