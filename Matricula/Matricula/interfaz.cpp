@@ -4,7 +4,6 @@
 char Interfaz::vMenuPrincipal()
 {
 	char ans;
-	cout << endl << endl;
 	cout << "**************MENU PRINCIPAL**************" << endl;
 	cout << "(1)--Informacion acerca de la Universidad" << endl;
 	cout << "(2)--Lista de Escuelas" << endl;
