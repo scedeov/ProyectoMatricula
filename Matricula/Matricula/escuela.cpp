@@ -3,6 +3,7 @@
 Escuela::Escuela(string unNombre = "Undefined") :
 	nombre(unNombre)
 {
+	nombreU = Universidad::getNombre();
 	codigoEscuela = generaCodigo(nombre);
 
 	if (nombre != "Undefined")
@@ -47,8 +48,8 @@ string Escuela::generaCodigo(string unNombre)
 string Escuela::toString()
 {
 	stringstream s;
-
-	s << "Nombre de la Escuela: " << nombre;
+	s << "Universidad: " << nombreU;
+	s << "| Nombre de la Escuela: " << nombre;
 	s << "| Codigo: " << codigoEscuela << endl;
 
 	return s.str();
