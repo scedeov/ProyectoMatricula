@@ -13,10 +13,10 @@ class Escuela
 private:
 	string nombre;
 	string codigoEscuela;
-	static string nombreU;
+	string nombreU;
 	static int codigo;
 public:
-	Escuela(string);
+	Escuela(string, Universidad*);
 	~Escuela();
 	
 	void setNombre(string);
