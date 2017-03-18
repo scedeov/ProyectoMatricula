@@ -158,8 +158,6 @@ char Interfaz::vInfoConfirmacion()
 	{
 		ans = toupper(_getch());
 	}
-
-	cout << toupper(ans);
 	return ans;
 }
 
