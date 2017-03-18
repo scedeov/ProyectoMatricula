@@ -115,6 +115,10 @@ void Control::ajustes()
 			}
 			case '3':
 			{
+				Interfaz::vIngresaEscuela(CE);
+			}
+			case '4':
+			{
 				end = true;
 				break;
 			}

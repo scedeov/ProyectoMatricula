@@ -65,11 +65,12 @@ char Interfaz::vMenuAjustes(Universidad* U)
 	{
 		cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
 		cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
-		cout << "-(3)-Salir" << endl;
+		cout << "-(3)-Ingresar Escuela" << endl;
+		cout << "-(4)-Salir" << endl;
 
 		ans = _getch();
 
-		while (ans != '1' && ans != '2' && ans != '3')
+		while (ans != '1' && ans != '2' && ans != '3' && ans != '4')
 		{
 			cout << "Opcion Incorrecta. Try again " << endl;
 			ans = _getch();
@@ -183,13 +184,13 @@ char Interfaz::vInfoConfirmacion()
 	return ans;
 }
 
-void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE, Escuela* E)
+void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE)
 {
 	string nombre;
 	cout << "Ingrese el nombre de la escuela -> "; getline(cin, nombre); cout << endl;
 
 	Escuela* escu = new Escuela(nombre);
-	CE->insertaralInicio(E);
+	CE->insertaralInicio(escu);
 	delete escu;
 }
 

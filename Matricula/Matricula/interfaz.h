@@ -24,7 +24,7 @@ public:
 	static void vIngresarNombre(Universidad*);
 	static char vInfoConfirmacion();
 	
-	static void vIngresaEscuela(Contenedor_Escuelas*, Escuela*);
+	static void vIngresaEscuela(Contenedor_Escuelas*);
 
 	static bool chequeaNumero(string);
 	
