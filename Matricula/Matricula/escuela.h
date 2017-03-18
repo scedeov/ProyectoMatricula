@@ -11,6 +11,7 @@ using namespace std;
 class Escuela
 {
 private:
+	Universidad* Uni;
 	string nombre;
 	string codigoEscuela;
 	string nombreU;

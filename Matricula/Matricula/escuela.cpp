@@ -1,7 +1,7 @@
 #include "escuela.h"
 
-Escuela::Escuela(string unNombre = "Undefined", Universidad* U) :
-	nombre(unNombre)
+Escuela::Escuela(string unNombre = "Undefined", Universidad* U = NULL) :
+	nombre(unNombre), Uni(U)
 {
 	nombreU = U->getNombre();
 	codigoEscuela = generaCodigo(nombre);

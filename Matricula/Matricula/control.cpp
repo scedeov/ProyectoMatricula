@@ -7,21 +7,23 @@ void Control::principal()
 	U = new Universidad();
 	CE = new Contenedor_Escuelas();
 
-	Escuela* E1 = new Escuela("Ingles");
-	Escuela* E2 = new Escuela("Matematicas");
-	Escuela* E3 = new Escuela("Geologia");
-	CE->insertaralInicio(E1);
-	CE->insertaralInicio(E2);
-	CE->insertaralInicio(E3);
-
-	Interfaz::vBienvenida();
-
 	if (Interfaz::vDatosPrimeraVez(U) == 'S')
 	{
 		Interfaz::vIngresarNombre(U);
 		Interfaz::vIngresarNumero(U);
 		Interfaz::vIngresarDireccion(U);
 	}
+
+	Escuela* E1 = new Escuela("Ingles", U);
+	Escuela* E2 = new Escuela("Matematicas", U);
+	Escuela* E3 = new Escuela("Geologia", U);
+	CE->insertaralInicio(E1);
+	CE->insertaralInicio(E2);
+	CE->insertaralInicio(E3);
+
+	Interfaz::vBienvenida();
+
+	
 
 		bool end = false;
 
