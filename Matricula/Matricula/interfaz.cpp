@@ -1,6 +1,13 @@
 #include "interfaz.h"
 
 
+void Interfaz::vBienvenida()
+{
+	cout << "!Bienvenido al Sistema de Matricula!";
+	Sleep(2500);
+	system("cls");
+}
+
 char Interfaz::vMenuPrincipal()
 {
 	char ans;
@@ -21,6 +28,18 @@ char Interfaz::vMenuPrincipal()
 
 	system("cls");
 	return ans;
+}
+
+char Interfaz::vDatosPrimeraVez(Universidad* U)
+{
+	if (U->getNombre() == "Undefined")
+	{
+		cout << "!Hola!" << endl;
+		cout << "Parece que es la primera vez que ingresas al sistema." << endl;
+		cout << "?Deseas ingresar ahora los datos de la Universidad?"; 
+		return vInfoConfirmacion();
+	}
+	return 0;
 }
 
 char Interfaz::vMenuAjustes(Universidad* U)

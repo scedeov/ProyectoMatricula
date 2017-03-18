@@ -14,7 +14,16 @@ void Control::principal()
 	CE->insertaralInicio(E2);
 	CE->insertaralInicio(E3);
 
-	bool end = false;
+	Interfaz::vBienvenida();
+
+	if (Interfaz::vDatosPrimeraVez(U) == 'S')
+	{
+		Interfaz::vIngresarNombre(U);
+		Interfaz::vIngresarNumero(U);
+		Interfaz::vIngresarDireccion(U);
+	}
+
+		bool end = false;
 
 	do
 	{
@@ -24,7 +33,7 @@ void Control::principal()
 		{
 		case '1':
 		{
-			if ( U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
+			if (U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
 				Interfaz::msjNoDatosIngresadosUni();
 			else
 				Interfaz::vtoString(U);

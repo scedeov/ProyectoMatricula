@@ -14,7 +14,9 @@ using namespace std;
 class Interfaz
 {
 public:
+	static void vBienvenida();
 	static char vMenuPrincipal();
+	static char vDatosPrimeraVez(Universidad*);
 	static char vMenuAjustes(Universidad*);
 	static void vIngresarNumero(Universidad*);
 	static void vIngresarDireccion(Universidad*);
