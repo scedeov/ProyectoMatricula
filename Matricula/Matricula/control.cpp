@@ -27,8 +27,8 @@ void Control::principal()
 		Interfaz::vIngresarNumero(U);
 		Interfaz::vIngresarDireccion(U);
 	}
-	
-		bool end = false;
+
+	bool end = false;
 
 	do
 	{
@@ -38,10 +38,7 @@ void Control::principal()
 		{
 		case '1':
 		{
-			
-				Interfaz::msjNoDatosIngresadosUni();
-			else
-				Interfaz::vtoString(U);
+			Interfaz::vtoString(U);
 			break;
 		}
 		case '2':
