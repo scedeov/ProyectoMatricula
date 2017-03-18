@@ -16,7 +16,7 @@ Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
 
 Universidad::~Universidad()
 {
-	//Bye
+	cout << "Eliminando Universidad..." << endl;
 }
 
 void Universidad::setTelefono(string unTelefono)
