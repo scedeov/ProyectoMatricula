@@ -28,7 +28,6 @@ void Control::principal()
 		Interfaz::vIngresarDireccion(U);
 	}
 	
-
 		bool end = false;
 
 	do
@@ -39,7 +38,7 @@ void Control::principal()
 		{
 		case '1':
 		{
-			if (U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
+			
 				Interfaz::msjNoDatosIngresadosUni();
 			else
 				Interfaz::vtoString(U);

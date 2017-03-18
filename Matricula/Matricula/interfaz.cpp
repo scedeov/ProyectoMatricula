@@ -235,18 +235,13 @@ void Interfaz::msjPerfecto()
 	system("cls");
 }
 
-void Interfaz::msjNoDatosIngresadosUni()
-{
-	cout << "Ups... parece que no se han ingresado todos los datos de la Universidad. Ve a Ajustes para agregarlos." << endl;
-	system("pause");
-	system("cls");
-}
-
 void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula
 {
-	Sleep(500);
-	system("cls");
-	cout << U->toString() << endl;
+	if (U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
+		cout << "Ups... parece que no se han ingresado todos los datos de la Universidad. Ve a Ajustes para agregarlos." << endl;
+	else
+		cout << U->toString() << endl;
+
 	system("pause");
 	system("cls");
 }
