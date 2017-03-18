@@ -150,7 +150,7 @@ char Interfaz::vInfoConfirmacion()
 {
 	char ans;
 
-	cout << string("| SI (S) NO (N)") << endl;
+	cout << endl << string("| SI (S) NO (N)") << endl;
 
 	ans = toupper(_getch());
 
