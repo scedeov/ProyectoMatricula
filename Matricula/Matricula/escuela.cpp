@@ -4,6 +4,7 @@ Escuela::Escuela()
 {
 	nombre = "Undefined";
 	codigoEscuela = "Undefined";
+	codigo = 0;
 }
 
 Escuela::~Escuela()
@@ -29,6 +30,13 @@ void Escuela::setCodigoEscuela(string unCodigoEscuela)
 string Escuela::getCodigoEscuela()
 {
 	return codigoEscuela;
+}
+
+void Escuela::generaCodigo(string unNombre)
+{
+	string codEscuela;
+	codEscuela = unNombre + to_string(codigo);
+	codigo++;
 }
 
 string Escuela::toString()

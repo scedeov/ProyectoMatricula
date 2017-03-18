@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -11,6 +12,7 @@ class Escuela
 private:
 	string nombre;
 	string codigoEscuela;
+	static int codigo;
 public:
 	Escuela();
 	~Escuela();
@@ -19,6 +21,8 @@ public:
 	string getNombre();
 	void setCodigoEscuela(string);
 	string getCodigoEscuela();
+
+	void generaCodigo(string);
 
 	string toString();
 
