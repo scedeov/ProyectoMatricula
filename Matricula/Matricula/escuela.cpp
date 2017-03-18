@@ -11,8 +11,7 @@ Escuela::Escuela(string unNombre = "Undefined") :
 
 Escuela::~Escuela()
 {
-	nombre = "Undefined";
-	codigoEscuela = "Undefined";
+	cout << "Eliminando Escuela" << endl;
 }
 
 void Escuela::setNombre(string unNombre)

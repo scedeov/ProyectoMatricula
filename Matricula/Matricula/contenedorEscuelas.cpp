@@ -35,4 +35,12 @@ string Contenedor_Escuelas::toString()
 
 Contenedor_Escuelas::~Contenedor_Escuelas()
 {
+	cout << "Eliminando contenedor de escuelas" << endl;
+
+	while (pinicio != NULL)
+	{
+		paux = pinicio;
+		pinicio = pinicio->getNext();
+		delete paux;
+	}
 }

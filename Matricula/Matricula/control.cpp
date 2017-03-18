@@ -19,9 +19,11 @@ void Control::principal()
 	Escuela* E1 = new Escuela("Ingles");
 	Escuela* E2 = new Escuela("Matematicas");
 	Escuela* E3 = new Escuela("Geologia");
+	Escuela* E4 = new Escuela("Sociales");
 	CE->insertaralInicio(E1);
 	CE->insertaralInicio(E2);
 	CE->insertaralInicio(E3);
+	CE->insertaralInicio(E4);
 
 		bool end = false;
 
@@ -51,6 +53,8 @@ void Control::principal()
 		}
 		case '4':
 		{
+			delete CE;
+			delete U;
 			end = true;
 			break;
 		}

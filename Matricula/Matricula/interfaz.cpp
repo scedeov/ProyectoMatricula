@@ -207,8 +207,7 @@ void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE)
 	Escuela* escu = new Escuela(nombre);
 
 	CE->insertaralInicio(escu);
-
-	/*delete escu;*/
+	system("cls");
 }
 
 bool Interfaz::chequeaNumero(string num)

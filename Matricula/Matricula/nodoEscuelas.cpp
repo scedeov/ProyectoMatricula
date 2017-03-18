@@ -16,7 +16,7 @@ Escuela * Nodo_Escuelas::getEscuela()
 	return e;
 }
 
-void Nodo_Escuelas::setNext(Nodo_Escuelas* unNext )
+void Nodo_Escuelas::setNext(Nodo_Escuelas* unNext)
 {
 	next = unNext;
 }
@@ -33,5 +33,6 @@ string Nodo_Escuelas::toStringNodo()
 
 Nodo_Escuelas::~Nodo_Escuelas()
 {
+	cout << "Eliminando Nodo" << endl;
 	delete e;
 }
