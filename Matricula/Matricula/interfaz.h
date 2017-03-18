@@ -27,7 +27,6 @@ public:
 	static void vIngresaEscuela(Contenedor_Escuelas*);
 
 	static bool chequeaNumero(string);
-	
 	static void msjPerfecto();
 	static void msjNoDatosIngresadosUni();
 

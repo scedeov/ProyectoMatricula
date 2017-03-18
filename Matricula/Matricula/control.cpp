@@ -2,19 +2,10 @@
 
 int Escuela::codigo = 0;
 
-void Control::principal()
+void Control::inicializador()
 {
 	U = new Universidad();
 	CE = new Contenedor_Escuelas();
-
-	Interfaz::vBienvenida();
-
-	if (Interfaz::vDatosPrimeraVez(U) == 'S')
-	{
-		Interfaz::vIngresarNombre(U);
-		Interfaz::vIngresarNumero(U);
-		Interfaz::vIngresarDireccion(U);
-	}
 
 	Escuela* E1 = new Escuela("Ingles");
 	Escuela* E2 = new Escuela("Matematicas");
@@ -24,6 +15,19 @@ void Control::principal()
 	CE->insertaralInicio(E2);
 	CE->insertaralInicio(E3);
 	CE->insertaralInicio(E4);
+}
+
+void Control::principal()
+{
+	Interfaz::vBienvenida();
+
+	if (Interfaz::vDatosPrimeraVez(U) == 'S') //Esto me funciona para luego en caso de que ya se hayan ingresado los datos
+	{
+		Interfaz::vIngresarNombre(U);
+		Interfaz::vIngresarNumero(U);
+		Interfaz::vIngresarDireccion(U);
+	}
+	
 
 		bool end = false;
 
@@ -53,7 +57,7 @@ void Control::principal()
 		}
 		case '4':
 		{
-			delete CE;
+			delete CE; //se encarga de eliminar donde estan alojadas las escuelas (composicion)
 			delete U;
 			end = true;
 			break;

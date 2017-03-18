@@ -15,6 +15,7 @@ private:
 	Universidad* U;
 	Contenedor_Escuelas* CE;
 public:
+	void inicializador();
 	void principal();
 	void ajustes();
 };
