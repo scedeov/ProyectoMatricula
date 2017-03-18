@@ -185,7 +185,7 @@ string Interfaz::convierteaMayusculas(string minuscula)
 	string mayuscula;
 	for (size_t i = 0; i < minuscula.length(); i++)
 	{
-		mayuscula = toupper(minuscula[i]);
+		mayuscula += toupper(minuscula[i]);
 	}
 
 	return mayuscula;
