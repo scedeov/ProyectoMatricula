@@ -7,6 +7,8 @@ void Control::principal()
 	U = new Universidad();
 	CE = new Contenedor_Escuelas();
 
+	Interfaz::vBienvenida();
+
 	if (Interfaz::vDatosPrimeraVez(U) == 'S')
 	{
 		Interfaz::vIngresarNombre(U);
@@ -20,10 +22,6 @@ void Control::principal()
 	CE->insertaralInicio(E1);
 	CE->insertaralInicio(E2);
 	CE->insertaralInicio(E3);
-
-	Interfaz::vBienvenida();
-
-	
 
 		bool end = false;
 
