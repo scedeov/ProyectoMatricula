@@ -177,6 +177,9 @@ char Interfaz::vInfoConfirmacion()
 	{
 		ans = toupper(_getch());
 	}
+
+	system("cls");
+
 	return ans;
 }
 
