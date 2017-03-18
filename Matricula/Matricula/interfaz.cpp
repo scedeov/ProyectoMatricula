@@ -201,7 +201,7 @@ void Interfaz::msjPerfecto()
 void Interfaz::msjNoDatosIngresadosUni()
 {
 	cout << "Ups... parece que no se han ingresado todos los datos de la Universidad. Ve a Ajustes para agregarlos.";
-	Sleep(2000);
+	Sleep(3000);
 	system("cls");
 }
 
