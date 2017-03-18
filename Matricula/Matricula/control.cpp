@@ -15,6 +15,8 @@ void Control::inicializador()
 	CE->insertaralInicio(E2);
 	CE->insertaralInicio(E3);
 	CE->insertaralInicio(E4);
+
+	principal();
 }
 
 void Control::principal()
