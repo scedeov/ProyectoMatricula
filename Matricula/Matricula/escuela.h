@@ -10,7 +10,7 @@ using namespace std;
 class Escuela
 {
 private:
-	string nombre;
+	string nombreEscuela;
 	string codigoEscuela;
 	static int codigo;
 public:

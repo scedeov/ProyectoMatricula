@@ -1,12 +1,12 @@
 #include "escuela.h"
 
 Escuela::Escuela(string unNombre = "Undefined") :
-	nombre(unNombre)
+	nombreEscuela(unNombre)
 {
-	codigoEscuela = generaCodigo(nombre);
+	codigoEscuela = generaCodigo(nombreEscuela);
 
-	if (nombre != "Undefined")
-		nombre = "Escuela de " + nombre;
+	if (nombreEscuela != "Undefined")
+		nombreEscuela = "Escuela de " + nombreEscuela;
 }
 
 Escuela::~Escuela()
@@ -16,12 +16,12 @@ Escuela::~Escuela()
 
 void Escuela::setNombre(string unNombre)
 {
-	nombre = unNombre;
+	nombreEscuela = unNombre;
 }
 
 string Escuela::getNombre()
 {
-	return nombre;
+	return nombreEscuela;
 }
 
 void Escuela::setCodigoEscuela(string unCodigoEscuela)
@@ -52,7 +52,7 @@ string Escuela::generaCodigo(string unNombre)
 string Escuela::toString()
 {
 	stringstream s;
-	s << "Nombre de la Escuela: " << nombre;
+	s << "Nombre de la Escuela: " << nombreEscuela;
 	s << "| Codigo: " << codigoEscuela << endl;
 
 	return s.str();

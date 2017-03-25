@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClInclude Include="contenedorEscuelas.h" />
     <ClInclude Include="control.h" />
+    <ClInclude Include="curso.h" />
     <ClInclude Include="escuela.h" />
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="nodoEscuelas.h" />
@@ -120,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="contenedorEscuelas.cpp" />
     <ClCompile Include="control.cpp" />
+    <ClCompile Include="curso.cpp" />
     <ClCompile Include="escuela.cpp" />
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="main.cpp" />
