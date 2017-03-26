@@ -10,6 +10,8 @@ Curso::Curso(string unNombre, string unCodigoCurso)
 {
 	nombreCurso = unNombre;
 	codigoCurso = unCodigoCurso;
+
+
 }
 
 Curso::~Curso()
