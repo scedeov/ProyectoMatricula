@@ -71,5 +71,8 @@
     <ClCompile Include="nodoCursos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="contenedorCursos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

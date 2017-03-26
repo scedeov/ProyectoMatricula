@@ -121,6 +121,7 @@
     <ClInclude Include="universidad.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="contenedorCursos.cpp" />
     <ClCompile Include="contenedorEscuelas.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="curso.cpp" />
