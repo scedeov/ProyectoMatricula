@@ -31,7 +31,7 @@ public:
 	static void msjPausa();
 
 	static void vtoString(Universidad*);
-	static void vtoStringEscuelas(Universidad*, Contenedor_Escuelas*);
+	static void vtoStringEscuelas(Universidad*, Contenedor_Escuelas*, char);
 };
 #endif // !INTERFAZ
 

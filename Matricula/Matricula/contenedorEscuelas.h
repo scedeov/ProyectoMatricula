@@ -13,7 +13,7 @@ public:
 	Contenedor_Escuelas();
 
 	void insertaralInicio(Escuela*);
-	string toString();
+	string toString(char);
 
 	~Contenedor_Escuelas();
 };

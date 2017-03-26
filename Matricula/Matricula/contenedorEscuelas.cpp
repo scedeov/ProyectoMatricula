@@ -21,13 +21,13 @@ void Contenedor_Escuelas::insertaralInicio(Escuela* unEscuela)
 	}
 }
 
-string Contenedor_Escuelas::toString()
+string Contenedor_Escuelas::toString(char op)
 {
 	stringstream s;
 	paux = pinicio;
 	while (paux != NULL)
 	{
-		s << paux->toStringNodo();
+		s << paux->toStringNodo(op);
 		paux = paux->getNext();
 	}
 	return s.str();

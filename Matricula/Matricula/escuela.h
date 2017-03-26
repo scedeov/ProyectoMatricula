@@ -5,6 +5,8 @@
 #include <sstream>
 #include <string>
 
+#include "contenedorCursos.h"
+
 using namespace std;
 
 class Escuela
@@ -12,6 +14,7 @@ class Escuela
 private:
 	string nombreEscuela;
 	string siglaEscuela;
+	Contenedor_Cursos* CC;
 public:
 	Escuela(string);
 	~Escuela();
@@ -23,7 +26,9 @@ public:
 
 	string generaSigla(string);
 
-	string toString();
+	void insertarCurso(Curso*);
+
+	string toStringEscuela(char);
 
 
 };

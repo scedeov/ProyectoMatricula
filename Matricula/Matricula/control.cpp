@@ -18,7 +18,10 @@ void Control::inicializador()
 	CE->insertaralInicio(E4);
 
 	Curso* CU1 = new Curso("Programacion I", E1->getSiglaEscuela());
-	Curso* CU2 = new Curso("Programacion II", E1->getSiglaEscuela());
+	Curso* CU2 = new Curso("Programacion II", E2->getSiglaEscuela());
+
+	E1->insertarCurso(CU1);
+	E2->insertarCurso(CU2);
 
 	principal();
 }
@@ -49,12 +52,13 @@ void Control::principal()
 		}
 		case '2':
 		{
-			Interfaz::vtoStringEscuelas(U, CE);
+			Interfaz::vtoStringEscuelas(U, CE, '1');
 			break;
 		}
 		case '3':
 		{
-			//consultar lista de cursos ordenados por escuela
+			Interfaz::vtoStringEscuelas(U, CE, '2');
+			break;
 		}
 		case '4':
 		{

@@ -7,11 +7,14 @@ Escuela::Escuela(string unNombre = "Undefined") :
 
 	if (nombreEscuela != "Undefined")
 		nombreEscuela = "Escuela de " + nombreEscuela;
+
+	CC = new Contenedor_Cursos();
 }
 
 Escuela::~Escuela()
 {
 	cout << "Eliminando Escuela" << endl;
+	delete CC;
 }
 
 void Escuela::setNombre(string unNombre)
@@ -48,11 +51,23 @@ string Escuela::generaSigla(string unNombre)
 	return siglaEscuela;
 }
 
-string Escuela::toString()
+
+void Escuela::insertarCurso(Curso* unCurso)
+{
+	CC->insertaInicio(unCurso);
+}
+
+string Escuela::toStringEscuela(char op)
 {
 	stringstream s;
 	s << "Nombre de la Escuela: " << nombreEscuela;
 	s << "| Codigo: " << siglaEscuela << endl;
+
+	if (op == '2')
+	{
+		s << "Cursos Impartidos: " << endl;
+		s << CC->toString() << endl;
+	}
 
 	return s.str();
 }

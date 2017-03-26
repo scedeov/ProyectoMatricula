@@ -265,17 +265,19 @@ void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informaci
 	system("cls");
 }
 
-void Interfaz::vtoStringEscuelas(Universidad* U, Contenedor_Escuelas* CE)
+void Interfaz::vtoStringEscuelas(Universidad* U, Contenedor_Escuelas* CE, char op)
 {
 	if (U->getNombre() == "Undefined")
 		cout << "No se ha ingresado el nombre de la Universidad. Vaya a Ajustes." << endl;
 	else
 	{
 		cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
-		cout << CE->toString() << endl;
+		cout << CE->toString(op) << endl;
 	}
 	msjPausa();
 	system("cls");
 }
+
+
 
 

@@ -17,7 +17,7 @@ public:
 	void setNext(Nodo_Escuelas*);
 	Nodo_Escuelas* getNext();
 
-	string toStringNodo();
+	string toStringNodo(char);
 
 	~Nodo_Escuelas();
 };
