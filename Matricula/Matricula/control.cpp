@@ -4,7 +4,8 @@ int Curso::codigo = 0;
 
 void Control::inicializador()
 {
-	U = new Universidad();
+	U = new Universidad("Universidad de Costa Rica", "22334455", "San Pedro");
+
 	CE = new Contenedor_Escuelas();
 	CC = new Contenedor_Cursos();
 
@@ -19,7 +20,6 @@ void Control::inicializador()
 
 	Curso* CU1 = new Curso("Programacion I", E1->getSiglaEscuela());
 	Curso* CU2 = new Curso("Programacion II", E2->getSiglaEscuela());
-
 	E1->insertarCurso(CU1);
 	E2->insertarCurso(CU2);
 
