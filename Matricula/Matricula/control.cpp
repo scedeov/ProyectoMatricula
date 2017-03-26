@@ -30,7 +30,7 @@ void Control::principal()
 {
 	Interfaz::vBienvenida();
 
-	if (Interfaz::vDatosPrimeraVez(U) == 'S') //Esto me funciona para luego en caso de que ya se hayan ingresado los datos
+	if (Interfaz::vDatosPrimeraVez(U) == 'S') 
 	{
 		Interfaz::vIngresarNombre(U);
 		Interfaz::vIngresarNumero(U);
