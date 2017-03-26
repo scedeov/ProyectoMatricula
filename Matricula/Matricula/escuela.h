@@ -11,17 +11,17 @@ class Escuela
 {
 private:
 	string nombreEscuela;
-	string codigoEscuela;
+	string siglaEscuela;
 public:
 	Escuela(string);
 	~Escuela();
 	
 	void setNombre(string);
 	string getNombre();
-	void setCodigoEscuela(string);
+	void setSiglaEscuela(string);
 	string getCodigoEscuela();
 
-	string generaCodigo(string);
+	string generaSigla(string);
 
 	string toString();
 

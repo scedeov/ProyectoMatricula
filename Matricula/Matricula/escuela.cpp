@@ -3,7 +3,7 @@
 Escuela::Escuela(string unNombre = "Undefined") :
 	nombreEscuela(unNombre)
 {
-	codigoEscuela = generaCodigo(nombreEscuela);
+	siglaEscuela = generaSigla(nombreEscuela);
 
 	if (nombreEscuela != "Undefined")
 		nombreEscuela = "Escuela de " + nombreEscuela;
@@ -24,35 +24,35 @@ string Escuela::getNombre()
 	return nombreEscuela;
 }
 
-void Escuela::setCodigoEscuela(string unCodigoEscuela)
+void Escuela::setSiglaEscuela(string unSiglaEscuela)
 {
-	codigoEscuela = unCodigoEscuela;
+	siglaEscuela = unSiglaEscuela;
 }
 
 string Escuela::getCodigoEscuela()
 {
-	return codigoEscuela;
+	return siglaEscuela;
 }
 
-string Escuela::generaCodigo(string unNombre)
+string Escuela::generaSigla(string unNombre)
 {
-	codigoEscuela = unNombre.substr(0, 3);
+	siglaEscuela = unNombre.substr(0, 3);
 	string aux;
-	for (int i = 0; i < codigoEscuela.length(); i++)
+	for (int i = 0; i < siglaEscuela.length(); i++)
 	{
-		aux += toupper(codigoEscuela[i]);
+		aux += toupper(siglaEscuela[i]);
 	}
 
-	codigoEscuela = aux;
+	siglaEscuela = aux;
 
-	return codigoEscuela;
+	return siglaEscuela;
 }
 
 string Escuela::toString()
 {
 	stringstream s;
 	s << "Nombre de la Escuela: " << nombreEscuela;
-	s << "| Codigo: " << codigoEscuela << endl;
+	s << "| Codigo: " << siglaEscuela << endl;
 
 	return s.str();
 }
