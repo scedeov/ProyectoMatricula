@@ -29,7 +29,7 @@ void Escuela::setSiglaEscuela(string unSiglaEscuela)
 	siglaEscuela = unSiglaEscuela;
 }
 
-string Escuela::getCodigoEscuela()
+string Escuela::getSiglaEscuela()
 {
 	return siglaEscuela;
 }

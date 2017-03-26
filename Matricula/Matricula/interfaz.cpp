@@ -14,13 +14,14 @@ char Interfaz::vMenuPrincipal()
 	cout << "**************MENU PRINCIPAL**************" << endl;
 	cout << "(1)--Informacion acerca de la Universidad" << endl;
 	cout << "(2)--Lista de Escuelas" << endl;
-	cout << "(3)--Ajustes" << endl;
-	cout << "(4)--Salir" << endl;
+	cout << "(3)--Lista de Cursos" << endl;
+	cout << "(4)--Ajustes" << endl;
+	cout << "(5)--Salir" << endl;
 	cout << "******************************************" << endl;
 
 	ans = _getch();
 
-	while (ans != '1' && ans != '2' && ans != '3' && ans != '4')
+	while (ans < '1' && ans > '5')
 	{
 		cout << "Opcion Incorrecta. Try again " << endl;
 		ans = _getch();

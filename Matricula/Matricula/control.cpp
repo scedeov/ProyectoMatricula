@@ -6,6 +6,7 @@ void Control::inicializador()
 {
 	U = new Universidad();
 	CE = new Contenedor_Escuelas();
+	CC = new Contenedor_Cursos();
 
 	Escuela* E1 = new Escuela("Ingles");
 	Escuela* E2 = new Escuela("Matematicas");
@@ -15,6 +16,9 @@ void Control::inicializador()
 	CE->insertaralInicio(E2);
 	CE->insertaralInicio(E3);
 	CE->insertaralInicio(E4);
+
+	Curso* CU1 = new Curso("Programacion I", E1->getSiglaEscuela());
+	Curso* CU2 = new Curso("Programacion II", E1->getSiglaEscuela());
 
 	principal();
 }
@@ -50,11 +54,16 @@ void Control::principal()
 		}
 		case '3':
 		{
-			ajustes();
-			break;
+			//consultar lista de cursos ordenados por escuela
 		}
 		case '4':
 		{
+			ajustes();
+			break;
+		}
+		case '5':
+		{
+			delete CC;
 			delete CE; //se encarga de eliminar donde estan alojadas las escuelas (composicion)
 			delete U;
 			end = true;

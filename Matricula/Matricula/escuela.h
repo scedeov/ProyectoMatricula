@@ -19,7 +19,7 @@ public:
 	void setNombre(string);
 	string getNombre();
 	void setSiglaEscuela(string);
-	string getCodigoEscuela();
+	string getSiglaEscuela();
 
 	string generaSigla(string);
 
