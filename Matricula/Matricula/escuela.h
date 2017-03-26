@@ -12,7 +12,6 @@ class Escuela
 private:
 	string nombreEscuela;
 	string codigoEscuela;
-	static int codigo;
 public:
 	Escuela(string);
 	~Escuela();

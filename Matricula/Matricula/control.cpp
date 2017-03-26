@@ -1,6 +1,6 @@
 #include "control.h"
 
-int Escuela::codigo = 0;
+int Curso::codigo = 0;
 
 void Control::inicializador()
 {

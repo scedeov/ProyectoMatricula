@@ -6,14 +6,16 @@ Curso::Curso()
 	nombreCurso = "Undefined";
 }
 
-Curso::Curso(string unNombre, string unCodigoCurso)
+Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso se crea, se debe agregar ya la sigla de la Escuela.
 {
 	nombreCurso = unNombre;
-	codigoCurso = unCodigoCurso;
+	codigoCurso = siglaEscuela + to_string(codigo);
+	codigo++;
 }
 
 Curso::~Curso()
 {
+	cout << "Eliminando curso..." << endl;
 }
 
 void Curso::setNombre(string unNombre)

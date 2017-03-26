@@ -38,13 +38,12 @@ string Escuela::generaCodigo(string unNombre)
 {
 	codigoEscuela = unNombre.substr(0, 3);
 	string aux;
-	for (size_t i = 0; i < codigoEscuela.length(); i++)
+	for (int i = 0; i < codigoEscuela.length(); i++)
 	{
 		aux += toupper(codigoEscuela[i]);
 	}
 
-	codigoEscuela = aux + to_string(codigo);
-	codigo++;
+	codigoEscuela = aux;
 
 	return codigoEscuela;
 }

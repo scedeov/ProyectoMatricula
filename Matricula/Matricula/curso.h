@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <sstream>
+
 using namespace std;
 
 class Curso
@@ -10,6 +11,7 @@ class Curso
 private:
 	string nombreCurso;
 	string codigoCurso;
+	static int codigo;
 public:
 	Curso();
 	Curso(string, string);

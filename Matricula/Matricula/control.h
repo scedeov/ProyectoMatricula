@@ -6,6 +6,7 @@
 #include <Windows.h>
 
 #include "universidad.h"
+#include "curso.h"
 #include "interfaz.h"
 #include "contenedorEscuelas.h"
 
