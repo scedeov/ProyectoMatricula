@@ -1,4 +1,5 @@
 #ifndef NODO_ESCUELAS
+#define NODO_ESCUELAS
 
 #include "escuela.h"
 

@@ -36,6 +36,12 @@
     <ClInclude Include="curso.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="contenedorCursos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nodoCursos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="universidad.cpp">
@@ -60,6 +66,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="curso.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nodoCursos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

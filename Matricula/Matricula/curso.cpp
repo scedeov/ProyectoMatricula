@@ -10,8 +10,6 @@ Curso::Curso(string unNombre, string unCodigoCurso)
 {
 	nombreCurso = unNombre;
 	codigoCurso = unCodigoCurso;
-
-
 }
 
 Curso::~Curso()
@@ -42,7 +40,9 @@ string Curso::getCodigoCurso()
 string Curso::toStringCurso()
 {
 	stringstream s;
-	s << "" << endl;
+
+	s << "Nombre del curso: " << nombreCurso << endl;
+	s << "Sigla del curso: " << codigoCurso << endl;
 
 	return s.str();
 }
