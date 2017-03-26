@@ -24,4 +24,3 @@ public:
 	string toStringCurso();
 };
 #endif // !CURSO
-
