@@ -21,6 +21,32 @@ void Contenedor_Escuelas::insertaralInicio(Escuela* unEscuela)
 	}
 }
 
+Escuela * Contenedor_Escuelas::retornaEscuelaEspecifica(string sigla)
+{
+	paux = pinicio;
+	while (paux != NULL)
+	{
+		if (paux->getEscuela()->getSiglaEscuela() == sigla)
+			return paux->getEscuela();
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
+}
+
+bool Contenedor_Escuelas::escuentraEscuela(string sigla)
+{
+	paux = pinicio;
+	while (paux != NULL)
+	{
+		if (paux->getEscuela()->getSiglaEscuela() == sigla)
+			return true;
+		else
+			paux = paux->getNext();
+	}
+	return false;
+}
+
 string Contenedor_Escuelas::toString(char op)
 {
 	stringstream s;

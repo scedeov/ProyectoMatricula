@@ -21,7 +21,7 @@ char Interfaz::vMenuPrincipal()
 
 	ans = _getch();
 
-	while (ans < '1' && ans > '5')
+	while (ans < '1' || ans > '5')
 	{
 		cout << "Opcion Incorrecta. Try again " << endl;
 		ans = _getch();
@@ -64,7 +64,7 @@ char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse m
 
 		ans = _getch();
 
-		while (ans != '1' && ans != '2' && ans != '3' && ans != '4')
+		while (ans < '1' || ans > '4')
 		{
 			cout << "Opcion Incorrecta. Try again " << endl;
 			ans = _getch();
@@ -82,11 +82,12 @@ char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse m
 			cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
 
 		cout << "-(3)-Ingresar Escuela" << endl;
-		cout << "-(4)-Salir" << endl;
+		cout << "-(4)-Ingresar Curso" << endl;
+		cout << "-(5)-Salir" << endl;
 
 		ans = _getch();
 
-		while (ans != '1' && ans != '2' && ans != '3' && ans != '4')
+		while (ans < '1' || ans > '5')
 		{
 			cout << "Opcion Incorrecta. Try again " << endl;
 			ans = _getch();
@@ -214,7 +215,7 @@ void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE)
 		cout << "Nombre Invalido. Intente de nuevo -> ";
 		Sleep(800);
 		system("cls");
-		cout << "Ingrese el nombre de la Universidad  -> "; std::getline(std::cin, nombre); cout << endl << endl;
+		cout << "Ingrese el nombre de la escuela  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 	}
 
 	Escuela* escu = new Escuela(nombre);
@@ -222,6 +223,62 @@ void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE)
 	CE->insertaralInicio(escu);
 	system("cls");
 }
+
+void Interfaz::vIngresaCurso(Universidad* U, Contenedor_Escuelas* CE)
+{
+
+	cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
+	cout << CE->toString('1') << endl;
+
+	cout << "Digite las siglas de la Escuela a la que desea ingresar el curso -> ";
+	string sigla; cin >> sigla;
+	string aux;
+
+	for (int i = 0; i < sigla.length(); i++)
+	{
+		aux += toupper(sigla[i]);
+	}
+
+	while (CE->escuentraEscuela(aux) == false)
+	{
+		cin.clear();
+		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
+		cout << "-> ";
+		cin >> sigla; aux = "";
+
+		for (int i = 0; i < sigla.length(); i++)
+		{
+			aux += toupper(sigla[i]);
+		}
+
+	}
+
+	system("cls");
+	cin.ignore();
+	string nombre;
+	cout << "Ingrese el nombre del curso -> "; getline(cin, nombre); cout << endl;
+
+	cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
+
+	char ans = vInfoConfirmacion();
+
+	while (nombre == "Undefined" || nombre == " " || nombre == "")
+	{
+		cout << "Nombre Invalido. Intente de nuevo -> ";
+		Sleep(800);
+		system("cls");
+		cout << "Ingrese el nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
+	}
+
+	Curso* cur = new Curso(nombre, CE->retornaEscuelaEspecifica(aux)->getSiglaEscuela());
+
+	CE->retornaEscuelaEspecifica(aux)->insertarCurso(cur);
+
+	msjPerfecto();
+
+	system("cls");
+}
+
 
 bool Interfaz::chequeaNumero(string num)
 {

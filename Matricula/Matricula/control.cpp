@@ -138,6 +138,10 @@ void Control::ajustes()
 			}
 			case '4':
 			{
+				Interfaz::vIngresaCurso(U, CE);
+			}
+			case '5':
+			{
 				end = true;
 				break;
 			}

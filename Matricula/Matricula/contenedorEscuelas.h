@@ -13,6 +13,8 @@ public:
 	Contenedor_Escuelas();
 
 	void insertaralInicio(Escuela*);
+	Escuela* retornaEscuelaEspecifica(string);
+	bool escuentraEscuela(string);
 	string toString(char);
 
 	~Contenedor_Escuelas();
