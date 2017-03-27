@@ -33,6 +33,6 @@ string Nodo_Cursos::toStringNodo()
 
 Nodo_Cursos::~Nodo_Cursos()
 {
-	cout << "Eliminando NodoEscuelas" << endl;
+	cout << "Eliminando Nodo de Cursos" << endl;
 	delete c;
 }

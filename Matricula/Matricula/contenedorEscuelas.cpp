@@ -61,7 +61,7 @@ string Contenedor_Escuelas::toString(char op)
 
 Contenedor_Escuelas::~Contenedor_Escuelas()
 {
-	cout << "Eliminando contenedor de escuelas" << endl;
+	cout << "Eliminando Contenedor de Escuelas" << endl;
 
 	while (pinicio != NULL)
 	{

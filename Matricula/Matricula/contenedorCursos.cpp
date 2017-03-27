@@ -35,7 +35,7 @@ string Contenedor_Cursos::toString()
 
 Contenedor_Cursos::~Contenedor_Cursos()
 {
-	cout << "Eliminando contenedor de cursos" << endl;
+	cout << "Eliminando Contenedor de Cursos" << endl;
 
 	while (pinicio != NULL)
 	{
