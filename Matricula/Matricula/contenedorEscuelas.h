@@ -8,7 +8,6 @@ class Contenedor_Escuelas
 private:
 	Nodo_Escuelas* pinicio;
 	Nodo_Escuelas* paux;
-
 public:
 	Contenedor_Escuelas();
 

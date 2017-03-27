@@ -5,6 +5,8 @@ Universidad::Universidad()
 	nombre = "Undefined";
 	numeroTelefono = "Undefined";
 	direccion = "Undefined";
+
+	CE = new Contenedor_Escuelas();
 }
 
 Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
@@ -17,6 +19,7 @@ Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
 Universidad::~Universidad()
 {
 	cout << "Eliminando Universidad..." << endl;
+	delete CE;
 }
 
 void Universidad::setTelefono(string unTelefono)
@@ -47,6 +50,11 @@ string Universidad::getNumero()
 string Universidad::getDireccion()
 {
 	return direccion;
+}
+
+Contenedor_Escuelas * Universidad::getContenedorEscuelas()
+{
+	return CE;
 }
 
 string Universidad::toString()

@@ -24,8 +24,8 @@ public:
 	static void vIngresarNombre(Universidad*);
 	static char vInfoConfirmacion();
 	
-	static void vIngresaEscuela(Contenedor_Escuelas*);
-	static void vIngresaCurso(Universidad*, Contenedor_Escuelas*);
+	static void vIngresaEscuela(Universidad*);
+	static void vIngresaCurso(Universidad*);
 
 
 	static bool chequeaNumero(string);
@@ -33,7 +33,7 @@ public:
 	static void msjPausa();
 
 	static void vtoString(Universidad*);
-	static void vtoStringEscuelas(Universidad*, Contenedor_Escuelas*, char); // el char es para ver si imprime cursos o no
+	static void vtoStringEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
 };
 #endif // !INTERFAZ
 

@@ -16,6 +16,8 @@ private:
 	string siglaEscuela;
 	Contenedor_Cursos* CC;
 public:
+	
+
 	Escuela(string);
 	~Escuela();
 	

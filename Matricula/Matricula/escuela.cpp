@@ -1,6 +1,6 @@
 #include "escuela.h"
 
-Escuela::Escuela(string unNombre = "Undefined") :
+Escuela::Escuela(string unNombre = "Undefined"):
 	nombreEscuela(unNombre)
 {
 	siglaEscuela = generaSigla(nombreEscuela);

@@ -201,7 +201,7 @@ char Interfaz::vInfoConfirmacion()
 	return ans;
 }
 
-void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE)
+void Interfaz::vIngresaEscuela(Universidad* U)
 {
 	string nombre;
 	cout << "Ingrese el nombre de la escuela -> "; getline(cin, nombre); cout << endl;
@@ -220,15 +220,15 @@ void Interfaz::vIngresaEscuela(Contenedor_Escuelas* CE)
 
 	Escuela* escu = new Escuela(nombre);
 
-	CE->insertaralInicio(escu);
+	U->getContenedorEscuelas()->insertaralInicio(escu);
 	system("cls");
 }
 
-void Interfaz::vIngresaCurso(Universidad* U, Contenedor_Escuelas* CE)
+void Interfaz::vIngresaCurso(Universidad* U)
 {
 
 	cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
-	cout << CE->toString('1') << endl;
+	cout << U->getContenedorEscuelas()->toString('1') << endl;
 
 	cout << "Digite las siglas de la Escuela a la que desea ingresar el curso -> ";
 	string sigla; cin >> sigla;
@@ -239,7 +239,7 @@ void Interfaz::vIngresaCurso(Universidad* U, Contenedor_Escuelas* CE)
 		aux += toupper(sigla[i]);
 	}
 
-	while (CE->escuentraEscuela(aux) == false)
+	while (U->getContenedorEscuelas()->escuentraEscuela(aux) == false)
 	{
 		cin.clear();
 		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
@@ -270,9 +270,9 @@ void Interfaz::vIngresaCurso(Universidad* U, Contenedor_Escuelas* CE)
 		cout << "Ingrese el nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 	}
 
-	Curso* cur = new Curso(nombre, CE->retornaEscuelaEspecifica(aux)->getSiglaEscuela());
+	Curso* cur = new Curso(nombre, U->getContenedorEscuelas()->retornaEscuelaEspecifica(aux)->getSiglaEscuela());
 
-	CE->retornaEscuelaEspecifica(aux)->insertarCurso(cur);
+	U->getContenedorEscuelas()->retornaEscuelaEspecifica(aux)->insertarCurso(cur);
 
 	msjPerfecto();
 
@@ -322,14 +322,14 @@ void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informaci
 	system("cls");
 }
 
-void Interfaz::vtoStringEscuelas(Universidad* U, Contenedor_Escuelas* CE, char op)
+void Interfaz::vtoStringEscuelas(Universidad* U, char op)
 {
 	if (U->getNombre() == "Undefined")
 		cout << "No se ha ingresado el nombre de la Universidad. Vaya a Ajustes." << endl;
 	else
 	{
 		cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
-		cout << CE->toString(op) << endl;
+		cout << U->getContenedorEscuelas()->toString(op) << endl;
 	}
 	msjPausa();
 	system("cls");

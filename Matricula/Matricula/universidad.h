@@ -6,12 +6,15 @@
 
 using namespace std;
 
+#include "contenedorEscuelas.h"
+
 class Universidad
 {
 private:
 	string nombre;
 	string numeroTelefono;
 	string direccion;
+	Contenedor_Escuelas* CE;
 public:
 	Universidad();
 	Universidad(string, string, string);
@@ -22,6 +25,8 @@ public:
 	string getNombre();
 	string getNumero();
 	string getDireccion();
+
+	Contenedor_Escuelas* getContenedorEscuelas();
 
 	string toString();
 

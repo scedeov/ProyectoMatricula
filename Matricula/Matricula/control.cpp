@@ -1,22 +1,23 @@
 #include "control.h"
 
-int Curso::codigo = 0;
+int Curso::cantidad = 0;
 
 void Control::inicializador()
 {
 	U = new Universidad("Universidad de Costa Rica", "22334455", "San Pedro");
 
-	CE = new Contenedor_Escuelas();
-	CC = new Contenedor_Cursos();
+	//CE = new Contenedor_Escuelas();
+	//CC = new Contenedor_Cursos();
 
 	Escuela* E1 = new Escuela("Ingles");
 	Escuela* E2 = new Escuela("Matematicas");
 	Escuela* E3 = new Escuela("Geologia");
 	Escuela* E4 = new Escuela("Sociales");
-	CE->insertaralInicio(E1);
-	CE->insertaralInicio(E2);
-	CE->insertaralInicio(E3);
-	CE->insertaralInicio(E4);
+
+	U->getContenedorEscuelas()->insertaralInicio(E1);
+	U->getContenedorEscuelas()->insertaralInicio(E2);
+	U->getContenedorEscuelas()->insertaralInicio(E3);
+	U->getContenedorEscuelas()->insertaralInicio(E4);
 
 	Curso* CU1 = new Curso("Programacion I", E1->getSiglaEscuela());
 	Curso* CU2 = new Curso("Programacion II", E2->getSiglaEscuela());
@@ -30,7 +31,7 @@ void Control::principal()
 {
 	Interfaz::vBienvenida();
 
-	if (Interfaz::vDatosPrimeraVez(U) == 'S') 
+	if (Interfaz::vDatosPrimeraVez(U) == 'S')
 	{
 		Interfaz::vIngresarNombre(U);
 		Interfaz::vIngresarNumero(U);
@@ -52,12 +53,12 @@ void Control::principal()
 		}
 		case '2':
 		{
-			Interfaz::vtoStringEscuelas(U, CE, '1');
+			Interfaz::vtoStringEscuelas(U, '1');
 			break;
 		}
 		case '3':
 		{
-			Interfaz::vtoStringEscuelas(U, CE, '2');
+			Interfaz::vtoStringEscuelas(U, '2');
 			break;
 		}
 		case '4':
@@ -67,8 +68,6 @@ void Control::principal()
 		}
 		case '5':
 		{
-			delete CC;
-			delete CE; //se encarga de eliminar donde estan alojadas las escuelas (composicion)
 			delete U;
 			end = true;
 			break;
@@ -134,11 +133,11 @@ void Control::ajustes()
 			}
 			case '3':
 			{
-				Interfaz::vIngresaEscuela(CE);
+				Interfaz::vIngresaEscuela(U);
 			}
 			case '4':
 			{
-				Interfaz::vIngresaCurso(U, CE);
+				Interfaz::vIngresaCurso(U);
 			}
 			case '5':
 			{

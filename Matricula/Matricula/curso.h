@@ -11,7 +11,8 @@ class Curso
 private:
 	string nombreCurso;
 	string codigoCurso;
-	static int codigo;
+	static int cantidad;
+
 public:
 	Curso();
 	Curso(string, string);
