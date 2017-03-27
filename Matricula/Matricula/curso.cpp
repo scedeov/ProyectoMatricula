@@ -43,8 +43,7 @@ string Curso::toStringCurso()
 {
 	stringstream s;
 
-	s << "Nombre del curso: " << nombreCurso << endl;
-	s << "Sigla del curso: " << codigoCurso << endl;
+	s << "Codigo del curso: " << codigoCurso << "||| " << nombreCurso << endl;
 
 	return s.str();
 }
