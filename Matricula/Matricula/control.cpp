@@ -134,10 +134,12 @@ void Control::ajustes()
 			case '3':
 			{
 				Interfaz::vIngresaEscuela(U);
+				break;
 			}
 			case '4':
 			{
 				Interfaz::vIngresaCurso(U);
+				break;
 			}
 			case '5':
 			{
