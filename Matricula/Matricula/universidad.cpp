@@ -14,6 +14,8 @@ Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
 	nombre = unNombre;
 	numeroTelefono = xNumero;
 	direccion = unDireccion;
+
+	CE = new Contenedor_Escuelas();
 }
 
 Universidad::~Universidad()
