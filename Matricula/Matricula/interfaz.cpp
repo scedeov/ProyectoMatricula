@@ -282,7 +282,7 @@ void Interfaz::vIngresaCurso(Universidad* U)
 
 void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 {
-	U->getContenedorEscuelas()->toString('2');
+	cout << U->getContenedorEscuelas()->toString('2') << endl;
 
 	cout << "Ingrese el codigo del curso que desea eliminar -> "; string codigo, sigla;
 
