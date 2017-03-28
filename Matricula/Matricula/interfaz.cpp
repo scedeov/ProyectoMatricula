@@ -288,7 +288,7 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 
 	cin >> aux;
 
-	for (int i = 0; i < codigo.length(); i++)
+	for (int i = 0; i < aux.length(); i++)
 	{
 		codigo += toupper(aux[i]);
 	}
