@@ -30,6 +30,9 @@ public:
 
 	void insertarCurso(Curso*);
 
+	Contenedor_Cursos* retornaContenedorCursos();
+	
+
 	string toStringEscuela(char);
 
 

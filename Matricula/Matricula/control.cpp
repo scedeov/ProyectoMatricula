@@ -143,6 +143,11 @@ void Control::ajustes()
 			}
 			case '5':
 			{
+				Interfaz::vEliminaCurso(U);
+				break;
+			}
+			case '6':
+			{
 				end = true;
 				break;
 			}

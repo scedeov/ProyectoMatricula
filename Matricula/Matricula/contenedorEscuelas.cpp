@@ -34,7 +34,7 @@ Escuela * Contenedor_Escuelas::retornaEscuelaEspecifica(string sigla)
 	return nullptr;
 }
 
-bool Contenedor_Escuelas::escuentraEscuela(string sigla)
+bool Contenedor_Escuelas::encuentraEscuela(string sigla)
 {
 	paux = pinicio;
 	while (paux != NULL)

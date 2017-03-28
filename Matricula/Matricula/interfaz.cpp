@@ -83,11 +83,12 @@ char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse m
 
 		cout << "-(3)-Ingresar Escuela" << endl;
 		cout << "-(4)-Ingresar Curso" << endl;
-		cout << "-(5)-Salir" << endl;
+		cout << "-(5)-Eliminar Curso" << endl;
+		cout << "-(6)-Salir" << endl;
 
 		ans = _getch();
 
-		while (ans < '1' || ans > '5')
+		while (ans < '1' || ans > '6')
 		{
 			cout << "Opcion Incorrecta. Try again " << endl;
 			ans = _getch();
@@ -239,7 +240,7 @@ void Interfaz::vIngresaCurso(Universidad* U)
 		aux += toupper(sigla[i]);
 	}
 
-	while (U->getContenedorEscuelas()->escuentraEscuela(aux) == false)
+	while (U->getContenedorEscuelas()->encuentraEscuela(aux) == false)
 	{
 		cin.clear();
 		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
@@ -277,6 +278,37 @@ void Interfaz::vIngresaCurso(Universidad* U)
 	msjPerfecto();
 
 	system("cls");
+}
+
+void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
+{
+	U->getContenedorEscuelas()->toString('2');
+
+	cout << "Ingrese el codigo del curso que desea eliminar -> "; string codigo, sigla;
+
+	cin >> codigo;
+
+	if (codigo.length() < 3)
+	{
+		for (int i = 0; i < codigo.length(); i++)
+		{
+			sigla += codigo[i];
+		}
+	}
+
+	else
+	{
+
+		for (int i = 0; i < 3; i++)
+		{
+			sigla += codigo[i];
+		}
+	}
+
+	if (U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla)->retornaContenedorCursos()->eliminaCursoEspecifico(codigo))
+		cout << "Curso eliminado con exito" << endl;
+	else
+		cout << "No se ha podido eliminar el curso." << endl;
 }
 
 

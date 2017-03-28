@@ -57,6 +57,11 @@ void Escuela::insertarCurso(Curso* unCurso)
 	CC->insertaInicio(unCurso);
 }
 
+Contenedor_Cursos * Escuela::retornaContenedorCursos()
+{
+	return CC;
+}
+
 string Escuela::toStringEscuela(char op)
 {
 	stringstream s;
