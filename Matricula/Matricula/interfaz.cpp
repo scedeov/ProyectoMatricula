@@ -299,6 +299,9 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 		cout << "Curso eliminado con exito" << endl;
 	else
 		cout << "No se ha podido eliminar el curso." << endl;
+
+	msjPausa();
+	system("cls");
 }
 
 
