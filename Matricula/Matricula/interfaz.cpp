@@ -284,26 +284,16 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 {
 	cout << U->getContenedorEscuelas()->toString('2') << endl;
 
-	cout << "Ingrese el codigo del curso que desea eliminar -> "; string codigo, sigla;
+	cout << "Ingrese el codigo del curso que desea eliminar -> "; string codigo, sigla, aux;
 
-	cin >> codigo;
+	cin >> aux;
 
-	if (codigo.length() < 3)
+	for (int i = 0; i < codigo.length(); i++)
 	{
-		for (int i = 0; i < codigo.length(); i++)
-		{
-			sigla += codigo[i];
-		}
+		codigo += toupper(aux[i]);
 	}
 
-	else
-	{
-
-		for (int i = 0; i < 3; i++)
-		{
-			sigla += codigo[i];
-		}
-	}
+	sigla = codigo.substr(0, 3);
 
 	if (U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla)->retornaContenedorCursos()->eliminaCursoEspecifico(codigo))
 		cout << "Curso eliminado con exito" << endl;
