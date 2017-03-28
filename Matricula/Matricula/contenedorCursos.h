@@ -12,6 +12,7 @@ private:
 public:
 	Contenedor_Cursos();
 	void insertaInicio(Curso*);
+	bool eliminaCursoEspecifico(string);
 	string toString();
 
 	

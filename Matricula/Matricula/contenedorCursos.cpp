@@ -21,6 +21,43 @@ void Contenedor_Cursos::insertaInicio(Curso *unCurso)
 	}
 }
 
+bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
+{
+	Nodo_Cursos* anterior = NULL;
+	paux = pinicio;
+
+	if (paux == NULL)
+	{
+		return false;
+	}
+
+	if (paux->getCurso()->getCodigoCurso() == codigo) 
+	{
+		paux = paux->getNext();
+		delete pinicio;
+		pinicio = paux;
+		return true;
+	}
+
+	while (paux != NULL &&   paux->getCurso()->getCodigoCurso() != codigo) {
+		anterior = paux;
+		paux = paux->getNext();
+	}
+
+	if (paux == NULL) 
+	{ 
+		return false; 
+	}
+
+	else 
+	{
+		anterior->setNext(paux->getNext());
+		delete paux;
+		return true;
+	}
+
+}
+
 string Contenedor_Cursos::toString()
 {
 	stringstream s;
