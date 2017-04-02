@@ -347,7 +347,7 @@ void Interfaz::vInfoUniversidad(Universidad* U) //Modificar para que sirva de in
 	system("cls");
 }
 
-void Interfaz::vtoStringEscuelas(Universidad* U, char op)
+void Interfaz::vInfoEscuelas(Universidad* U, char op)
 {
 	if (U->getNombre() == "Undefined")
 		cout << "No se ha ingresado el nombre de la Universidad. Vaya a Ajustes." << endl;

@@ -33,7 +33,7 @@ public:
 	static void msjPausa();
 
 	static void vInfoUniversidad(Universidad*);
-	static void vtoStringEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
+	static void vInfoEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
 };
 #endif // !INTERFAZ
 

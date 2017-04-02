@@ -53,12 +53,12 @@ void Control::principal()
 		}
 		case '2':
 		{
-			Interfaz::vtoStringEscuelas(U, '1');
+			Interfaz::vInfoEscuelas(U, '1');
 			break;
 		}
 		case '3':
 		{
-			Interfaz::vtoStringEscuelas(U, '2');
+			Interfaz::vInfoEscuelas(U, '2');
 			break;
 		}
 		case '4':
