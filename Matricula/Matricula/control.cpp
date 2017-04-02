@@ -48,7 +48,7 @@ void Control::principal()
 		{
 		case '1':
 		{
-			Interfaz::vtoString(U);
+			Interfaz::vInfoUniversidad(U);
 			break;
 		}
 		case '2':

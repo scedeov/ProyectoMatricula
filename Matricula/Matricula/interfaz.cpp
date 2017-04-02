@@ -336,7 +336,7 @@ void Interfaz::msjPausa()
 	_getch();
 }
 
-void Interfaz::vtoString(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula
+void Interfaz::vInfoUniversidad(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula
 {
 	if (U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
 		cout << "Ups... parece que no se han ingresado todos los datos de la Universidad. Ve a Ajustes para agregarlos." << endl;
