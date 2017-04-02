@@ -17,7 +17,7 @@ public:
 	void setNext(Nodo_Cursos*);
 	Nodo_Cursos* getNext();
 
-	string toStringNodo();
+	/*string toStringNodo();*/
 
 	~Nodo_Cursos();
 };

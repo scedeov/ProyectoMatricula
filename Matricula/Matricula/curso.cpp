@@ -39,11 +39,17 @@ string Curso::getCodigoCurso()
 	return codigoCurso;
 }
 
-string Curso::toStringCurso()
+ostream& operator << (ostream& o, const Curso& c)
 {
-	stringstream s;
-
-	s << "Codigo del curso: " << codigoCurso << "||| " << nombreCurso << endl;
-
-	return s.str();
+	o << "Codigo del curso: " << c.codigoCurso << "||| " << c.nombreCurso << endl;
+	return o;
 }
+
+//string Curso::toStringCurso()
+//{
+//	stringstream s;
+//
+//	s << "Codigo del curso: " << codigoCurso << "||| " << nombreCurso << endl;
+//
+//	return s.str();
+//}

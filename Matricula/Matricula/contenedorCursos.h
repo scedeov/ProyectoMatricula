@@ -9,11 +9,12 @@ class Contenedor_Cursos
 private:
 	Nodo_Cursos *pinicio;
 	Nodo_Cursos *paux;
+	friend ostream& operator << (ostream&, Contenedor_Cursos&);
 public:
 	Contenedor_Cursos();
 	void insertaInicio(Curso*);
 	bool eliminaCursoEspecifico(string);
-	string toString();
+	/*string toString();*/
 
 	
 	~Contenedor_Cursos();

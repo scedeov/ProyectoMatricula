@@ -58,17 +58,17 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 
 }
 
-string Contenedor_Cursos::toString()
-{
-	stringstream s;
-	paux = pinicio;
-	while (paux != NULL)
-	{
-		s << paux->toStringNodo() << endl;
-		paux = paux->getNext();
-	}
-	return s.str();
-}
+//string Contenedor_Cursos::toString()
+//{
+//	stringstream s;
+//	paux = pinicio;
+//	while (paux != NULL)
+//	{
+//		s << *(paux->getCurso()) << endl;
+//		paux = paux->getNext();
+//	}
+//	return s.str();
+//}
 
 Contenedor_Cursos::~Contenedor_Cursos()
 {
@@ -80,4 +80,17 @@ Contenedor_Cursos::~Contenedor_Cursos()
 		pinicio = pinicio->getNext();
 		delete paux;
 	}
+}
+
+ostream & operator<<(ostream &o, Contenedor_Cursos &CC)
+{
+	CC.paux = CC.pinicio;
+
+	while (CC.paux != NULL)
+	{
+		o << *(CC.paux->getCurso()) << endl;
+		CC.paux = CC.paux->getNext();
+	}
+
+	return o;
 }

@@ -26,10 +26,10 @@ Nodo_Cursos * Nodo_Cursos::getNext()
 	return next;
 }
 
-string Nodo_Cursos::toStringNodo()
-{
-	return c->toStringCurso();
-}
+//string Nodo_Cursos::toStringNodo()
+//{
+//	return c->toStringCurso();
+//}
 
 Nodo_Cursos::~Nodo_Cursos()
 {

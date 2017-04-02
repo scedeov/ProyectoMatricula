@@ -12,7 +12,7 @@ private:
 	string nombreCurso;
 	string codigoCurso;
 	static int cantidad;
-
+	friend ostream& operator << (ostream&, const Curso&);
 public:
 	Curso();
 	Curso(string, string);

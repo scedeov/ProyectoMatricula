@@ -71,7 +71,7 @@ string Escuela::toStringEscuela(char op)
 	if (op == '2')
 	{
 		s << "Cursos Impartidos: " << endl;
-		s << CC->toString() << endl;
+		s << *CC << endl;
 	}
 
 	return s.str();

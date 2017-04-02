@@ -47,6 +47,17 @@ bool Contenedor_Escuelas::encuentraEscuela(string sigla)
 	return false;
 }
 
+//ostream& operator << (ostream& o, const Contenedor_Escuelas& CE)
+//{
+//	paux = pinicio;
+//	while (paux != NULL)
+//	{
+//		o << paux->toStringNodo(op);
+//		paux = paux->getNext();
+//	}
+//	return o;
+//}
+
 string Contenedor_Escuelas::toString(char op)
 {
 	stringstream s;

@@ -2,7 +2,6 @@
 #define INTERFAZ
 
 #include "universidad.h"
-#include "contenedorEscuelas.h"
 
 #include <iostream>
 #include <Windows.h>

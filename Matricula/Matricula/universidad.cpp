@@ -59,12 +59,23 @@ Contenedor_Escuelas * Universidad::getContenedorEscuelas()
 	return CE;
 }
 
-string Universidad::toString()
+ostream& operator << (ostream &o, const Universidad& U)
 {
-	stringstream s;
+	o	<< "Nombre Universidad: " << U.nombre << endl
+		<< "Numero de Telefono: " << U.numeroTelefono << endl
+		<< "Direccion: " << U.direccion << endl;
 
-	s	<< string("Nombre Universidad: ") << nombre << endl
-		<< string("Numero de Telefono: ") << numeroTelefono << endl
-		<< string("Direccion: ") << direccion << endl;
-	return s.str();
+	return o;
+
 }
+
+
+//string Universidad::toString()
+//{
+//	stringstream s;
+//
+//	s	<< string("Nombre Universidad: ") << nombre << endl
+//		<< string("Numero de Telefono: ") << numeroTelefono << endl
+//		<< string("Direccion: ") << direccion << endl;
+//	return s.str();
+//}

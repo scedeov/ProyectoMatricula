@@ -14,7 +14,10 @@ private:
 	string nombre;
 	string numeroTelefono;
 	string direccion;
+	int a;
 	Contenedor_Escuelas* CE;
+	friend ostream& operator << (ostream&, const Universidad&);
+
 public:
 	Universidad();
 	Universidad(string, string, string);
@@ -28,7 +31,8 @@ public:
 
 	Contenedor_Escuelas* getContenedorEscuelas();
 
-	string toString();
+	
+	//string toString();
 
 
 };
