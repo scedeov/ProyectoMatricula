@@ -26,7 +26,7 @@ Escuela * Contenedor_Escuelas::retornaEscuelaEspecifica(string sigla)
 	paux = pinicio;
 	while (paux != NULL)
 	{
-		if (paux->getEscuela()->getSiglaEscuela() == sigla)
+		if (encuentraEscuela(paux->getEscuela(), sigla) == true)
 			return paux->getEscuela();
 		else
 			paux = paux->getNext();
@@ -34,17 +34,12 @@ Escuela * Contenedor_Escuelas::retornaEscuelaEspecifica(string sigla)
 	return nullptr;
 }
 
-bool Contenedor_Escuelas::encuentraEscuela(string sigla)
+bool Contenedor_Escuelas::encuentraEscuela(Escuela* e, string sigla)
 {
-	paux = pinicio;
-	while (paux != NULL)
-	{
-		if (paux->getEscuela()->getSiglaEscuela() == sigla)
-			return true;
-		else
-			paux = paux->getNext();
-	}
-	return false;
+	if (e->getSiglaEscuela() == sigla)
+		return true;
+	else
+		return false;
 }
 
 //ostream& operator << (ostream& o, const Contenedor_Escuelas& CE)
@@ -58,7 +53,7 @@ bool Contenedor_Escuelas::encuentraEscuela(string sigla)
 //	return o;
 //}
 
-string Contenedor_Escuelas::toString(char op)
+string Contenedor_Escuelas::toString(char op) // debido a este char no puedo hacer sobrecarga
 {
 	stringstream s;
 	paux = pinicio;

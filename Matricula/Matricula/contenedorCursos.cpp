@@ -31,7 +31,7 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 		return false;
 	}
 
-	if (paux->getCurso()->getCodigoCurso() == codigo) 
+	if (paux->getCurso()->getCodigoCurso() == codigo)
 	{
 		paux = paux->getNext();
 		delete pinicio;
@@ -44,12 +44,12 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 		paux = paux->getNext();
 	}
 
-	if (paux == NULL) 
-	{ 
-		return false; 
+	if (paux == NULL)
+	{
+		return false;
 	}
 
-	else 
+	else
 	{
 		anterior->setNext(paux->getNext());
 		delete paux;
@@ -57,6 +57,28 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 	}
 
 }
+
+Curso * Contenedor_Cursos::retornaCursoEspecifico(string codigo)
+{
+	paux = pinicio;
+	while (paux != NULL)
+	{
+		if (encuentraCurso(paux->getCurso(), codigo) == true)
+			return paux->getCurso();
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
+}
+
+bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
+{
+	if (C->getCodigoCurso() == codigo)
+		return true;
+	else
+		return false;
+}
+
 
 //string Contenedor_Cursos::toString()
 //{

@@ -1,5 +1,13 @@
 #include "curso.h"
 
+bool Curso::operator == (const Curso &c)
+{
+	if (codigoCurso == c.codigoCurso)
+		return true;
+	else
+		return false;
+}
+
 Curso::Curso()
 {
 	codigoCurso = "Undefined";

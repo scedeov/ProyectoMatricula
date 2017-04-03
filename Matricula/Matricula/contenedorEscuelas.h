@@ -14,7 +14,9 @@ public:
 
 	void insertaralInicio(Escuela*);
 	Escuela* retornaEscuelaEspecifica(string);
-	bool encuentraEscuela(string);
+	bool encuentraEscuela(Escuela*, string);
+
+	Curso* encuentraCurso()
 
 	string toString(char);
 

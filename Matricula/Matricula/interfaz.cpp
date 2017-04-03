@@ -14,14 +14,16 @@ char Interfaz::vMenuPrincipal()
 	cout << "**************MENU PRINCIPAL**************" << endl;
 	cout << "(1)--Informacion acerca de la Universidad" << endl;
 	cout << "(2)--Lista de Escuelas" << endl;
-	cout << "(3)--Lista de Cursos" << endl;
-	cout << "(4)--Ajustes" << endl;
-	cout << "(5)--Salir" << endl;
+	cout << "(3)--Lista de Escuelas con sus respectivos cursos" << endl;
+	cout << "(4)--Consultar Curso" << endl;
+	cout << "(5)--Consultar Lista de Cursos de una Escuela" << endl;
+	cout << "(6)--Ajustes" << endl;
+	cout << "(7)--Salir" << endl;
 	cout << "******************************************" << endl;
 
 	ans = _getch();
 
-	while (ans < '1' || ans > '5')
+	while (ans < '1' || ans > '7')
 	{
 		cout << "Opcion Incorrecta. Try again " << endl;
 		ans = _getch();
@@ -233,24 +235,17 @@ void Interfaz::vIngresaCurso(Universidad* U)
 
 	cout << "Digite las siglas de la Escuela a la que desea ingresar el curso -> ";
 	string sigla; cin >> sigla;
-	string aux;
 
-	for (int i = 0; i < sigla.length(); i++)
-	{
-		aux += toupper(sigla[i]);
-	}
+	sigla = convierteMayuscula(sigla);
 
-	while (U->getContenedorEscuelas()->encuentraEscuela(aux) == false)
+	while (U->getContenedorEscuelas()->encuentraEscuela(sigla) == false)
 	{
 		cin.clear();
 		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
 		cout << "-> ";
-		cin >> sigla; aux = "";
+		cin >> sigla;
 
-		for (int i = 0; i < sigla.length(); i++)
-		{
-			aux += toupper(sigla[i]);
-		}
+		sigla = convierteMayuscula(sigla);
 
 	}
 
@@ -284,14 +279,12 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 {
 	cout << U->getContenedorEscuelas()->toString('2') << endl;
 
-	cout << "Ingrese el codigo del curso que desea eliminar -> "; string codigo, sigla, aux;
+	cout << "Ingrese el codigo del curso que desea eliminar -> ";
+	string codigo, sigla, aux;
 
 	cin >> aux;
 
-	for (int i = 0; i < aux.length(); i++)
-	{
-		codigo += toupper(aux[i]);
-	}
+	codigo = convierteMayuscula(aux);
 
 	sigla = codigo.substr(0, 3);
 
@@ -299,6 +292,38 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 		cout << "Curso eliminado con exito" << endl;
 	else
 		cout << "No se ha podido eliminar el curso." << endl;
+
+	msjPausa();
+	system("cls");
+}
+
+void Interfaz::vInfoCurso(Universidad *U)
+{
+	string codigo;
+	cout << "Ingrese el codigo del curso que desea consultar -> ";
+	cin >> codigo; cin.ignore();
+
+	if (U->getContenedorEscuelas()->retornaCursoEspecifico(codigo) == nullptr)
+		cout << "El curso no ha sido encontrado..." << endl;
+	else
+		cout << *(U->getContenedorEscuelas()->retornaCursoEspecifico(codigo)) << endl;
+
+	msjPausa();
+	system("cls");
+}
+
+void Interfaz::vListaCursosEscuelaParticular(Universidad *U)
+{
+	string sigla;
+	cout << "Ingrese la sigla del curso que desea consultar -> ";
+	cin >> sigla;
+
+	sigla = convierteMayuscula(sigla);
+
+	if (U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla) == nullptr)
+		cout << "La escuela no ha sido encontrada..." << endl;
+	else
+		cout << U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla)->toStringEscuela('2') << endl;
 
 	msjPausa();
 	system("cls");
@@ -334,6 +359,18 @@ void Interfaz::msjPausa()
 {
 	cout << "Presione cualquier tecla para continuar..." << endl;
 	_getch();
+}
+
+string Interfaz::convierteMayuscula(string minuscula)
+{
+	string mayuscula;
+
+	for (int i = 0; i < minuscula.length(); i++)
+	{
+		mayuscula += toupper(minuscula[i]);
+	}
+
+	return mayuscula;
 }
 
 void Interfaz::vInfoUniversidad(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula

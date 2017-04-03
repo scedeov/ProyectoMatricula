@@ -14,6 +14,10 @@ public:
 	Contenedor_Cursos();
 	void insertaInicio(Curso*);
 	bool eliminaCursoEspecifico(string);
+	Curso* retornaCursoEspecifico(string);
+	bool encuentraCurso(Curso*, string);
+
+
 	/*string toString();*/
 
 	

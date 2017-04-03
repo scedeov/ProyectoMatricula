@@ -13,6 +13,7 @@ private:
 	string codigoCurso;
 	static int cantidad;
 	friend ostream& operator << (ostream&, const Curso&);
+	bool operator == (const Curso&);
 public:
 	Curso();
 	Curso(string, string);
@@ -24,6 +25,6 @@ public:
 	string getNombre();
 	string getCodigoCurso();
 
-	string toStringCurso();
+	/*string toStringCurso();*/
 };
 #endif // !CURSO

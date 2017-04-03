@@ -53,20 +53,30 @@ void Control::principal()
 		}
 		case '2':
 		{
-			Interfaz::vInfoEscuelas(U, '1');
+			Interfaz::vInfoEscuelas(U, '1'); //Imprime solamente escuelas
 			break;
 		}
 		case '3':
 		{
-			Interfaz::vInfoEscuelas(U, '2');
+			Interfaz::vInfoEscuelas(U, '2'); //Imprime escuelas con los cursos
 			break;
 		}
 		case '4':
 		{
-			ajustes();
+			Interfaz::vInfoCurso(U);
 			break;
 		}
 		case '5':
+		{
+			Interfaz::vListaCursosEscuelaParticular(U);
+			break;
+		}
+		case '6':
+		{
+			ajustes();
+			break;
+		}
+		case '7':
 		{
 			delete U;
 			end = true;
