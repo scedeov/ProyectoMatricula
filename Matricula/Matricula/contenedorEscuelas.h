@@ -16,8 +16,6 @@ public:
 	Escuela* retornaEscuelaEspecifica(string);
 	bool encuentraEscuela(Escuela*, string);
 
-	Curso* encuentraCurso()
-
 	string toString(char);
 
 	~Contenedor_Escuelas();

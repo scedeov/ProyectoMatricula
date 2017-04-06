@@ -238,7 +238,7 @@ void Interfaz::vIngresaCurso(Universidad* U)
 
 	sigla = convierteMayuscula(sigla);
 
-	while (U->getContenedorEscuelas()->encuentraEscuela(sigla) == false)
+	while (U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla) == nullptr)
 	{
 		cin.clear();
 		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
@@ -246,7 +246,6 @@ void Interfaz::vIngresaCurso(Universidad* U)
 		cin >> sigla;
 
 		sigla = convierteMayuscula(sigla);
-
 	}
 
 	system("cls");
@@ -266,9 +265,9 @@ void Interfaz::vIngresaCurso(Universidad* U)
 		cout << "Ingrese el nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 	}
 
-	Curso* cur = new Curso(nombre, U->getContenedorEscuelas()->retornaEscuelaEspecifica(aux)->getSiglaEscuela());
+	Curso* cur = new Curso(nombre, sigla);
 
-	U->getContenedorEscuelas()->retornaEscuelaEspecifica(aux)->insertarCurso(cur);
+	U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla)->insertarCurso(cur);
 
 	msjPerfecto();
 
@@ -297,16 +296,22 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 	system("cls");
 }
 
-void Interfaz::vInfoCurso(Universidad *U)
+void Interfaz::vInfoCurso(Universidad *U) //necesita ser optimizado
 {
-	string codigo;
+	string codigo, sigla;
 	cout << "Ingrese el codigo del curso que desea consultar -> ";
 	cin >> codigo; cin.ignore();
 
-	if (U->getContenedorEscuelas()->retornaCursoEspecifico(codigo) == nullptr)
+	codigo = convierteMayuscula(codigo);
+	sigla = codigo.substr(0, 3);
+
+	if (U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla) == nullptr)
 		cout << "El curso no ha sido encontrado..." << endl;
 	else
-		cout << *(U->getContenedorEscuelas()->retornaCursoEspecifico(codigo)) << endl;
+		if (U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla)->retornaContenedorCursos()->retornaCursoEspecifico(codigo) == nullptr)
+			cout << "El curso no ha sido encontrado..." << endl;
+		else
+			cout << *(U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla)->retornaContenedorCursos()->retornaCursoEspecifico(codigo)) << endl;
 
 	msjPausa();
 	system("cls");
@@ -315,7 +320,7 @@ void Interfaz::vInfoCurso(Universidad *U)
 void Interfaz::vListaCursosEscuelaParticular(Universidad *U)
 {
 	string sigla;
-	cout << "Ingrese la sigla del curso que desea consultar -> ";
+	cout << "Ingrese la sigla de la escuela que desea consultar la lista de cursos -> ";
 	cin >> sigla;
 
 	sigla = convierteMayuscula(sigla);
