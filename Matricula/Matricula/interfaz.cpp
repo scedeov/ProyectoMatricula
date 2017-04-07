@@ -285,7 +285,7 @@ void Interfaz::vEditarCurso(Universidad *U)
 
 	codigo = convierteMayuscula(codigo);
 
-	if (U->getContenedorEscuelas()->retornaEscuela(sigla) == nullptr)
+	if (U->retornaEscuela(sigla) == nullptr)
 		cout << "El curso no ha sido encontrado..." << endl;
 	else
 		if (U->retornaCurso(codigo) == nullptr)
@@ -308,7 +308,7 @@ void Interfaz::vEditarCurso(Universidad *U)
 				cout << "Ingrese el nuevo nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 			}
 
-			U->getContenedorEscuelas()->retornaEscuela(sigla)->retornaContenedorCursos()->retornaCurso(codigo)->setNombre(nombre);
+			U->retornaCurso(codigo)->setNombre(nombre);
 			msjPerfecto();
 		}
 
@@ -329,7 +329,7 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 
 	sigla = codigo.substr(0, 3);
 
-	if (U->getContenedorEscuelas()->retornaEscuela(sigla)->retornaContenedorCursos()->eliminaCursoEspecifico(codigo))
+	if (U->retornaEscuela(sigla)->retornaContenedorCursos()->eliminaCursoEspecifico(codigo))
 		cout << "Curso eliminado con exito" << endl;
 	else
 		cout << "No se ha podido eliminar el curso." << endl;
