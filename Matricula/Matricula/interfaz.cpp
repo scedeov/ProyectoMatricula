@@ -85,12 +85,13 @@ char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse m
 
 		cout << "-(3)-Ingresar Escuela" << endl;
 		cout << "-(4)-Ingresar Curso" << endl;
-		cout << "-(5)-Eliminar Curso" << endl;
-		cout << "-(6)-Salir" << endl;
+		cout << "-(5)-Editar Curso" << endl;
+		cout << "-(6)-Eliminar Curso" << endl;
+		cout << "-(7)-Salir" << endl;
 
 		ans = _getch();
 
-		while (ans < '1' || ans > '6')
+		while (ans < '1' || ans > '7')
 		{
 			cout << "Opcion Incorrecta. Try again " << endl;
 			ans = _getch();
@@ -271,6 +272,49 @@ void Interfaz::vIngresaCurso(Universidad* U)
 
 	msjPerfecto();
 
+	system("cls");
+}
+
+void Interfaz::vEditarCurso(Universidad *U)
+{
+	cout << U->getContenedorEscuelas()->toString('2');
+	cout << "Ingrese el codigo del curso que desea editar -> ";
+	string codigo, sigla;
+
+	cin >> codigo;
+
+	codigo = convierteMayuscula(codigo);
+
+	sigla = codigo.substr(0, 3);
+
+	if (U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla) == nullptr)
+		cout << "El curso no ha sido encontrado..." << endl;
+	else
+		if (U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla)->retornaContenedorCursos()->retornaCursoEspecifico(codigo) == nullptr)
+			cout << "El curso no ha sido encontrado..." << endl;
+		else
+		{
+			cin.ignore();
+			string nombre;
+			cout << "Ingrese el nuevo nombre del curso -> "; getline(cin, nombre); cout << endl;
+
+			cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
+
+			char ans = vInfoConfirmacion();
+
+			while (nombre == "Undefined" || nombre == " " || nombre == "")
+			{
+				cout << "Nombre Invalido. Intente de nuevo -> ";
+				Sleep(800);
+				system("cls");
+				cout << "Ingrese el nuevo nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
+			}
+
+			U->getContenedorEscuelas()->retornaEscuelaEspecifica(sigla)->retornaContenedorCursos()->retornaCursoEspecifico(codigo)->setNombre(nombre);
+			msjPerfecto();
+		}
+
+	msjPausa();
 	system("cls");
 }
 

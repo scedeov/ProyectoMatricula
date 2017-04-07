@@ -25,6 +25,7 @@ public:
 	
 	static void vIngresaEscuela(Universidad*);
 	static void vIngresaCurso(Universidad*);
+	static void vEditarCurso(Universidad*);
 	static void vEliminaCurso(Universidad*);
 
 	static void vInfoCurso(Universidad*);
