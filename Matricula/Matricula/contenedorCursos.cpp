@@ -58,7 +58,7 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 
 }
 
-Curso * Contenedor_Cursos::retornaCursoEspecifico(string codigo)
+Curso * Contenedor_Cursos::retornaCurso(string codigo)
 {
 	paux = pinicio;
 	while (paux != NULL)
@@ -78,19 +78,6 @@ bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
 	else
 		return false;
 }
-
-
-//string Contenedor_Cursos::toString()
-//{
-//	stringstream s;
-//	paux = pinicio;
-//	while (paux != NULL)
-//	{
-//		s << *(paux->getCurso()) << endl;
-//		paux = paux->getNext();
-//	}
-//	return s.str();
-//}
 
 Contenedor_Cursos::~Contenedor_Cursos()
 {

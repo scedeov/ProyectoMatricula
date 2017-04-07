@@ -32,6 +32,7 @@ public:
 
 	Contenedor_Cursos* retornaContenedorCursos();
 	
+	Curso* retornaCurso(string);
 
 	string toStringEscuela(char);
 

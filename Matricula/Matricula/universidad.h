@@ -16,7 +16,6 @@ private:
 	string direccion;
 	int a;
 	Contenedor_Escuelas* CE;
-	friend ostream& operator << (ostream&, const Universidad&);
 
 public:
 	Universidad();
@@ -31,9 +30,10 @@ public:
 
 	Contenedor_Escuelas* getContenedorEscuelas();
 
-	
+	Curso* retornaCurso(string);
+	Escuela* retornaEscuela(string);
 
-
+	friend ostream& operator << (ostream&, const Universidad&);
 };
 #endif // !UNIVERSIDAD
 
