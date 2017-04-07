@@ -1,13 +1,5 @@
 #include "curso.h"
 
-bool Curso::operator == (const Curso &c)
-{
-	if (codigoCurso == c.codigoCurso)
-		return true;
-	else
-		return false;
-}
-
 Curso::Curso()
 {
 	codigoCurso = "Undefined";
@@ -39,7 +31,6 @@ void Curso::setCodigoCurso(string unCodigoCurso)
 string Curso::getNombre()
 {
 	return nombreCurso;
-
 }
 
 string Curso::getCodigoCurso()
@@ -53,11 +44,7 @@ ostream& operator << (ostream& o, const Curso& c)
 	return o;
 }
 
-//string Curso::toStringCurso()
-//{
-//	stringstream s;
-//
-//	s << "Codigo del curso: " << codigoCurso << "||| " << nombreCurso << endl;
-//
-//	return s.str();
-//}
+bool Curso::operator == (const Curso &c) const
+{
+	return this->nombreCurso == c.nombreCurso && this->codigoCurso == c.codigoCurso;
+}

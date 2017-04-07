@@ -68,14 +68,3 @@ ostream& operator << (ostream &o, const Universidad& U)
 	return o;
 
 }
-
-
-//string Universidad::toString()
-//{
-//	stringstream s;
-//
-//	s	<< string("Nombre Universidad: ") << nombre << endl
-//		<< string("Numero de Telefono: ") << numeroTelefono << endl
-//		<< string("Direccion: ") << direccion << endl;
-//	return s.str();
-//}

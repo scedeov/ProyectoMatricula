@@ -32,7 +32,6 @@ public:
 	Contenedor_Escuelas* getContenedorEscuelas();
 
 	
-	//string toString();
 
 
 };

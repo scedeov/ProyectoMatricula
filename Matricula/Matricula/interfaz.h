@@ -22,20 +22,16 @@ public:
 	static void vIngresarDireccion(Universidad*);
 	static void vIngresarNombre(Universidad*);
 	static char vInfoConfirmacion();
-	
 	static void vIngresaEscuela(Universidad*);
 	static void vIngresaCurso(Universidad*);
 	static void vEditarCurso(Universidad*);
 	static void vEliminaCurso(Universidad*);
-
 	static void vInfoCurso(Universidad*);
 	static void vListaCursosEscuelaParticular(Universidad*);
-
 	static bool chequeaNumero(string);
 	static void msjPerfecto();
 	static void msjPausa();
 	static string convierteMayuscula(string);
-
 	static void vInfoUniversidad(Universidad*);
 	static void vInfoEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
 };

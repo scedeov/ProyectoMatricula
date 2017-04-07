@@ -110,7 +110,7 @@ void Interfaz::vIngresarNumero(Universidad* U)
 	{
 		Sleep(500);
 		cout << "Ingrese el numero de telefono -> "; string numero;
-		std::cin >> numero; cin.ignore();
+		cin >> numero; cin.ignore();
 
 		while (chequeaNumero(numero) == false) //No le permite al usuario ingresar un algo que no sean numeros
 		{
