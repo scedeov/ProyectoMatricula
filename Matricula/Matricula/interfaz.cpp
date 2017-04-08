@@ -109,6 +109,7 @@ char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse m
 {
 	char ans;
 
+	cout << "**************MENU CURSOS*************************" << endl;
 	if (U->getNombre() == "Undefined")
 	{
 		cout << "-(1)-Ingresar nombre de la Universidad" << endl;
@@ -123,6 +124,7 @@ char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse m
 			cout << "-(3)-Cambiar Direccion de la Universidad" << endl;
 
 		cout << "-(4)-Salir" << endl;
+		cout << "************************************************" << endl;
 
 		ans = _getch();
 
@@ -148,7 +150,7 @@ char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse m
 		cout << "-(5)-Editar Curso" << endl;
 		cout << "-(6)-Eliminar Curso" << endl;
 		cout << "-(7)-Salir" << endl;
-
+		cout << "************************************************" << endl;
 		ans = _getch();
 
 		while (ans < '1' || ans > '7')
@@ -157,7 +159,6 @@ char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse m
 			ans = _getch();
 		}
 	}
-
 	system("cls");
 	return ans;
 }
