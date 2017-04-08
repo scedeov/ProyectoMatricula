@@ -178,7 +178,7 @@ void Interfaz::vIngresarNumero(Universidad* U)
 			cout << "Numero Invalido. Intente de nuevo";
 			Sleep(800);
 			system("cls");
-			cout << string("Ingrese el numero de telefono -> "); cin.clear();
+			cout << string("Ingrese el numero de telefono -> ");
 			std::cin >> numero; cin.ignore();
 		}
 
@@ -296,22 +296,20 @@ void Interfaz::vIngresaCurso(Universidad* U)
 	cout << U->getContenedorEscuelas()->toString('1') << endl;
 
 	cout << "Digite las siglas de la Escuela a la que desea ingresar el curso -> ";
-	string sigla; cin >> sigla;
+	string sigla; cin >> sigla; cin.ignore();
 
 	sigla = convierteMayuscula(sigla);
 
 	while (U->getContenedorEscuelas()->retornaEscuela(sigla) == nullptr)
 	{
-		cin.clear();
 		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
 		cout << "-> ";
-		cin >> sigla;
+		cin >> sigla; cin.ignore();
 
 		sigla = convierteMayuscula(sigla);
 	}
 
 	system("cls");
-	cin.ignore();
 	string nombre;
 	cout << "Ingrese el nombre del curso -> "; getline(cin, nombre); cout << endl;
 
@@ -380,7 +378,7 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 	cout << "Ingrese el codigo del curso que desea eliminar -> ";
 	string codigo, sigla, aux;
 
-	cin >> aux;
+	cin >> aux; cin.ignore();
 
 	codigo = convierteMayuscula(aux);
 
@@ -420,7 +418,7 @@ void Interfaz::vListaCursosEscuelaParticular(Universidad *U)
 {
 	string sigla;
 	cout << "Ingrese la sigla de la escuela que desea consultar la lista de cursos -> ";
-	cin >> sigla;
+	cin >> sigla; cin.ignore();
 
 	sigla = convierteMayuscula(sigla);
 
