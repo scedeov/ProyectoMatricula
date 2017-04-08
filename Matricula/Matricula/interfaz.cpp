@@ -12,20 +12,80 @@ char Interfaz::vMenuPrincipal()
 {
 	char ans;
 	cout << "**************MENU PRINCIPAL**************" << endl;
-	cout << "(1)--Informacion acerca de la Universidad" << endl;
-	cout << "(2)--Lista de Escuelas" << endl;
-	cout << "(3)--Lista de Escuelas con sus respectivos cursos" << endl;
-	cout << "(4)--Consultar Curso" << endl;
-	cout << "(5)--Consultar Lista de Cursos de una Escuela" << endl;
-	cout << "(6)--Ajustes" << endl;
-	cout << "(7)--Salir" << endl;
+	cout << "(1)--Universidad" << endl;
+	cout << "(2)--Escuelas" << endl;
+	cout << "(3)--Cursos" << endl;
+	cout << "(4)--Ajustes" << endl;
+	cout << "(5)--Salir" << endl;
 	cout << "******************************************" << endl;
 
 	ans = _getch();
 
-	while (ans < '1' || ans > '7')
+	while (ans < '1' || ans > '5')
 	{
-		cout << "Opcion Incorrecta. Try again " << endl;
+		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
+		ans = _getch();
+	}
+
+	system("cls");
+	return ans;
+}
+
+char Interfaz::vMenuUniversidad()
+{
+	char ans;
+	cout << "**************MENU UNIVERSIDAD**************" << endl;
+	cout << "(1)--Informacion acerca de la Universidad" << endl;
+	cout << "(2)--Salir" << endl;
+	cout << "********************************************" << endl;
+
+	ans = _getch();
+
+	while (ans < '1' || ans > '2')
+	{
+		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
+		ans = _getch();
+	}
+
+	system("cls");
+	return ans;
+}
+
+char Interfaz::vMenuEscuelas()
+{
+	char ans;
+	cout << "**************MENU ESCUELAS**************" << endl;
+	cout << "(1)--Consulta de la lista de Escuelas" << endl;
+	cout << "(2)--Consulta de la lista de Escuelas (+ Cursos)" << endl;
+	cout << "(3)--Salir" << endl;
+	cout << "********************************************" << endl;
+
+	ans = _getch();
+
+	while (ans < '1' || ans > '3')
+	{
+		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
+		ans = _getch();
+	}
+
+	system("cls");
+	return ans;
+}
+
+char Interfaz::vMenuCursos()
+{
+	char ans;
+	cout << "**************MENU CURSOS**************" << endl;
+	cout << "(1)--Consultar curso" << endl;
+	cout << "(2)--Consultar lista de cursos de una Escuela" << endl;
+	cout << "(3)--Salir" << endl;
+	cout << "********************************************" << endl;
+
+	ans = _getch();
+
+	while (ans < '1' || ans > '3')
+	{
+		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
 	}
 

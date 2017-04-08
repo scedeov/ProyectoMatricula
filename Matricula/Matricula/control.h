@@ -13,9 +13,12 @@ class Control
 private:
 	Universidad* U;
 public:
-	void inicializador();
-	void principal();
-	void ajustes();
+	void Inicializador();
+	void MenuPrincipal();
+	void MenuUniversidad();
+	void MenuEscuelas();
+	void MenuCursos();
+	void MenuAjustes();
 };
 
 #endif
