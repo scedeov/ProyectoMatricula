@@ -70,6 +70,16 @@ Escuela* Universidad::retornaEscuela(string sigla)
 	return CE->retornaEscuela(sigla);
 }
 
+void Universidad::insertarEscuela(Escuela *e)
+{
+	CE->insertaralInicio(e);
+}
+
+void Universidad::insertarCurso(string sigla, Curso *c)
+{
+	retornaEscuela(sigla)->insertarCurso(c);
+}
+
 ostream& operator << (ostream &o, const Universidad& U)
 {
 	o	<< "Nombre Universidad: " << U.nombre << endl

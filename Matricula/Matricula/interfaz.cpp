@@ -285,7 +285,8 @@ void Interfaz::vIngresaEscuela(Universidad* U)
 
 	Escuela* escu = new Escuela(nombre);
 
-	U->getContenedorEscuelas()->insertaralInicio(escu);
+	U->insertarEscuela(escu);
+
 	system("cls");
 }
 
@@ -300,7 +301,7 @@ void Interfaz::vIngresaCurso(Universidad* U)
 
 	sigla = convierteMayuscula(sigla);
 
-	while (U->getContenedorEscuelas()->retornaEscuela(sigla) == nullptr)
+	while (U->retornaEscuela(sigla) == nullptr)
 	{
 		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
 		cout << "-> ";
@@ -327,7 +328,7 @@ void Interfaz::vIngresaCurso(Universidad* U)
 
 	Curso* cur = new Curso(nombre, sigla);
 
-	U->getContenedorEscuelas()->retornaEscuela(sigla)->insertarCurso(cur);
+	U->insertarCurso(sigla, cur);
 
 	msjPerfecto();
 
@@ -402,13 +403,10 @@ void Interfaz::vInfoCurso(Universidad *U) //necesita ser optimizado
 	codigo = convierteMayuscula(codigo);
 	sigla = codigo.substr(0, 3);
 
-	if (U->getContenedorEscuelas()->retornaEscuela(sigla) == nullptr)
+	if (!U->retornaCurso(codigo))
 		cout << "El curso no ha sido encontrado..." << endl;
 	else
-		if (U->getContenedorEscuelas()->retornaEscuela(sigla)->retornaContenedorCursos()->retornaCurso(codigo) == nullptr)
-			cout << "El curso no ha sido encontrado..." << endl;
-		else
-			cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->retornaContenedorCursos()->retornaCurso(codigo)) << endl;
+		cout << *(U->retornaCurso(codigo)) << endl;
 
 	msjPausa();
 	system("cls");
@@ -422,10 +420,10 @@ void Interfaz::vListaCursosEscuelaParticular(Universidad *U)
 
 	sigla = convierteMayuscula(sigla);
 
-	if (U->getContenedorEscuelas()->retornaEscuela(sigla) == nullptr)
+	if (!U->retornaEscuela(sigla))
 		cout << "La escuela no ha sido encontrada..." << endl;
 	else
-		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->toStringEscuela('2') << endl;
+		cout << U->retornaEscuela(sigla)->toStringEscuela('2') << endl;
 
 	msjPausa();
 	system("cls");
