@@ -11,10 +11,10 @@ void Control::Inicializador()
 	Escuela* E3 = new Escuela("Geologia");
 	Escuela* E4 = new Escuela("Sociales");
 
-	U->getContenedorEscuelas()->insertaralInicio(E1);
-	U->getContenedorEscuelas()->insertaralInicio(E2);
-	U->getContenedorEscuelas()->insertaralInicio(E3);
-	U->getContenedorEscuelas()->insertaralInicio(E4);
+	U->insertarEscuela(E1);
+	U->insertarEscuela(E2);
+	U->insertarEscuela(E3);
+	U->insertarEscuela(E4);
 
 	Curso* CU1 = new Curso("Programacion I", E1->getSiglaEscuela());
 	Curso* CU2 = new Curso("Programacion II", E2->getSiglaEscuela());
