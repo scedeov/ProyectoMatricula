@@ -279,38 +279,34 @@ void Interfaz::vEditarCurso(Universidad *U)
 {
 	cout << U->getContenedorEscuelas()->toString('2');
 	cout << "Ingrese el codigo del curso que desea editar -> ";
-	string codigo, sigla;
+	string codigo;
 
-	cin >> codigo;
+	cin >> codigo; cin.ignore();
 
 	codigo = convierteMayuscula(codigo);
 
-	if (U->retornaEscuela(sigla) == nullptr)
+	if (!U->retornaCurso(codigo))
 		cout << "El curso no ha sido encontrado..." << endl;
 	else
-		if (U->retornaCurso(codigo) == nullptr)
-			cout << "El curso no ha sido encontrado..." << endl;
-		else
+	{
+		string nombre;
+		cout << "Ingrese el nuevo nombre del curso -> "; getline(cin, nombre); cout << endl;
+
+		cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
+
+		char ans = vInfoConfirmacion();
+
+		while (nombre == "Undefined" || nombre == " " || nombre == "")
 		{
-			cin.ignore();
-			string nombre;
-			cout << "Ingrese el nuevo nombre del curso -> "; getline(cin, nombre); cout << endl;
-
-			cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
-
-			char ans = vInfoConfirmacion();
-
-			while (nombre == "Undefined" || nombre == " " || nombre == "")
-			{
-				cout << "Nombre Invalido. Intente de nuevo -> ";
-				Sleep(800);
-				system("cls");
-				cout << "Ingrese el nuevo nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
-			}
-
-			U->retornaCurso(codigo)->setNombre(nombre);
-			msjPerfecto();
+			cout << "Nombre Invalido. Intente de nuevo -> ";
+			Sleep(800);
+			system("cls");
+			cout << "Ingrese el nuevo nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 		}
+
+		U->retornaCurso(codigo)->setNombre(nombre);
+		msjPerfecto();
+	}
 
 	msjPausa();
 	system("cls");
