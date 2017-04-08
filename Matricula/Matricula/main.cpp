@@ -3,7 +3,7 @@
 int main()
 {
 	Control C;
-	C.inicializador();
+	C.Inicializador();
 	Interfaz::msjPausa();
 	return 0;
 }

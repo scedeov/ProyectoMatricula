@@ -21,7 +21,7 @@ void Contenedor_Escuelas::insertaralInicio(Escuela* unEscuela)
 	}
 }
 
-Escuela * Contenedor_Escuelas::retornaEscuelaEspecifica(string sigla)
+Escuela * Contenedor_Escuelas::retornaEscuela(string sigla)
 {
 	paux = pinicio;
 	while (paux != NULL)
@@ -42,16 +42,21 @@ bool Contenedor_Escuelas::encuentraEscuela(Escuela* e, string sigla)
 		return false;
 }
 
-//ostream& operator << (ostream& o, const Contenedor_Escuelas& CE)
-//{
-//	paux = pinicio;
-//	while (paux != NULL)
-//	{
-//		o << paux->toStringNodo(op);
-//		paux = paux->getNext();
-//	}
-//	return o;
-//}
+Curso* Contenedor_Escuelas::retornaCurso(string codigo)
+{
+	paux = pinicio;
+
+	string sigla = codigo.substr(0, 3);
+
+	while (paux != NULL)
+	{
+		if (encuentraEscuela(paux->getEscuela(), sigla) == true)
+			return paux->retornaCurso(codigo);
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
+}
 
 string Contenedor_Escuelas::toString(char op) // debido a este char no puedo hacer sobrecarga
 {

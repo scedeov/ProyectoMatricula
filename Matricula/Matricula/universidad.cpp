@@ -59,6 +59,27 @@ Contenedor_Escuelas * Universidad::getContenedorEscuelas()
 	return CE;
 }
 
+Curso* Universidad::retornaCurso(string codigo)
+{
+	return CE->retornaCurso(codigo);
+
+}
+
+Escuela* Universidad::retornaEscuela(string sigla)
+{
+	return CE->retornaEscuela(sigla);
+}
+
+void Universidad::insertarEscuela(Escuela *e)
+{
+	CE->insertaralInicio(e);
+}
+
+void Universidad::insertarCurso(string sigla, Curso *c)
+{
+	retornaEscuela(sigla)->insertarCurso(c);
+}
+
 ostream& operator << (ostream &o, const Universidad& U)
 {
 	o	<< "Nombre Universidad: " << U.nombre << endl
@@ -66,5 +87,4 @@ ostream& operator << (ostream &o, const Universidad& U)
 		<< "Direccion: " << U.direccion << endl;
 
 	return o;
-
 }

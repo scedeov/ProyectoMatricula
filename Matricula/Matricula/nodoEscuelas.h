@@ -18,6 +18,7 @@ public:
 	Nodo_Escuelas* getNext();
 
 	string toStringNodo(char);
+	Curso* retornaCurso(string);
 
 	~Nodo_Escuelas();
 };

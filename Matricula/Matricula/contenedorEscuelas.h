@@ -8,13 +8,15 @@ class Contenedor_Escuelas
 private:
 	Nodo_Escuelas* pinicio;
 	Nodo_Escuelas* paux;
-	/*friend ostream& operator << (ostream&, const Contenedor_Escuelas&);*/
 public:
 	Contenedor_Escuelas();
 
 	void insertaralInicio(Escuela*);
-	Escuela* retornaEscuelaEspecifica(string);
+
+	Escuela* retornaEscuela(string);
 	bool encuentraEscuela(Escuela*, string);
+
+	Curso* retornaCurso(string);
 
 	string toString(char);
 

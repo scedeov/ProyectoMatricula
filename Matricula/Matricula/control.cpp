@@ -2,12 +2,9 @@
 
 int Curso::cantidad = 0;
 
-void Control::inicializador()
+void Control::Inicializador()
 {
 	U = new Universidad("Universidad de Costa Rica", "22334455", "San Pedro");
-
-	//CE = new Contenedor_Escuelas();
-	//CC = new Contenedor_Cursos();
 
 	Escuela* E1 = new Escuela("Ingles");
 	Escuela* E2 = new Escuela("Matematicas");
@@ -24,10 +21,10 @@ void Control::inicializador()
 	E1->insertarCurso(CU1);
 	E2->insertarCurso(CU2);
 
-	principal();
+	MenuPrincipal();
 }
 
-void Control::principal()
+void Control::MenuPrincipal()
 {
 	Interfaz::vBienvenida();
 
@@ -48,35 +45,25 @@ void Control::principal()
 		{
 		case '1':
 		{
-			Interfaz::vInfoUniversidad(U);
+			MenuUniversidad();
 			break;
 		}
 		case '2':
 		{
-			Interfaz::vInfoEscuelas(U, '1'); //Imprime solamente escuelas
+			MenuEscuelas();
 			break;
 		}
 		case '3':
 		{
-			Interfaz::vInfoEscuelas(U, '2'); //Imprime escuelas con los cursos
+			MenuCursos();
 			break;
 		}
 		case '4':
 		{
-			Interfaz::vInfoCurso(U);
+			MenuAjustes();
 			break;
 		}
 		case '5':
-		{
-			Interfaz::vListaCursosEscuelaParticular(U);
-			break;
-		}
-		case '6':
-		{
-			ajustes();
-			break;
-		}
-		case '7':
 		{
 			delete U;
 			end = true;
@@ -89,7 +76,98 @@ void Control::principal()
 	} while (end == false);
 }
 
-void Control::ajustes()
+void Control::MenuUniversidad()
+{
+	bool end = false;
+
+	do
+	{
+		char ans = Interfaz::vMenuUniversidad();
+
+		switch (ans)
+		{
+		case '1':
+		{
+			Interfaz::vInfoUniversidad(U);
+			break;
+		}
+		case '2': //Salir
+		{
+			end = true;
+			break;
+		}
+		default:
+			break;
+		}
+
+	} while (end == false);
+}
+
+void Control::MenuEscuelas()
+{
+	bool end = false;
+
+	do
+	{
+		char ans = Interfaz::vMenuEscuelas();
+
+		switch (ans)
+		{
+		case '1':
+		{
+			Interfaz::vInfoEscuelas(U, '1'); //Imprime solamente escuelas
+			break;
+		}
+		case '2':
+		{
+			Interfaz::vInfoEscuelas(U, '2'); //Imprime escuelas con los cursos
+			break;
+		}
+		case '3': // Salir
+		{
+			end = true;
+			break;
+		}
+		default:
+			break;
+		}
+
+	} while (end == false);
+}
+
+void Control::MenuCursos()
+{
+	bool end = false;
+
+	do
+	{
+		char ans = Interfaz::vMenuCursos();
+
+		switch (ans)
+		{
+		case '1':
+		{
+			Interfaz::vInfoCurso(U);
+			break;
+		}
+		case '2':
+		{
+			Interfaz::vListaCursosEscuelaParticular(U);
+			break;
+		}
+		case '3': //Salir
+		{
+			end = true;
+			break;
+		}
+		default:
+			break;
+		}
+
+	} while (end == false);
+}
+
+void Control::MenuAjustes()
 {
 	bool end = false;
 

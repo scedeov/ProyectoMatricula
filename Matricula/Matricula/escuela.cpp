@@ -62,6 +62,11 @@ Contenedor_Cursos * Escuela::retornaContenedorCursos()
 	return CC;
 }
 
+Curso * Escuela::retornaCurso(string codigo)
+{
+	return CC->retornaCurso(codigo);
+}
+
 string Escuela::toStringEscuela(char op)
 {
 	stringstream s;
