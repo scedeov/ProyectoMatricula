@@ -15,7 +15,7 @@ private:
 
 public:
 	Persona();
-	~Persona();
+	virtual ~Persona();
 	virtual void setNombre(string);
 	virtual string getNombre();
 	virtual void setApellido(string);
