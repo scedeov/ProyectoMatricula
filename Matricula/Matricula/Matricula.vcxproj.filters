@@ -42,6 +42,9 @@
     <ClInclude Include="nodoCursos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="persona.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="universidad.cpp">
@@ -72,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="contenedorCursos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="persona.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
