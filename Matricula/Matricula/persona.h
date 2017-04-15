@@ -24,6 +24,6 @@ public:
 	virtual int getNumCedula();
 	virtual void setNumTelefono(int);
 	virtual int getNumTelefono();
-	virtual friend ostream& operator << (ostream&, const Persona&);
+	friend ostream& operator << (ostream&, const Persona&); // No puede ser heredado, ve vos
 };
 #endif // !PERSONA
