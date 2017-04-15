@@ -258,7 +258,7 @@ void Control::MenuProfesores()
 
 	do
 	{
-		char opcion = Interfaz::vMenuProfesores();
+		char opcion = Interfaz::vMenuProfesores(U);
 		switch (opcion)
 		{
 		case '1':

@@ -497,6 +497,32 @@ void Interfaz::vInfoEscuelas(Universidad* U, char op)
 	system("cls");
 }
 
+char Interfaz::vMenuProfesores(Universidad* U)
+{
+	char ans;
+	cout << "**************MENU PROFESORES**************" << endl;
+	cout << "(1)--Consultar lista de Profesores por Escuela" << endl;
+	cout << "(2)--Consultar lista de Profesores por Curso" << endl;
+	cout << "(3)--Salir" << endl;
+	cout << "********************************************" << endl;
+
+	ans = _getch();
+
+	while (ans < '1' || ans > '3')
+	{
+		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
+		ans = _getch();
+	}
+
+	system("cls");
+	return ans;
+}
+
+void Interfaz::vIngresaProfesor(Universidad* U)
+{
+
+}
+
 
 
 
