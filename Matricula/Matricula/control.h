@@ -19,6 +19,8 @@ public:
 	void MenuEscuelas();
 	void MenuCursos();
 	void MenuAjustes();
+	void MenuProfesores();
+	void MenuEstudiante();
 };
 
 #endif

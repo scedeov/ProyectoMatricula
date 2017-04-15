@@ -252,3 +252,26 @@ void Control::MenuAjustes()
 	} while (end == false);
 }
 
+void Control::MenuProfesores()
+{
+	bool end = false;
+
+	do
+	{
+		char opcion = Interfaz::vMenuProfesores();
+		switch (opcion)
+		{
+		case '1':
+			{
+
+	
+			}
+
+		}
+	} while (end == false);
+}
+
+void Control::MenuEstudiante()
+{
+}
+
