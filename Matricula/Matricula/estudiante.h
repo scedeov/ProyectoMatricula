@@ -10,17 +10,16 @@ class Estudiante: private Persona
 {
 private:
 	string carnet;
-	string nacionalidad;
+	bool esExtranjero;
 	int porcentajeBeca;
 public:
 	Estudiante();
 	void setCarnet(string);
 	string getCarnet();
-	void setNacionalidad(string);
-	string getNacionalidad();
+	void setNacionalidad(bool);
+	bool getNacionalidad();
 	void setPorcentajeBeca(int);
 	int getPorcentajeBeca();
-
 	~Estudiante();
 };
 #endif // !ESTUDIANTE

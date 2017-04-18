@@ -3,7 +3,7 @@
 Estudiante::Estudiante()
 {
 	carnet = "undefined";
-	nacionalidad = "undefined";
+	esExtranjero = "undefined";
 	porcentajeBeca = 0;
 }
 
@@ -17,14 +17,14 @@ string Estudiante::getCarnet()
 	return carnet;
 }
 
-void Estudiante::setNacionalidad(string nacionalidad)
+void Estudiante::setNacionalidad(bool esExtranjero)
 {
-	this->nacionalidad = nacionalidad;
+	this->esExtranjero = esExtranjero;
 }
 
-string Estudiante::getNacionalidad()
+bool Estudiante::getNacionalidad()
 {
-	return nacionalidad;
+	return esExtranjero;
 }
 
 void Estudiante::setPorcentajeBeca(int porcentajeBeca)
