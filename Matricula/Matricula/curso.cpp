@@ -28,6 +28,11 @@ void Curso::setCodigoCurso(string unCodigoCurso)
 	codigoCurso = unCodigoCurso;
 }
 
+void Curso::setCantidadCreditos(int cantidadCreditos)
+{
+	this->cantidadCreditos = cantidadCreditos;
+}
+
 string Curso::getNombre()
 {
 	return nombreCurso;
@@ -36,6 +41,11 @@ string Curso::getNombre()
 string Curso::getCodigoCurso()
 {
 	return codigoCurso;
+}
+
+int Curso::getCantidadCreditos()
+{
+	return cantidadCreditos;
 }
 
 string Curso::toString()

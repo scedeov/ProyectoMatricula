@@ -7,6 +7,8 @@
 using namespace std;
 
 #include "contenedorEscuelas.h"
+#include "contenedorEstudiantes.h"
+#include "aranceles.h"
 
 class Universidad
 {

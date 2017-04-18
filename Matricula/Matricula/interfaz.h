@@ -2,6 +2,7 @@
 #define INTERFAZ
 
 #include "universidad.h"
+#include "aranceles.h"
 
 #include <iostream>
 #include <Windows.h>
