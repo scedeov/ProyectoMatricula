@@ -10,7 +10,12 @@ using namespace std;
 class Contenedor_Profesores
 {
 private:
-	Nodo
+	Nodo_Profesores *pinicio;
+	Nodo_Profesores *paux;
+public:
+	Contenedor_Profesores();
+	void insertaInicio(Profesor*);
+	~Contenedor_Profesores();
 
 };
 #endif // !CONTENEDOR_PROFESORES

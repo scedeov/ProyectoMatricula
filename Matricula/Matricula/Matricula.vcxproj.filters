@@ -101,6 +101,9 @@
     <ClCompile Include="nodoProfesores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="contenedorProfesores.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
