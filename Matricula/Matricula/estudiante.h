@@ -9,9 +9,18 @@ using namespace std;
 class Estudiante: private Persona
 {
 private:
-	
+	string carnet;
+	string nacionalidad;
+	int porcentajeBeca;
 public:
 	Estudiante();
+	void setCarnet(string);
+	string getCarnet();
+	void setNacionalidad(string);
+	string getNacionalidad();
+	void setPorcentajeBeca(int);
+	int getPorcentajeBeca();
+
 	~Estudiante();
 };
 #endif // !ESTUDIANTE

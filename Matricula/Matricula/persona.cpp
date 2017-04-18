@@ -1,11 +1,9 @@
 #include "persona.h"
 
-Persona::Persona()
-{
+Persona::Persona(){
 	nombre = "";
-	apellido = "";
+	primerApellido = "";
 	numCedula = 0;
-	numTelefono = 0;
 }
 
 Persona::~Persona()
@@ -23,14 +21,22 @@ string Persona::getNombre()
 	return nombre;
 }
 
-void Persona::setApellido(string apellido)
+void Persona::setPrimerApellido(string primerApellido)
 {
-	this->apellido = apellido;
+	this->primerApellido = primerApellido;
 }
 
-string Persona::getApellido()
+string Persona::getPrimerApellido()
 {
-	return apellido;
+	return primerApellido;
+}
+
+void Persona::setSegundoApellido(string segundoApellido) {
+	this->segundoApellido = segundoApellido;
+}
+
+string Persona::getSegundoApellido() {
+	return segundoApellido;
 }
 
 void Persona::setNumCedula(int numCedula)
@@ -43,19 +49,9 @@ int Persona::getNumCedula()
 	return numCedula;
 }
 
-void Persona::setNumTelefono(int numTelefono)
-{
-	this->numTelefono = numTelefono;
-}
-
-int Persona::getNumTelefono()
-{
-	return numTelefono;
-}
-
 ostream& operator<< (ostream& o, const Persona& p)
 {
-	o << "Nombre: " << p.nombre << "Apellido: " << p.apellido
-		<< "Numero de Cedula: " << p.numCedula << "Numero de Telefono: " << p.numTelefono << endl;
+	o	<< "Nombre: " << p.nombre << "Apellido: " << p.primerApellido
+		<< "Numero de Cedula: " << p.numCedula << "Numero de Telefono: " << endl;
 	return o;
 }

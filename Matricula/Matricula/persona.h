@@ -9,21 +9,21 @@ class Persona
 {
 private:
 	string nombre;
-	string apellido;
+	string primerApellido;
+	string segundoApellido;
 	int numCedula;
-	int numTelefono;
 
 public:
 	Persona();
 	virtual ~Persona();
 	virtual void setNombre(string);
 	virtual string getNombre();
-	virtual void setApellido(string);
-	virtual string getApellido();
+	virtual void setPrimerApellido(string);
+	virtual void setSegundoApellido(string);
+	virtual string getPrimerApellido();
+	virtual string getSegundoApellido();
 	virtual void setNumCedula(int);
 	virtual int getNumCedula();
-	virtual void setNumTelefono(int);
-	virtual int getNumTelefono();
 	friend ostream& operator << (ostream&, const Persona&); // No puede ser heredado, ve vos
 };
 #endif // !PERSONA
