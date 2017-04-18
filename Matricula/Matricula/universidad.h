@@ -8,7 +8,6 @@ using namespace std;
 
 #include "contenedorEscuelas.h"
 #include "contenedorEstudiantes.h"
-#include "aranceles.h"
 
 class Universidad
 {
@@ -16,8 +15,9 @@ private:
 	string nombre;
 	string numeroTelefono;
 	string direccion;
-	int a;
+	/*int a;*/
 	Contenedor_Escuelas* CE;
+	Contenedor_Estudiantes* CEs;
 
 public:
 	Universidad();
