@@ -80,11 +80,17 @@ void Universidad::insertarCurso(string sigla, Curso *c)
 	retornaEscuela(sigla)->insertarCurso(c);
 }
 
-ostream& operator << (ostream &o, const Universidad& U)
+string Universidad::toString()
 {
-	o	<< "Nombre Universidad: " << U.nombre << endl
-		<< "Numero de Telefono: " << U.numeroTelefono << endl
-		<< "Direccion: " << U.direccion << endl;
+	stringstream s;
+	s << "Nombre Universidad: " << nombre << endl
+		<< "Numero de Telefono: " << numeroTelefono << endl
+		<< "Direccion: " << direccion << endl;
 
-	return o;
+	return s.str();
+}
+
+ostream& operator << (ostream &o, Universidad& U)
+{
+	return o << U.toString();
 }

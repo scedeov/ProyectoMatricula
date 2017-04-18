@@ -28,13 +28,12 @@ public:
 	string getNumero();
 	string getDireccion();
 	Contenedor_Escuelas* getContenedorEscuelas();
-
 	Curso* retornaCurso(string);
 	Escuela* retornaEscuela(string);
 	void insertarEscuela(Escuela*);
 	void insertarCurso(string, Curso*);
-
-	friend ostream& operator << (ostream&, const Universidad&);
+	string toString();
+	friend ostream& operator << (ostream&, Universidad&);
 };
 #endif // !UNIVERSIDAD
 

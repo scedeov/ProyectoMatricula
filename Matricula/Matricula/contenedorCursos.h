@@ -17,8 +17,6 @@ public:
 	Curso* retornaCurso(string);
 	bool encuentraCurso(Curso*, string);
 	string toString();
-
-	
 	~Contenedor_Cursos();
 };
 #endif // !CONTENEDOR_CURSOS

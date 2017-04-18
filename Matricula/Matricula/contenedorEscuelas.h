@@ -10,16 +10,11 @@ private:
 	Nodo_Escuelas* paux;
 public:
 	Contenedor_Escuelas();
-
 	void insertaralInicio(Escuela*);
-
 	Escuela* retornaEscuela(string);
 	bool encuentraEscuela(Escuela*, string);
-
 	Curso* retornaCurso(string);
-
 	string toString(char);
-
 	~Contenedor_Escuelas();
 };
 
