@@ -37,7 +37,7 @@ public:
 	static string convierteMayuscula(string);
 	static void vInfoUniversidad(Universidad*);
 	static void vInfoEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
-	static char vMenuProfesores(Universidad*);
+	static char vMenuProfesores();
 	static void vIngresaProfesor(Universidad*);
 };
 #endif // !INTERFAZ

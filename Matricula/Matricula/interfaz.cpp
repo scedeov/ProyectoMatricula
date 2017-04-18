@@ -15,13 +15,15 @@ char Interfaz::vMenuPrincipal()
 	cout << "(1)--Universidad" << endl;
 	cout << "(2)--Escuelas" << endl;
 	cout << "(3)--Cursos" << endl;
-	cout << "(4)--Ajustes" << endl;
-	cout << "(5)--Salir" << endl;
+	cout << "(4)--Profesores" << endl;
+	cout << "(5)--Estudiantes" << endl;
+	cout << "(6)--Ajustes" << endl;
+	cout << "(7)--Salir" << endl;
 	cout << "******************************************" << endl;
 
 	ans = _getch();
 
-	while (ans < '1' || ans > '5')
+	while (ans < '1' || ans > '7') //cambiar cada vez que se agrega opcion
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
@@ -429,7 +431,6 @@ void Interfaz::vListaCursosEscuelaParticular(Universidad *U)
 	system("cls");
 }
 
-
 bool Interfaz::chequeaNumero(string num)
 {
 	bool esNumero;
@@ -446,7 +447,6 @@ bool Interfaz::chequeaNumero(string num)
 	}
 	return esNumero;
 }
-
 
 void Interfaz::msjPerfecto()
 {
@@ -497,8 +497,7 @@ void Interfaz::vInfoEscuelas(Universidad* U, char op)
 	system("cls");
 }
 
-char Interfaz::vMenuProfesores(Universidad* U)
-{
+char Interfaz::vMenuProfesores() {
 	char ans;
 	cout << "**************MENU PROFESORES**************" << endl;
 	cout << "(1)--Consultar lista de Profesores por Escuela" << endl;

@@ -60,10 +60,20 @@ void Control::MenuPrincipal()
 		}
 		case '4':
 		{
+			MenuProfesores();
+			break;
+		}
+		case'5':
+		{
+			MenuEstudiantes();
+			break;
+		}
+		case '6':
+		{
 			MenuAjustes();
 			break;
 		}
-		case '5':
+		case '7':
 		{
 			delete U;
 			end = true;
@@ -258,20 +268,22 @@ void Control::MenuProfesores()
 
 	do
 	{
-		char opcion = Interfaz::vMenuProfesores(U);
+		char opcion = Interfaz::vMenuProfesores();
 		switch (opcion)
 		{
 		case '1':
-			{
-
-	
-			}
-
+		{
+			break;
+		}
+		case'2':
+		{
+			break;
+		}
 		}
 	} while (end == false);
 }
 
-void Control::MenuEstudiante()
+void Control::MenuEstudiantes()
 {
 }
 

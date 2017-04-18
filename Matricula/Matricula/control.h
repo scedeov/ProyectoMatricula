@@ -20,7 +20,7 @@ public:
 	void MenuCursos();
 	void MenuAjustes();
 	void MenuProfesores();
-	void MenuEstudiante();
+	void MenuEstudiantes();
 };
 
 #endif
