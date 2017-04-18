@@ -1,6 +1,6 @@
 #include "control.h"
 
-int Curso::cantidad = 0;
+int Curso::cantidad = 0; // variable que controla el codigo del curso
 
 void Control::Inicializador()
 {
