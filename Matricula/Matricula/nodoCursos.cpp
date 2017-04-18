@@ -26,13 +26,20 @@ Nodo_Cursos * Nodo_Cursos::getNext()
 	return Next;
 }
 
-//string Nodo_Cursos::toStringNodo()
-//{
-//	return c->toStringCurso();
-//}
+string Nodo_Cursos::toStringNodo()
+{
+	stringstream s;
+	s << c->toString();
+	return s.str();
+}
 
 Nodo_Cursos::~Nodo_Cursos()
 {
 	cout << "Eliminando Nodo de Cursos" << endl;
 	delete c;
+}
+
+ostream & operator<<(ostream &o, Nodo_Cursos &NC)
+{
+	return o << NC.toStringNodo();
 }

@@ -10,15 +10,12 @@ private:
 	Nodo_Cursos* Next;
 public:
 	Nodo_Cursos(Curso*, Nodo_Cursos*);
-
 	void setCurso(Curso*);
 	Curso* getCurso();
-
 	void setNext(Nodo_Cursos*);
 	Nodo_Cursos* getNext();
-
-	/*string toStringNodo();*/
-
+	string toStringNodo();
+	friend ostream& operator<<(ostream&, Nodo_Cursos&);
 	~Nodo_Cursos();
 };
 

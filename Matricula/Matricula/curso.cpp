@@ -38,10 +38,16 @@ string Curso::getCodigoCurso()
 	return codigoCurso;
 }
 
-ostream& operator << (ostream& o, const Curso& c)
+string Curso::toString()
 {
-	o << "Codigo del curso: " << c.codigoCurso << "||| " << c.nombreCurso << endl;
-	return o;
+	stringstream s;
+	s << "Codigo del Curso: " << codigoCurso << " | " << nombreCurso << endl;
+	return s.str();
+}
+
+ostream& operator << (ostream& o, Curso& c)
+{
+	return o << c.toString();
 }
 
 bool Curso::operator == (const Curso &c) const
