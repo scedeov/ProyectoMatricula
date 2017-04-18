@@ -3,7 +3,7 @@
 Nodo_Escuelas::Nodo_Escuelas(Escuela* unEscuela, Nodo_Escuelas* unNext)
 {
 	e = unEscuela;
-	next = unNext;
+	Next = unNext;
 }
 
 void Nodo_Escuelas::setEscuela(Escuela* unEscuela)
@@ -18,12 +18,12 @@ Escuela * Nodo_Escuelas::getEscuela()
 
 void Nodo_Escuelas::setNext(Nodo_Escuelas* unNext)
 {
-	next = unNext;
+	Next = unNext;
 }
 
 Nodo_Escuelas * Nodo_Escuelas::getNext()
 {
-	return next;
+	return Next;
 }
 
 string Nodo_Escuelas::toStringNodo(char op)

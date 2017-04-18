@@ -7,7 +7,7 @@ class Nodo_Escuelas
 {
 private:
 	Escuela* e;
-	Nodo_Escuelas* next;
+	Nodo_Escuelas* Next;
 public:
 	Nodo_Escuelas(Escuela*, Nodo_Escuelas*);
 

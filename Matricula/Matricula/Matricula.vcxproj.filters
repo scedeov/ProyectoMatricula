@@ -51,6 +51,12 @@
     <ClInclude Include="estudiante.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="contenedorProfesores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nodoProfesores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="universidad.cpp">
@@ -90,6 +96,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="estudiante.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nodoProfesores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

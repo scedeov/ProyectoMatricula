@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClInclude Include="contenedorCursos.h" />
     <ClInclude Include="contenedorEscuelas.h" />
+    <ClInclude Include="contenedorProfesores.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="curso.h" />
     <ClInclude Include="escuela.h" />
@@ -119,6 +120,7 @@
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="nodoCursos.h" />
     <ClInclude Include="nodoEscuelas.h" />
+    <ClInclude Include="nodoProfesores.h" />
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />
     <ClInclude Include="universidad.h" />
@@ -134,6 +136,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoCursos.cpp" />
     <ClCompile Include="nodoEscuelas.cpp" />
+    <ClCompile Include="nodoProfesores.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="profesor.cpp" />
     <ClCompile Include="universidad.cpp" />
