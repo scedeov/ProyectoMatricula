@@ -40,8 +40,8 @@ int Estudiante::getPorcentajeBeca()
 string Estudiante::toString()
 {
 	stringstream s;
-	s << "Nombre: " << getNombre() << " " << getPrimerApellido << " " << getSegundoApellido << endl;
-	s << "Numero de Cedula: " << getNumCedula << endl;
+	s << "Nombre: " << getNombre() << " " << getPrimerApellido() << " " << getSegundoApellido() << endl;
+	s << "Numero de Cedula: " << getNumCedula() << endl;
 	s << "Numero de Carnet: " << carnet << endl;
 	s << "Nacionalidad: "; 
 	if (esExtranjero)
