@@ -1,5 +1,10 @@
 #include "profesor.h"
 
+int Profesor::getNumCedulaProfe()
+{
+	return getNumCedula();
+}
+
 Profesor::Profesor(string nombre, string primerApellido, string segundoApellido, int numCedula)
 {
 	setNombre(nombre);

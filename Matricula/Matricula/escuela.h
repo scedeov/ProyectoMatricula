@@ -28,6 +28,7 @@ public:
 	void insertarCurso(Curso*);
 	Contenedor_Cursos* retornaContenedorCursos();
 	Contenedor_Profesores* retornaContenedorProfes();
+	Profesor* retornaProfesor(int);
 	Curso* retornaCurso(string);
 	void insertarProfesor(Profesor*);
 	string toStringEscuela(char);

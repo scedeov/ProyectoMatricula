@@ -12,6 +12,7 @@ private:
 	bool esDirector;
 	friend ostream& operator << (ostream&, Profesor&);
 public:
+	int getNumCedulaProfe();
 	Profesor(string, string, string, int);
 	string toString();
 	~Profesor();

@@ -34,6 +34,18 @@ Escuela * Contenedor_Escuelas::retornaEscuela(string sigla)
 	return nullptr;
 }
 
+Profesor * Contenedor_Escuelas::retornaProfesor(int cedula)
+{
+	paux = pinicio;
+	while (paux != NULL) {
+		if (paux->retornaProfesor(cedula) != NULL)
+			return paux->retornaProfesor(cedula);
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
+}
+
 bool Contenedor_Escuelas::encuentraEscuela(Escuela* e, string sigla)
 {
 	if (e->getSiglaEscuela() == sigla)

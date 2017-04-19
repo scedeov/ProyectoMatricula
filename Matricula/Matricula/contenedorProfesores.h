@@ -16,6 +16,8 @@ private:
 public:
 	Contenedor_Profesores();
 	void insertaInicio(Profesor*);
+	Profesor* retornaProfesor(int);
+	bool encuentraProfesor(Profesor*, int);
 	string toString();
 	~Contenedor_Profesores();
 };

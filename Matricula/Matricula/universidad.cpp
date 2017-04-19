@@ -70,6 +70,10 @@ Escuela* Universidad::retornaEscuela(string sigla)
 	return CE->retornaEscuela(sigla);
 }
 
+Profesor* Universidad::retornaProfesor(int cedula) {
+	return CE->retornaProfesor(cedula);
+}
+
 void Universidad::insertarEscuela(Escuela *e)
 {
 	CE->insertaralInicio(e);

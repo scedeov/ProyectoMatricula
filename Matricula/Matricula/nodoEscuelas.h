@@ -19,6 +19,7 @@ public:
 
 	string toStringNodo(char);
 	Curso* retornaCurso(string);
+	Profesor* retornaProfesor(int);
 
 	~Nodo_Escuelas();
 };

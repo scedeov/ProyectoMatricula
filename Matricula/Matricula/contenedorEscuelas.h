@@ -12,6 +12,7 @@ public:
 	Contenedor_Escuelas();
 	void insertaralInicio(Escuela*);
 	Escuela* retornaEscuela(string);
+	Profesor* retornaProfesor(int);
 	bool encuentraEscuela(Escuela*, string);
 	Curso* retornaCurso(string);
 	string toString(char);

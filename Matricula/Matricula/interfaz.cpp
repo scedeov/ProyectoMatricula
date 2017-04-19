@@ -398,12 +398,11 @@ void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 
 void Interfaz::vInfoCurso(Universidad *U) //necesita ser optimizado
 {
-	string codigo, sigla;
+	string codigo;
 	cout << "Ingrese el codigo del curso que desea consultar -> ";
 	cin >> codigo; cin.ignore();
 
 	codigo = convierteMayuscula(codigo);
-	sigla = codigo.substr(0, 3);
 
 	if (!U->retornaCurso(codigo))
 		cout << "El curso no ha sido encontrado..." << endl;
@@ -502,13 +501,14 @@ char Interfaz::vMenuProfesores() {
 	cout << "**************MENU PROFESORES**************" << endl;
 	cout << "(1)--Consultar lista de Profesores por Escuela" << endl;
 	cout << "(2)--Consultar lista de Profesores por Curso" << endl;
-	cout << "(3)--Agregar Profesor" << endl;
-	cout << "(4)--Salir" << endl;
+	cout << "(3)--Buscar Profesor por Cedula" << endl;
+	cout << "(4)--Agregar Profesor" << endl;
+	cout << "(5)--Salir" << endl;
 	cout << "********************************************" << endl;
 
 	ans = _getch();
 
-	while (ans < '1' || ans > '4')
+	while (ans < '1' || ans > '5')
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
@@ -570,6 +570,20 @@ void Interfaz::vConsultarProfesEscuela(Universidad* U) {
 
 	msjPausa();
 	system("cls");
+}
+
+void Interfaz::vConsultarProfeCedula(Universidad *U)
+{
+	cout << "Digite la cedula a consultar -> "; int cedula; cin >> cedula; cin.ignore();
+
+	if (!U->retornaProfesor(cedula))
+		cout << "El Profesor no ha sido encontrado..." << endl;
+	else
+		cout << *(U->retornaProfesor(cedula)) << endl;
+
+	msjPausa();
+	system("cls");
+
 }
 
 

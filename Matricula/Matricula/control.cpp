@@ -265,27 +265,25 @@ void Control::MenuProfesores()
 {
 	bool end = false;
 
-	do
-	{
+	do {
 		char opcion = Interfaz::vMenuProfesores();
-		switch (opcion)
-		{
-		case '1':
-		{
+		switch (opcion) {
+		case '1': {
 			Interfaz::vConsultarProfesEscuela(U);
 			break;
 		}
-		case'2':
-		{
+		case'2': {
 			break;
 		}
-		case '3':
-		{
+		case '3': {
+			Interfaz::vConsultarProfeCedula(U);
+			break;
+		}
+		case '4': {
 			Interfaz::vAgregarProfesor(U);
 			break;
 		}
-		case '4':
-		{
+		case '5': {
 			end = true;
 			break;
 		}

@@ -31,6 +31,7 @@ public:
 	Contenedor_Escuelas* getContenedorEscuelas();
 	Curso* retornaCurso(string);
 	Escuela* retornaEscuela(string);
+	Profesor* retornaProfesor(int);
 	void insertarEscuela(Escuela*);
 	void insertarCurso(string, Curso*);
 	void insertarProfesor(string, Profesor*);

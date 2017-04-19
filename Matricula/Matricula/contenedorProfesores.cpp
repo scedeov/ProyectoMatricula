@@ -16,6 +16,26 @@ void Contenedor_Profesores::insertaInicio(Profesor *P) {
 	}
 }
 
+Profesor * Contenedor_Profesores::retornaProfesor(int cedula) {
+	paux = pinicio;
+	while (paux != NULL)
+	{
+		if (encuentraProfesor(paux->getProfesor(), cedula) == true)
+			return paux->getProfesor();
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
+}
+
+bool Contenedor_Profesores::encuentraProfesor(Profesor *P, int cedula) {
+	if (P->getNumCedulaProfe() == cedula)
+		return true;
+	else
+		return false;
+}
+
+
 string Contenedor_Profesores::toString()
 {
 	stringstream s;

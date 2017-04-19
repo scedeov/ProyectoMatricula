@@ -68,6 +68,11 @@ Contenedor_Profesores * Escuela::retornaContenedorProfes() {
 	return ContP;
 }
 
+Profesor * Escuela::retornaProfesor(int cedula)
+{
+	return ContP->retornaProfesor(cedula);
+}
+
 Curso * Escuela::retornaCurso(string codigo)
 {
 	return ConC->retornaCurso(codigo);
