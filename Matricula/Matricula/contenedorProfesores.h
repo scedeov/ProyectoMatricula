@@ -12,10 +12,11 @@ class Contenedor_Profesores
 private:
 	Nodo_Profesores *pinicio;
 	Nodo_Profesores *paux;
+	friend ostream& operator << (ostream&, Contenedor_Profesores&);
 public:
 	Contenedor_Profesores();
 	void insertaInicio(Profesor*);
+	string toString();
 	~Contenedor_Profesores();
-
 };
 #endif // !CONTENEDOR_PROFESORES

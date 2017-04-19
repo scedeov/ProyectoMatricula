@@ -6,7 +6,7 @@ Contenedor_Profesores::Contenedor_Profesores()
 	paux = NULL;
 }
 
-void Contenedor_Profesores::insertaInicio(Profesor *P){ 
+void Contenedor_Profesores::insertaInicio(Profesor *P) {
 	paux = new Nodo_Profesores(P, NULL);
 	if (pinicio == NULL)
 		pinicio = paux;
@@ -14,6 +14,17 @@ void Contenedor_Profesores::insertaInicio(Profesor *P){
 		paux->setNext(pinicio);
 		pinicio = paux;
 	}
+}
+
+string Contenedor_Profesores::toString()
+{
+	stringstream s;
+	paux = pinicio;
+	while (paux != NULL) {
+		s << *paux;
+		paux = paux->getNext();
+	}
+	return s.str();
 }
 
 Contenedor_Profesores::~Contenedor_Profesores() {
@@ -24,4 +35,8 @@ Contenedor_Profesores::~Contenedor_Profesores() {
 		pinicio = pinicio->getNext();
 		delete paux;
 	}
+}
+
+ostream & operator<<(ostream &o, Contenedor_Profesores &ContP) {
+	return o << ContP.toString();
 }

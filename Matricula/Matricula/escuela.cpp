@@ -80,10 +80,14 @@ string Escuela::toStringEscuela(char op)
 	s << "Nombre de la Escuela: " << nombreEscuela;
 	s << "| Codigo: " << siglaEscuela << endl;
 
-	if (op == '2')
-	{
+	if (op == '2') {
 		s << "Cursos Impartidos: " << endl;
 		s << *ConC << endl;
+	}
+
+	if (op == '3') {
+		s << "Profesores: " << endl;
+		s << *ContP << endl;
 	}
 
 	return s.str();

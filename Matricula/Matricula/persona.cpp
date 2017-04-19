@@ -49,9 +49,10 @@ int Persona::getNumCedula()
 	return numCedula;
 }
 
-ostream& operator<< (ostream& o, const Persona& p)
+string Persona::toString()
 {
-	o	<< "Nombre: " << p.nombre << "Apellido: " << p.primerApellido
-		<< "Numero de Cedula: " << p.numCedula << "Numero de Telefono: " << endl;
-	return o;
+	stringstream s;
+	s << "Nombre: " << getNombre() << " " << getPrimerApellido() << " " << getSegundoApellido() << endl;
+	s << "Numero de Cedula: " << getNumCedula() << endl;
+	return s.str();
 }

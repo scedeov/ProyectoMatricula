@@ -17,7 +17,7 @@ private:
 	string direccion;
 	Contenedor_Escuelas* CE;
 	Contenedor_Estudiantes* CEs;
-
+	friend ostream& operator << (ostream&, Universidad&);
 public:
 	Universidad();
 	Universidad(string, string, string);
@@ -35,7 +35,6 @@ public:
 	void insertarCurso(string, Curso*);
 	void insertarProfesor(string, Profesor*);
 	string toString();
-	friend ostream& operator << (ostream&, Universidad&);
 };
 #endif // !UNIVERSIDAD
 

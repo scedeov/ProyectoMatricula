@@ -272,6 +272,7 @@ void Control::MenuProfesores()
 		{
 		case '1':
 		{
+			Interfaz::vConsultarProfesEscuela(U);
 			break;
 		}
 		case'2':

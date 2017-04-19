@@ -544,6 +544,9 @@ void Interfaz::vAgregarProfesor(Universidad* U)
 	msjPerfecto();
 }
 
+void Interfaz::vConsultarProfesEscuela(Universidad* U) {
+	U->getContenedorEscuelas()->toString('3');
+}
 
 
 

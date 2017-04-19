@@ -26,8 +26,18 @@ Profesor * Nodo_Profesores::getProfesor()
 	return P;
 }
 
+string Nodo_Profesores::toStringNodo()
+{
+	return P->toString();
+}
+
 Nodo_Profesores::~Nodo_Profesores()
 {
 	cout << "Eliminando Nodo Profesores..." << endl;
 	delete P;
+}
+
+ostream & operator<<(ostream &o, Nodo_Profesores &NP)
+{
+	return o << NP.toStringNodo();
 }

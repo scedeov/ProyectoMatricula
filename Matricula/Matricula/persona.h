@@ -12,7 +12,6 @@ private:
 	string primerApellido;
 	string segundoApellido;
 	int numCedula;
-
 public:
 	Persona();
 	virtual ~Persona();
@@ -24,6 +23,6 @@ public:
 	virtual string getSegundoApellido();
 	virtual void setNumCedula(int);
 	virtual int getNumCedula();
-	friend ostream& operator << (ostream&, const Persona&); // No puede ser heredado, ve vos
+	virtual string toString();
 };
 #endif // !PERSONA
