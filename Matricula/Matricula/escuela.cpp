@@ -1,6 +1,6 @@
 #include "escuela.h"
 
-Escuela::Escuela(string unNombre = "Undefined"):
+Escuela::Escuela(string unNombre = "Undefined") :
 	nombreEscuela(unNombre)
 {
 	siglaEscuela = generaSigla(nombreEscuela);
@@ -8,7 +8,9 @@ Escuela::Escuela(string unNombre = "Undefined"):
 	if (nombreEscuela != "Undefined")
 		nombreEscuela = "Escuela de " + nombreEscuela;
 
+	ContP = new Contenedor_Profesores();
 	ConC = new Contenedor_Cursos();
+
 }
 
 Escuela::~Escuela()

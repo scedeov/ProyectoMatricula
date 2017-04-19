@@ -528,6 +528,16 @@ void Interfaz::vAgregarProfesor(Universidad* U)
 	Profesor *P = new Profesor(nombre, primerApellido, segundoApellido, cedula);
 	cout << U->getContenedorEscuelas()->toString('1') << endl;
 	cout << "Ingrese la sigla de la escuela a la cual desea asignar al nuevo profesor: "; string sigla; cin >> sigla; cin.ignore();
+
+	while (U->retornaEscuela(sigla) == nullptr)
+	{
+		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
+		cout << "-> ";
+		cin >> sigla; cin.ignore();
+
+		sigla = convierteMayuscula(sigla);
+	}
+
 	U->insertarProfesor(sigla, P);
 	msjPerfecto();
 }

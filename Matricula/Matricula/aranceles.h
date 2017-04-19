@@ -11,7 +11,7 @@ private:
 	const int cargosAdministrativos = 15000;
 	const double recargoExtranjeros = 0.40;
 public:
-	float cobroMatricula(Curso*, Estudiante*);
+	double cobroMatricula(Curso*, Estudiante*);
 
 };
 #endif // !ARANCELES
