@@ -52,7 +52,7 @@ int Persona::getNumCedula()
 string Persona::toString()
 {
 	stringstream s;
-	s << "Nombre: " << getNombre() << " " << getPrimerApellido() << " " << getSegundoApellido() << endl;
-	s << "Numero de Cedula: " << getNumCedula() << endl;
+	s << "Nombre: " << getNombre() << " " << getPrimerApellido() << " " << getSegundoApellido() << " | ";
+	s << " Numero de Cedula: " << getNumCedula() << endl;
 	return s.str();
 }

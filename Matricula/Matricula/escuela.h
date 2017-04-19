@@ -27,6 +27,7 @@ public:
 	string generaSigla(string);
 	void insertarCurso(Curso*);
 	Contenedor_Cursos* retornaContenedorCursos();
+	Contenedor_Profesores* retornaContenedorProfes();
 	Curso* retornaCurso(string);
 	void insertarProfesor(Profesor*);
 	string toStringEscuela(char);

@@ -64,6 +64,10 @@ Contenedor_Cursos * Escuela::retornaContenedorCursos()
 	return ConC;
 }
 
+Contenedor_Profesores * Escuela::retornaContenedorProfes() {
+	return ContP;
+}
+
 Curso * Escuela::retornaCurso(string codigo)
 {
 	return ConC->retornaCurso(codigo);
@@ -84,11 +88,5 @@ string Escuela::toStringEscuela(char op)
 		s << "Cursos Impartidos: " << endl;
 		s << *ConC << endl;
 	}
-
-	if (op == '3') {
-		s << "Profesores: " << endl;
-		s << *ContP << endl;
-	}
-
 	return s.str();
 }

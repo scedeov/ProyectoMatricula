@@ -35,6 +35,7 @@ public:
 	void insertarCurso(string, Curso*);
 	void insertarProfesor(string, Profesor*);
 	string toString();
+	Contenedor_Profesores* retornaContenedorProfes(string);
 };
 #endif // !UNIVERSIDAD
 

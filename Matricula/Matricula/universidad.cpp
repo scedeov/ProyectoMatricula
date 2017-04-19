@@ -94,6 +94,11 @@ string Universidad::toString()
 	return s.str();
 }
 
+Contenedor_Profesores* Universidad::retornaContenedorProfes(string sigla)
+{
+	return CE->retornaEscuela(sigla)->retornaContenedorProfes();
+}
+
 ostream& operator << (ostream &o, Universidad& U)
 {
 	return o << U.toString();

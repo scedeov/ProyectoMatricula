@@ -545,7 +545,31 @@ void Interfaz::vAgregarProfesor(Universidad* U)
 }
 
 void Interfaz::vConsultarProfesEscuela(Universidad* U) {
-	U->getContenedorEscuelas()->toString('3');
+	cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
+	cout << U->getContenedorEscuelas()->toString('1') << endl;
+
+	cout << "Digite las siglas de la Escuela a consultar la lista de Profesores -> ";
+	string sigla; cin >> sigla; cin.ignore();
+
+	sigla = convierteMayuscula(sigla);
+
+	while (U->retornaEscuela(sigla) == nullptr)
+	{
+		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
+		cout << "-> ";
+		cin >> sigla; cin.ignore();
+
+		sigla = convierteMayuscula(sigla);
+	}
+	
+	string verifica = U->retornaContenedorProfes(sigla)->toString();
+	if (verifica == "")
+		cout << "No hay profesores asignados a esta Escuela aun.";
+	else
+		cout << verifica;
+
+	msjPausa();
+	system("cls");
 }
 
 
