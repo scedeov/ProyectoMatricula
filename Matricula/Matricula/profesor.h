@@ -11,7 +11,7 @@ class Profesor: private Persona
 private:
 	bool esDirector;
 public:
-	Profesor();
+	Profesor(string, string, string, int);
 	~Profesor();
 };
 #endif // !PROFESOR

@@ -102,6 +102,6 @@ Contenedor_Cursos::~Contenedor_Cursos()
 	}
 }
 
-ostream & operator<<(ostream &o, Contenedor_Cursos &CC) {
-	return o << CC.toString();
+ostream & operator<<(ostream &o, Contenedor_Cursos &ConC) {
+	return o << ConC.toString();
 }

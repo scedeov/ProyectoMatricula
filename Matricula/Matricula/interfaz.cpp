@@ -502,12 +502,13 @@ char Interfaz::vMenuProfesores() {
 	cout << "**************MENU PROFESORES**************" << endl;
 	cout << "(1)--Consultar lista de Profesores por Escuela" << endl;
 	cout << "(2)--Consultar lista de Profesores por Curso" << endl;
-	cout << "(3)--Salir" << endl;
+	cout << "(3)--Agregar Profesor" << endl;
+	cout << "(4)--Salir" << endl;
 	cout << "********************************************" << endl;
 
 	ans = _getch();
 
-	while (ans < '1' || ans > '3')
+	while (ans < '1' || ans > '4')
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
@@ -517,9 +518,18 @@ char Interfaz::vMenuProfesores() {
 	return ans;
 }
 
-void Interfaz::vIngresaProfesor(Universidad* U)
+void Interfaz::vAgregarProfesor(Universidad* U)
 {
-
+	cout << "Agregando profesor..." << endl;
+	cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
+	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
+	cout << "Ingrese el nombre del profesor: "; string nombre; getline(cin, nombre); cout << endl;
+	cout << "Ingrese el numero de cedula: "; int cedula; cin >> cedula; cin.ignore(); cout << endl;
+	Profesor *P = new Profesor(nombre, primerApellido, segundoApellido, cedula);
+	cout << U->getContenedorEscuelas()->toString('1') << endl;
+	cout << "Ingrese la sigla de la escuela a la cual desea asignar al nuevo profesor: "; string sigla; cin >> sigla; cin.ignore();
+	U->insertarProfesor(sigla, P);
+	msjPerfecto();
 }
 
 

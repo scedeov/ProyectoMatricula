@@ -80,6 +80,10 @@ void Universidad::insertarCurso(string sigla, Curso *c)
 	retornaEscuela(sigla)->insertarCurso(c);
 }
 
+void Universidad::insertarProfesor(string sigla, Profesor *P){
+	retornaEscuela(sigla)->insertarProfesor(P);
+}
+
 string Universidad::toString()
 {
 	stringstream s;

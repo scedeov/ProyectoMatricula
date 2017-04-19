@@ -39,7 +39,7 @@ public:
 	static void vInfoUniversidad(Universidad*);
 	static void vInfoEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
 	static char vMenuProfesores();
-	static void vIngresaProfesor(Universidad*);
+	static void vAgregarProfesor(Universidad*);
 };
 #endif // !INTERFAZ
 

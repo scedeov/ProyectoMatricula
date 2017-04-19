@@ -255,7 +255,6 @@ void Control::MenuAjustes()
 				break;
 			}
 			default: break;
-
 			}
 		}
 
@@ -279,6 +278,17 @@ void Control::MenuProfesores()
 		{
 			break;
 		}
+		case '3':
+		{
+			Interfaz::vAgregarProfesor(U);
+			break;
+		}
+		case '4':
+		{
+			end = true;
+			break;
+		}
+		default: break;
 		}
 	} while (end == false);
 }
