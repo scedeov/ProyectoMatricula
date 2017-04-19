@@ -529,6 +529,8 @@ void Interfaz::vAgregarProfesor(Universidad* U)
 	cout << U->getContenedorEscuelas()->toString('1') << endl;
 	cout << "Ingrese la sigla de la escuela a la cual desea asignar al nuevo profesor: "; string sigla; cin >> sigla; cin.ignore();
 
+	sigla = convierteMayuscula(sigla);
+
 	while (U->retornaEscuela(sigla) == nullptr)
 	{
 		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
