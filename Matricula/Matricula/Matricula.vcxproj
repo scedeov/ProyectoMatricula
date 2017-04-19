@@ -113,6 +113,7 @@
     <ClInclude Include="aranceles.h" />
     <ClInclude Include="contenedorCursos.h" />
     <ClInclude Include="contenedorEscuelas.h" />
+    <ClInclude Include="contenedorEstudiantes.h" />
     <ClInclude Include="contenedorProfesores.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="curso.h" />
@@ -121,6 +122,7 @@
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="nodoCursos.h" />
     <ClInclude Include="nodoEscuelas.h" />
+    <ClInclude Include="nodoEstudiantes.h" />
     <ClInclude Include="nodoProfesores.h" />
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />
@@ -130,6 +132,7 @@
     <ClCompile Include="aranceles.cpp" />
     <ClCompile Include="contenedorCursos.cpp" />
     <ClCompile Include="contenedorEscuelas.cpp" />
+    <ClCompile Include="contenedorEstudiantes.cpp" />
     <ClCompile Include="contenedorProfesores.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="curso.cpp" />
@@ -139,6 +142,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoCursos.cpp" />
     <ClCompile Include="nodoEscuelas.cpp" />
+    <ClCompile Include="nodoEstudiantes.cpp" />
     <ClCompile Include="nodoProfesores.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="profesor.cpp" />
