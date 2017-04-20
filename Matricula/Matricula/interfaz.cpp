@@ -15,13 +15,15 @@ char Interfaz::vMenuPrincipal()
 	cout << "(1)--Universidad" << endl;
 	cout << "(2)--Escuelas" << endl;
 	cout << "(3)--Cursos" << endl;
-	cout << "(4)--Ajustes" << endl;
-	cout << "(5)--Salir" << endl;
+	cout << "(4)--Profesores" << endl;
+	cout << "(5)--Estudiantes" << endl;
+	cout << "(6)--Ajustes" << endl;
+	cout << "(7)--Salir" << endl;
 	cout << "******************************************" << endl;
 
 	ans = _getch();
 
-	while (ans < '1' || ans > '5')
+	while (ans < '1' || ans > '7') //cambiar cada vez que se agrega opcion
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
@@ -285,7 +287,7 @@ void Interfaz::vIngresaEscuela(Universidad* U)
 
 	Escuela* escu = new Escuela(nombre);
 
-	U->insertarEscuela(escu);
+	U->getContenedorEscuelas()->insertarInicio(escu);
 
 	system("cls");
 }
@@ -301,8 +303,7 @@ void Interfaz::vIngresaCurso(Universidad* U)
 
 	sigla = convierteMayuscula(sigla);
 
-	while (U->retornaEscuela(sigla) == nullptr)
-	{
+	while (!U->getContenedorEscuelas()->retornaEscuela(sigla)) {
 		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
 		cout << "-> ";
 		cin >> sigla; cin.ignore();
@@ -313,13 +314,11 @@ void Interfaz::vIngresaCurso(Universidad* U)
 	system("cls");
 	string nombre;
 	cout << "Ingrese el nombre del curso -> "; getline(cin, nombre); cout << endl;
-
 	cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
 
 	char ans = vInfoConfirmacion();
 
-	while (nombre == "Undefined" || nombre == " " || nombre == "")
-	{
+	while (nombre == "Undefined" || nombre == " " || nombre == "") {
 		cout << "Nombre Invalido. Intente de nuevo -> ";
 		Sleep(800);
 		system("cls");
@@ -328,10 +327,9 @@ void Interfaz::vIngresaCurso(Universidad* U)
 
 	Curso* cur = new Curso(nombre, sigla);
 
-	U->insertarCurso(sigla, cur);
+	U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->insertaInicio(cur);
 
 	msjPerfecto();
-
 	system("cls");
 }
 
@@ -339,16 +337,16 @@ void Interfaz::vEditarCurso(Universidad *U)
 {
 	cout << U->getContenedorEscuelas()->toString('2');
 	cout << "Ingrese el codigo del curso que desea editar -> ";
-	string codigo;
+	string codigo, sigla;
 
 	cin >> codigo; cin.ignore();
 
 	codigo = convierteMayuscula(codigo);
+	sigla = codigo.substr(0, 3);
 
-	if (!U->retornaCurso(codigo))
+	if (!U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCurso(codigo))
 		cout << "El curso no ha sido encontrado..." << endl;
-	else
-	{
+	else {
 		string nombre;
 		cout << "Ingrese el nuevo nombre del curso -> "; getline(cin, nombre); cout << endl;
 
@@ -356,15 +354,16 @@ void Interfaz::vEditarCurso(Universidad *U)
 
 		char ans = vInfoConfirmacion();
 
-		while (nombre == "Undefined" || nombre == " " || nombre == "")
-		{
+		while (nombre == "Undefined" || nombre == " " || nombre == "") {
 			cout << "Nombre Invalido. Intente de nuevo -> ";
 			Sleep(800);
 			system("cls");
 			cout << "Ingrese el nuevo nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 		}
 
-		U->retornaCurso(codigo)->setNombre(nombre);
+		U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->
+			retornaCurso(codigo)->setNombre(nombre);
+
 		msjPerfecto();
 	}
 
@@ -375,17 +374,14 @@ void Interfaz::vEditarCurso(Universidad *U)
 void Interfaz::vEliminaCurso(Universidad *U) //debe implementarse mejor
 {
 	cout << U->getContenedorEscuelas()->toString('2') << endl;
-
 	cout << "Ingrese el codigo del curso que desea eliminar -> ";
 	string codigo, sigla, aux;
-
 	cin >> aux; cin.ignore();
 
 	codigo = convierteMayuscula(aux);
-
 	sigla = codigo.substr(0, 3);
 
-	if (U->retornaEscuela(sigla)->retornaContenedorCursos()->eliminaCursoEspecifico(codigo))
+	if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->eliminaCursoEspecifico(codigo))
 		cout << "Curso eliminado con exito" << endl;
 	else
 		cout << "No se ha podido eliminar el curso." << endl;
@@ -403,32 +399,30 @@ void Interfaz::vInfoCurso(Universidad *U) //necesita ser optimizado
 	codigo = convierteMayuscula(codigo);
 	sigla = codigo.substr(0, 3);
 
-	if (!U->retornaCurso(codigo))
+	if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCurso(codigo) == nullptr)
 		cout << "El curso no ha sido encontrado..." << endl;
-	else
-		cout << *(U->retornaCurso(codigo)) << endl;
+	else 
+		cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCurso(codigo)) << endl;
 
 	msjPausa();
 	system("cls");
 }
 
-void Interfaz::vListaCursosEscuelaParticular(Universidad *U)
-{
+void Interfaz::vListaCursosEscuelaParticular(Universidad *U) {
 	string sigla;
 	cout << "Ingrese la sigla de la escuela que desea consultar la lista de cursos -> ";
 	cin >> sigla; cin.ignore();
 
 	sigla = convierteMayuscula(sigla);
 
-	if (!U->retornaEscuela(sigla))
+	if (!U->getContenedorEscuelas()->retornaEscuela(sigla))
 		cout << "La escuela no ha sido encontrada..." << endl;
 	else
-		cout << U->retornaEscuela(sigla)->toStringEscuela('2') << endl;
+		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->toStringEscuela('2') << endl;
 
 	msjPausa();
 	system("cls");
 }
-
 
 bool Interfaz::chequeaNumero(string num)
 {
@@ -446,7 +440,6 @@ bool Interfaz::chequeaNumero(string num)
 	}
 	return esNumero;
 }
-
 
 void Interfaz::msjPerfecto()
 {
@@ -497,6 +490,89 @@ void Interfaz::vInfoEscuelas(Universidad* U, char op)
 	system("cls");
 }
 
+char Interfaz::vMenuProfesores() {
+	char ans;
+	cout << "**************MENU PROFESORES**************" << endl;
+	cout << "(1)--Consultar lista de Profesores por Escuela" << endl;
+	cout << "(2)--Consultar lista de Profesores por Curso" << endl;
+	cout << "(3)--Buscar Profesor por Cedula" << endl;
+	cout << "(4)--Agregar Profesor" << endl;
+	cout << "(5)--Salir" << endl;
+	cout << "********************************************" << endl;
+
+	ans = _getch();
+
+	while (ans < '1' || ans > '5')
+	{
+		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
+		ans = _getch();
+	}
+
+	system("cls");
+	return ans;
+}
+
+void Interfaz::vAgregarProfesor(Universidad* U) {
+	cout << "Agregando profesor..." << endl;
+	cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
+	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
+	cout << "Ingrese el nombre del profesor: "; string nombre; getline(cin, nombre); cout << endl;
+	cout << "Ingrese el numero de cedula: "; int cedula; cin >> cedula; cin.ignore(); cout << endl;
+	Profesor *P = new Profesor(nombre, primerApellido, segundoApellido, cedula);
+	cout << U->getContenedorEscuelas()->toString('1') << endl;
+	cout << "Ingrese la sigla de la escuela a la cual desea asignar al nuevo profesor: "; string sigla; cin >> sigla; cin.ignore();
+
+	sigla = convierteMayuscula(sigla);
+
+	while (!U->getContenedorEscuelas()->retornaEscuela(sigla)) {
+		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
+		cout << "-> ";
+		cin >> sigla; cin.ignore();
+		sigla = convierteMayuscula(sigla);
+	}
+
+	U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->insertaInicio(P);
+	msjPerfecto();
+}
+
+void Interfaz::vConsultarProfesEscuela(Universidad* U) {
+	cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
+	cout << U->getContenedorEscuelas()->toString('1') << endl;
+
+	cout << "Digite las siglas de la Escuela a consultar la lista de Profesores -> ";
+	string sigla; cin >> sigla; cin.ignore();
+	sigla = convierteMayuscula(sigla);
+
+	while (U->getContenedorEscuelas()->retornaEscuela(sigla) == nullptr) {
+		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
+		cout << "-> ";
+		cin >> sigla; cin.ignore();
+
+		sigla = convierteMayuscula(sigla);
+	}
+
+	string verifica = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->toString();
+	if (verifica == "")
+		cout << "No hay profesores asignados a esta Escuela aun.";
+	else
+		cout << verifica;
+
+	msjPausa();
+	system("cls");
+}
+
+void Interfaz::vConsultarProfeCedula(Universidad *U)
+{
+	cout << "Digite la cedula a consultar -> "; int cedula; cin >> cedula; cin.ignore();
+
+	if (!U->getContenedorEscuelas()->retornaProfesor(cedula))
+		cout << "El Profesor no ha sido encontrado..." << endl;
+	else
+		cout << *(U->getContenedorEscuelas()->retornaProfesor(cedula)) << endl;
+
+	msjPausa();
+	system("cls");
+}
 
 
 

@@ -1,6 +1,6 @@
 #include "escuela.h"
 
-Escuela::Escuela(string unNombre = "Undefined"):
+Escuela::Escuela(string unNombre = "Undefined") :
 	nombreEscuela(unNombre)
 {
 	siglaEscuela = generaSigla(nombreEscuela);
@@ -8,13 +8,15 @@ Escuela::Escuela(string unNombre = "Undefined"):
 	if (nombreEscuela != "Undefined")
 		nombreEscuela = "Escuela de " + nombreEscuela;
 
-	CC = new Contenedor_Cursos();
+	ContP = new Contenedor_Profesores();
+	ConC = new Contenedor_Cursos();
+
 }
 
 Escuela::~Escuela()
 {
 	cout << "Eliminando Escuela" << endl;
-	delete CC;
+	delete ConC;
 }
 
 void Escuela::setNombre(string unNombre)
@@ -51,20 +53,13 @@ string Escuela::generaSigla(string unNombre)
 	return siglaEscuela;
 }
 
-
-void Escuela::insertarCurso(Curso* unCurso)
+Contenedor_Cursos * Escuela::getContenedorCursos()
 {
-	CC->insertaInicio(unCurso);
+	return ConC;
 }
 
-Contenedor_Cursos * Escuela::retornaContenedorCursos()
-{
-	return CC;
-}
-
-Curso * Escuela::retornaCurso(string codigo)
-{
-	return CC->retornaCurso(codigo);
+Contenedor_Profesores * Escuela::getContenedorProfesores() {
+	return ContP;
 }
 
 string Escuela::toStringEscuela(char op)
@@ -73,11 +68,9 @@ string Escuela::toStringEscuela(char op)
 	s << "Nombre de la Escuela: " << nombreEscuela;
 	s << "| Codigo: " << siglaEscuela << endl;
 
-	if (op == '2')
-	{
+	if (op == '2') {
 		s << "Cursos Impartidos: " << endl;
-		s << *CC << endl;
+		s << *ConC << endl;
 	}
-
 	return s.str();
 }

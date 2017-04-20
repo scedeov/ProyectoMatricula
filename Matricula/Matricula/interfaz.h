@@ -1,8 +1,6 @@
 #ifndef INTERFAZ
 #define INTERFAZ
 
-#include "universidad.h"
-
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
@@ -10,6 +8,8 @@
 #include <string>
 
 using namespace std;
+
+#include "universidad.h"
 
 class Interfaz
 {
@@ -37,6 +37,10 @@ public:
 	static string convierteMayuscula(string);
 	static void vInfoUniversidad(Universidad*);
 	static void vInfoEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
+	static char vMenuProfesores();
+	static void vAgregarProfesor(Universidad*);
+	static void vConsultarProfesEscuela(Universidad*);
+	static void vConsultarProfeCedula(Universidad*);
 };
 #endif // !INTERFAZ
 

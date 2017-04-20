@@ -16,11 +16,7 @@ public:
 	bool eliminaCursoEspecifico(string);
 	Curso* retornaCurso(string);
 	bool encuentraCurso(Curso*, string);
-
-
-	/*string toString();*/
-
-	
+	string toString();
 	~Contenedor_Cursos();
 };
 #endif // !CONTENEDOR_CURSOS

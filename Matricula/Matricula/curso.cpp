@@ -28,6 +28,11 @@ void Curso::setCodigoCurso(string unCodigoCurso)
 	codigoCurso = unCodigoCurso;
 }
 
+void Curso::setCantidadCreditos(int cantidadCreditos)
+{
+	this->cantidadCreditos = cantidadCreditos;
+}
+
 string Curso::getNombre()
 {
 	return nombreCurso;
@@ -38,10 +43,21 @@ string Curso::getCodigoCurso()
 	return codigoCurso;
 }
 
-ostream& operator << (ostream& o, const Curso& c)
+int Curso::getCantidadCreditos()
 {
-	o << "Codigo del curso: " << c.codigoCurso << "||| " << c.nombreCurso << endl;
-	return o;
+	return cantidadCreditos;
+}
+
+string Curso::toString()
+{
+	stringstream s;
+	s << "Codigo del Curso: " << codigoCurso << " | " << nombreCurso << endl;
+	return s.str();
+}
+
+ostream& operator << (ostream& o, Curso& c)
+{
+	return o << c.toString();
 }
 
 bool Curso::operator == (const Curso &c) const

@@ -6,7 +6,7 @@ Contenedor_Escuelas::Contenedor_Escuelas()
 	paux = NULL;
 }
 
-void Contenedor_Escuelas::insertaralInicio(Escuela* unEscuela)
+void Contenedor_Escuelas::insertarInicio(Escuela* unEscuela)
 {
 	paux = new Nodo_Escuelas(unEscuela, NULL);
 
@@ -34,28 +34,24 @@ Escuela * Contenedor_Escuelas::retornaEscuela(string sigla)
 	return nullptr;
 }
 
+Profesor * Contenedor_Escuelas::retornaProfesor(int cedula)
+{
+	paux = pinicio;
+	while (paux != NULL) {
+		if (paux->getEscuela()->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
+			return paux->getEscuela()->getContenedorProfesores()->retornaProfesor(cedula);
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
+}
+
 bool Contenedor_Escuelas::encuentraEscuela(Escuela* e, string sigla)
 {
 	if (e->getSiglaEscuela() == sigla)
 		return true;
 	else
 		return false;
-}
-
-Curso* Contenedor_Escuelas::retornaCurso(string codigo)
-{
-	paux = pinicio;
-
-	string sigla = codigo.substr(0, 3);
-
-	while (paux != NULL)
-	{
-		if (encuentraEscuela(paux->getEscuela(), sigla) == true)
-			return paux->retornaCurso(codigo);
-		else
-			paux = paux->getNext();
-	}
-	return nullptr;
 }
 
 string Contenedor_Escuelas::toString(char op) // debido a este char no puedo hacer sobrecarga

@@ -3,7 +3,7 @@
 Nodo_Cursos::Nodo_Cursos(Curso *unCurso, Nodo_Cursos *unNext)
 {
 	c = unCurso;
-	next = unNext;
+	Next = unNext;
 }
 
 void Nodo_Cursos::setCurso(Curso* unCurso)
@@ -18,21 +18,28 @@ Curso * Nodo_Cursos::getCurso()
 
 void Nodo_Cursos::setNext(Nodo_Cursos *unNext)
 {
-	next = unNext;
+	Next = unNext;
 }
 
 Nodo_Cursos * Nodo_Cursos::getNext()
 {
-	return next;
+	return Next;
 }
 
-//string Nodo_Cursos::toStringNodo()
-//{
-//	return c->toStringCurso();
-//}
+string Nodo_Cursos::toStringNodo()
+{
+	stringstream s;
+	s << c->toString();
+	return s.str();
+}
 
 Nodo_Cursos::~Nodo_Cursos()
 {
 	cout << "Eliminando Nodo de Cursos" << endl;
 	delete c;
+}
+
+ostream & operator<<(ostream &o, Nodo_Cursos &NC)
+{
+	return o << NC.toStringNodo();
 }

@@ -1,6 +1,6 @@
 #include "control.h"
 
-int Curso::cantidad = 0;
+int Curso::cantidad = 0; // variable que controla el codigo del curso
 
 void Control::Inicializador()
 {
@@ -11,15 +11,17 @@ void Control::Inicializador()
 	Escuela* E3 = new Escuela("Geologia");
 	Escuela* E4 = new Escuela("Sociales");
 
-	U->insertarEscuela(E1);
-	U->insertarEscuela(E2);
-	U->insertarEscuela(E3);
-	U->insertarEscuela(E4);
+	U->getContenedorEscuelas()->insertarInicio(E1);
+	U->getContenedorEscuelas()->insertarInicio(E2);
+	U->getContenedorEscuelas()->insertarInicio(E3);
+	U->getContenedorEscuelas()->insertarInicio(E4);
+	
 
 	Curso* CU1 = new Curso("Programacion I", E1->getSiglaEscuela());
 	Curso* CU2 = new Curso("Programacion II", E2->getSiglaEscuela());
-	E1->insertarCurso(CU1);
-	E2->insertarCurso(CU2);
+
+	E1->getContenedorCursos()->insertaInicio(CU1);
+	E2->getContenedorCursos()->insertaInicio(CU2);
 
 	MenuPrincipal();
 }
@@ -60,10 +62,20 @@ void Control::MenuPrincipal()
 		}
 		case '4':
 		{
+			MenuProfesores();
+			break;
+		}
+		case'5':
+		{
+			MenuEstudiantes();
+			break;
+		}
+		case '6':
+		{
 			MenuAjustes();
 			break;
 		}
-		case '5':
+		case '7':
 		{
 			delete U;
 			end = true;
@@ -245,10 +257,44 @@ void Control::MenuAjustes()
 				break;
 			}
 			default: break;
-
 			}
 		}
 
 	} while (end == false);
+}
+
+void Control::MenuProfesores()
+{
+	bool end = false;
+
+	do {
+		char opcion = Interfaz::vMenuProfesores();
+		switch (opcion) {
+		case '1': {
+			Interfaz::vConsultarProfesEscuela(U);
+			break;
+		}
+		case'2': {
+			break;
+		}
+		case '3': {
+			Interfaz::vConsultarProfeCedula(U);
+			break;
+		}
+		case '4': {
+			Interfaz::vAgregarProfesor(U);
+			break;
+		}
+		case '5': {
+			end = true;
+			break;
+		}
+		default: break;
+		}
+	} while (end == false);
+}
+
+void Control::MenuEstudiantes()
+{
 }
 

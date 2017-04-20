@@ -11,19 +11,20 @@ class Curso
 private:
 	string nombreCurso;
 	string codigoCurso;
-
 	static int cantidad;
+	int cantidadCreditos;
 public:
 	Curso();
 	Curso(string, string);
-	~Curso();
-
 	void setNombre(string);
 	void setCodigoCurso(string);
+	void setCantidadCreditos(int);
 	string getNombre();
 	string getCodigoCurso();
-
-	friend ostream& operator << (ostream&, const Curso&);
+	int getCantidadCreditos();
+	string toString();
+	friend ostream& operator << (ostream&, Curso&);
 	bool operator == (const Curso&) const;
+	~Curso();
 };
 #endif // !CURSO

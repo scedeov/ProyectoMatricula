@@ -79,6 +79,17 @@ bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
 		return false;
 }
 
+string Contenedor_Cursos::toString()
+{
+	paux = pinicio;
+	stringstream s;
+	while (paux != NULL) {
+		s << paux->toStringNodo() << endl;
+		paux = paux->getNext();
+	}
+	return s.str();
+}
+
 Contenedor_Cursos::~Contenedor_Cursos()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;
@@ -91,15 +102,6 @@ Contenedor_Cursos::~Contenedor_Cursos()
 	}
 }
 
-ostream & operator<<(ostream &o, Contenedor_Cursos &CC)
-{
-	CC.paux = CC.pinicio;
-
-	while (CC.paux != NULL)
-	{
-		o << *(CC.paux->getCurso()) << endl;
-		CC.paux = CC.paux->getNext();
-	}
-
-	return o;
+ostream & operator<<(ostream &o, Contenedor_Cursos &ConC) {
+	return o << ConC.toString();
 }
