@@ -36,3 +36,7 @@ Nodo_Estudiantes::~Nodo_Estudiantes()
 	cout << "Eliminando Nodo de Escuelas" << endl;
 	delete E;
 }
+
+ostream & operator<<(ostream &o, Nodo_Estudiantes &NE) {
+	return o << NE.toStringNodo();
+}

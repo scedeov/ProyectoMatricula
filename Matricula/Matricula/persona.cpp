@@ -56,3 +56,7 @@ string Persona::toString()
 	s << " Numero de Cedula: " << getNumCedula() << endl;
 	return s.str();
 }
+
+ostream & operator<<(ostream &o, Persona &P) {
+	return o << P.toString();
+}

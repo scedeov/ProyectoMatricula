@@ -6,7 +6,7 @@ Universidad::Universidad()
 	numeroTelefono = "Undefined";
 	direccion = "Undefined";
 
-	CE = new Contenedor_Escuelas();
+	ContE = new Contenedor_Escuelas();
 }
 
 Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
@@ -15,13 +15,13 @@ Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
 	numeroTelefono = xNumero;
 	direccion = unDireccion;
 
-	CE = new Contenedor_Escuelas();
+	ContE = new Contenedor_Escuelas();
 }
 
 Universidad::~Universidad()
 {
 	cout << "Eliminando Universidad..." << endl;
-	delete CE;
+	delete ContE;
 }
 
 void Universidad::setTelefono(string unTelefono)
@@ -54,40 +54,6 @@ string Universidad::getDireccion()
 	return direccion;
 }
 
-Contenedor_Escuelas * Universidad::getContenedorEscuelas()
-{
-	return CE;
-}
-
-Curso* Universidad::retornaCurso(string codigo)
-{
-	return CE->retornaCurso(codigo);
-
-}
-
-Escuela* Universidad::retornaEscuela(string sigla)
-{
-	return CE->retornaEscuela(sigla);
-}
-
-Profesor* Universidad::retornaProfesor(int cedula) {
-	return CE->retornaProfesor(cedula);
-}
-
-void Universidad::insertarEscuela(Escuela *e)
-{
-	CE->insertaralInicio(e);
-}
-
-void Universidad::insertarCurso(string sigla, Curso *c)
-{
-	retornaEscuela(sigla)->insertarCurso(c);
-}
-
-void Universidad::insertarProfesor(string sigla, Profesor *P){
-	retornaEscuela(sigla)->insertarProfesor(P);
-}
-
 string Universidad::toString()
 {
 	stringstream s;
@@ -98,9 +64,8 @@ string Universidad::toString()
 	return s.str();
 }
 
-Contenedor_Profesores* Universidad::retornaContenedorProfes(string sigla)
-{
-	return CE->retornaEscuela(sigla)->retornaContenedorProfes();
+Contenedor_Escuelas* Universidad::getContenedorEscuelas() {
+	return ContE;
 }
 
 ostream& operator << (ostream &o, Universidad& U)

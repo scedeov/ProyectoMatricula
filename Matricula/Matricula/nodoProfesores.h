@@ -16,7 +16,6 @@ public:
 	void setProfesor(Profesor*);
 	Profesor* getProfesor();
 	string toStringNodo();
-	
 	~Nodo_Profesores();
 };
 #endif // !NODO_PROFESORES

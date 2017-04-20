@@ -14,6 +14,11 @@ Profesor::Profesor(string nombre, string primerApellido, string segundoApellido,
 	esDirector = false;
 }
 
+bool Profesor::getEsDirector()
+{
+	return esDirector;
+}
+
 string Profesor::toString()
 {
 	stringstream s;

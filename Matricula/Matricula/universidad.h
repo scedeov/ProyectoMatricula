@@ -3,20 +3,16 @@
 
 #include <iostream>
 #include <sstream>
-
-using namespace std;
-
 #include "contenedorEscuelas.h"
-#include "contenedorEstudiantes.h"
+using namespace std;
 
 class Universidad
 {
 private:
+	Contenedor_Escuelas* ContE;
 	string nombre;
 	string numeroTelefono;
 	string direccion;
-	Contenedor_Escuelas* CE;
-	Contenedor_Estudiantes* CEs;
 	friend ostream& operator << (ostream&, Universidad&);
 public:
 	Universidad();
@@ -28,15 +24,8 @@ public:
 	string getNombre();
 	string getNumero();
 	string getDireccion();
-	Contenedor_Escuelas* getContenedorEscuelas();
-	Curso* retornaCurso(string);
-	Escuela* retornaEscuela(string);
-	Profesor* retornaProfesor(int);
-	void insertarEscuela(Escuela*);
-	void insertarCurso(string, Curso*);
-	void insertarProfesor(string, Profesor*);
 	string toString();
-	Contenedor_Profesores* retornaContenedorProfes(string);
+	Contenedor_Escuelas* getContenedorEscuelas();
 };
 #endif // !UNIVERSIDAD
 

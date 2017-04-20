@@ -14,6 +14,7 @@ private:
 public:
 	int getNumCedulaProfe();
 	Profesor(string, string, string, int);
+	bool getEsDirector();
 	string toString();
 	~Profesor();
 };

@@ -12,6 +12,7 @@ private:
 	string primerApellido;
 	string segundoApellido;
 	int numCedula;
+	friend ostream& operator << (ostream&, Persona&);
 public:
 	Persona();
 	virtual ~Persona();

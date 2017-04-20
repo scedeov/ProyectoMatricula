@@ -8,6 +8,7 @@ class Nodo_Estudiantes
 private:
 	Estudiante* E;
 	Nodo_Estudiantes* Next;
+	friend ostream& operator << (ostream&, Nodo_Estudiantes&);
 public:
 	Nodo_Estudiantes(Estudiante*, Nodo_Estudiantes*);
 	void setEstudiante(Estudiante*);

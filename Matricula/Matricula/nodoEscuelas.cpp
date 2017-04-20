@@ -31,15 +31,6 @@ string Nodo_Escuelas::toStringNodo(char op)
 	return e->toStringEscuela(op);
 }
 
-Curso * Nodo_Escuelas::retornaCurso(string codigo)
-{
-	return e->retornaCurso(codigo);
-}
-
-Profesor * Nodo_Escuelas::retornaProfesor(int cedula) {
-	return e->retornaProfesor(cedula);
-}
-
 Nodo_Escuelas::~Nodo_Escuelas()
 {
 	cout << "Eliminando Nodo de Escuelas" << endl;

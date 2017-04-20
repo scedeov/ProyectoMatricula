@@ -25,12 +25,8 @@ public:
 	void setSiglaEscuela(string);
 	string getSiglaEscuela();
 	string generaSigla(string);
-	void insertarCurso(Curso*);
-	Contenedor_Cursos* retornaContenedorCursos();
-	Contenedor_Profesores* retornaContenedorProfes();
-	Profesor* retornaProfesor(int);
-	Curso* retornaCurso(string);
-	void insertarProfesor(Profesor*);
+	Contenedor_Cursos* getContenedorCursos();
+	Contenedor_Profesores* getContenedorProfesores();
 	string toStringEscuela(char);
 };
 #endif // !ESCUELA

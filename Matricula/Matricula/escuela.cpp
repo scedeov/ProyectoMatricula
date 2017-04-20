@@ -53,34 +53,13 @@ string Escuela::generaSigla(string unNombre)
 	return siglaEscuela;
 }
 
-
-void Escuela::insertarCurso(Curso* unCurso)
-{
-	ConC->insertaInicio(unCurso);
-}
-
-Contenedor_Cursos * Escuela::retornaContenedorCursos()
+Contenedor_Cursos * Escuela::getContenedorCursos()
 {
 	return ConC;
 }
 
-Contenedor_Profesores * Escuela::retornaContenedorProfes() {
+Contenedor_Profesores * Escuela::getContenedorProfesores() {
 	return ContP;
-}
-
-Profesor * Escuela::retornaProfesor(int cedula)
-{
-	return ContP->retornaProfesor(cedula);
-}
-
-Curso * Escuela::retornaCurso(string codigo)
-{
-	return ConC->retornaCurso(codigo);
-}
-
-void Escuela::insertarProfesor(Profesor *P)
-{
-	ContP->insertaInicio(P);
 }
 
 string Escuela::toStringEscuela(char op)
