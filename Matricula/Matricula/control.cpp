@@ -77,7 +77,7 @@ void Control::MenuPrincipal()
 		}
 		case '6':
 		{
-			MenuAjustes();
+			/*MenuAjustes();*/
 			break;
 		}
 		case '7':
@@ -93,28 +93,76 @@ void Control::MenuPrincipal()
 	} while (end == false);
 }
 
-void Control::MenuUniversidad()
-{
+void Control::MenuUniversidad() {
 	bool end = false;
 
-	do
-	{
+	do {
 		char ans = Interfaz::vMenuUniversidad();
 
-		switch (ans)
-		{
-		case '1':
-		{
+		switch (ans) {
+		case '1': {
 			Interfaz::vInfoUniversidad(U);
 			break;
 		}
-		case '2': //Salir
-		{
+		case '2': {
+			AjustesUniversidad();
+			break;
+		}
+		case '3': {
 			end = true;
 			break;
 		}
-		default:
-			break;
+		default: break;
+		}
+
+	} while (end == false);
+}
+
+void Control::AjustesUniversidad() {
+	
+	bool end = false;
+
+	do {
+		char opcion = Interfaz::vAjustesUniversidad(U);
+
+		if (U->getNombre() == "Undefined") {
+			switch (opcion) {
+			case '1': {
+				Interfaz::vIngresarNombre(U);
+				break;
+			}
+			case '2': {
+				Interfaz::vIngresarNumero(U);
+				break;
+			}
+			case '3': {
+				Interfaz::vIngresarDireccion(U);
+				break;
+			}
+			case '4': {
+				end = true;
+				break;
+			}
+			default: break;
+			}
+		}
+		else {
+
+			switch (opcion) {
+			case '1': {
+				Interfaz::vIngresarNumero(U);
+				break;
+			}
+			case '2': {
+				Interfaz::vIngresarDireccion(U);
+				break;
+			}
+			case '3': {
+				end = true;
+				break;
+			}
+			default: break;
+			}
 		}
 
 	} while (end == false);
@@ -184,89 +232,89 @@ void Control::MenuCursos()
 	} while (end == false);
 }
 
-void Control::MenuAjustes()
-{
-	bool end = false;
-
-	do
-	{
-		char opcion = Interfaz::vMenuAjustes(U);
-
-
-		if (U->getNombre() == "Undefined")
-		{
-			switch (opcion)
-			{
-			case '1':
-			{
-				Interfaz::vIngresarNombre(U);
-				break;
-			}
-			case '2':
-			{
-				Interfaz::vIngresarNumero(U);
-				break;
-			}
-			case '3':
-			{
-				Interfaz::vIngresarDireccion(U);
-				break;
-			}
-			case '4':
-			{
-				end = true;
-				break;
-			}
-			default: break;
-
-			}
-		}
-		else
-		{
-
-			switch (opcion)
-			{
-			case '1':
-			{
-				Interfaz::vIngresarNumero(U);
-				break;
-			}
-			case '2':
-			{
-				Interfaz::vIngresarDireccion(U);
-				break;
-			}
-			case '3':
-			{
-				Interfaz::vIngresaEscuela(U);
-				break;
-			}
-			case '4':
-			{
-				Interfaz::vIngresaCurso(U);
-				break;
-			}
-			case '5':
-			{
-				Interfaz::vEditarCurso(U);
-				break;
-			}
-			case '6':
-			{
-				Interfaz::vEliminaCurso(U);
-				break;
-			}
-			case '7':
-			{
-				end = true;
-				break;
-			}
-			default: break;
-			}
-		}
-
-	} while (end == false);
-}
+//void Control::MenuAjustes()
+//{
+//	bool end = false;
+//
+//	do
+//	{
+//		char opcion = Interfaz::vMenuAjustes(U);
+//
+//
+//		if (U->getNombre() == "Undefined")
+//		{
+//			switch (opcion)
+//			{
+//			case '1':
+//			{
+//				Interfaz::vIngresarNombre(U);
+//				break;
+//			}
+//			case '2':
+//			{
+//				Interfaz::vIngresarNumero(U);
+//				break;
+//			}
+//			case '3':
+//			{
+//				Interfaz::vIngresarDireccion(U);
+//				break;
+//			}
+//			case '4':
+//			{
+//				end = true;
+//				break;
+//			}
+//			default: break;
+//
+//			}
+//		}
+//		else
+//		{
+//
+//			switch (opcion)
+//			{
+//			case '1':
+//			{
+//				Interfaz::vIngresarNumero(U);
+//				break;
+//			}
+//			case '2':
+//			{
+//				Interfaz::vIngresarDireccion(U);
+//				break;
+//			}
+//			case '3':
+//			{
+//				Interfaz::vIngresaEscuela(U);
+//				break;
+//			}
+//			case '4':
+//			{
+//				Interfaz::vIngresaCurso(U);
+//				break;
+//			}
+//			case '5':
+//			{
+//				Interfaz::vEditarCurso(U);
+//				break;
+//			}
+//			case '6':
+//			{
+//				Interfaz::vEliminaCurso(U);
+//				break;
+//			}
+//			case '7':
+//			{
+//				end = true;
+//				break;
+//			}
+//			default: break;
+//			}
+//		}
+//
+//	} while (end == false);
+//}
 
 void Control::MenuProfesores()
 {

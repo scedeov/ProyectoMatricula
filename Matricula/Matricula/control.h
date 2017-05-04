@@ -16,11 +16,16 @@ public:
 	void Inicializador();
 	void MenuPrincipal();
 	void MenuUniversidad();
+	void AjustesUniversidad();
 	void MenuEscuelas();
+	void AjustesEscuelas();
 	void MenuCursos();
-	void MenuAjustes();
+	void AjustesCursos();
+	/*void MenuAjustes();*/
 	void MenuProfesores();
+	void AjustesProfesores();
 	void MenuEstudiantes();
+	void AjustesEstudiantes();
 };
 
 #endif

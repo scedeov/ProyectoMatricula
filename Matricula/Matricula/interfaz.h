@@ -17,6 +17,7 @@ public:
 	static void vBienvenida();
 	static char vMenuPrincipal();
 	static char vMenuUniversidad();
+	static char vAjustesUniversidad(Universidad*);
 	static char vMenuEscuelas();
 	static char vMenuCursos();
 	static char vDatosPrimeraVez(Universidad*);

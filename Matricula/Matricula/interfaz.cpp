@@ -38,17 +38,66 @@ char Interfaz::vMenuUniversidad()
 	char ans;
 	cout << "**************MENU UNIVERSIDAD**************" << endl;
 	cout << "(1)--Informacion acerca de la Universidad" << endl;
-	cout << "(2)--Salir" << endl;
+	cout << "(2)--Ajustes" << endl;
+	cout << "(3)--Salir" << endl;
 	cout << "********************************************" << endl;
 
 	ans = _getch();
 
-	while (ans < '1' || ans > '2')
-	{
+	while (ans < '1' || ans > '3') {
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
 	}
 
+	system("cls");
+	return ans;
+}
+
+char Interfaz::vAjustesUniversidad(Universidad *U) {
+	char ans;
+
+	cout << "**************AJUSTES UNIVERSIDAD*************************" << endl;
+	if (U->getNombre() == "Undefined") {
+		cout << "-(1)-Ingresar nombre de la Universidad" << endl;
+
+		if (U->getNumero() == "Undefined")
+			cout << "-(2)-Ingresar Numero de Telefono de la Universidad" << endl;
+		else
+			cout << "-(2)-Cambiar Numero de Telefono de la Universidad" << endl;
+		if (U->getDireccion() == "Undefined")
+			cout << "-(3)-Ingresar Direccion de la Universidad" << endl;
+		else
+			cout << "-(3)-Cambiar Direccion de la Universidad" << endl;
+
+		cout << "-(4)-Salir" << endl;
+		cout << "************************************************" << endl;
+
+		ans = _getch();
+
+		while (ans < '1' || ans > '4')
+		{
+			cout << "Opcion Incorrecta. Try again " << endl;
+			ans = _getch();
+		}
+	}
+	else {
+		if (U->getNumero() == "Undefined")
+			cout << "-(1)-Ingresar Numero de Telefono de la Universidad" << endl;
+		else
+			cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
+		if (U->getDireccion() == "Undefined")
+			cout << "-(2)-Ingresar Direccion de la Universidad" << endl;
+		else
+			cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
+		cout << "-(3)-Salir" << endl;
+		cout << "************************************************" << endl;
+		ans = _getch();
+
+		while (ans < '1' || ans > '3') {
+			cout << "Opcion Incorrecta. Try again " << endl;
+			ans = _getch();
+		}
+	}
 	system("cls");
 	return ans;
 }
