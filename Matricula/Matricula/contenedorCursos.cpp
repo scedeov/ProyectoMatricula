@@ -90,8 +90,8 @@ string Contenedor_Cursos::toString()
 	return s.str();
 }
 
-string Contenedor_Cursos::getProfesores(string codigo) {
-	return retornaCurso(codigo)->getProfesores();
+int Contenedor_Cursos::getProfesores(string codigo, int pos) {
+	return retornaCurso(codigo)->getProfesores(pos);
 }
 
 Contenedor_Cursos::~Contenedor_Cursos()

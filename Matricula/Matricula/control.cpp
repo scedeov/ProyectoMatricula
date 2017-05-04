@@ -25,7 +25,7 @@ void Control::Inicializador()
 
 	Profesor* P1 = new Profesor("Carlos", "Bermudez", "Villagran", 115720401);
 	E1->getContenedorProfesores()->insertaInicio(P1);
-	CU1->setProfesores(P1->getCodigoProfesor());
+	CU1->setProfesores(P1->getNumCedula());
 	P1->setCursosImpartidos(CU1->getCodigoCurso());
 
 	MenuPrincipal();

@@ -11,6 +11,12 @@ Persona::~Persona()
 	cout << "Eliminando Persona" << endl;
 }
 
+string Persona::getNombreCompleto()
+{
+	string nombrecomp = nombre + " " + primerApellido + " " + segundoApellido;
+	return nombrecomp;
+}
+
 void Persona::setNombre(string nombre)
 {
 	this->nombre = nombre;

@@ -15,18 +15,19 @@ private:
 	static int variableCodigoCursos;
 	int cantidadCreditos;
 	int cantidadProfesores;
-	string profesores[MAXPROF];
+	int profesores[MAXPROF];
 public:
 	Curso();
 	Curso(string, string);
 	void setNombre(string);
 	void setCodigoCurso(string);
 	void setCantidadCreditos(int);
-	void setProfesores(string);
-	string getProfesores();
+	void setProfesores(int);
+	int getProfesores(int);
 	string getNombre();
 	string getCodigoCurso();
 	int getCantidadCreditos();
+	int getCantidadProfesores();
 	string toString();
 	friend ostream& operator << (ostream&, Curso&);
 	bool operator == (const Curso&) const;

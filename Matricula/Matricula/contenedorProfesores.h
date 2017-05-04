@@ -18,6 +18,7 @@ public:
 	void insertaInicio(Profesor*);
 	Profesor* retornaProfesor(int);
 	bool encuentraProfesor(Profesor*, int);
+	int contadorProfesores();
 	string toString();
 	~Contenedor_Profesores();
 };

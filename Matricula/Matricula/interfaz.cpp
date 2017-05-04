@@ -401,7 +401,7 @@ void Interfaz::vInfoCurso(Universidad *U) //necesita ser optimizado
 
 	if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCurso(codigo) == nullptr)
 		cout << "El curso no ha sido encontrado..." << endl;
-	else 
+	else
 		cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCurso(codigo)) << endl;
 
 	msjPausa();
@@ -584,10 +584,23 @@ void Interfaz::vConsultarProfesCurso(Universidad *U) {
 
 	codigo = convierteMayuscula(codigo);
 	sigla = codigo.substr(0, 3);
-	if (!U->getContenedorEscuelas()->retornaEscuela(sigla))
+
+	Escuela* e = U->getContenedorEscuelas()->retornaEscuela(sigla);
+	Curso* c = e->getContenedorCursos()->retornaCurso(codigo);
+	int contador = c->getCantidadProfesores();
+	if (!e)
 		cout << "La escuela no ha sido encontrada..." << endl;
 	else
-		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->getProfesores(codigo) << endl;
+		if (contador == 0)
+			cout << "El curso no tiene profesores asignados..." << endl;
+	else {
+		cout << "El curso: " << c->getNombre() << " es impartido por los profesores: " << endl;
+		for (int i = 0; i < contador; i++) {
+			if (e->getContenedorProfesores()->retornaProfesor(c->getProfesores(i)))
+				cout << e->getContenedorProfesores()->retornaProfesor(c->getProfesores(i))->getNombreCompleto() << endl;;
+				
+		}
+	}
 
 	msjPausa();
 	system("cls");

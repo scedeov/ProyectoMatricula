@@ -11,11 +11,13 @@ private:
 	string nombre;
 	string primerApellido;
 	string segundoApellido;
+	string nombreCompleto;
 	int numCedula;
 	friend ostream& operator << (ostream&, Persona&);
 public:
 	Persona();
 	virtual ~Persona();
+	virtual string getNombreCompleto();
 	virtual void setNombre(string);
 	virtual string getNombre();
 	virtual void setPrimerApellido(string);

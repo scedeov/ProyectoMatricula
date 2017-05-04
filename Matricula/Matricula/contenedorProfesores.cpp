@@ -29,13 +29,21 @@ Profesor * Contenedor_Profesores::retornaProfesor(int cedula) {
 }
 
 bool Contenedor_Profesores::encuentraProfesor(Profesor *P, int cedula) {
-	if (P->getNumCedulaProfe() == cedula)
+	if (P->getNumCedula() == cedula)
 		return true;
 	else
 		return false;
 }
 
-
+int Contenedor_Profesores::contadorProfesores() {
+	paux = pinicio;
+	int contador = 0;
+	while (!paux) {
+		contador++;
+		paux = paux->getNext();
+	}
+	return contador;
+}
 string Contenedor_Profesores::toString()
 {
 	stringstream s;

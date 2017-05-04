@@ -13,7 +13,7 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 	variableCodigoCursos++;
 
 	for (int i = 0; i < MAXPROF; i++)
-		profesores[i] = "Undefined";
+		profesores[i] = 0;
 	cantidadProfesores = 0;
 }
 
@@ -37,18 +37,15 @@ void Curso::setCantidadCreditos(int cantidadCreditos)
 	this->cantidadCreditos = cantidadCreditos;
 }
 
-void Curso::setProfesores(string profenuevo) {
+void Curso::setProfesores(int profenuevo) {
 	if (cantidadProfesores < MAXPROF) {
 		profesores[cantidadProfesores] = profenuevo;
 		cantidadProfesores++;
 	}
 }
 
-string Curso::getProfesores() {
-	stringstream s;
-	for (int i = 0; i < cantidadProfesores; i++)
-		s << profesores[i] << " ";
-	return s.str();
+int Curso::getProfesores(int pos) {
+	return profesores[pos];
 }
 
 string Curso::getNombre()
@@ -64,6 +61,11 @@ string Curso::getCodigoCurso()
 int Curso::getCantidadCreditos()
 {
 	return cantidadCreditos;
+}
+
+int Curso::getCantidadProfesores()
+{
+	return cantidadProfesores;
 }
 
 string Curso::toString()
