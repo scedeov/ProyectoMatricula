@@ -9,8 +9,12 @@ Curso::Curso()
 Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso se crea, se debe agregar ya la sigla de la Escuela.
 {
 	nombreCurso = unNombre;
-	codigoCurso = siglaEscuela + to_string(cantidad);
-	cantidad++;
+	codigoCurso = siglaEscuela + to_string(variableCodigoCursos);
+	variableCodigoCursos++;
+
+	for (int i = 0; i < MAXPROF; i++)
+		profesores[i] = "Undefined";
+	cantidadProfesores = 0;
 }
 
 Curso::~Curso()
@@ -31,6 +35,20 @@ void Curso::setCodigoCurso(string unCodigoCurso)
 void Curso::setCantidadCreditos(int cantidadCreditos)
 {
 	this->cantidadCreditos = cantidadCreditos;
+}
+
+void Curso::setProfesores(string profenuevo) {
+	if (cantidadProfesores < MAXPROF) {
+		profesores[cantidadProfesores] = profenuevo;
+		cantidadProfesores++;
+	}
+}
+
+string Curso::getProfesores() {
+	stringstream s;
+	for (int i = 0; i < cantidadProfesores; i++)
+		s << profesores[i] << " ";
+	return s.str();
 }
 
 string Curso::getNombre()

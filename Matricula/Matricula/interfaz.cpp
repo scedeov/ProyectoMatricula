@@ -409,6 +409,8 @@ void Interfaz::vInfoCurso(Universidad *U) //necesita ser optimizado
 }
 
 void Interfaz::vListaCursosEscuelaParticular(Universidad *U) {
+	cout << U->getContenedorEscuelas()->toString('2'); //Imprime lista de Escuelas con sus respectivos cursos
+
 	string sigla;
 	cout << "Ingrese la sigla de la escuela que desea consultar la lista de cursos -> ";
 	cin >> sigla; cin.ignore();
@@ -569,6 +571,23 @@ void Interfaz::vConsultarProfeCedula(Universidad *U)
 		cout << "El Profesor no ha sido encontrado..." << endl;
 	else
 		cout << *(U->getContenedorEscuelas()->retornaProfesor(cedula)) << endl;
+
+	msjPausa();
+	system("cls");
+}
+
+void Interfaz::vConsultarProfesCurso(Universidad *U) {
+	cout << U->getContenedorEscuelas()->toString('2'); //Imprime la lista de escuelas con sus respectivos cursos
+	string codigo, sigla;
+	cout << "Ingrese el codigo de la curso del que desea consultar su lista de profesores -> ";
+	cin >> codigo; cin.ignore();
+
+	codigo = convierteMayuscula(codigo);
+	sigla = codigo.substr(0, 3);
+	if (!U->getContenedorEscuelas()->retornaEscuela(sigla))
+		cout << "La escuela no ha sido encontrada..." << endl;
+	else
+		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->getProfesores(codigo) << endl;
 
 	msjPausa();
 	system("cls");

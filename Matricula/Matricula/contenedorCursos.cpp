@@ -90,6 +90,10 @@ string Contenedor_Cursos::toString()
 	return s.str();
 }
 
+string Contenedor_Cursos::getProfesores(string codigo) {
+	return retornaCurso(codigo)->getProfesores();
+}
+
 Contenedor_Cursos::~Contenedor_Cursos()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;

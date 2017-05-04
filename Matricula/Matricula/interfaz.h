@@ -41,6 +41,7 @@ public:
 	static void vAgregarProfesor(Universidad*);
 	static void vConsultarProfesEscuela(Universidad*);
 	static void vConsultarProfeCedula(Universidad*);
+	static void vConsultarProfesCurso(Universidad*);
 };
 #endif // !INTERFAZ
 

@@ -1,6 +1,6 @@
 #include "control.h"
 
-int Curso::cantidad = 0; // variable que controla el codigo del curso
+int Curso::variableCodigoCursos = 0; // variable que controla el codigo del curso
 
 void Control::Inicializador()
 {
@@ -22,6 +22,11 @@ void Control::Inicializador()
 
 	E1->getContenedorCursos()->insertaInicio(CU1);
 	E2->getContenedorCursos()->insertaInicio(CU2);
+
+	Profesor* P1 = new Profesor("Carlos", "Bermudez", "Villagran", 115720401);
+	E1->getContenedorProfesores()->insertaInicio(P1);
+	CU1->setProfesores(P1->getCodigoProfesor());
+	P1->setCursosImpartidos(CU1->getCodigoCurso());
 
 	MenuPrincipal();
 }
@@ -275,6 +280,7 @@ void Control::MenuProfesores()
 			break;
 		}
 		case'2': {
+			Interfaz::vConsultarProfesCurso(U);
 			break;
 		}
 		case '3': {

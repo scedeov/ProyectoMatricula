@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 
+const int MAXPROF = 10;
 using namespace std;
 
 class Curso
@@ -11,14 +12,18 @@ class Curso
 private:
 	string nombreCurso;
 	string codigoCurso;
-	static int cantidad;
+	static int variableCodigoCursos;
 	int cantidadCreditos;
+	int cantidadProfesores;
+	string profesores[MAXPROF];
 public:
 	Curso();
 	Curso(string, string);
 	void setNombre(string);
 	void setCodigoCurso(string);
 	void setCantidadCreditos(int);
+	void setProfesores(string);
+	string getProfesores();
 	string getNombre();
 	string getCodigoCurso();
 	int getCantidadCreditos();

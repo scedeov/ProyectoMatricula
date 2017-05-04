@@ -5,18 +5,51 @@ int Profesor::getNumCedulaProfe()
 	return getNumCedula();
 }
 
-Profesor::Profesor(string nombre, string primerApellido, string segundoApellido, int numCedula)
-{
+Profesor::Profesor(string nombre, string primerApellido, string segundoApellido, int numCedula) {
 	setNombre(nombre);
 	setPrimerApellido(primerApellido);
 	setSegundoApellido(segundoApellido);
 	setNumCedula(numCedula);
+	
 	esDirector = false;
+
+	for (int i = 0; i < MAXCURSOS; i++)
+		cursosImpartidos[i] = "Undefined";
+	cantidadCursos = 0;
+
+	generaCodigoProfesor();
+}
+
+void Profesor::setCursosImpartidos(string cursoNuevo) {
+	if (cantidadCursos < MAXCURSOS) {
+		cursosImpartidos[cantidadCursos] = cursoNuevo;
+		cantidadCursos++;
+	}
+}
+
+string Profesor::getCursosImpartidos() {
+	stringstream s;
+	for (int i = 0; i < cantidadCursos; i++)
+		s << cursosImpartidos[i] << " ";
+	return s.str();
 }
 
 bool Profesor::getEsDirector()
 {
 	return esDirector;
+}
+
+void Profesor::generaCodigoProfesor() {
+	string primera, segunda, tercera;
+	primera = getNombre()[0];
+	segunda = getPrimerApellido()[0];
+	tercera = getSegundoApellido()[0];
+	codigoProfesor = primera + segunda + tercera;
+	codigoProfesor = codigoProfesor + to_string(cantidadCursos);
+}
+
+string Profesor::getCodigoProfesor() {
+	return codigoProfesor;
 }
 
 string Profesor::toString()
