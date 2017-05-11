@@ -24,9 +24,13 @@ void Control::Inicializador()
 	E2->getContenedorCursos()->insertaInicio(CU2);
 
 	Profesor* P1 = new Profesor("Carlos", "Bermudez", "Villagran", 115720401);
+	Profesor* P2 = new Profesor("Manati", "Bolanos", "Oztia", 11576767);
 	E1->getContenedorProfesores()->insertaInicio(P1);
+	E1->getContenedorProfesores()->insertaInicio(P2);
 	CU1->setProfesores(P1->getNumCedula());
+	CU1->setProfesores(P2->getNumCedula());
 	P1->setCursosImpartidos(CU1->getCodigoCurso());
+	P2->setCursosImpartidos(CU1->getCodigoCurso());
 
 	MenuPrincipal();
 }

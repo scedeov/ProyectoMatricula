@@ -376,7 +376,7 @@ void Interfaz::vEditarCurso(Universidad *U)
 	codigo = convierteMayuscula(codigo);
 	sigla = codigo.substr(0, 3);
 
-	if (!U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCurso(codigo))
+	if (!U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo))
 		cout << "El curso no ha sido encontrado..." << endl;
 	else {
 		string nombre;
@@ -394,7 +394,7 @@ void Interfaz::vEditarCurso(Universidad *U)
 		}
 
 		U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->
-			retornaCurso(codigo)->setNombre(nombre);
+			retornaCursoEspecifico(codigo)->setNombre(nombre);
 
 		msjPerfecto();
 	}
@@ -431,29 +431,34 @@ void Interfaz::vInfoCurso(Universidad *U) //necesita ser optimizado
 	codigo = convierteMayuscula(codigo);
 	sigla = codigo.substr(0, 3);
 
-	if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCurso(codigo) == nullptr)
+	if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo) == nullptr)
 		cout << "El curso no ha sido encontrado..." << endl;
 	else
-		cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCurso(codigo)) << endl;
+		cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo)) << endl;
 
 	msjPausa();
 	system("cls");
 }
 
 void Interfaz::vListaCursosEscuelaParticular(Universidad *U) {
-	cout << U->getContenedorEscuelas()->toString('2'); //Imprime lista de Escuelas con sus respectivos cursos
-
+	cout << U->getContenedorEscuelas()->toString('1'); //Imprime lista de Escuelas con sus respectivos cursos
 	string sigla;
 	cout << "Ingrese la sigla de la escuela que desea consultar la lista de cursos -> ";
 	cin >> sigla; cin.ignore();
-
 	sigla = convierteMayuscula(sigla);
-
 	if (!U->getContenedorEscuelas()->retornaEscuela(sigla))
 		cout << "La escuela no ha sido encontrada..." << endl;
-	else
-		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->toStringEscuela('2') << endl;
-
+	else {
+		Escuela *EE = U->getContenedorEscuelas()->retornaEscuela(sigla);
+		for (int i = 0; i < EE->getContenedorCursos()->getCantidad(); i++) {  //algoritmo mortal xxxxxx
+			cout << "Curso: " << EE->getContenedorCursos()->getCursoporPos(i)->getNombre() << endl;
+			cout << "Profesores:" << endl;
+			for (int x = 0; x < EE->getContenedorCursos()->getCursoporPos(i)->getCantidadProfesores(); x++) {
+				int cedulaProfe = EE->getContenedorCursos()->getCursoporPos(i)->getProfesores(x);
+				cout << U->getContenedorEscuelas()->retornaProfesor(cedulaProfe)->getNombreCompleto() << endl;
+			}
+		}
+	}
 	msjPausa();
 	system("cls");
 }
@@ -639,24 +644,24 @@ void Interfaz::vConsultarProfesCurso(Universidad *U) {
 	sigla = codigo.substr(0, 3);
 
 	Escuela* e = U->getContenedorEscuelas()->retornaEscuela(sigla);
-	Curso* c = e->getContenedorCursos()->retornaCurso(codigo);
+	Curso* c = e->getContenedorCursos()->retornaCursoEspecifico(codigo);
 	int contador = c->getCantidadProfesores();
 	if (!e)
 		cout << "La escuela no ha sido encontrada..." << endl;
 	else
 		if (contador == 0)
 			cout << "El curso no tiene profesores asignados..." << endl;
-	else {
-		cout << "El curso: " << c->getNombre() << " es impartido por los profesores: " << endl;
-		for (int i = 0; i < contador; i++) {
-			if (e->getContenedorProfesores()->retornaProfesor(c->getProfesores(i)))
-				cout << e->getContenedorProfesores()->retornaProfesor(c->getProfesores(i))->getNombreCompleto() << endl;;
-				
-		}
-	}
+		else {
+			cout << "El curso: " << c->getNombre() << " es impartido por los profesores: " << endl;
+			for (int i = 0; i < contador; i++) {
+				if (e->getContenedorProfesores()->retornaProfesor(c->getProfesores(i)))
+					cout << e->getContenedorProfesores()->retornaProfesor(c->getProfesores(i))->getNombreCompleto() << endl;;
 
-	msjPausa();
-	system("cls");
+			}
+		}
+
+		msjPausa();
+		system("cls");
 }
 
 void Interfaz::vEditarProfesor(Universidad *U)
@@ -670,7 +675,7 @@ void Interfaz::vEditarProfesor(Universidad *U)
 		cout << "Ingrese el nombre del profesor: "; string nombre; getline(cin, nombre); cout << endl;
 		P->setNombre(nombre); P->setPrimerApellido(primerApellido); P->setSegundoApellido(segundoApellido);
 		msjPerfecto();
-		
+
 	}
 	else
 		cout << "No se ha encontrado el profesor con ese numero de cedula..." << endl;

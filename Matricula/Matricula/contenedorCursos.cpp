@@ -4,6 +4,27 @@ Contenedor_Cursos::Contenedor_Cursos()
 {
 	pinicio = NULL;
 	paux = NULL;
+	cantidad = 0;
+}
+
+int Contenedor_Cursos::getCantidad()
+{
+	return cantidad;
+}
+
+Curso * Contenedor_Cursos::getCursoporPos(int pos)
+{
+	
+	paux = pinicio;
+
+	if (pos == 0)
+		return paux->getCurso();
+
+	for (int i = 0; i < pos ; i++) {
+		paux = paux->getNext();
+	}
+
+	return paux->getCurso();
 }
 
 void Contenedor_Cursos::insertaInicio(Curso *unCurso)
@@ -19,6 +40,7 @@ void Contenedor_Cursos::insertaInicio(Curso *unCurso)
 		paux->setNext(pinicio);
 		pinicio = paux;
 	}
+	cantidad++;
 }
 
 bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
@@ -53,12 +75,13 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 	{
 		anterior->setNext(paux->getNext());
 		delete paux;
+		cantidad--;
 		return true;
 	}
 
 }
 
-Curso * Contenedor_Cursos::retornaCurso(string codigo)
+Curso * Contenedor_Cursos::retornaCursoEspecifico(string codigo)
 {
 	paux = pinicio;
 	while (paux != NULL)
@@ -91,7 +114,7 @@ string Contenedor_Cursos::toString()
 }
 
 int Contenedor_Cursos::getProfesores(string codigo, int pos) {
-	return retornaCurso(codigo)->getProfesores(pos);
+	return retornaCursoEspecifico(codigo)->getProfesores(pos);
 }
 
 Contenedor_Cursos::~Contenedor_Cursos()

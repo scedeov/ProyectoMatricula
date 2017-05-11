@@ -47,6 +47,7 @@ public:
 	static void vConsultarProfeCedula(Universidad*);
 	static void vConsultarProfesCurso(Universidad*);
 	static void vEditarProfesor(Universidad*);
+	static string convierteCedulaNombre(int);
 };
 #endif // !INTERFAZ
 
