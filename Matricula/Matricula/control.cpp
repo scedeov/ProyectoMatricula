@@ -336,6 +336,10 @@ void Control::AjustesProfesores() {
 			break;
 		}
 		case '2': {
+			Interfaz::vEditarProfesor(U);
+			break;
+		}
+		case '3': {
 			end = true;
 			break;
 		}

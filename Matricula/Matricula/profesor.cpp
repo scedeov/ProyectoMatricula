@@ -10,6 +10,21 @@ string Profesor::getNombreCompleto()
 	return Persona::getNombreCompleto();
 }
 
+void Profesor::setNombre(string nombre)
+{
+	Persona::setNombre(nombre);
+}
+
+void Profesor::setPrimerApellido(string primerApellido)
+{
+	Persona::setPrimerApellido(primerApellido);
+}
+
+void Profesor::setSegundoApellido(string segundoApellido)
+{
+	Persona::setSegundoApellido(segundoApellido);
+}
+
 Profesor::Profesor(string nombre, string primerApellido, string segundoApellido, int numCedula) {
 	setNombre(nombre);
 	setPrimerApellido(primerApellido);

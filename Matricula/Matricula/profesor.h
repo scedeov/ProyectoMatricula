@@ -15,6 +15,9 @@ private:
 	bool esDirector;
 	friend ostream& operator << (ostream&, Profesor&);
 public:
+	void setNombre(string);
+	void setPrimerApellido(string);
+	void setSegundoApellido(string);
 	Profesor(string, string, string, int);
 	void setCursosImpartidos(string);
 	string getCursosImpartidos();

@@ -555,11 +555,12 @@ char Interfaz::vAjustesProfesores() {
 	char ans;
 	cout << "***************AJUSTES PROFESORES***************" << endl;
 	cout << "(1)--Agregar Profesor" << endl;
-	cout << "(2)--Salir" << endl;
+	cout << "(2)--Editar Profesor" << endl;
+	cout << "(3)--Salir" << endl;
 	msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '2') {
+	while (ans < '1' || ans > '3') {
 		cout << "Opcion Incorrecta. Try again " << endl;
 		ans = _getch();
 	}
@@ -585,7 +586,6 @@ void Interfaz::vAgregarProfesor(Universidad* U) {
 		cin >> sigla; cin.ignore();
 		sigla = convierteMayuscula(sigla);
 	}
-
 	U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->insertaInicio(P);
 	msjPerfecto();
 }
@@ -654,6 +654,26 @@ void Interfaz::vConsultarProfesCurso(Universidad *U) {
 				
 		}
 	}
+
+	msjPausa();
+	system("cls");
+}
+
+void Interfaz::vEditarProfesor(Universidad *U)
+{
+	cout << "Digite el numero de cedula del profesor -> ";
+	int cedula = 0; cin >> cedula; cin.ignore();
+	if (U->getContenedorEscuelas()->retornaProfesor(cedula)) {
+		Profesor *P = U->getContenedorEscuelas()->retornaProfesor(cedula);
+		cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
+		cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
+		cout << "Ingrese el nombre del profesor: "; string nombre; getline(cin, nombre); cout << endl;
+		P->setNombre(nombre); P->setPrimerApellido(primerApellido); P->setSegundoApellido(segundoApellido);
+		msjPerfecto();
+		
+	}
+	else
+		cout << "No se ha encontrado el profesor con ese numero de cedula..." << endl;
 
 	msjPausa();
 	system("cls");
