@@ -21,7 +21,6 @@ public:
 	void AjustesEscuelas();
 	void MenuCursos();
 	void AjustesCursos();
-	/*void MenuAjustes();*/
 	void MenuProfesores();
 	void AjustesProfesores();
 	void MenuEstudiantes();

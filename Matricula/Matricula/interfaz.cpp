@@ -17,13 +17,13 @@ char Interfaz::vMenuPrincipal()
 	cout << "(3)--Cursos" << endl;
 	cout << "(4)--Profesores" << endl;
 	cout << "(5)--Estudiantes" << endl;
-	cout << "(6)--Ajustes" << endl;
-	cout << "(7)--Salir" << endl;
+	cout << "(6)--Salir" << endl;
 	cout << "******************************************" << endl;
 
+	msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '7') //cambiar cada vez que se agrega opcion
+	while (ans < '1' || ans > '6') //cambiar cada vez que se agrega opcion
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
@@ -41,7 +41,7 @@ char Interfaz::vMenuUniversidad()
 	cout << "(2)--Ajustes" << endl;
 	cout << "(3)--Salir" << endl;
 	cout << "********************************************" << endl;
-
+	msjIngreseOpcion();
 	ans = _getch();
 
 	while (ans < '1' || ans > '3') {
@@ -71,7 +71,7 @@ char Interfaz::vAjustesUniversidad(Universidad *U) {
 
 		cout << "-(4)-Salir" << endl;
 		cout << "************************************************" << endl;
-
+		msjIngreseOpcion();
 		ans = _getch();
 
 		while (ans < '1' || ans > '4')
@@ -91,6 +91,7 @@ char Interfaz::vAjustesUniversidad(Universidad *U) {
 			cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
 		cout << "-(3)-Salir" << endl;
 		cout << "************************************************" << endl;
+		msjIngreseOpcion();
 		ans = _getch();
 
 		while (ans < '1' || ans > '3') {
@@ -108,14 +109,34 @@ char Interfaz::vMenuEscuelas()
 	cout << "**************MENU ESCUELAS**************" << endl;
 	cout << "(1)--Consulta de la lista de Escuelas" << endl;
 	cout << "(2)--Consulta de la lista de Escuelas (+ Cursos)" << endl;
-	cout << "(3)--Salir" << endl;
+	cout << "(3)--Ajustes" << endl;
+	cout << "(4)--Salir" << endl;
 	cout << "********************************************" << endl;
-
+	msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '3')
+	while (ans < '1' || ans > '4')
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
+		ans = _getch();
+	}
+
+	system("cls");
+	return ans;
+}
+
+char Interfaz::vAjustesEscuelas()
+{
+	char ans;
+	cout << "***************AJUSTES ESCUELAS***************" << endl;
+	cout << "(1)--Ingresar Escuela" << endl;
+	cout << "(2)--Salir" << endl;
+	msjIngreseOpcion();
+	ans = _getch();
+
+	while (ans < '1' || ans > '2')
+	{
+		cout << "Opcion Incorrecta. Try again " << endl;
 		ans = _getch();
 	}
 
@@ -129,17 +150,38 @@ char Interfaz::vMenuCursos()
 	cout << "**************MENU CURSOS**************" << endl;
 	cout << "(1)--Consultar curso" << endl;
 	cout << "(2)--Consultar lista de cursos de una Escuela" << endl;
-	cout << "(3)--Salir" << endl;
+	cout << "(3)--Ajustes" << endl;
+	cout << "(4)--Salir" << endl;
 	cout << "********************************************" << endl;
-
+	msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '3')
+	while (ans < '1' || ans > '4')
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
 	}
 
+	system("cls");
+	return ans;
+}
+
+char Interfaz::vAjustesCursos()
+{
+	char ans;
+	cout << "***************AJUSTES CURSOS***************" << endl;
+	cout << "-(1)-Ingresar Curso" << endl;
+	cout << "-(2)-Editar Curso" << endl;
+	cout << "-(3)-Eliminar Curso" << endl;
+	cout << "-(4)-Salir" << endl;
+	msjIngreseOpcion();
+	ans = _getch();
+
+	while (ans < '1' || ans > '4')
+	{
+		cout << "Opcion Incorrecta. Try again " << endl;
+		ans = _getch();
+	}
 	system("cls");
 	return ans;
 }
@@ -154,64 +196,6 @@ char Interfaz::vDatosPrimeraVez(Universidad* U)
 		return vInfoConfirmacion();
 	}
 	return 0;
-}
-
-char Interfaz::vMenuAjustes(Universidad* U) //Estoy seguro que puede mejorarse mil veces
-{
-	char ans;
-
-	cout << "**************MENU CURSOS*************************" << endl;
-	if (U->getNombre() == "Undefined")
-	{
-		cout << "-(1)-Ingresar nombre de la Universidad" << endl;
-
-		if (U->getNumero() == "Undefined")
-			cout << "-(2)-Ingresar Numero de Telefono de la Universidad" << endl;
-		else
-			cout << "-(2)-Cambiar Numero de Telefono de la Universidad" << endl;
-		if (U->getDireccion() == "Undefined")
-			cout << "-(3)-Ingresar Direccion de la Universidad" << endl;
-		else
-			cout << "-(3)-Cambiar Direccion de la Universidad" << endl;
-
-		cout << "-(4)-Salir" << endl;
-		cout << "************************************************" << endl;
-
-		ans = _getch();
-
-		while (ans < '1' || ans > '4')
-		{
-			cout << "Opcion Incorrecta. Try again " << endl;
-			ans = _getch();
-		}
-	}
-	else
-	{
-		if (U->getNumero() == "Undefined")
-			cout << "-(1)-Ingresar Numero de Telefono de la Universidad" << endl;
-		else
-			cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
-		if (U->getDireccion() == "Undefined")
-			cout << "-(2)-Ingresar Direccion de la Universidad" << endl;
-		else
-			cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
-
-		cout << "-(3)-Ingresar Escuela" << endl;
-		cout << "-(4)-Ingresar Curso" << endl;
-		cout << "-(5)-Editar Curso" << endl;
-		cout << "-(6)-Eliminar Curso" << endl;
-		cout << "-(7)-Salir" << endl;
-		cout << "************************************************" << endl;
-		ans = _getch();
-
-		while (ans < '1' || ans > '7')
-		{
-			cout << "Opcion Incorrecta. Try again " << endl;
-			ans = _getch();
-		}
-	}
-	system("cls");
-	return ans;
 }
 
 void Interfaz::vIngresarNumero(Universidad* U)
@@ -313,7 +297,6 @@ char Interfaz::vInfoConfirmacion()
 	}
 
 	system("cls");
-
 	return ans;
 }
 
@@ -505,6 +488,11 @@ void Interfaz::msjPausa()
 	_getch();
 }
 
+void Interfaz::msjIngreseOpcion()
+{
+	cout << "Ingrese una opcion -> ";
+}
+
 string Interfaz::convierteMayuscula(string minuscula)
 {
 	string mayuscula;
@@ -547,10 +535,10 @@ char Interfaz::vMenuProfesores() {
 	cout << "(1)--Consultar lista de Profesores por Escuela" << endl;
 	cout << "(2)--Consultar lista de Profesores por Curso" << endl;
 	cout << "(3)--Buscar Profesor por Cedula" << endl;
-	cout << "(4)--Agregar Profesor" << endl;
+	cout << "(4)--Ajustes" << endl;
 	cout << "(5)--Salir" << endl;
 	cout << "********************************************" << endl;
-
+	msjIngreseOpcion();
 	ans = _getch();
 
 	while (ans < '1' || ans > '5')
@@ -559,6 +547,22 @@ char Interfaz::vMenuProfesores() {
 		ans = _getch();
 	}
 
+	system("cls");
+	return ans;
+}
+
+char Interfaz::vAjustesProfesores() {
+	char ans;
+	cout << "***************AJUSTES PROFESORES***************" << endl;
+	cout << "(1)--Agregar Profesor" << endl;
+	cout << "(2)--Salir" << endl;
+	msjIngreseOpcion();
+	ans = _getch();
+
+	while (ans < '1' || ans > '2') {
+		cout << "Opcion Incorrecta. Try again " << endl;
+		ans = _getch();
+	}
 	system("cls");
 	return ans;
 }

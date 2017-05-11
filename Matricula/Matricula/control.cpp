@@ -15,7 +15,7 @@ void Control::Inicializador()
 	U->getContenedorEscuelas()->insertarInicio(E2);
 	U->getContenedorEscuelas()->insertarInicio(E3);
 	U->getContenedorEscuelas()->insertarInicio(E4);
-	
+
 
 	Curso* CU1 = new Curso("Programacion I", E1->getSiglaEscuela());
 	Curso* CU2 = new Curso("Programacion II", E2->getSiglaEscuela());
@@ -77,11 +77,6 @@ void Control::MenuPrincipal()
 		}
 		case '6':
 		{
-			/*MenuAjustes();*/
-			break;
-		}
-		case '7':
-		{
 			delete U;
 			end = true;
 			break;
@@ -119,7 +114,7 @@ void Control::MenuUniversidad() {
 }
 
 void Control::AjustesUniversidad() {
-	
+
 	bool end = false;
 
 	do {
@@ -188,7 +183,12 @@ void Control::MenuEscuelas()
 			Interfaz::vInfoEscuelas(U, '2'); //Imprime escuelas con los cursos
 			break;
 		}
-		case '3': // Salir
+		case '3':
+		{
+			AjustesEscuelas();
+			break;
+		}
+		case '4': // Salir
 		{
 			end = true;
 			break;
@@ -197,6 +197,29 @@ void Control::MenuEscuelas()
 			break;
 		}
 
+	} while (end == false);
+}
+
+void Control::AjustesEscuelas() {
+
+	bool end = false;
+
+	do {
+		char opcion = Interfaz::vAjustesEscuelas();
+
+		switch (opcion) {
+		case '1':
+		{
+			Interfaz::vIngresaEscuela(U);
+			break;
+		}
+		case '2':
+		{
+			end = true;
+			break;
+		}
+		default: break;
+		}
 	} while (end == false);
 }
 
@@ -222,99 +245,54 @@ void Control::MenuCursos()
 		}
 		case '3': //Salir
 		{
+			AjustesCursos();
+			break;
+		}
+		case '4': {
 			end = true;
 			break;
 		}
-		default:
-			break;
+		default: break;
 		}
 
 	} while (end == false);
 }
 
-//void Control::MenuAjustes()
-//{
-//	bool end = false;
-//
-//	do
-//	{
-//		char opcion = Interfaz::vMenuAjustes(U);
-//
-//
-//		if (U->getNombre() == "Undefined")
-//		{
-//			switch (opcion)
-//			{
-//			case '1':
-//			{
-//				Interfaz::vIngresarNombre(U);
-//				break;
-//			}
-//			case '2':
-//			{
-//				Interfaz::vIngresarNumero(U);
-//				break;
-//			}
-//			case '3':
-//			{
-//				Interfaz::vIngresarDireccion(U);
-//				break;
-//			}
-//			case '4':
-//			{
-//				end = true;
-//				break;
-//			}
-//			default: break;
-//
-//			}
-//		}
-//		else
-//		{
-//
-//			switch (opcion)
-//			{
-//			case '1':
-//			{
-//				Interfaz::vIngresarNumero(U);
-//				break;
-//			}
-//			case '2':
-//			{
-//				Interfaz::vIngresarDireccion(U);
-//				break;
-//			}
-//			case '3':
-//			{
-//				Interfaz::vIngresaEscuela(U);
-//				break;
-//			}
-//			case '4':
-//			{
-//				Interfaz::vIngresaCurso(U);
-//				break;
-//			}
-//			case '5':
-//			{
-//				Interfaz::vEditarCurso(U);
-//				break;
-//			}
-//			case '6':
-//			{
-//				Interfaz::vEliminaCurso(U);
-//				break;
-//			}
-//			case '7':
-//			{
-//				end = true;
-//				break;
-//			}
-//			default: break;
-//			}
-//		}
-//
-//	} while (end == false);
-//}
+void Control::AjustesCursos() {
+
+	bool end = false;
+
+	do {
+
+		char opcion = Interfaz::vAjustesCursos();
+
+		switch (opcion) {
+		case '1':
+		{
+			Interfaz::vIngresaCurso(U);
+			break;
+		}
+		case '2':
+		{
+			Interfaz::vEditarCurso(U);
+			break;
+		}
+		case '3':
+		{
+			Interfaz::vEliminaCurso(U);
+			break;
+		}
+		case '4': 
+		{
+			end = true;
+			break;
+		}
+		default: break;
+		}
+
+	} while (end == false);
+
+}
 
 void Control::MenuProfesores()
 {
@@ -336,10 +314,28 @@ void Control::MenuProfesores()
 			break;
 		}
 		case '4': {
-			Interfaz::vAgregarProfesor(U);
+			AjustesProfesores();
 			break;
 		}
 		case '5': {
+			end = true;
+			break;
+		}
+		default: break;
+		}
+	} while (end == false);
+}
+
+void Control::AjustesProfesores() {
+	bool end = false;
+	do {
+		char opcion = Interfaz::vAjustesProfesores();
+		switch (opcion) {
+		case '1': {
+			Interfaz::vAgregarProfesor(U);
+			break;
+		}
+		case '2': {
 			end = true;
 			break;
 		}
