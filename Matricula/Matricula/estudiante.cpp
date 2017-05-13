@@ -61,10 +61,7 @@ string Estudiante::toString()
 	else
 		s << "Nacional" << endl;
 	s << "Porcentaje Beca: " << porcentajeBeca << endl;
-	return s.str();
-
-
-	return string();
+	return s.str();g
 }
 
 Estudiante::~Estudiante()

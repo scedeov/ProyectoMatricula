@@ -1,7 +1,8 @@
 #ifndef NODO_ESTUDIANTES
 #define NODO_ESTUDIANTES
 
-#include "estudiante.h"
+#include "estudianteNacional.h"
+#include "estudianteExtranjero.h"
 
 class Nodo_Estudiantes
 {

@@ -9,7 +9,7 @@ using namespace std;
 
 #include "persona.h"
 
-class Estudiante: protected Persona
+class Estudiante: public Persona
 {
 private:
 	string carnet;

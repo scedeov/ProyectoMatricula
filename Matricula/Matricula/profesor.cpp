@@ -1,5 +1,13 @@
 #include "profesor.h"
 
+Profesor::Profesor()
+{
+	for (int i = 0; i < MAXCURSOS; i++)
+		cursosImpartidos[i] = "Undefined";
+	cantidadCursos = 0;
+	esDirector = false;
+}
+
 Profesor::Profesor(string nombre, string primerApellido, string segundoApellido, int numCedula) {
 	setNombre(nombre);
 	setPrimerApellido(primerApellido);

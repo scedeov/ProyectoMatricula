@@ -189,7 +189,7 @@ char Interfaz::vAjustesCursos()
 char Interfaz::vMenuEstudiantes() {
 	char ans;
 	cout << "***************MENU ESTUDIANTES***************" << endl;
-	cout << "-(1)-Ingresar Curso" << endl;
+	cout << "-(1)-Info Estudiantes" << endl;
 	cout << "-(2)-Ajustes" << endl;
 	cout << "-(3)-Salir" << endl;
 	msjIngreseOpcion();
@@ -725,15 +725,23 @@ void Interfaz::vIngresarEstudiante(Universidad *U) {
 	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el nombre del estudiante: "; string nombre; getline(cin, nombre); cout << endl;
 	cout << "Ingrese el numero de cedula: "; int cedula; cin >> cedula; cin.ignore(); cout << endl;
-	cout << "Es un estudiante de nacionalidad extranjera?: ";
+	cout << "Es un estudiante de nacionalidad extranjera?: "; Estudiante *E;
 	if (char ans = vInfoConfirmacion() == 'N') {
 		cout << "Ingrese el porcentaje de beca (0-100): "; cin >> porcentaje; cin.ignore(); cout << endl;
+		E = new Estudiante_Nacional(nombre, primerApellido, segundoApellido, cedula, porcentaje);
 	}
-	
-	Estudiante *E = new Estudiante(nombre, primerApellido, segundoApellido, cedula, porcentaje);
+	else
+		E = new Estudiante_Extranjero(nombre, primerApellido, segundoApellido, cedula);
 
 	U->getContenedorEstudiantes()->insertaInicio(E);
 	msjPerfecto();
+}
+
+void Interfaz::vInfoEstudiantes(Universidad *U)
+{
+	cout << U->getContenedorEstudiantes()->toString() << endl;
+	msjPausa();
+	system("cls");
 }
 
 
