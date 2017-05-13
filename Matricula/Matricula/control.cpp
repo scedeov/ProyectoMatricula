@@ -94,7 +94,6 @@ void Control::MenuPrincipal()
 
 void Control::MenuUniversidad() {
 	bool end = false;
-
 	do {
 		char ans = Interfaz::vMenuUniversidad();
 
@@ -352,7 +351,43 @@ void Control::AjustesProfesores() {
 	} while (end == false);
 }
 
-void Control::MenuEstudiantes()
-{
+void Control::MenuEstudiantes() {
+	bool end = false;
+	do {
+		char opcion = Interfaz::vMenuEstudiantes();
+		switch (opcion) {
+		case '1': {
+			break;
+		}
+		case '2': {
+			AjustesEstudiantes();
+			break;
+		}
+		case '3': {
+			end = true;
+			break;
+		}
+		}
+	} while (end == false);
+}
+
+void Control::AjustesEstudiantes() {
+	bool end = false;
+	do {
+		char opcion = Interfaz::vAjustesEstudiantes();
+		switch (opcion) {
+		case '1': {
+			Interfaz::IngresarEstudiante(U);
+			break;
+		}
+		case '2': {
+			break;
+		}
+		case '3': {
+			end = true;
+			break;
+		}
+		}
+	} while (end == false);
 }
 

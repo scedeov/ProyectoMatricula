@@ -22,6 +22,8 @@ public:
 	static char vAjustesEscuelas();
 	static char vMenuCursos();
 	static char vAjustesCursos();
+	static char vMenuEstudiantes();
+	static char vAjustesEstudiantes();
 	static char vDatosPrimeraVez(Universidad*);
 	static void vIngresarNumero(Universidad*);
 	static void vIngresarDireccion(Universidad*);
@@ -47,7 +49,7 @@ public:
 	static void vConsultarProfeCedula(Universidad*);
 	static void vConsultarProfesCurso(Universidad*);
 	static void vEditarProfesor(Universidad*);
-	static string convierteCedulaNombre(int);
+	static void vIngresarEstudiante(Universidad*);
 };
 #endif // !INTERFAZ
 

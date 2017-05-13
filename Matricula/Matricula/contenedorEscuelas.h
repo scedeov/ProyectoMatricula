@@ -14,7 +14,6 @@ public:
 	Escuela* retornaEscuela(string);
 	bool encuentraEscuela(Escuela*, string);
 	Profesor* retornaProfesor(int);
-	string imprimeCursoProfes(string);
 	string toString(char);
 	~Contenedor_Escuelas();
 };

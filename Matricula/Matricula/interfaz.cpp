@@ -186,6 +186,41 @@ char Interfaz::vAjustesCursos()
 	return ans;
 }
 
+char Interfaz::vMenuEstudiantes() {
+	char ans;
+	cout << "***************MENU ESTUDIANTES***************" << endl;
+	cout << "-(1)-Ingresar Curso" << endl;
+	cout << "-(2)-Ajustes" << endl;
+	cout << "-(3)-Salir" << endl;
+	msjIngreseOpcion();
+	ans = _getch();
+
+	while (ans < '1' || ans > '3')
+	{
+		cout << "Opcion Incorrecta. Try again " << endl;
+		ans = _getch();
+	}
+	system("cls");
+	return ans;
+}
+
+char Interfaz::vAjustesEstudiantes() {
+	char ans;
+	cout << "***************AJUSTES ESTUDIANTES***************" << endl;
+	cout << "-(1)-Ingresar Estudiante" << endl;
+	cout << "-(2)-Salir" << endl;
+	msjIngreseOpcion();
+	ans = _getch();
+
+	while (ans < '1' || ans > '2')
+	{
+		cout << "Opcion Incorrecta. Try again " << endl;
+		ans = _getch();
+	}
+	system("cls");
+	return ans;
+}
+
 char Interfaz::vDatosPrimeraVez(Universidad* U)
 {
 	if (U->getNombre() == "Undefined")
@@ -682,6 +717,26 @@ void Interfaz::vEditarProfesor(Universidad *U)
 
 	msjPausa();
 	system("cls");
+}
+
+void Interfaz::vIngresarEstudiante(Universidad *U) {
+	cout << "Agregando estudiante..." << endl; int porcentaje = 0; 
+	cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
+	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
+	cout << "Ingrese el nombre del estudiante: "; string nombre; getline(cin, nombre); cout << endl;
+	cout << "Ingrese el carnet: "; string carnet; cin >> carnet; cin.ignore(); cout << endl;
+	cout << "Es un estudiante de nacionalidad extranjera?: "; bool esExtranjero;
+	if (char ans = vInfoConfirmacion() == 'N') {
+		cout << "Ingrese el porcentaje de beca (0-100): "; cin >> porcentaje; cin.ignore(); cout << endl;
+		esExtranjero = false;
+	}
+	else
+		esExtranjero = true;
+
+	Estudiante *E = new Estudiante(nombre, primerApellido, segundoApellido, carnet, esExtranjero, porcentaje);
+
+	U->getContenedorEstudiantes()->insertaInicio(E);
+	msjPerfecto();
 }
 
 

@@ -6,7 +6,7 @@
 #include <string>
 
 #include "contenedorCursos.h"
-#include "contenedorProfesores.h"
+//#include "contenedorProfesores.h"
 
 using namespace std;
 

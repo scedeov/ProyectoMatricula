@@ -7,6 +7,7 @@ Universidad::Universidad()
 	direccion = "Undefined";
 
 	ContE = new Contenedor_Escuelas();
+	ContEst = new Contenedor_Estudiantes();
 }
 
 Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
@@ -16,12 +17,14 @@ Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
 	direccion = unDireccion;
 
 	ContE = new Contenedor_Escuelas();
+	ContEst = new Contenedor_Estudiantes();
 }
 
 Universidad::~Universidad()
 {
 	cout << "Eliminando Universidad..." << endl;
 	delete ContE;
+	delete ContEst;
 }
 
 void Universidad::setTelefono(string unTelefono)
@@ -66,6 +69,11 @@ string Universidad::toString()
 
 Contenedor_Escuelas* Universidad::getContenedorEscuelas() {
 	return ContE;
+}
+
+Contenedor_Estudiantes * Universidad::getContenedorEstudiantes()
+{
+	return ContEst;
 }
 
 ostream& operator << (ostream &o, Universidad& U)

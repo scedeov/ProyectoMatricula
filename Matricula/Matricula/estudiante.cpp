@@ -1,10 +1,13 @@
 #include "estudiante.h"
 
-Estudiante::Estudiante()
+Estudiante::Estudiante(string nombre, string pApellido, string sApellido, string xcarnet, bool xExtranjero, int porcentaje)
 {
-	carnet = "undefined";
-	esExtranjero = "undefined";
-	porcentajeBeca = 0;
+	setNombre(nombre);
+	setPrimerApellido(pApellido);
+	setSegundoApellido(sApellido);
+	carnet = xcarnet;
+	esExtranjero = xExtranjero;
+	porcentajeBeca = porcentaje;
 }
 
 void Estudiante::setCarnet(string carnet)

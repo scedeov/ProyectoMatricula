@@ -15,7 +15,7 @@ private:
 	bool esExtranjero;
 	int porcentajeBeca;
 public:
-	Estudiante();
+	Estudiante(string, string, string, string, bool, int);
 	void setCarnet(string);
 	string getCarnet();
 	void setNacionalidad(bool);
