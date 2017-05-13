@@ -724,16 +724,13 @@ void Interfaz::vIngresarEstudiante(Universidad *U) {
 	cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el nombre del estudiante: "; string nombre; getline(cin, nombre); cout << endl;
-	cout << "Ingrese el carnet: "; string carnet; cin >> carnet; cin.ignore(); cout << endl;
-	cout << "Es un estudiante de nacionalidad extranjera?: "; bool esExtranjero;
+	cout << "Ingrese el numero de cedula: "; int cedula; cin >> cedula; cin.ignore(); cout << endl;
+	cout << "Es un estudiante de nacionalidad extranjera?: ";
 	if (char ans = vInfoConfirmacion() == 'N') {
 		cout << "Ingrese el porcentaje de beca (0-100): "; cin >> porcentaje; cin.ignore(); cout << endl;
-		esExtranjero = false;
 	}
-	else
-		esExtranjero = true;
-
-	Estudiante *E = new Estudiante(nombre, primerApellido, segundoApellido, carnet, esExtranjero, porcentaje);
+	
+	Estudiante *E = new Estudiante(nombre, primerApellido, segundoApellido, cedula, porcentaje);
 
 	U->getContenedorEstudiantes()->insertaInicio(E);
 	msjPerfecto();

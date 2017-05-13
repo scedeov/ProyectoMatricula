@@ -2,12 +2,11 @@
 #define PROFESOR
 
 #include <iostream>
-using namespace std;
-
-const int MAXCURSOS = 10;
 #include "persona.h"
+using namespace std;
+const int MAXCURSOS = 10;
 
-class Profesor: private Persona
+class Profesor: public Persona
 {
 private:
 	string cursosImpartidos[MAXCURSOS];
@@ -15,16 +14,10 @@ private:
 	bool esDirector;
 	friend ostream& operator << (ostream&, Profesor&);
 public:
-	void setNombre(string);
-	void setPrimerApellido(string);
-	void setSegundoApellido(string);
 	Profesor(string, string, string, int);
 	void setCursosImpartidos(string);
 	string getCursosImpartidos();
-	int getNumCedula();
-	string getNombreCompleto();
 	bool getEsDirector();
-	/*void generaCodigoProfesor();*/
 	string toString();
 	~Profesor();
 };

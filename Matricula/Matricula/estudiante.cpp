@@ -1,18 +1,21 @@
 #include "estudiante.h"
 
-Estudiante::Estudiante(string nombre, string pApellido, string sApellido, string xcarnet, bool xExtranjero, int porcentaje)
+Estudiante::Estudiante()
+{
+	carnet = "Undefined";
+	porcentajeBeca = 0;
+	esExtranjero = false;
+	generaCarnet();
+}
+
+Estudiante::Estudiante(string nombre, string pApellido, string sApellido, int cedula, int porcentaje)
 {
 	setNombre(nombre);
 	setPrimerApellido(pApellido);
 	setSegundoApellido(sApellido);
-	carnet = xcarnet;
-	esExtranjero = xExtranjero;
+	setNumCedula(cedula);
+	generaCarnet();
 	porcentajeBeca = porcentaje;
-}
-
-void Estudiante::setCarnet(string carnet)
-{
-	this->carnet = carnet;
 }
 
 string Estudiante::getCarnet()
@@ -20,12 +23,12 @@ string Estudiante::getCarnet()
 	return carnet;
 }
 
-void Estudiante::setNacionalidad(bool esExtranjero)
+void Estudiante::setEsExtranjero(bool esExtranjero)
 {
 	this->esExtranjero = esExtranjero;
 }
 
-bool Estudiante::getNacionalidad()
+bool Estudiante::getEsExtranjero()
 {
 	return esExtranjero;
 }
@@ -38,6 +41,13 @@ void Estudiante::setPorcentajeBeca(int porcentajeBeca)
 int Estudiante::getPorcentajeBeca()
 {
 	return porcentajeBeca;
+}
+
+void Estudiante::generaCarnet()
+{
+	srand((unsigned)time(0));
+	int numeroRandom = 1000 + rand() % 5000;
+	carnet = getPrimerApellido().substr(0, 1) + getSegundoApellido().substr(0, 1) + getNombre().substr(0, 1) + to_string(numeroRandom);
 }
 
 string Estudiante::toString()

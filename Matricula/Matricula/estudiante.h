@@ -3,27 +3,29 @@
 
 #include <iostream>
 #include <sstream>
+#include <time.h>
 
 using namespace std;
 
 #include "persona.h"
 
-class Estudiante: private Persona
+class Estudiante: protected Persona
 {
 private:
 	string carnet;
-	bool esExtranjero;
 	int porcentajeBeca;
+	bool esExtranjero;
 public:
-	Estudiante(string, string, string, string, bool, int);
-	void setCarnet(string);
-	string getCarnet();
-	void setNacionalidad(bool);
-	bool getNacionalidad();
-	void setPorcentajeBeca(int);
-	int getPorcentajeBeca();
-	string toString();
+	Estudiante();
+	Estudiante(string, string, string, int, int);
+	virtual string getCarnet();
+	virtual void setEsExtranjero(bool);
+	virtual bool getEsExtranjero();
+	virtual void setPorcentajeBeca(int);
+	virtual int getPorcentajeBeca();
+	virtual void generaCarnet();
+	virtual string toString();
 	friend ostream& operator << (ostream&, Estudiante&);
-	~Estudiante();
+	virtual ~Estudiante();
 };
 #endif // !ESTUDIANTE

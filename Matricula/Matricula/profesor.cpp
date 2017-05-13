@@ -1,30 +1,5 @@
 #include "profesor.h"
 
-int Profesor::getNumCedula()
-{
-	return Persona::getNumCedula();
-}
-
-string Profesor::getNombreCompleto()
-{
-	return Persona::getNombreCompleto();
-}
-
-void Profesor::setNombre(string nombre)
-{
-	Persona::setNombre(nombre);
-}
-
-void Profesor::setPrimerApellido(string primerApellido)
-{
-	Persona::setPrimerApellido(primerApellido);
-}
-
-void Profesor::setSegundoApellido(string segundoApellido)
-{
-	Persona::setSegundoApellido(segundoApellido);
-}
-
 Profesor::Profesor(string nombre, string primerApellido, string segundoApellido, int numCedula) {
 	setNombre(nombre);
 	setPrimerApellido(primerApellido);
@@ -56,16 +31,6 @@ bool Profesor::getEsDirector()
 {
 	return esDirector;
 }
-
-//void Profesor::generaCodigoProfesor() {
-//	string primera, segunda, tercera;
-//	primera = getNombre()[0];
-//	segunda = getPrimerApellido()[0];
-//	tercera = getSegundoApellido()[0];
-//	codigoProfesor = primera + segunda + tercera;
-//	codigoProfesor = codigoProfesor + to_string(cantidadCursos);
-//}
-
 
 string Profesor::toString()
 {

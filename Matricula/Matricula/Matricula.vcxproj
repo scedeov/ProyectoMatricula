@@ -119,6 +119,8 @@
     <ClInclude Include="curso.h" />
     <ClInclude Include="escuela.h" />
     <ClInclude Include="estudiante.h" />
+    <ClInclude Include="estudianteExtranjero.h" />
+    <ClInclude Include="estudianteNacional.h" />
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="nodoCursos.h" />
     <ClInclude Include="nodoEscuelas.h" />
@@ -138,6 +140,8 @@
     <ClCompile Include="curso.cpp" />
     <ClCompile Include="escuela.cpp" />
     <ClCompile Include="estudiante.cpp" />
+    <ClCompile Include="estudianteExtranjero.cpp" />
+    <ClCompile Include="estudianteNacional.cpp" />
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoCursos.cpp" />

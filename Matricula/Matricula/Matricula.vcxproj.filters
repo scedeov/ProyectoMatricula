@@ -66,6 +66,12 @@
     <ClInclude Include="nodoEstudiantes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="estudianteNacional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="estudianteExtranjero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="universidad.cpp">
@@ -120,6 +126,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="nodoEstudiantes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="estudianteExtranjero.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="estudianteNacional.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

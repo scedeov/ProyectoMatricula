@@ -357,6 +357,7 @@ void Control::MenuEstudiantes() {
 		char opcion = Interfaz::vMenuEstudiantes();
 		switch (opcion) {
 		case '1': {
+			Interfaz
 			break;
 		}
 		case '2': {
@@ -377,13 +378,10 @@ void Control::AjustesEstudiantes() {
 		char opcion = Interfaz::vAjustesEstudiantes();
 		switch (opcion) {
 		case '1': {
-			Interfaz::IngresarEstudiante(U);
+			Interfaz::vIngresarEstudiante(U);
 			break;
 		}
 		case '2': {
-			break;
-		}
-		case '3': {
 			end = true;
 			break;
 		}
