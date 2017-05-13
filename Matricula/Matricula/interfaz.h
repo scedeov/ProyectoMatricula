@@ -51,6 +51,7 @@ public:
 	static void vEditarProfesor(Universidad*);
 	static void vIngresarEstudiante(Universidad*);
 	static void vConsultaEstudiante(Universidad*);
+	static void vEditarEstudiante(Universidad*);
 };
 #endif // !INTERFAZ
 

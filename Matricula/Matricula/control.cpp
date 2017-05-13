@@ -382,6 +382,10 @@ void Control::AjustesEstudiantes() {
 			break;
 		}
 		case '2': {
+			Interfaz::vEditarEstudiante(U);
+			break;
+		}
+		case '3': {
 			end = true;
 			break;
 		}

@@ -208,11 +208,12 @@ char Interfaz::vAjustesEstudiantes() {
 	char ans;
 	cout << "***************AJUSTES ESTUDIANTES***************" << endl;
 	cout << "-(1)-Ingresar Estudiante" << endl;
-	cout << "-(2)-Salir" << endl;
+	cout << "-(2)-Editar Estudiante" << endl;
+	cout << "-(3)-Salir" << endl;
 	msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '2')
+	while (ans < '1' || ans > '3')
 	{
 		cout << "Opcion Incorrecta. Try again " << endl;
 		ans = _getch();
@@ -744,6 +745,36 @@ void Interfaz::vConsultaEstudiante(Universidad *U)
 		cout << "El Estudiante no ha sido encontrado..." << endl;
 	else
 		cout << *(U->getContenedorEstudiantes()->retornaEstudiante(cedula)) << endl;
+
+	msjPausa();
+	system("cls");
+}
+
+void Interfaz::vEditarEstudiante(Universidad *U) {
+
+	
+	string primerApellido, segundoApellido, nombre;
+	cout << "Digite el numero de cedula del Estudiante -> ";
+	int cedula; cin >> cedula; cin.ignore();
+	if (U->getContenedorEstudiantes()->retornaEstudiante(cedula)) {
+		Estudiante *E = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
+		cout << "Ingrese el primer apellido: "; cin >> primerApellido; cin.ignore(); cout << endl;
+		cout << "Ingrese el segundo apellido: "; cin >> segundoApellido; cin.ignore(); cout << endl;
+		cout << "Ingrese el nombre del Estudiante: "; getline(cin, nombre); cout << endl;
+		cout << "Es un estudiante de nacionalidad extranjera?: ";
+		if (char ans = vInfoConfirmacion() == 'N') {
+			cout << "Ingrese el porcentaje de beca (0-100): "; int porcentaje; cin >> porcentaje; cin.ignore(); cout << endl;
+			E->setEsExtranjero(false);
+			E->setPorcentajeBeca(porcentaje);
+		}
+		else {
+			E->setEsExtranjero(true);
+			E->setPorcentajeBeca(0);
+		}
+		E->setNombre(nombre); E->setPrimerApellido(primerApellido); E->setSegundoApellido(segundoApellido); E->generaCarnet();
+	}
+	else
+		cout << "No se ha encontrado el profesor con ese numero de cedula..." << endl;
 
 	msjPausa();
 	system("cls");
