@@ -21,6 +21,18 @@ void Contenedor_Estudiantes::insertaInicio(Estudiante *unEstudiante)
 	}
 }
 
+Estudiante * Contenedor_Estudiantes::retornaEstudiante(int cedula)
+{
+	paux = pinicio;
+	while (paux != NULL) {
+		if (paux->getEstudiante()->getNumCedula() == cedula)
+			return paux->getEstudiante();
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
+}
+
 string Contenedor_Estudiantes::toString()
 {
 	paux = pinicio;

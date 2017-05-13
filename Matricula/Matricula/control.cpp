@@ -357,7 +357,7 @@ void Control::MenuEstudiantes() {
 		char opcion = Interfaz::vMenuEstudiantes();
 		switch (opcion) {
 		case '1': {
-			Interfaz::vInfoEstudiantes(U);
+			Interfaz::vConsultaEstudiante(U);
 			break;
 		}
 		case '2': {

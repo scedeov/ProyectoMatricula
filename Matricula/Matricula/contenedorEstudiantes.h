@@ -15,6 +15,7 @@ private:
 public:
 	Contenedor_Estudiantes();
 	void insertaInicio(Estudiante*);
+	Estudiante* retornaEstudiante(int);
 	string toString();
 	~Contenedor_Estudiantes();
 };

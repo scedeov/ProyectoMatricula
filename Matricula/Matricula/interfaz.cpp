@@ -657,7 +657,7 @@ void Interfaz::vConsultarProfesEscuela(Universidad* U) {
 
 void Interfaz::vConsultarProfeCedula(Universidad *U)
 {
-	cout << "Digite la cedula a consultar -> "; int cedula; cin >> cedula; cin.ignore();
+	cout << "Digite la cedula del profesor a consultar -> "; int cedula; cin >> cedula; cin.ignore();
 
 	if (!U->getContenedorEscuelas()->retornaProfesor(cedula))
 		cout << "El Profesor no ha sido encontrado..." << endl;
@@ -719,7 +719,7 @@ void Interfaz::vEditarProfesor(Universidad *U)
 }
 
 void Interfaz::vIngresarEstudiante(Universidad *U) {
-	cout << "Agregando estudiante..." << endl; int porcentaje = 0; 
+	cout << "Agregando estudiante..." << endl; int porcentaje = 0;
 	cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el nombre del estudiante: "; string nombre; getline(cin, nombre); cout << endl;
@@ -736,9 +736,15 @@ void Interfaz::vIngresarEstudiante(Universidad *U) {
 	msjPerfecto();
 }
 
-void Interfaz::vInfoEstudiantes(Universidad *U)
+void Interfaz::vConsultaEstudiante(Universidad *U)
 {
-	cout << U->getContenedorEstudiantes()->toString() << endl;
+	cout << "Digite la cedula del estudiante a consultar -> "; int cedula; cin >> cedula; cin.ignore();
+
+	if (U->getContenedorEstudiantes()->retornaEstudiante(cedula) == NULL)
+		cout << "El Estudiante no ha sido encontrado..." << endl;
+	else
+		cout << *(U->getContenedorEstudiantes()->retornaEstudiante(cedula)) << endl;
+
 	msjPausa();
 	system("cls");
 }
