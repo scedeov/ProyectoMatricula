@@ -2,12 +2,8 @@
 #define ESCUELA
 
 #include <iostream>
-#include <sstream>
-#include <string>
-
 #include "contenedorCursos.h"
 #include "contenedorProfesores.h"
-
 using namespace std;
 
 class Escuela

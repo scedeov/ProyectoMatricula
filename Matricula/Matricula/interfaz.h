@@ -48,6 +48,8 @@ public:
 	static void vConsultarProfesEscuela(Universidad*);
 	static void vConsultarProfeCedula(Universidad*);
 	static void vConsultarProfesCurso(Universidad*);
+	static void vAsignarProfesorCurso(Universidad*);
+	static void vDeasignarProfesorCurso(Universidad*);
 	static void vEditarProfesor(Universidad*);
 	static void vIngresarEstudiante(Universidad*);
 	static void vConsultaEstudiante(Universidad*);

@@ -114,7 +114,7 @@ string Contenedor_Cursos::toString()
 }
 
 int Contenedor_Cursos::getProfesores(string codigo, int pos) {
-	return retornaCursoEspecifico(codigo)->getProfesores(pos);
+	return retornaCursoEspecifico(codigo)->getGrupoProfesores()->getProfesor(pos)->getNumCedula();
 }
 
 Contenedor_Cursos::~Contenedor_Cursos()

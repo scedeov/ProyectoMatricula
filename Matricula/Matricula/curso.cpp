@@ -4,6 +4,8 @@ Curso::Curso()
 {
 	codigoCurso = "Undefined";
 	nombreCurso = "Undefined";
+	grupoEstu = new GrupoEstudiantes();
+	grupoProfes = new GrupoProfesores();
 }
 
 Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso se crea, se debe agregar ya la sigla de la Escuela.
@@ -12,9 +14,8 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 	codigoCurso = siglaEscuela + to_string(variableCodigoCursos);
 	variableCodigoCursos++;
 
-	for (int i = 0; i < MAXPROF; i++)
-		profesores[i] = 0;
-	cantidadProfesores = 0;
+	grupoEstu = new GrupoEstudiantes();
+	grupoProfes = new GrupoProfesores();
 }
 
 Curso::~Curso()
@@ -37,15 +38,13 @@ void Curso::setCantidadCreditos(int cantidadCreditos)
 	this->cantidadCreditos = cantidadCreditos;
 }
 
-void Curso::setProfesores(int profenuevo) {
-	if (cantidadProfesores < MAXPROF) {
-		profesores[cantidadProfesores] = profenuevo;
-		cantidadProfesores++;
-	}
+GrupoEstudiantes * Curso::getGrupoEstudiantes()
+{
+	return grupoEstu;
 }
 
-int Curso::getProfesores(int pos) {
-	return profesores[pos];
+GrupoProfesores* Curso::getGrupoProfesores() {
+	return grupoProfes;
 }
 
 string Curso::getNombre()
@@ -61,11 +60,6 @@ string Curso::getCodigoCurso()
 int Curso::getCantidadCreditos()
 {
 	return cantidadCreditos;
-}
-
-int Curso::getCantidadProfesores()
-{
-	return cantidadProfesores;
 }
 
 string Curso::toString()

@@ -1,4 +1,6 @@
 #include "estudiante.h"
+#include <time.h>
+#include <sstream>
 
 Estudiante::Estudiante()
 {

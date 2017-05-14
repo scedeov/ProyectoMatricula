@@ -81,6 +81,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -121,6 +122,8 @@
     <ClInclude Include="estudiante.h" />
     <ClInclude Include="estudianteExtranjero.h" />
     <ClInclude Include="estudianteNacional.h" />
+    <ClInclude Include="grupoEstudiantes.h" />
+    <ClInclude Include="grupoProfesores.h" />
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="nodoCursos.h" />
     <ClInclude Include="nodoEscuelas.h" />
@@ -142,6 +145,8 @@
     <ClCompile Include="estudiante.cpp" />
     <ClCompile Include="estudianteExtranjero.cpp" />
     <ClCompile Include="estudianteNacional.cpp" />
+    <ClCompile Include="grupoEstudiantes.cpp" />
+    <ClCompile Include="grupoProfesores.cpp" />
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoCursos.cpp" />

@@ -2,15 +2,11 @@
 #define ESTUDIANTE
 
 #include <iostream>
-#include <sstream>
-#include <time.h>
+#include "persona.h"
 
 using namespace std;
 
-#include "persona.h"
-
-class Estudiante: public Persona
-{
+class Estudiante: public Persona {
 private:
 	string carnet;
 	int porcentajeBeca;

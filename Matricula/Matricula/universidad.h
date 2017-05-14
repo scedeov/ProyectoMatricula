@@ -1,11 +1,10 @@
 #ifndef UNIVERSIDAD
 #define UNIVERSIDAD
 
-#include <iostream>
-#include <sstream>
+
 #include "contenedorEscuelas.h"
-#include "contenedorProfesores.h"
 #include "contenedorEstudiantes.h"
+
 using namespace std;
 
 class Universidad

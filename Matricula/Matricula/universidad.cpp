@@ -1,4 +1,6 @@
 #include "universidad.h"
+#include <iostream>
+#include <sstream>
 
 Universidad::Universidad()
 {

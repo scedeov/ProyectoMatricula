@@ -24,11 +24,13 @@ void Control::Inicializador()
 	E2->getContenedorCursos()->insertaInicio(CU2);
 
 	Profesor* P1 = new Profesor("Carlos", "Bermudez", "Villagran", 115720401);
+	P1->setEscuela("Ingles");
 	Profesor* P2 = new Profesor("Manati", "Bolanos", "Oztia", 11576767);
+	P2->setEscuela("Ingles");
 	E1->getContenedorProfesores()->insertaInicio(P1);
 	E1->getContenedorProfesores()->insertaInicio(P2);
-	CU1->setProfesores(P1->getNumCedula());
-	CU1->setProfesores(P2->getNumCedula());
+	CU1->getGrupoProfesores()->agregarProfesor(P1);
+	CU1->getGrupoProfesores()->agregarProfesor(P2);
 	P1->setCursosImpartidos(CU1->getCodigoCurso());
 	P2->setCursosImpartidos(CU1->getCodigoCurso());
 
@@ -343,6 +345,10 @@ void Control::AjustesProfesores() {
 			break;
 		}
 		case '3': {
+			Interfaz::vAsignarProfesorCurso(U);
+			break;
+		}
+		case '4': {
 			end = true;
 			break;
 		}

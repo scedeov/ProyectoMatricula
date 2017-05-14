@@ -72,6 +72,12 @@
     <ClInclude Include="estudianteExtranjero.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="grupoEstudiantes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grupoProfesores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="universidad.cpp">
@@ -132,6 +138,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="estudianteNacional.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grupoEstudiantes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grupoProfesores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

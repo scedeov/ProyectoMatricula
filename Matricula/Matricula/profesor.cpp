@@ -13,7 +13,7 @@ Profesor::Profesor(string nombre, string primerApellido, string segundoApellido,
 	setPrimerApellido(primerApellido);
 	setSegundoApellido(segundoApellido);
 	setNumCedula(numCedula);
-	
+
 	esDirector = false;
 
 	for (int i = 0; i < MAXCURSOS; i++)
@@ -28,11 +28,43 @@ void Profesor::setCursosImpartidos(string cursoNuevo) {
 	}
 }
 
+void Profesor::setEscuela(string escuela)
+{
+	this->escuela = ((char)toupper(escuela[0])) + escuela.substr(1, escuela.length() - 1);
+}
+
+string Profesor::getEscuela()
+{
+	return escuela;
+}
+
+int Profesor::getCantidadCursos()
+{
+	return cantidadCursos;
+}
+
+int Profesor::getMaxCursos()
+{
+	return MAXCURSOS;
+}
+
 string Profesor::getCursosImpartidos() {
 	stringstream s;
 	for (int i = 0; i < cantidadCursos; i++)
 		s << cursosImpartidos[i] << " ";
 	return s.str();
+}
+
+bool Profesor::eliminarCursoImpartido(string codigo)
+{
+	for (int i = 0; i < cantidadCursos; i++) 
+		if (cursosImpartidos[i] == codigo) {
+			for (int x = i; x < cantidadCursos; x++)
+				cursosImpartidos[x] = cursosImpartidos[i + 1];
+			cantidadCursos--;
+			return true;
+		}
+	return false;
 }
 
 bool Profesor::getEsDirector()

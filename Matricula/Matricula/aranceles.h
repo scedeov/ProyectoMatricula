@@ -1,8 +1,8 @@
 #ifndef ARANCELES
 #define ARANCELES
 
-#include "estudiante.h"
 #include "curso.h"
+#include "estudiante.h"
 
 class Aranceles
 {

@@ -1,4 +1,6 @@
 #include "escuela.h"
+#include <sstream>
+#include <string>
 
 Escuela::Escuela(string unNombre = "Undefined") :
 	nombreEscuela(unNombre)
