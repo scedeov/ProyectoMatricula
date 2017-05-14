@@ -319,10 +319,15 @@ void Control::MenuProfesores()
 			break;
 		}
 		case '4': {
+			Interfaz::vConsultaCursosAsignadosProfesor(U);
+			break;
+
+		}
+		case '5': {
 			AjustesProfesores();
 			break;
 		}
-		case '5': {
+		case '6': {
 			end = true;
 			break;
 		}

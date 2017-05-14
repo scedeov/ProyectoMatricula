@@ -581,7 +581,7 @@ char Interfaz::vMenuProfesores() {
 	msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '5')
+	while (ans < '1' || ans > '6')
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
@@ -842,6 +842,11 @@ void Interfaz::vEditarEstudiante(Universidad *U) {
 
 	msjPausa();
 	system("cls");
+}
+
+void Interfaz::vConsultaCursosAsignadosProfesor(Universidad *U)
+{
+ //Incompleto
 }
 
 
