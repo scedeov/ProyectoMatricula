@@ -846,7 +846,16 @@ void Interfaz::vEditarEstudiante(Universidad *U) {
 
 void Interfaz::vConsultaCursosAsignadosProfesor(Universidad *U)
 {
- //Incompleto
+	cout << "Digite el numero de identificacion del profesor a consultar ->"; int cedula; cin >> cedula; cin.ignore();
+	if (U->getContenedorEscuelas()->retornaProfesor(cedula)) {
+		cout << "El profesor " << U->getContenedorEscuelas()->retornaProfesor(cedula)->getNombreCompleto() << " imparte los cursos: " << endl;
+		cout << U->getContenedorEscuelas()->retornaProfesor(cedula)->getCursosImpartidos() << endl;
+	}
+	else
+		cout << "El profesor con la cedula " << cedula << " no existe" << endl;
+
+	msjPausa();
+	system("cls");
 }
 
 
