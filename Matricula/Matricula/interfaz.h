@@ -2,14 +2,9 @@
 #define INTERFAZ
 
 #include <iostream>
-#include <Windows.h>
-#include <conio.h>
-#include <sstream>
-#include <string>
+#include "universidad.h"
 
 using namespace std;
-
-#include "universidad.h"
 
 class Interfaz
 {

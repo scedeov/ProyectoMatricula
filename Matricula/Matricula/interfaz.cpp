@@ -1,5 +1,8 @@
 #include "interfaz.h"
-
+#include <Windows.h>
+#include <conio.h>
+#include <sstream>
+#include <string>
 
 void Interfaz::vBienvenida()
 {
