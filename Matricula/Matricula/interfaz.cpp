@@ -575,8 +575,9 @@ char Interfaz::vMenuProfesores() {
 	cout << "(1)--Consultar lista de Profesores por Escuela" << endl;
 	cout << "(2)--Consultar lista de Profesores por Curso" << endl;
 	cout << "(3)--Buscar Profesor por Cedula" << endl;
-	cout << "(4)--Ajustes" << endl;
-	cout << "(5)--Salir" << endl;
+	cout << "(4)--Consulta de Cursos asignados a un Profesor" << endl;
+	cout << "(5)--Ajustes" << endl;
+	cout << "(6)--Salir" << endl;
 	cout << "********************************************" << endl;
 	msjIngreseOpcion();
 	ans = _getch();
