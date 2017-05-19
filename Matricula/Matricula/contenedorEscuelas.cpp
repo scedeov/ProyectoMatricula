@@ -1,4 +1,7 @@
 #include "contenedorEscuelas.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Contenedor_Escuelas::Contenedor_Escuelas()
 {

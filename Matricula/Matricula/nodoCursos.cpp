@@ -1,4 +1,7 @@
 #include "nodoCursos.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Nodo_Cursos::Nodo_Cursos(Curso *unCurso, Nodo_Cursos *unNext)
 {
@@ -28,18 +31,18 @@ Nodo_Cursos * Nodo_Cursos::getNext()
 
 string Nodo_Cursos::toStringNodo()
 {
-	stringstream s;
+	std::stringstream s;
 	s << c->toString();
 	return s.str();
 }
 
 Nodo_Cursos::~Nodo_Cursos()
 {
-	cout << "Eliminando Nodo de Cursos" << endl;
+	std::cout << "Eliminando Nodo de Cursos" << std::endl;
 	delete c;
 }
 
-ostream & operator<<(ostream &o, Nodo_Cursos &NC)
+ostream & operator <<(ostream &o, Nodo_Cursos &NC)
 {
 	return o << NC.toStringNodo();
 }

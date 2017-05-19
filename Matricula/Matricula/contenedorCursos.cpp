@@ -1,4 +1,7 @@
 #include "contenedorCursos.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Contenedor_Cursos::Contenedor_Cursos()
 {

@@ -1,4 +1,5 @@
 #include "control.h"
+#include "interfaz.h"
 
 int main()
 {

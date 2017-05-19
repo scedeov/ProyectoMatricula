@@ -1,32 +1,29 @@
 #ifndef PERSONA
 #define PERSONA
 
-#include <iostream>
-#include <sstream>
-
-using namespace std;
+#include <string>
 
 class Persona
 {
 private:
-	string nombre;
-	string primerApellido;
-	string segundoApellido;
-	string nombreCompleto;
+	std::string nombre;
+	std::string primerApellido;
+	std::string segundoApellido;
+	std::string nombreCompleto;
 	int numCedula;
-	friend ostream& operator << (ostream&, Persona&);
+	friend std::ostream& operator << (std::ostream&, Persona&);
 public:
 	Persona();
 	virtual ~Persona();
-	virtual string getNombreCompleto();
-	virtual void setNombre(string);
-	virtual string getNombre();
-	virtual void setPrimerApellido(string);
-	virtual void setSegundoApellido(string);
-	virtual string getPrimerApellido();
-	virtual string getSegundoApellido();
+	virtual std::string getNombreCompleto();
+	virtual void setNombre(std::string);
+	virtual std::string getNombre();
+	virtual void setPrimerApellido(std::string);
+	virtual void setSegundoApellido(std::string);
+	virtual std::string getPrimerApellido();
+	virtual std::string getSegundoApellido();
 	virtual void setNumCedula(int);
 	virtual int getNumCedula();
-	virtual string toString();
+	virtual std::string toString();
 };
 #endif // !PERSONA

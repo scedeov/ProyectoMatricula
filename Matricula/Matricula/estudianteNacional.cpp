@@ -1,4 +1,7 @@
 #include "estudianteNacional.h"
+#include <string>
+#include <iostream>
+using namespace std;
 
 Estudiante_Nacional::Estudiante_Nacional(string nombre, string primerApellido, string segundoApellido, int cedula, int porcentajeBeca)
 {

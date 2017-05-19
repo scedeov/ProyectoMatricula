@@ -1,4 +1,7 @@
 #include "control.h"
+#include <conio.h>
+#include <Windows.h>
+#include "interfaz.h"
 
 int Curso::variableCodigoCursos = 0; // variable que controla el codigo del curso
 

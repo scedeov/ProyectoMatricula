@@ -1,4 +1,5 @@
 #include "grupoProfesores.h"
+#include <iostream>
 
 GrupoProfesores::GrupoProfesores()
 {
@@ -39,5 +40,5 @@ int GrupoProfesores::getCantidadProfesores()
 
 GrupoProfesores::~GrupoProfesores()
 {
-	cout << "Eliminando grupo de profesores..." << endl;
+	std::cout << "Eliminando grupo de profesores..." << std::endl;
 }

@@ -1,4 +1,7 @@
 #include "estudianteExtranjero.h"
+#include <string>
+#include <iostream>
+using namespace std;
 
 Estudiante_Extranjero::Estudiante_Extranjero(string nombre, string primerApellido, string segundoApellido, int cedula)
 {
@@ -13,4 +16,5 @@ Estudiante_Extranjero::Estudiante_Extranjero(string nombre, string primerApellid
 
 Estudiante_Extranjero::~Estudiante_Extranjero()
 {
+	cout << "Eliminando Estudiante Extranjero" << endl;
 }

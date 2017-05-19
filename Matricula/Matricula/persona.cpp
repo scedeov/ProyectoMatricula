@@ -1,4 +1,8 @@
 #include "persona.h"
+#include <sstream>
+#include <iostream>
+
+using namespace std;
 
 Persona::Persona() {
 	nombre = "";
@@ -13,7 +17,7 @@ Persona::~Persona()
 
 string Persona::getNombreCompleto()
 {
-	string nombrecomp = nombre + " " + primerApellido + " " + segundoApellido;
+	std::string nombrecomp = nombre + " " + primerApellido + " " + segundoApellido;
 	return nombrecomp;
 }
 

@@ -1,36 +1,31 @@
 #ifndef CURSO
 #define CURSO
 
-#include <iostream>
-#include <sstream>
-
 #include "grupoProfesores.h"
 #include "grupoEstudiantes.h"
-
-using namespace std;
 
 class Curso
 {
 private:
 	GrupoEstudiantes* grupoEstu;
 	GrupoProfesores* grupoProfes;
-	string nombreCurso;
-	string codigoCurso;
+	std::string nombreCurso;
+	std::string codigoCurso;
 	static int variableCodigoCursos;
 	int cantidadCreditos;
 public:
 	Curso();
-	Curso(string, string);
-	void setNombre(string);
-	void setCodigoCurso(string);
+	Curso(std::string, std::string);
+	void setNombre(std::string);
+	void setCodigoCurso(std::string);
 	void setCantidadCreditos(int);
 	GrupoEstudiantes* getGrupoEstudiantes();
 	GrupoProfesores* getGrupoProfesores();
-	string getNombre();
-	string getCodigoCurso();
+	std::string getNombre();
+	std::string getCodigoCurso();
 	int getCantidadCreditos();
-	string toString();
-	friend ostream& operator << (ostream&, Curso&);
+	std::string toString();
+	friend std::ostream& operator << (std::ostream&, Curso&);
 	bool operator == (const Curso&) const;
 	~Curso();
 };

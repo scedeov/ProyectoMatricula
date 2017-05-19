@@ -1,4 +1,7 @@
 #include "profesor.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Profesor::Profesor()
 {

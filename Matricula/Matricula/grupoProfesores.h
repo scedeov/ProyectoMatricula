@@ -1,8 +1,8 @@
 #ifndef GRUPOPROFESORES
 #define GRUPOPROFESORES
 
-
 #include "profesor.h"
+
 const int MAXPROF = 5;
 
 class GrupoProfesores {

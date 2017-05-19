@@ -1,4 +1,5 @@
 #include "grupoEstudiantes.h"
+#include <iostream>
 
 GrupoEstudiantes::GrupoEstudiantes()
 {
@@ -41,5 +42,5 @@ bool GrupoEstudiantes::eliminarEstudiante(int cedula)
 
 GrupoEstudiantes::~GrupoEstudiantes()
 {
-	cout << "Eliminando grupo Estudiantes..." << endl;
+	std::cout << "Eliminando grupo Estudiantes..." << std::endl;
 }

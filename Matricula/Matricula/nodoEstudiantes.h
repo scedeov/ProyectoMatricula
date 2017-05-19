@@ -9,14 +9,14 @@ class Nodo_Estudiantes
 private:
 	Estudiante* E;
 	Nodo_Estudiantes* Next;
-	friend ostream& operator << (ostream&, Nodo_Estudiantes&);
+	friend std::ostream& operator << (std::ostream&, Nodo_Estudiantes&);
 public:
 	Nodo_Estudiantes(Estudiante*, Nodo_Estudiantes*);
 	void setEstudiante(Estudiante*);
 	Estudiante* getEstudiante();
 	void setNext(Nodo_Estudiantes*);
 	Nodo_Estudiantes* getNext();
-	string toStringNodo();
+	std::string toStringNodo();
 	~Nodo_Estudiantes();
 };
 #endif // !NODO_ESTUDIANTES

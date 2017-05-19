@@ -1,4 +1,7 @@
 #include "curso.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Curso::Curso()
 {

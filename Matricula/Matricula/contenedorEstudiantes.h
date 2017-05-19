@@ -3,20 +3,17 @@
 
 #include "nodoEstudiantes.h"
 
-#include <iostream>
-using namespace std;
-
 class Contenedor_Estudiantes
 {
 private:
 	Nodo_Estudiantes *pinicio;
 	Nodo_Estudiantes *paux;
-	friend ostream& operator << (ostream&, Contenedor_Estudiantes&);
+	friend std::ostream& operator << (std::ostream&, Contenedor_Estudiantes&);
 public:
 	Contenedor_Estudiantes();
 	void insertaInicio(Estudiante*);
 	Estudiante* retornaEstudiante(int);
-	string toString();
+	std::string toString();
 	~Contenedor_Estudiantes();
 };
 #endif // !CONTENEDOR_ESTUDIANTES

@@ -4,27 +4,27 @@
 #include "persona.h"
 
 const int MAXCURSOS = 10;
-using namespace std;
+
 class Profesor: public Persona
 {
 private:
-	string cursosImpartidos[MAXCURSOS];
+	std::string cursosImpartidos[MAXCURSOS];
 	int cantidadCursos;
 	bool esDirector;
-	string escuela;
-	friend ostream& operator << (ostream&, Profesor&);
+	std::string escuela;
+	friend std::ostream& operator << (std::ostream&, Profesor&);
 public:
 	Profesor();
-	Profesor(string, string, string, int);
-	void setCursosImpartidos(string);
-	void setEscuela(string);
-	string getEscuela();
+	Profesor(std::string, std::string, std::string, int);
+	void setCursosImpartidos(std::string);
+	void setEscuela(std::string);
+	std::string getEscuela();
 	int getCantidadCursos();
 	int getMaxCursos();
-	string getCursosImpartidos();
-	bool eliminarCursoImpartido(string);
+	std::string getCursosImpartidos();
+	bool eliminarCursoImpartido(std::string);
 	bool getEsDirector();
-	string toString();
+	std::string toString();
 	~Profesor();
 };
 #endif // !PROFESOR
