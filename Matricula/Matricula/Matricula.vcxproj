@@ -127,6 +127,7 @@
     <ClInclude Include="interfazCursos.h" />
     <ClInclude Include="interfazEscuelas.h" />
     <ClInclude Include="interfazEstudiantes.h" />
+    <ClInclude Include="interfazMatricula.h" />
     <ClInclude Include="interfazPrincipal.h" />
     <ClInclude Include="interfazProfesores.h" />
     <ClInclude Include="interfazUniversidad.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="grupoProfesores.cpp" />
     <ClCompile Include="interfazCursos.cpp" />
     <ClCompile Include="interfazEstudiantes.cpp" />
+    <ClCompile Include="interfazMatricula.cpp" />
     <ClCompile Include="interfazPrincipal.cpp" />
     <ClCompile Include="interfazEscuelas.cpp" />
     <ClCompile Include="interfazProfesores.cpp" />

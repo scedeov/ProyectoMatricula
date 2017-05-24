@@ -14,10 +14,5 @@ public:
 	static void msjPausa();
 	static void msjIngreseOpcion();
 	static std::string convierteMayuscula(std::string);
-	static char vMenuMatricula();
-	static bool vMatriculaEstudianteCurso(Universidad*);
-	static void vMatriculaListaCursosEstudiante(Universidad*);
-	static void vMatriculaListaEstudiantesCursos(Universidad*);
-};
 #endif // !INTERFAZ_PRINCIPAL
 
