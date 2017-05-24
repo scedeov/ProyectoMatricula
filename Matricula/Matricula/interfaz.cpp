@@ -920,13 +920,14 @@ bool Interfaz::vMatriculaEstudianteCurso(Universidad *U)
 			cout << "No existe el Estudiante con esa cedula " << endl;
 		if (e == 2)
 			cout << "No existe el curso con ese codigo " << endl;
-		if (e == 3) {
+		if (e == 3)
 			cout << "No hay espacio en este curso" << endl;
-		}
 	}
 	catch (...) {
 		cout << "Error desconocido..." << endl;
 	}
+	msjPausa();
+	system("cls");
 	return false;
 }
 
