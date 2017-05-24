@@ -47,6 +47,10 @@ public:
 	static void vConsultaEstudiante(Universidad*);
 	static void vEditarEstudiante(Universidad*);
 	static void vConsultaCursosAsignadosProfesor(Universidad*);
+	static char vMenuMatricula();
+	static bool vMatriculaEstudianteCurso(Universidad*);
+	static void vMatriculaListaCursosEstudiante(Universidad*);
+	static void vMatriculaListaEstudiantesCursos(Universidad*);
 };
 #endif // !INTERFAZ
 

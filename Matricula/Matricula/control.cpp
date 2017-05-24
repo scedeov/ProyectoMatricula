@@ -79,12 +79,16 @@ void Control::MenuPrincipal()
 			MenuProfesores();
 			break;
 		}
-		case'5':
+		case '5':
 		{
 			MenuEstudiantes();
 			break;
 		}
-		case '6':
+		case '6': {
+			MenuMatricula();
+			break;
+		}
+		case '7':
 		{
 			delete U;
 			end = true;
@@ -407,3 +411,35 @@ void Control::AjustesEstudiantes() {
 	} while (end == false);
 }
 
+void Control::MenuMatricula() {
+	bool end = false;
+	do {
+		char opcion = Interfaz::vMenuMatricula();
+		switch (opcion) {
+		case '1': {
+			Interfaz::vMatriculaEstudianteCurso(U);
+			break;
+		}
+		case '2': {
+			Interfaz::vMatriculaListaEstudiantesCursos(U);
+			break;
+		}
+		case '3': {
+			Interfaz::vMatriculaListaCursosEstudiante(U);
+		}
+		case '4': {
+			AjustesMatricula();
+			break;
+		}
+		case '5': {
+			end = true;
+			break;
+		}
+		default: break;
+		}
+	} while (end == false);
+}
+
+void Control::AjustesMatricula()
+{
+}

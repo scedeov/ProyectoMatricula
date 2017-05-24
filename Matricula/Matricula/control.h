@@ -20,6 +20,8 @@ public:
 	void AjustesProfesores();
 	void MenuEstudiantes();
 	void AjustesEstudiantes();
+	void MenuMatricula();
+	void AjustesMatricula();
 };
 
 #endif

@@ -27,6 +27,19 @@ string Estudiante::getCarnet()
 	return carnet;
 }
 
+void Estudiante::agregaCurso(string codigoCurso)
+{
+	listaCursos.push_back(codigoCurso);
+}
+
+string Estudiante::imprimeCursos() {
+	stringstream s;
+	for (size_t i = 0; i < listaCursos.capacity(); i++)
+		s << listaCursos[i] << " - ";
+	s << endl;
+	return s.str();
+}
+
 void Estudiante::setEsExtranjero(bool esExtranjero)
 {
 	this->esExtranjero = esExtranjero;

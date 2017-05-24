@@ -1,13 +1,17 @@
 #include "grupoEstudiantes.h"
 #include <iostream>
+#include <sstream>
+using namespace std;
 
 GrupoEstudiantes::GrupoEstudiantes()
 {
 	profesorEncargado = nullptr;
-	for (int i = 0; i < MAXESTU; i++)
-		listaEstudiantes[i] = new Estudiante();
+	listaEstudiantes.reserve(MAXESTU);
+}
 
-	cantidadEstudiantes = 0;
+int GrupoEstudiantes::getCantidad()
+{
+	return (int) listaEstudiantes.size();
 }
 
 void GrupoEstudiantes::setProfesorEncargado(Profesor *P)
@@ -22,22 +26,26 @@ Profesor * GrupoEstudiantes::getProfesorEncargado()
 
 void GrupoEstudiantes::agregarEstudiante(Estudiante *E)
 {
-	if (cantidadEstudiantes < MAXESTU) {
-		listaEstudiantes[cantidadEstudiantes] = E;
-		cantidadEstudiantes++;
-	}
+	listaEstudiantes.push_back(E);
 }
 
 bool GrupoEstudiantes::eliminarEstudiante(int cedula)
 {
-	for (int i = 0; i < cantidadEstudiantes; i++)
-		if (listaEstudiantes[i]->getNumCedula() == cedula) {
-			for (int x = i; x < cantidadEstudiantes; x++)
-				listaEstudiantes[x] = listaEstudiantes[i + 1];
-			cantidadEstudiantes--;
-			return true;
-		}
+	if (listaEstudiantes.size() < listaEstudiantes.capacity())
+		for (int i = 0; i < listaEstudiantes.size(); i++)
+			if (listaEstudiantes[i]->getNumCedula() == cedula) {
+				listaEstudiantes.erase(listaEstudiantes.begin() + (i - 1));
+				return true;
+			}
 	return false;
+}
+
+string GrupoEstudiantes::toString()
+{
+	stringstream s;
+	for (int i = 0; i < listaEstudiantes.size(); i++)
+		s << listaEstudiantes[i]->getNombreCompleto() << endl;
+	return s.str();
 }
 
 GrupoEstudiantes::~GrupoEstudiantes()

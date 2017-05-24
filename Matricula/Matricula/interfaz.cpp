@@ -6,6 +6,8 @@
 #include <iostream>
 using namespace std;
 
+enum errores { NOENCONTRADO = 1, DATOERRONEO };
+
 void Interfaz::vBienvenida()
 {
 	cout << "!Bienvenido al Sistema de Matricula!";
@@ -22,13 +24,14 @@ char Interfaz::vMenuPrincipal()
 	cout << "(3)--Cursos" << endl;
 	cout << "(4)--Profesores" << endl;
 	cout << "(5)--Estudiantes" << endl;
-	cout << "(6)--Salir" << endl;
+	cout << "(6)--Matricula" << endl;
+	cout << "(7)--Salir" << endl;
 	cout << "******************************************" << endl;
 
 	msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '6') //cambiar cada vez que se agrega opcion
+	while (ans < '1' || ans > '7') //cambiar cada vez que se agrega opcion
 	{
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
@@ -731,7 +734,7 @@ void Interfaz::vAsignarProfesorCurso(Universidad *U)
 
 			Curso * C = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
 			C->getGrupoProfesores()->agregarProfesor(P);
-			C->getGrupoEstudiantes()->setProfesorEncargado(P);
+			C->getGrupoEstudiantes(0)->setProfesorEncargado(P); // hay que poner el grupo en el que va a dar clases
 			P->setCursosImpartidos(codigo);
 			msjPerfecto();
 		}
@@ -750,7 +753,7 @@ void Interfaz::vDeasignarProfesorCurso(Universidad *U)
 	else {
 		cout << "El profesor " << P->getNombreCompleto() << " | " << P->getEscuela() << endl;
 		cout << "Imparte actualmente " << endl;
-		cout << U->getContenedorEscuelas()->retornaEscuela(P->getEscuela().substr(0,3))->getContenedorCursos()->toString() << endl;
+		cout << U->getContenedorEscuelas()->retornaEscuela(P->getEscuela().substr(0, 3))->getContenedorCursos()->toString() << endl;
 		cout << "Digite el codigo del Curso al que desea desasignar al Profesor " << P->getSegundoApellido() << " -> ";
 		string codigo; cin >> codigo; cin.ignore();
 		codigo = convierteMayuscula(codigo);
@@ -764,8 +767,8 @@ void Interfaz::vDeasignarProfesorCurso(Universidad *U)
 		else
 			cout << "Ha ocurrido un error..." << endl;
 	}
-msjPausa();
-system("cls");
+	msjPausa();
+	system("cls");
 
 }
 
@@ -860,6 +863,98 @@ void Interfaz::vConsultaCursosAsignadosProfesor(Universidad *U)
 	else
 		cout << "El profesor con la cedula " << cedula << " no existe" << endl;
 
+	msjPausa();
+	system("cls");
+}
+
+char Interfaz::vMenuMatricula()
+{
+	char ans;
+	cout << "**************MENU MATRICULA**************" << endl;
+	cout << "(1)--Matricular Estudiante en Curso" << endl;
+	cout << "(2)--Consultar lista de Estudiantes de un Curso" << endl;
+	cout << "(3)--Consultar lista de Cursos de un Estudiante" << endl;
+	cout << "(4)--Ajustes" << endl;
+	cout << "(5)--Salir" << endl;
+	cout << "********************************************" << endl;
+	msjIngreseOpcion();
+	ans = _getch();
+
+	while (ans < '1' || ans > '5') {
+		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
+		ans = _getch();
+	}
+
+	system("cls");
+	return ans;
+}
+
+bool Interfaz::vMatriculaEstudianteCurso(Universidad *U)
+{
+	cout << "Digite el numero de cedula del estudiante que desea matricular un curso..." << endl;
+
+	try {
+		int cedula; cin >> cedula; cin.ignore();
+		Estudiante* EST = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
+		if (EST == nullptr)
+			throw 1, cedula;
+		cout << U->getContenedorEscuelas()->toString('2');
+		cout << "Digite el codigo del curso en el cual desea matricular a " << EST->getNombreCompleto() << endl;
+		cout << "-> "; string codigo; cin >> codigo; codigo = convierteMayuscula(codigo); cin.ignore();
+		Curso* C = U->getContenedorEscuelas()->retornaEscuela(codigo.substr(0, 3))->getContenedorCursos()->retornaCursoEspecifico(codigo);
+		if (C == nullptr)
+			throw 2, codigo;
+
+		for (int i = 0; i < 5; i++) {
+			if (C->getGrupoEstudiantes(i)->getCantidad() < MAXESTU) {
+				C->getGrupoEstudiantes(i)->agregarEstudiante(EST);
+				EST->agregaCurso(codigo);
+				msjPerfecto();
+				return true;
+			}
+			throw 3;
+		}
+	}
+	catch (int e) {
+		if (e == 1)
+			cout << "No existe el Estudiante con esa cedula " << endl;
+		if (e == 2)
+			cout << "No existe el curso con ese codigo " << endl;
+		if (e == 3) {
+			cout << "No hay espacio en este curso" << endl;
+		}
+	}
+	catch (...) {
+		cout << "Error desconocido..." << endl;
+	}
+	return false;
+}
+
+void Interfaz::vMatriculaListaCursosEstudiante(Universidad *U) {
+	cout << "Digite el numero de cedula del Estudiante a consultar lista de Cursos Matriculados..." << endl;
+	cout << "-> "; int cedula; cin >> cedula; cin.ignore();
+	try {
+		cout << U->getContenedorEstudiantes()->retornaEstudiante(cedula)->imprimeCursos();
+		throw;
+	}
+	catch (...) {
+		cout << "El estudiante no se encuentra..." << endl;
+	}
+	msjPausa();
+	system("cls");
+}
+
+void Interfaz::vMatriculaListaEstudiantesCursos(Universidad *U) {
+	cout << U->getContenedorEscuelas()->toString('2');
+	try {
+		cout << "Digite el codigo del curso a consultar la lista de Estudiantes Matriculados" << endl;
+		cout << "-> "; string codigo; cin >> codigo; codigo = convierteMayuscula(codigo); cin.ignore();
+		string sigla = codigo.substr(0, 3);
+		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo)->imprimeEstudiantesMatriculados();
+	}
+	catch (...) {
+		cout << "Error..." << endl;
+	}
 	msjPausa();
 	system("cls");
 }
