@@ -1,17 +1,15 @@
-#ifndef INTERFAZ
-#define INTERFAZ
+#ifndef INTERFAZ_PRINCIPAL
+#define INTERFAZ_PRINCIPAL
 
 #include "universidad.h"
 
-class Interfaz
+class Interfaz_Principal
 {
 public:
 	static void vBienvenida();
 	static char vMenuPrincipal();
 	static char vMenuUniversidad();
 	static char vAjustesUniversidad(Universidad*);
-	static char vMenuEscuelas();
-	static char vAjustesEscuelas();
 	static char vMenuCursos();
 	static char vAjustesCursos();
 	static char vMenuEstudiantes();
@@ -21,7 +19,6 @@ public:
 	static void vIngresarDireccion(Universidad*);
 	static void vIngresarNombre(Universidad*);
 	static char vInfoConfirmacion();
-	static void vIngresaEscuela(Universidad*);
 	static void vIngresaCurso(Universidad*);
 	static void vEditarCurso(Universidad*);
 	static void vEliminaCurso(Universidad*);
@@ -33,7 +30,6 @@ public:
 	static void msjIngreseOpcion();
 	static std::string convierteMayuscula(std::string);
 	static void vInfoUniversidad(Universidad*);
-	static void vInfoEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
 	static char vMenuProfesores();
 	static char vAjustesProfesores();
 	static void vAgregarProfesor(Universidad*);
@@ -52,5 +48,5 @@ public:
 	static void vMatriculaListaCursosEstudiante(Universidad*);
 	static void vMatriculaListaEstudiantesCursos(Universidad*);
 };
-#endif // !INTERFAZ
+#endif // !INTERFAZ_PRINCIPAL
 

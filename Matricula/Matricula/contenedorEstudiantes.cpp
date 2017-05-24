@@ -5,58 +5,37 @@ using namespace std;
 
 Contenedor_Estudiantes::Contenedor_Estudiantes()
 {
-	pinicio = NULL;
-	paux = NULL;
+}
+
+int Contenedor_Estudiantes::getCantidadEstudiantes() {
+	return (int) estudiantes.size();
 }
 
 void Contenedor_Estudiantes::insertaInicio(Estudiante *unEstudiante)
 {
-	paux = new Nodo_Estudiantes(unEstudiante, NULL);
-
-	if (pinicio == NULL)
-	{
-		pinicio = paux;
-	}
-	else
-	{
-		paux->setNext(pinicio);
-		pinicio = paux;
-	}
+	estudiantes.push_front(unEstudiante);
 }
 
 Estudiante * Contenedor_Estudiantes::retornaEstudiante(int cedula)
 {
-	paux = pinicio;
-	while (paux != NULL) {
-		if (paux->getEstudiante()->getNumCedula() == cedula)
-			return paux->getEstudiante();
-		else
-			paux = paux->getNext();
-	}
+	for (int i = 0; i < estudiantes.size(); i++)
+		if ((estudiantes.front() + i)->getNumCedula() == cedula)
+			return estudiantes.front() + i;
 	return nullptr;
 }
 
 string Contenedor_Estudiantes::toString()
 {
-	paux = pinicio;
 	stringstream s;
-	while (paux != NULL) {
-		s << paux->toStringNodo() << endl;
-		paux = paux->getNext();
-	}
+	for (int i = 0; i < estudiantes.size(); i++)
+		s << (estudiantes.front() + 1)->toString() << endl;
 	return s.str();
 }
 
 Contenedor_Estudiantes::~Contenedor_Estudiantes()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;
-
-	while (pinicio != NULL)
-	{
-		paux = pinicio;
-		pinicio = pinicio->getNext();
-		delete paux;
-	}
+	estudiantes.clear();
 }
 
 ostream & operator<<(ostream &o, Contenedor_Estudiantes &CEs) {

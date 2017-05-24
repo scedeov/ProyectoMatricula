@@ -124,10 +124,10 @@
     <ClInclude Include="estudianteNacional.h" />
     <ClInclude Include="grupoEstudiantes.h" />
     <ClInclude Include="grupoProfesores.h" />
-    <ClInclude Include="interfaz.h" />
+    <ClInclude Include="interfazEscuelas.h" />
+    <ClInclude Include="interfazPrincipal.h" />
     <ClInclude Include="nodoCursos.h" />
     <ClInclude Include="nodoEscuelas.h" />
-    <ClInclude Include="nodoEstudiantes.h" />
     <ClInclude Include="nodoProfesores.h" />
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />
@@ -147,11 +147,11 @@
     <ClCompile Include="estudianteNacional.cpp" />
     <ClCompile Include="grupoEstudiantes.cpp" />
     <ClCompile Include="grupoProfesores.cpp" />
-    <ClCompile Include="interfaz.cpp" />
+    <ClCompile Include="interfazPrincipal.cpp" />
+    <ClCompile Include="interfazEscuelas.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoCursos.cpp" />
     <ClCompile Include="nodoEscuelas.cpp" />
-    <ClCompile Include="nodoEstudiantes.cpp" />
     <ClCompile Include="nodoProfesores.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="profesor.cpp" />
