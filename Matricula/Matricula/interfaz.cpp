@@ -897,13 +897,13 @@ bool Interfaz::vMatriculaEstudianteCurso(Universidad *U)
 		int cedula; cin >> cedula; cin.ignore();
 		Estudiante* EST = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
 		if (EST == nullptr)
-			throw 1, cedula;
+			throw 1;
 		cout << U->getContenedorEscuelas()->toString('2');
 		cout << "Digite el codigo del curso en el cual desea matricular a " << EST->getNombreCompleto() << endl;
 		cout << "-> "; string codigo; cin >> codigo; codigo = convierteMayuscula(codigo); cin.ignore();
 		Curso* C = U->getContenedorEscuelas()->retornaEscuela(codigo.substr(0, 3))->getContenedorCursos()->retornaCursoEspecifico(codigo);
 		if (C == nullptr)
-			throw 2, codigo;
+			throw 2;
 
 		for (int i = 0; i < 5; i++) {
 			if (C->getGrupoEstudiantes(i)->getCantidad() < MAXESTU) {
