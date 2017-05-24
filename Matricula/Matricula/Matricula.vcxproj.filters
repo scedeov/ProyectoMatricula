@@ -105,6 +105,15 @@
     <ClInclude Include="interfazCursos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="interfazUniversidad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazProfesores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazEstudiantes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="universidad.cpp">
@@ -174,6 +183,15 @@
       <Filter>Source Files\Escuelas</Filter>
     </ClCompile>
     <ClCompile Include="interfazCursos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazUniversidad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazProfesores.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazEstudiantes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

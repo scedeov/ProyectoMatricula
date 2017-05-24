@@ -1,6 +1,6 @@
 #include "control.h"
-#include <conio.h>
-#include <Windows.h>
+//#include <conio.h>
+//#include <Windows.h>
 #include "interfazPrincipal.h"
 
 int Curso::variableCodigoCursos = 0; // variable que controla el codigo del curso
@@ -46,9 +46,9 @@ void Control::MenuPrincipal()
 
 	if (Interfaz_Principal::vDatosPrimeraVez(U) == 'S')
 	{
-		Interfaz_Principal::vIngresarNombre(U);
-		Interfaz_Principal::vIngresarNumero(U);
-		Interfaz_Principal::vIngresarDireccion(U);
+		Interfaz_Universidad::vIngresarNombre(U);
+		Interfaz_Universidad::vIngresarNumero(U);
+		Interfaz_Universidad::vIngresarDireccion(U);
 	}
 
 	bool end = false;
