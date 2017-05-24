@@ -102,6 +102,9 @@
     <ClInclude Include="interfazEscuelas.h">
       <Filter>Header Files\Escuelas</Filter>
     </ClInclude>
+    <ClInclude Include="interfazCursos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="universidad.cpp">
@@ -169,6 +172,9 @@
     </ClCompile>
     <ClCompile Include="interfazEscuelas.cpp">
       <Filter>Source Files\Escuelas</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazCursos.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

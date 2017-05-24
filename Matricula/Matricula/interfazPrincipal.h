@@ -3,15 +3,12 @@
 
 #include "universidad.h"
 
-class Interfaz_Principal
-{
+class Interfaz_Principal {
 public:
 	static void vBienvenida();
 	static char vMenuPrincipal();
 	static char vMenuUniversidad();
 	static char vAjustesUniversidad(Universidad*);
-	static char vMenuCursos();
-	static char vAjustesCursos();
 	static char vMenuEstudiantes();
 	static char vAjustesEstudiantes();
 	static char vDatosPrimeraVez(Universidad*);
@@ -19,11 +16,6 @@ public:
 	static void vIngresarDireccion(Universidad*);
 	static void vIngresarNombre(Universidad*);
 	static char vInfoConfirmacion();
-	static void vIngresaCurso(Universidad*);
-	static void vEditarCurso(Universidad*);
-	static void vEliminaCurso(Universidad*);
-	static void vInfoCurso(Universidad*);
-	static void vListaCursosEscuelaParticular(Universidad*);
 	static bool chequeaNumero(std::string);
 	static void msjPerfecto();
 	static void msjPausa();
