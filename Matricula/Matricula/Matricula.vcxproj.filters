@@ -129,6 +129,12 @@
     <ClInclude Include="interfazMatricula.h">
       <Filter>Header Files\Matricula</Filter>
     </ClInclude>
+    <ClInclude Include="nodo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
