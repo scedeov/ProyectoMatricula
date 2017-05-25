@@ -10,5 +10,5 @@ public:
 	static void vMatriculaListaCursosEstudiante(Universidad*);
 	static void vMatriculaListaEstudiantesCursos(Universidad*);
 };
-#endif // !INTERFAZ_PRINCIPAL
+#endif // !INTERFAZ_MATRICULA
 

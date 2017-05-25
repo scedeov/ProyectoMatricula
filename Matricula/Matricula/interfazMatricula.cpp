@@ -1,8 +1,7 @@
 #include "interfazMatricula.h"
 #include "interfazPrincipal.h"
-#include <iostream>
-#include <string>
 #include <conio.h>
+#include <iostream>
 using namespace std;
 
 char Interfaz_Matricula::vMenuMatricula()

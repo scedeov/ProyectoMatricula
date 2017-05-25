@@ -1,9 +1,7 @@
 #include "interfazPrincipal.h"
 #include <Windows.h>
-#include <conio.h>
-#include <sstream>
-#include <string>
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 void Interfaz_Principal::vBienvenida()

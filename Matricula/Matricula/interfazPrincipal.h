@@ -1,6 +1,7 @@
 #ifndef INTERFAZ_PRINCIPAL
 #define INTERFAZ_PRINCIPAL
 
+#include <string>
 #include "universidad.h"
 
 class Interfaz_Principal {
@@ -14,5 +15,6 @@ public:
 	static void msjPausa();
 	static void msjIngreseOpcion();
 	static std::string convierteMayuscula(std::string);
+};
 #endif // !INTERFAZ_PRINCIPAL
 

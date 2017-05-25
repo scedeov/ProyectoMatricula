@@ -17,8 +17,7 @@ char Interfaz_Cursos::vMenuCursos()
 	Interfaz_Principal::msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '4')
-	{
+	while (ans < '1' || ans > '4') {
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
 	}

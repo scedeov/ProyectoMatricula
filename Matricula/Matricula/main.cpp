@@ -1,10 +1,10 @@
 #include "control.h"
-#include "interfaz.h"
+#include "interfazPrincipal.h"
 
 int main()
 {
 	Control C;
 	C.Inicializador();
-	Interfaz::msjPausa();
+	Interfaz_Principal::msjPausa();
 	return 0;
 }

@@ -37,11 +37,11 @@
     <Filter Include="Source Files\Escuelas">
       <UniqueIdentifier>{15280a7f-c87b-49df-9f2a-28d15e517326}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Universidad">
+      <UniqueIdentifier>{ea6518df-6d78-4598-bb06-1b9b3ae6ec18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="universidad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="control.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -102,20 +102,23 @@
     <ClInclude Include="interfazEscuelas.h">
       <Filter>Header Files\Escuelas</Filter>
     </ClInclude>
-    <ClInclude Include="interfazCursos.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazUniversidad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazProfesores.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazEstudiantes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="interfazMatricula.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="universidad.h">
+      <Filter>Header Files\Universidad</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazUniversidad.h">
+      <Filter>Header Files\Universidad</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazCursos.h">
+      <Filter>Header Files\Cursos</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazEstudiantes.h">
+      <Filter>Header Files\Estudiantes</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazProfesores.h">
+      <Filter>Header Files\Profesores</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -185,13 +188,7 @@
     <ClCompile Include="interfazEscuelas.cpp">
       <Filter>Source Files\Escuelas</Filter>
     </ClCompile>
-    <ClCompile Include="interfazCursos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="interfazUniversidad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="interfazProfesores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="interfazEstudiantes.cpp">
@@ -199,6 +196,12 @@
     </ClCompile>
     <ClCompile Include="interfazMatricula.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazProfesores.cpp">
+      <Filter>Source Files\Profesores</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazCursos.cpp">
+      <Filter>Source Files\Cursos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,12 @@
 #include "control.h"
-//#include <conio.h>
-//#include <Windows.h>
 #include "interfazPrincipal.h"
+#include "interfazCursos.h"
+#include "interfazEscuelas.h"
+#include "interfazEstudiantes.h"
+#include "interfazProfesores.h"
+#include "interfazUniversidad.h"
+#include "interfazMatricula.h"
+
 
 int Curso::variableCodigoCursos = 0; // variable que controla el codigo del curso
 
@@ -104,11 +109,11 @@ void Control::MenuPrincipal()
 void Control::MenuUniversidad() {
 	bool end = false;
 	do {
-		char ans = Interfaz_Principal::vMenuUniversidad();
+		char ans = Interfaz_Universidad::vMenuUniversidad();
 
 		switch (ans) {
 		case '1': {
-			Interfaz_Principal::vInfoUniversidad(U);
+			Interfaz_Universidad::vInfoUniversidad(U);
 			break;
 		}
 		case '2': {
@@ -130,20 +135,20 @@ void Control::AjustesUniversidad() {
 	bool end = false;
 
 	do {
-		char opcion = Interfaz_Principal::vAjustesUniversidad(U);
+		char opcion = Interfaz_Universidad::vAjustesUniversidad(U);
 
 		if (U->getNombre() == "Undefined") {
 			switch (opcion) {
 			case '1': {
-				Interfaz_Principal::vIngresarNombre(U);
+				Interfaz_Universidad::vIngresarNombre(U);
 				break;
 			}
 			case '2': {
-				Interfaz_Principal::vIngresarNumero(U);
+				Interfaz_Universidad::vIngresarNumero(U);
 				break;
 			}
 			case '3': {
-				Interfaz_Principal::vIngresarDireccion(U);
+				Interfaz_Universidad::vIngresarDireccion(U);
 				break;
 			}
 			case '4': {
@@ -157,11 +162,11 @@ void Control::AjustesUniversidad() {
 
 			switch (opcion) {
 			case '1': {
-				Interfaz_Principal::vIngresarNumero(U);
+				Interfaz_Universidad::vIngresarNumero(U);
 				break;
 			}
 			case '2': {
-				Interfaz_Principal::vIngresarDireccion(U);
+				Interfaz_Universidad::vIngresarDireccion(U);
 				break;
 			}
 			case '3': {
@@ -181,18 +186,18 @@ void Control::MenuEscuelas()
 
 	do
 	{
-		char ans = Interfaz_Principal::vMenuEscuelas();
+		char ans = Interfaz_Escuelas::vMenuEscuelas();
 
 		switch (ans)
 		{
 		case '1':
 		{
-			Interfaz_Principal::vInfoEscuelas(U, '1'); //Imprime solamente escuelas
+			Interfaz_Escuelas::vInfoEscuelas(U, '1'); //Imprime solamente escuelas
 			break;
 		}
 		case '2':
 		{
-			Interfaz_Principal::vInfoEscuelas(U, '2'); //Imprime escuelas con los cursos
+			Interfaz_Escuelas::vInfoEscuelas(U, '2'); //Imprime escuelas con los cursos
 			break;
 		}
 		case '3':
@@ -217,12 +222,12 @@ void Control::AjustesEscuelas() {
 	bool end = false;
 
 	do {
-		char opcion = Interfaz_Principal::vAjustesEscuelas();
+		char opcion = Interfaz_Escuelas::vAjustesEscuelas();
 
 		switch (opcion) {
 		case '1':
 		{
-			Interfaz_Principal::vIngresaEscuela(U);
+			Interfaz_Escuelas::vIngresaEscuela(U);
 			break;
 		}
 		case '2':
@@ -241,18 +246,18 @@ void Control::MenuCursos()
 
 	do
 	{
-		char ans = Interfaz_Principal::vMenuCursos();
+		char ans = Interfaz_Cursos::vMenuCursos();
 
 		switch (ans)
 		{
 		case '1':
 		{
-			Interfaz_Principal::vInfoCurso(U);
+			Interfaz_Cursos::vInfoCurso(U);
 			break;
 		}
 		case '2':
 		{
-			Interfaz_Principal::vListaCursosEscuelaParticular(U);
+			Interfaz_Cursos::vListaCursosEscuelaParticular(U);
 			break;
 		}
 		case '3': //Salir
@@ -276,22 +281,22 @@ void Control::AjustesCursos() {
 
 	do {
 
-		char opcion = Interfaz_Principal::vAjustesCursos();
+		char opcion = Interfaz_Cursos::vAjustesCursos();
 
 		switch (opcion) {
 		case '1':
 		{
-			Interfaz_Principal::vIngresaCurso(U);
+			Interfaz_Cursos::vIngresaCurso(U);
 			break;
 		}
 		case '2':
 		{
-			Interfaz_Principal::vEditarCurso(U);
+			Interfaz_Cursos::vEditarCurso(U);
 			break;
 		}
 		case '3':
 		{
-			Interfaz_Principal::vEliminaCurso(U);
+			Interfaz_Cursos::vEliminaCurso(U);
 			break;
 		}
 		case '4': 
@@ -311,22 +316,22 @@ void Control::MenuProfesores()
 	bool end = false;
 
 	do {
-		char opcion = Interfaz_Principal::vMenuProfesores();
+		char opcion = Interfaz_Profesores::vMenuProfesores();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Principal::vConsultarProfesEscuela(U);
+			Interfaz_Profesores::vConsultarProfesEscuela(U);
 			break;
 		}
 		case'2': {
-			Interfaz_Principal::vConsultarProfesCurso(U);
+			Interfaz_Profesores::vConsultarProfesCurso(U);
 			break;
 		}
 		case '3': {
-			Interfaz_Principal::vConsultarProfeCedula(U);
+			Interfaz_Profesores::vConsultarProfeCedula(U);
 			break;
 		}
 		case '4': {
-			Interfaz_Principal::vConsultaCursosAsignadosProfesor(U);
+			Interfaz_Profesores::vConsultaCursosAsignadosProfesor(U);
 			break;
 
 		}
@@ -346,18 +351,18 @@ void Control::MenuProfesores()
 void Control::AjustesProfesores() {
 	bool end = false;
 	do {
-		char opcion = Interfaz_Principal::vAjustesProfesores();
+		char opcion = Interfaz_Profesores::vAjustesProfesores();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Principal::vAgregarProfesor(U);
+			Interfaz_Profesores::vAgregarProfesor(U);
 			break;
 		}
 		case '2': {
-			Interfaz_Principal::vEditarProfesor(U);
+			Interfaz_Profesores::vEditarProfesor(U);
 			break;
 		}
 		case '3': {
-			Interfaz_Principal::vAsignarProfesorCurso(U);
+			Interfaz_Profesores::vAsignarProfesorCurso(U);
 			break;
 		}
 		case '4': {
@@ -372,10 +377,10 @@ void Control::AjustesProfesores() {
 void Control::MenuEstudiantes() {
 	bool end = false;
 	do {
-		char opcion = Interfaz_Principal::vMenuEstudiantes();
+		char opcion = Interfaz_Estudiantes::vMenuEstudiantes();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Principal::vConsultaEstudiante(U);
+			Interfaz_Estudiantes::vConsultaEstudiante(U);
 			break;
 		}
 		case '2': {
@@ -393,14 +398,14 @@ void Control::MenuEstudiantes() {
 void Control::AjustesEstudiantes() {
 	bool end = false;
 	do {
-		char opcion = Interfaz_Principal::vAjustesEstudiantes();
+		char opcion = Interfaz_Estudiantes::vAjustesEstudiantes();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Principal::vIngresarEstudiante(U);
+			Interfaz_Estudiantes::vIngresarEstudiante(U);
 			break;
 		}
 		case '2': {
-			Interfaz_Principal::vEditarEstudiante(U);
+			Interfaz_Estudiantes::vEditarEstudiante(U);
 			break;
 		}
 		case '3': {
@@ -414,18 +419,18 @@ void Control::AjustesEstudiantes() {
 void Control::MenuMatricula() {
 	bool end = false;
 	do {
-		char opcion = Interfaz_Principal::vMenuMatricula();
+		char opcion = Interfaz_Matricula::vMenuMatricula();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Principal::vMatriculaEstudianteCurso(U);
+			Interfaz_Matricula::vMatriculaEstudianteCurso(U);
 			break;
 		}
 		case '2': {
-			Interfaz_Principal::vMatriculaListaEstudiantesCursos(U);
+			Interfaz_Matricula::vMatriculaListaEstudiantesCursos(U);
 			break;
 		}
 		case '3': {
-			Interfaz_Principal::vMatriculaListaCursosEstudiante(U);
+			Interfaz_Matricula::vMatriculaListaCursosEstudiante(U);
 		}
 		case '4': {
 			AjustesMatricula();
