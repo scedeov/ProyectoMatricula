@@ -1,4 +1,6 @@
 #include "curso.h"
+#include "grupoEstudiantes.h"
+#include "grupoProfesores.h"
 #include <sstream>
 #include <iostream>
 using namespace std;

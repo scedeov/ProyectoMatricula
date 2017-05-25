@@ -1,5 +1,10 @@
 #include "interfazEstudiantes.h"
 #include "interfazPrincipal.h"
+#include "contenedorEstudiantes.h"
+#include "estudianteExtranjero.h"
+#include "estudianteNacional.h"
+
+
 #include <iostream>
 #include <string>
 #include <conio.h>

@@ -1,8 +1,10 @@
 #ifndef ESCUELA
 #define ESCUELA
 
-#include "contenedorCursos.h"
-#include "contenedorProfesores.h"
+#include <string>
+
+class Contenedor_Cursos;
+class Contenedor_Profesores;
 
 class Escuela
 {

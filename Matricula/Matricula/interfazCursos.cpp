@@ -1,5 +1,9 @@
 #include "interfazCursos.h"
 #include "interfazPrincipal.h"
+#include "contenedorEscuelas.h"
+#include "grupoProfesores.h"
+#include "contenedorCursos.h"
+#include "curso.h"
 #include <iostream>
 #include <conio.h>
 #include <Windows.h>

@@ -1,4 +1,5 @@
 #include "grupoEstudiantes.h"
+#include "estudiante.h"
 #include <iostream>
 #include <sstream>
 using namespace std;

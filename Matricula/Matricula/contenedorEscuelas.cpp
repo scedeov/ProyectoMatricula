@@ -1,4 +1,5 @@
 #include "contenedorEscuelas.h"
+#include "contenedorProfesores.h"
 #include <sstream>
 #include <iostream>
 using namespace std;

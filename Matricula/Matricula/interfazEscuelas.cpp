@@ -1,5 +1,7 @@
 #include "interfazEscuelas.h"
 #include "interfazPrincipal.h"
+#include "escuela.h"
+#include "contenedorEscuelas.h"
 #include <iostream>
 #include <conio.h>
 #include <Windows.h>

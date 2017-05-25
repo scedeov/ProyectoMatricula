@@ -1,67 +1,40 @@
 #include "contenedorCursos.h"
+#include "grupoProfesores.h"
 #include <sstream>
 #include <iostream>
 using namespace std;
 
 Contenedor_Cursos::Contenedor_Cursos()
 {
-	pinicio = NULL;
-	paux = NULL;
-	cantidad = 0;
 }
 
 int Contenedor_Cursos::getCantidad()
-{
-	return cantidad;
+{	
+	return (int) listaCursos.size();
 }
 
 Curso * Contenedor_Cursos::getCursoporPos(int pos)
 {
-	
-	paux = pinicio;
-
-	if (pos == 0)
-		return paux->getCurso();
-
-	for (int i = 0; i < pos ; i++) {
-		paux = paux->getNext();
-	}
-
-	return paux->getCurso();
+	return listaCursos.front() + (pos - 1);
 }
 
 void Contenedor_Cursos::insertaInicio(Curso *unCurso)
 {
-	paux = new Nodo_Cursos(unCurso, NULL);
-
-	if (pinicio == NULL)
-	{
-		pinicio = paux;
-	}
-	else
-	{
-		paux->setNext(pinicio);
-		pinicio = paux;
-	}
-	cantidad++;
+	listaCursos.push_front(unCurso);
 }
 
 bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 {
-	Nodo_Cursos* anterior = NULL;
-	paux = pinicio;
 
-	if (paux == NULL)
+
+	/*if (listaCursos.empty())
 	{
 		return false;
 	}
 
-	if (paux->getCurso()->getCodigoCurso() == codigo)
+	if (listaCursos.front()->getCodigoCurso() == codigo)
 	{
-		paux = paux->getNext();
-		delete pinicio;
-		pinicio = paux;
-		return true;
+		listaCursos.remove()
 	}
 
 	while (paux != NULL &&   paux->getCurso()->getCodigoCurso() != codigo) {
@@ -80,13 +53,13 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 		delete paux;
 		cantidad--;
 		return true;
-	}
-
+	}*/
+	return false;
 }
 
 Curso * Contenedor_Cursos::retornaCursoEspecifico(string codigo)
 {
-	paux = pinicio;
+	/*paux = pinicio;
 	while (paux != NULL)
 	{
 		if (encuentraCurso(paux->getCurso(), codigo) == true)
@@ -94,6 +67,7 @@ Curso * Contenedor_Cursos::retornaCursoEspecifico(string codigo)
 		else
 			paux = paux->getNext();
 	}
+	*/
 	return nullptr;
 }
 
@@ -107,13 +81,14 @@ bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
 
 string Contenedor_Cursos::toString()
 {
-	paux = pinicio;
+	/*paux = pinicio;
 	stringstream s;
 	while (paux != NULL) {
 		s << paux->toStringNodo() << endl;
 		paux = paux->getNext();
 	}
-	return s.str();
+	return s.str();*/
+	return string();
 }
 
 int Contenedor_Cursos::getProfesores(string codigo, int pos) {
@@ -121,7 +96,7 @@ int Contenedor_Cursos::getProfesores(string codigo, int pos) {
 }
 
 Contenedor_Cursos::~Contenedor_Cursos()
-{
+{/*
 	cout << "Eliminando Contenedor de Cursos" << endl;
 
 	while (pinicio != NULL)
@@ -129,7 +104,7 @@ Contenedor_Cursos::~Contenedor_Cursos()
 		paux = pinicio;
 		pinicio = pinicio->getNext();
 		delete paux;
-	}
+	}*/
 }
 
 ostream & operator<<(ostream &o, Contenedor_Cursos &ConC) {

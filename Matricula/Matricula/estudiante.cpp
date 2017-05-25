@@ -1,4 +1,5 @@
 #include "estudiante.h"
+#include "curso.h"
 #include <time.h>
 #include <sstream>
 #include <iostream>
@@ -27,17 +28,27 @@ string Estudiante::getCarnet()
 	return carnet;
 }
 
-void Estudiante::agregaCurso(string codigoCurso)
+void Estudiante::agregaCurso(Curso* curso)
 {
-	listaCursos.push_back(codigoCurso);
+	listaCursos.push_back(curso);
 }
 
 string Estudiante::imprimeCursos() {
 	stringstream s;
 	for (size_t i = 0; i < listaCursos.capacity(); i++)
-		s << listaCursos[i] << " - ";
+		s << listaCursos[i]->getCodigoCurso() << " - ";
 	s << endl;
 	return s.str();
+}
+
+int Estudiante::getCantidadCursosMatriculados()
+{
+	return (int) listaCursos.size();
+}
+
+Curso * Estudiante::getCursoMatriculado(int pos)
+{
+	return listaCursos[pos];
 }
 
 void Estudiante::setEsExtranjero(bool esExtranjero)

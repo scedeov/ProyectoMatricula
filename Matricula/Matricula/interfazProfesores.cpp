@@ -1,5 +1,12 @@
 #include "interfazProfesores.h"
 #include "interfazPrincipal.h"
+#include "profesor.h"
+#include "curso.h"
+#include "contenedorProfesores.h"
+#include "contenedorCursos.h"
+#include "contenedorEscuelas.h"
+#include "grupoProfesores.h"
+#include "grupoEstudiantes.h"
 #include <iostream>
 #include <string>
 #include <conio.h>

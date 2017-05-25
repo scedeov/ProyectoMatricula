@@ -4,18 +4,22 @@
 #include "persona.h"
 #include <vector>
 
+class Curso;
+
 class Estudiante: public Persona {
 private:
 	std::string carnet;
 	int porcentajeBeca;
 	bool esExtranjero;
-	std::vector<std::string> listaCursos;
+	std::vector<Curso*> listaCursos;
 public:
 	Estudiante();
 	Estudiante(std::string, std::string, std::string, int, int);
 	virtual std::string getCarnet();
-	virtual void agregaCurso(std::string);
+	virtual void agregaCurso(Curso*);
 	virtual std::string imprimeCursos();
+	virtual int getCantidadCursosMatriculados();
+	virtual Curso* getCursoMatriculado(int pos);
 	virtual void setEsExtranjero(bool);
 	virtual bool getEsExtranjero();
 	virtual void setPorcentajeBeca(int);

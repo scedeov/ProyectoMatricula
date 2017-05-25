@@ -13,35 +13,6 @@ int Curso::variableCodigoCursos = 0; // variable que controla el codigo del curs
 void Control::Inicializador()
 {
 	U = new Universidad("Universidad de Costa Rica", "22334455", "San Pedro");
-
-	Escuela* E1 = new Escuela("Ingles");
-	Escuela* E2 = new Escuela("Matematicas");
-	Escuela* E3 = new Escuela("Geologia");
-	Escuela* E4 = new Escuela("Sociales");
-
-	U->getContenedorEscuelas()->insertarInicio(E1);
-	U->getContenedorEscuelas()->insertarInicio(E2);
-	U->getContenedorEscuelas()->insertarInicio(E3);
-	U->getContenedorEscuelas()->insertarInicio(E4);
-
-
-	Curso* CU1 = new Curso("Programacion I", E1->getSiglaEscuela());
-	Curso* CU2 = new Curso("Programacion II", E2->getSiglaEscuela());
-
-	E1->getContenedorCursos()->insertaInicio(CU1);
-	E2->getContenedorCursos()->insertaInicio(CU2);
-
-	Profesor* P1 = new Profesor("Carlos", "Bermudez", "Villagran", 115720401);
-	P1->setEscuela("Ingles");
-	Profesor* P2 = new Profesor("Manati", "Bolanos", "Oztia", 11576767);
-	P2->setEscuela("Ingles");
-	E1->getContenedorProfesores()->insertaInicio(P1);
-	E1->getContenedorProfesores()->insertaInicio(P2);
-	CU1->getGrupoProfesores()->agregarProfesor(P1);
-	CU1->getGrupoProfesores()->agregarProfesor(P2);
-	P1->setCursosImpartidos(CU1->getCodigoCurso());
-	P2->setCursosImpartidos(CU1->getCodigoCurso());
-
 	MenuPrincipal();
 }
 
@@ -431,12 +402,17 @@ void Control::MenuMatricula() {
 		}
 		case '3': {
 			Interfaz_Matricula::vMatriculaListaCursosEstudiante(U);
+			break;
 		}
 		case '4': {
-			AjustesMatricula();
+			Interfaz_Matricula::vCobroMatricula(U);
 			break;
 		}
 		case '5': {
+			AjustesMatricula();
+			break;
+		}
+		case '6': {
 			end = true;
 			break;
 		}

@@ -40,15 +40,21 @@
     <Filter Include="Header Files\Universidad">
       <UniqueIdentifier>{ea6518df-6d78-4598-bb06-1b9b3ae6ec18}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Matricula">
+      <UniqueIdentifier>{5113fe47-656a-4c20-bca0-08a64179767d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Matricula">
+      <UniqueIdentifier>{bdb923a4-08b7-4c14-8b8e-2a8ae3ddc645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Universidad">
+      <UniqueIdentifier>{1d27c921-fdc4-4526-80b8-3f761e58ddf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="persona.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="aranceles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="contenedorEstudiantes.h">
@@ -102,9 +108,6 @@
     <ClInclude Include="interfazEscuelas.h">
       <Filter>Header Files\Escuelas</Filter>
     </ClInclude>
-    <ClInclude Include="interfazMatricula.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="universidad.h">
       <Filter>Header Files\Universidad</Filter>
     </ClInclude>
@@ -120,11 +123,14 @@
     <ClInclude Include="interfazProfesores.h">
       <Filter>Header Files\Profesores</Filter>
     </ClInclude>
+    <ClInclude Include="aranceles.h">
+      <Filter>Header Files\Matricula</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazMatricula.h">
+      <Filter>Header Files\Matricula</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="universidad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -132,9 +138,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="persona.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="aranceles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="estudiante.cpp">
@@ -188,20 +191,26 @@
     <ClCompile Include="interfazEscuelas.cpp">
       <Filter>Source Files\Escuelas</Filter>
     </ClCompile>
-    <ClCompile Include="interfazUniversidad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="interfazEstudiantes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="interfazMatricula.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="interfazProfesores.cpp">
       <Filter>Source Files\Profesores</Filter>
     </ClCompile>
     <ClCompile Include="interfazCursos.cpp">
       <Filter>Source Files\Cursos</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazEstudiantes.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazMatricula.cpp">
+      <Filter>Source Files\Matricula</Filter>
+    </ClCompile>
+    <ClCompile Include="aranceles.cpp">
+      <Filter>Source Files\Matricula</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazUniversidad.cpp">
+      <Filter>Source Files\Universidad</Filter>
+    </ClCompile>
+    <ClCompile Include="universidad.cpp">
+      <Filter>Source Files\Universidad</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

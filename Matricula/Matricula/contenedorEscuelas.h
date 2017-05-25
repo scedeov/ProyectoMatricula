@@ -2,6 +2,7 @@
 #define CONTENEDOR_ESCUELAS
 
 #include "nodoEscuelas.h" 
+class Profesor;
 
 class Contenedor_Escuelas
 {

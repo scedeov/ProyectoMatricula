@@ -1,8 +1,10 @@
 #ifndef UNIVERSIDAD
 #define UNIVERSIDAD
 
-#include "contenedorEscuelas.h"
-#include "contenedorEstudiantes.h"
+#include <string>
+class Contenedor_Escuelas;
+class Contenedor_Estudiantes;
+
 
 class Universidad
 {

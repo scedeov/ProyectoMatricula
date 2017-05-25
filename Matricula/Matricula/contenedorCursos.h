@@ -1,15 +1,14 @@
 #ifndef CONTENEDOR_CURSOS
 #define CONTENEDOR_CURSOS	
 
-#include "nodoCursos.h"
+#include "curso.h"
+
+#include <list>
 
 class Contenedor_Cursos
 {
 private:
-	Nodo_Cursos *pinicio;
-	Nodo_Cursos *paux;
-	int cantidad;
-	friend std::ostream& operator << (std::ostream&, Contenedor_Cursos&);
+	std::list<Curso*> listaCursos;
 public:
 	Contenedor_Cursos();
 	int getCantidad();
@@ -20,6 +19,7 @@ public:
 	bool encuentraCurso(Curso*, std::string);
 	std::string toString();
 	int getProfesores(std::string, int);
+	friend std::ostream& operator << (std::ostream&, Contenedor_Cursos&);
 	~Contenedor_Cursos();
 };
 #endif // !CONTENEDOR_CURSOS

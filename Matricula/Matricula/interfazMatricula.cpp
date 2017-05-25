@@ -1,5 +1,9 @@
 #include "interfazMatricula.h"
 #include "interfazPrincipal.h"
+#include "contenedorEstudiantes.h"
+#include "contenedorEscuelas.h"
+#include "contenedorCursos.h"
+#include "grupoEstudiantes.h"
 #include <conio.h>
 #include <iostream>
 using namespace std;
@@ -11,13 +15,14 @@ char Interfaz_Matricula::vMenuMatricula()
 	cout << "(1)--Matricular Estudiante en Curso" << endl;
 	cout << "(2)--Consultar lista de Estudiantes de un Curso" << endl;
 	cout << "(3)--Consultar lista de Cursos de un Estudiante" << endl;
-	cout << "(4)--Ajustes" << endl;
-	cout << "(5)--Salir" << endl;
+	cout << "(4)--Consulta de cobro de Matricula de Estudiante" << endl;
+	cout << "(5)--Ajustes" << endl;
+	cout << "(6)--Salir" << endl;
 	cout << "********************************************" << endl;
 	Interfaz_Principal::msjIngreseOpcion();
 	ans = _getch();
 
-	while (ans < '1' || ans > '5') {
+	while (ans < '1' || ans > '6') {
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
 		ans = _getch();
 	}
@@ -47,7 +52,7 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 		for (int i = 0; i < 5; i++) {
 			if (C->getGrupoEstudiantes(i)->getCantidad() < MAXESTU) {
 				C->getGrupoEstudiantes(i)->agregarEstudiante(EST);
-				EST->agregaCurso(codigo);
+				EST->agregaCurso(C);
 				Interfaz_Principal::msjPerfecto();
 				return true;
 			}
@@ -104,4 +109,21 @@ void Interfaz_Matricula::vMatriculaListaEstudiantesCursos(Universidad *U) {
 	}
 	Interfaz_Principal::msjPausa();
 	system("cls");
+}
+
+void Interfaz_Matricula::vCobroMatricula(Universidad *U)
+{
+	cout << "Calculando cobro..." << endl;
+	try {
+		cout << "Ingrese el numero de cedula del Estudiante a consultar -> "; int cedula; cin >> cedula; cin.ignore();
+		Estudiante *E = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
+		if (E == nullptr) throw 1;
+		double cobro;
+		for (int i = 0; i < E->getCantidadCursosMatriculados(); i++)
+			cobro += Aranceles::cobroMatricula(E->getCursoMatriculado(i), E);
+		cout << "El costo de la matricula del estudiante es de -> " << cobro << endl;
+	}
+	catch (int e) {
+		if (e == 1) cout << "El estudiante no existe..." << endl << endl;
+	}
 }

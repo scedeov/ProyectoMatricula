@@ -1,4 +1,6 @@
 #include "escuela.h"
+#include "contenedorProfesores.h"
+#include "contenedorCursos.h"
 #include <sstream>
 #include <string>
 #include <iostream>

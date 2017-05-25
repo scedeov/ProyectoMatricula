@@ -1,8 +1,9 @@
 #ifndef GRUPOESTUDIANTES
 #define GRUPOESTUDIANTES
 
-#include "estudiante.h"
-#include "profesor.h"
+class Profesor;
+class Estudiante;
+#include <vector>
 
 const int MAXESTU = 5;
 

@@ -1,8 +1,8 @@
 #ifndef CURSO
 #define CURSO
 
-#include "grupoProfesores.h"
-#include "grupoEstudiantes.h"
+class GrupoEstudiantes;
+class GrupoProfesores;
 #include <vector>
 
 class Curso
