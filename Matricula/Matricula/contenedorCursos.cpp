@@ -10,17 +10,17 @@ Contenedor_Cursos::Contenedor_Cursos()
 
 int Contenedor_Cursos::getCantidad()
 {	
-	return (int) listaCursos.size();
+	return listaCursos.tamano();
 }
 
 Curso * Contenedor_Cursos::getCursoporPos(int pos)
 {
-	return listaCursos.front() + (pos - 1);
+	return listaCursos.
 }
 
 void Contenedor_Cursos::insertaInicio(Curso *unCurso)
 {
-	listaCursos.push_front(unCurso);
+	listaCursos.agregaInicio(unCurso);
 }
 
 bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)

@@ -13,7 +13,8 @@ private:
 public:
 	Lista();
 	Lista(const Lista&);
-	virtual void agregaInicio(TipoDato*);
+	virtual Lista& operator = (const Lista&);
+	virtual void agregaInicio(TipoDato&);
 	virtual int tamano();
 	virtual TipoDato* eliminar();
 	virtual bool eliminaTodos();
@@ -39,7 +40,24 @@ inline Lista<TipoDato>::Lista(const Lista &l) {
 }
 
 template<class TipoDato>
-inline void Lista<TipoDato>::agregaInicio(TipoDato* unDato) {
+inline Lista<TipoDato>& Lista<TipoDato>::operator = (const Lista &l)
+{
+	if (this != &l) {
+		if (pinicio != NULL) {
+			eliminaTodos();
+		}
+		pinicio = NULL;
+		Nodo<TipoDato>* cursor = l.pinicio;
+		while (cursor != NULL) {
+			agregaInicio((cursor->getDato()); // averiguar xq quito el asterisco
+			cursor = cursor->getNext();
+		}
+	}
+	return *this;
+}
+
+template<class TipoDato>
+inline void Lista<TipoDato>::agregaInicio(TipoDato& unDato) {
 	TipoDato* dato = new TipoDato(*unDato);
 	primerNodo = new Nodo<T>(primerNodo, *dato);
 }

@@ -2,13 +2,11 @@
 #define CONTENEDOR_CURSOS	
 
 #include "curso.h"
-
-#include <list>
-
+#include "lista.h"
 class Contenedor_Cursos
 {
 private:
-	std::list<Curso*> listaCursos;
+	Lista<Curso*> listaCursos;
 public:
 	Contenedor_Cursos();
 	int getCantidad();
