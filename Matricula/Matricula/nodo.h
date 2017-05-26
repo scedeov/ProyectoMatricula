@@ -5,20 +5,20 @@ template <class TipoDato>
 
 class Nodo {
 private:
-	Nodo* next;
 	TipoDato* dato;
+	Nodo* next;
 public:
-	Nodo(Nodo*, TipoDato&);
+	Nodo(TipoDato&, Nodo*);
 	virtual void setNext(Nodo*);
-	virtual Nodo* getNext() const;
+	virtual Nodo& getNext() const;
 	virtual void setDato(TipoDato*);
-	virtual TipoDato* getDato() const;
+	virtual TipoDato& getDato() const;
 	virtual ~Nodo();
 };
 #endif // !NODO
 
 template<class TipoDato>
-Nodo<TipoDato>::Nodo(Nodo* next, TipoDato& dato) : next(next), dato(&dato) {}
+Nodo<TipoDato>::Nodo(TipoDato& dato, Nodo* next) : next(next), dato(&dato) {}
 
 template<class TipoDato>
 void Nodo<TipoDato>::setNext(Nodo* unNext) {
@@ -36,7 +36,7 @@ void Nodo<TipoDato>::setDato(TipoDato* unDato) {
 }
 
 template<class TipoDato>
-TipoDato * Nodo<TipoDato>::getDato() const {
+TipoDato& Nodo<TipoDato>::getDato() const {
 	return dato;
 }
 

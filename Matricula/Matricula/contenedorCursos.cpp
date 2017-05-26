@@ -20,19 +20,15 @@ Curso * Contenedor_Cursos::getCursoporPos(int pos)
 
 void Contenedor_Cursos::insertaInicio(Curso *unCurso)
 {
-	listaCursos.agregaInicio(unCurso);
+	listaCursos.push_front(unCurso);
 }
 
 bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 {
-
-
-	/*if (listaCursos.empty())
-	{
+	if (listaCursos.empty()) {
 		return false;
 	}
-
-	if (listaCursos.front()->getCodigoCurso() == codigo)
+	if (listaCursos.begin()->->getCodigoCurso() == codigo)
 	{
 		listaCursos.remove()
 	}
@@ -53,7 +49,7 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 		delete paux;
 		cantidad--;
 		return true;
-	}*/
+	}
 	return false;
 }
 
