@@ -8,7 +8,7 @@ private:
 	Nodo* next;
 	TipoDato* dato;
 public:
-	Nodo(Nodo*, TipoDato*);
+	Nodo(Nodo*, TipoDato&);
 	virtual void setNext(Nodo*);
 	virtual Nodo* getNext() const;
 	virtual void setDato(TipoDato*);
@@ -18,10 +18,7 @@ public:
 #endif // !NODO
 
 template<class TipoDato>
-Nodo<TipoDato>::Nodo(Nodo* unNodo, TipoDato* unDato) {
-	next = unNodo;
-	dato = unDato;
-}
+Nodo<TipoDato>::Nodo(Nodo* next, TipoDato& dato) : next(next), dato(&dato) {}
 
 template<class TipoDato>
 void Nodo<TipoDato>::setNext(Nodo* unNext) {
