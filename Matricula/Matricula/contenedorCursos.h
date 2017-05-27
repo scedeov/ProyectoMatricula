@@ -6,7 +6,7 @@
 class Contenedor_Cursos
 {
 private:
-	Lista<Curso*> listaCursos;
+	Lista<Curso>* listaCursos;
 public:
 	Contenedor_Cursos();
 	int getCantidad();

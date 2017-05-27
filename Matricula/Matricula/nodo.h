@@ -10,9 +10,10 @@ private:
 public:
 	Nodo(TipoDato&, Nodo*);
 	virtual void setNext(Nodo*);
-	virtual Nodo& getNext() const;
+	virtual Nodo* getNext() const;
 	virtual void setDato(TipoDato*);
-	virtual TipoDato& getDato() const;
+	virtual void linkNext(Nodo*);
+	virtual TipoDato* getDato() const;
 	virtual ~Nodo();
 };
 #endif // !NODO
@@ -36,7 +37,13 @@ void Nodo<TipoDato>::setDato(TipoDato* unDato) {
 }
 
 template<class TipoDato>
-TipoDato& Nodo<TipoDato>::getDato() const {
+inline void Nodo<TipoDato>::linkNext (Nodo *n)
+{
+	this->next = n->getNext();
+}
+
+template<class TipoDato>
+TipoDato* Nodo<TipoDato>::getDato() const {
 	return dato;
 }
 

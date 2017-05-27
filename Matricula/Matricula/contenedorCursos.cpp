@@ -10,60 +10,55 @@ Contenedor_Cursos::Contenedor_Cursos()
 
 int Contenedor_Cursos::getCantidad()
 {	
-	return listaCursos.tamano();
+	return listaCursos->size();
 }
 
 Curso * Contenedor_Cursos::getCursoporPos(int pos)
 {
-	return listaCursos.
+	return listaCursos->at(pos);
 }
 
 void Contenedor_Cursos::insertaInicio(Curso *unCurso)
 {
-	listaCursos.push_front(unCurso);
+	listaCursos->push_front(unCurso);
 }
 
 bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 {
-	if (listaCursos.empty()) {
+	if (listaCursos->empty())
 		return false;
-	}
-	if (listaCursos.begin()->->getCodigoCurso() == codigo)
-	{
-		listaCursos.remove()
-	}
 
-	while (paux != NULL &&   paux->getCurso()->getCodigoCurso() != codigo) {
+	if (listaCursos->front()->getCodigoCurso() == codigo)
+		listaCursos->pop_front();
+
+	Nodo<Curso> *paux = listaCursos->begin();
+	Nodo<Curso> *anterior = listaCursos->begin();
+	while (paux != NULL && listaCursos->front()->getCodigoCurso() != codigo) {
 		anterior = paux;
 		paux = paux->getNext();
 	}
 
 	if (paux == NULL)
-	{
 		return false;
-	}
 
-	else
-	{
+	else {
 		anterior->setNext(paux->getNext());
 		delete paux;
-		cantidad--;
 		return true;
 	}
 	return false;
 }
 
-Curso * Contenedor_Cursos::retornaCursoEspecifico(string codigo)
+Curso* Contenedor_Cursos::retornaCursoEspecifico(string codigo)
 {
-	/*paux = pinicio;
+	Nodo<Curso>* paux = listaCursos->begin();
 	while (paux != NULL)
 	{
-		if (encuentraCurso(paux->getCurso(), codigo) == true)
-			return paux->getCurso();
+		if (encuentraCurso(paux->getDato(), codigo) == true)
+			return paux->getDato();
 		else
 			paux = paux->getNext();
 	}
-	*/
 	return nullptr;
 }
 
@@ -77,14 +72,13 @@ bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
 
 string Contenedor_Cursos::toString()
 {
-	/*paux = pinicio;
+	Nodo<Curso> * paux = listaCursos->begin();
 	stringstream s;
 	while (paux != NULL) {
-		s << paux->toStringNodo() << endl;
+		s << paux->getDato()->toString() << endl;
 		paux = paux->getNext();
 	}
-	return s.str();*/
-	return string();
+	return s.str();
 }
 
 int Contenedor_Cursos::getProfesores(string codigo, int pos) {
