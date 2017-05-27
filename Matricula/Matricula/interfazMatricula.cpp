@@ -118,7 +118,7 @@ void Interfaz_Matricula::vCobroMatricula(Universidad *U)
 		cout << "Ingrese el numero de cedula del Estudiante a consultar -> "; int cedula; cin >> cedula; cin.ignore();
 		Estudiante *E = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
 		if (E == nullptr) throw 1;
-		double cobro;
+		double cobro = 0.0;
 		for (int i = 0; i < E->getCantidadCursosMatriculados(); i++)
 			cobro += Aranceles::cobroMatricula(E->getCursoMatriculado(i), E);
 		cout << "El costo de la matricula del estudiante es de -> " << cobro << endl;

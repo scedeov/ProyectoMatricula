@@ -61,33 +61,31 @@ void Interfaz_Cursos::vIngresaCurso(Universidad* U)
 
 	sigla = Interfaz_Principal::convierteMayuscula(sigla);
 
-	while (!U->getContenedorEscuelas()->retornaEscuela(sigla)) {
-		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
-		cout << "-> ";
-		cin >> sigla; cin.ignore();
+	if (!U->getContenedorEscuelas()->retornaEscuela(sigla))
+		cout << "No se ha encontrado la Escuela..." << endl;
+	else {
 
-		sigla = Interfaz_Principal::convierteMayuscula(sigla);
-	}
-
-	system("cls");
-	string nombre;
-	cout << "Ingrese el nombre del curso -> "; getline(cin, nombre); cout << endl;
-	cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
-
-	char ans = Interfaz_Principal::vInfoConfirmacion();
-
-	while (nombre == "Undefined" || nombre == " " || nombre == "") {
-		cout << "Nombre Invalido. Intente de nuevo -> ";
-		Sleep(800);
 		system("cls");
-		cout << "Ingrese el nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
+		string nombre;
+		cout << "Ingrese el nombre del curso -> "; getline(cin, nombre); cout << endl;
+		cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
+
+		char ans = Interfaz_Principal::vInfoConfirmacion();
+
+		while (nombre == "Undefined" || nombre == " " || nombre == "") {
+			cout << "Nombre Invalido. Intente de nuevo -> ";
+			Sleep(800);
+			system("cls");
+			cout << "Ingrese el nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
+		}
+
+		Curso* cur = new Curso(nombre, sigla);
+
+		U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->insertaInicio(cur);
+
+		Interfaz_Principal::msjPerfecto();
 	}
-
-	Curso* cur = new Curso(nombre, sigla);
-
-	U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->insertaInicio(cur);
-
-	Interfaz_Principal::msjPerfecto();
+	Interfaz_Principal::msjPausa();
 	system("cls");
 }
 
@@ -101,32 +99,34 @@ void Interfaz_Cursos::vEditarCurso(Universidad *U)
 
 	codigo = Interfaz_Principal::convierteMayuscula(codigo);
 	sigla = codigo.substr(0, 3);
+	if (U->getContenedorEscuelas() == nullptr || U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos() == nullptr)
+		cout << "No existe ningun curso con esa sigla..." << endl;
+	else
+		if (!U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo))
+			cout << "El curso no ha sido encontrado..." << endl;
+		else {
+			string nombre;
+			cout << "Ingrese el nuevo nombre del curso -> "; getline(cin, nombre); cout << endl;
 
-	if (!U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo))
-		cout << "El curso no ha sido encontrado..." << endl;
-	else {
-		string nombre;
-		cout << "Ingrese el nuevo nombre del curso -> "; getline(cin, nombre); cout << endl;
+			cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
 
-		cout << "Curso: " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? ";
+			char ans = Interfaz_Principal::vInfoConfirmacion();
 
-		char ans = Interfaz_Principal::vInfoConfirmacion();
+			while (nombre == "Undefined" || nombre == " " || nombre == "") {
+				cout << "Nombre Invalido. Intente de nuevo -> ";
+				Sleep(800);
+				system("cls");
+				cout << "Ingrese el nuevo nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
+			}
 
-		while (nombre == "Undefined" || nombre == " " || nombre == "") {
-			cout << "Nombre Invalido. Intente de nuevo -> ";
-			Sleep(800);
-			system("cls");
-			cout << "Ingrese el nuevo nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
+			U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->
+				retornaCursoEspecifico(codigo)->setNombre(nombre);
+
+			Interfaz_Principal::msjPerfecto();
 		}
 
-		U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->
-			retornaCursoEspecifico(codigo)->setNombre(nombre);
-
-		Interfaz_Principal::msjPerfecto();
-	}
-
-	Interfaz_Principal::msjPausa();
-	system("cls");
+		Interfaz_Principal::msjPausa();
+		system("cls");
 }
 
 void Interfaz_Cursos::vEliminaCurso(Universidad *U) //debe implementarse mejor
@@ -138,14 +138,21 @@ void Interfaz_Cursos::vEliminaCurso(Universidad *U) //debe implementarse mejor
 
 	codigo = Interfaz_Principal::convierteMayuscula(aux);
 	sigla = codigo.substr(0, 3);
+	try {
+		Escuela *Esc = U->getContenedorEscuelas()->retornaEscuela(sigla);
+		if (Esc == nullptr) throw 1;
+		if (Esc->getContenedorCursos()->eliminaCursoEspecifico(codigo))
+			cout << "Curso eliminado con exito" << endl;
+		else
+			cout << "No se ha podido eliminar el curso." << endl;
 
-	if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->eliminaCursoEspecifico(codigo))
-		cout << "Curso eliminado con exito" << endl;
-	else
-		cout << "No se ha podido eliminar el curso." << endl;
-
-	Interfaz_Principal::msjPausa();
-	system("cls");
+		Interfaz_Principal::msjPausa();
+		system("cls");
+	}
+	catch (int e) {
+		if (e == 1)
+			cout << "No existe ningun curso con ese codigo" << endl;
+	}
 }
 
 void Interfaz_Cursos::vInfoCurso(Universidad *U) //necesita ser optimizado
@@ -157,17 +164,20 @@ void Interfaz_Cursos::vInfoCurso(Universidad *U) //necesita ser optimizado
 	codigo = Interfaz_Principal::convierteMayuscula(codigo);
 	sigla = codigo.substr(0, 3);
 
-	if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo) == nullptr)
-		cout << "El curso no ha sido encontrado..." << endl;
+	if (U->getContenedorEscuelas()->retornaEscuela(sigla) == nullptr)
+		cout << "No existe ningun curso perteneciente a esa sigla..." << endl;
 	else
-		cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo)) << endl;
+		if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo) == NULL)
+			cout << "El curso no ha sido encontrado..." << endl;
+		else
+			cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo)) << endl;
 
 	Interfaz_Principal::msjPausa();
 	system("cls");
 }
 
 void Interfaz_Cursos::vListaCursosEscuelaParticular(Universidad *U) {
-	cout << U->getContenedorEscuelas()->toString('1'); //Imprime lista de Escuelas con sus respectivos cursos
+	cout << U->getContenedorEscuelas()->toString('1'); //Imprime lista de Escuelas con sus codigos
 	string sigla;
 	cout << "Ingrese la sigla de la escuela que desea consultar la lista de cursos -> ";
 	cin >> sigla; cin.ignore();
@@ -176,14 +186,17 @@ void Interfaz_Cursos::vListaCursosEscuelaParticular(Universidad *U) {
 		cout << "La escuela no ha sido encontrada..." << endl;
 	else {
 		Escuela *EE = U->getContenedorEscuelas()->retornaEscuela(sigla);
-		for (int i = 0; i < EE->getContenedorCursos()->getCantidad(); i++) {  //algoritmo mortal xxxxxx
-			cout << "Curso: " << EE->getContenedorCursos()->getCursoporPos(i)->getNombre() << endl;
-			cout << "Profesores:" << endl;
-			for (int x = 0; x < EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getCantidadProfesores(); x++) {
-				int cedulaProfe = EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getProfesor(x)->getNumCedula();
-				cout << U->getContenedorEscuelas()->retornaProfesor(cedulaProfe)->getNombreCompleto() << endl;
+		if (EE->getContenedorCursos()->getCantidad() == 0)
+			cout << "No existen cursos aun en esta Escuela..." << endl;
+		else
+			for (int i = 0; i < EE->getContenedorCursos()->getCantidad(); i++) {  //algoritmo mortal xxxxxx
+				cout << "Curso: " << EE->getContenedorCursos()->getCursoporPos(i)->getNombre() << endl;
+				cout << "Profesores:" << endl;
+				for (int x = 0; x < EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getCantidadProfesores(); x++) {
+					int cedulaProfe = EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getProfesor(x)->getNumCedula();
+					cout << U->getContenedorEscuelas()->retornaProfesor(cedulaProfe)->getNombreCompleto() << endl;
+				}
 			}
-		}
 	}
 	Interfaz_Principal::msjPausa();
 	system("cls");

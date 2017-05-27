@@ -95,7 +95,7 @@ void Interfaz_Profesores::vConsultarProfesEscuela(Universidad* U) {
 
 	string verifica = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->toString();
 	if (verifica == "")
-		cout << "No hay profesores asignados a esta Escuela aun.";
+		cout << "No hay profesores asignados a esta Escuela aun." << endl;
 	else
 		cout << verifica;
 
@@ -167,7 +167,7 @@ void Interfaz_Profesores::vAsignarProfesorCurso(Universidad *U)
 			string codigo; cin >> codigo; cin.ignore();
 			codigo = Interfaz_Principal::convierteMayuscula(codigo);
 
-			Curso * C = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
+			Curso *C = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
 			C->getGrupoProfesores()->agregarProfesor(P);
 			C->getGrupoEstudiantes(0)->setProfesorEncargado(P); // hay que poner el grupo en el que va a dar clases
 			P->setCursosImpartidos(codigo);

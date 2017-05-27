@@ -1,8 +1,10 @@
 #ifndef CONTENEDOR_ESCUELAS
 #define CONTENEDOR_ESCUELAS
 
-#include "nodoEscuelas.h" 
+#include "nodoEscuelas.h"
+
 class Profesor;
+
 
 class Contenedor_Escuelas
 {

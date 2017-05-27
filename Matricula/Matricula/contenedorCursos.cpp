@@ -6,6 +6,7 @@ using namespace std;
 
 Contenedor_Cursos::Contenedor_Cursos()
 {
+	listaCursos = new Lista<Curso>();
 }
 
 int Contenedor_Cursos::getCantidad()
@@ -13,7 +14,7 @@ int Contenedor_Cursos::getCantidad()
 	return listaCursos->size();
 }
 
-Curso * Contenedor_Cursos::getCursoporPos(int pos)
+Curso* Contenedor_Cursos::getCursoporPos(int pos)
 {
 	return listaCursos->at(pos);
 }
@@ -51,7 +52,7 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 
 Curso* Contenedor_Cursos::retornaCursoEspecifico(string codigo)
 {
-	Nodo<Curso>* paux = listaCursos->begin();
+	Nodo<Curso> *paux = listaCursos->begin();
 	while (paux != NULL)
 	{
 		if (encuentraCurso(paux->getDato(), codigo) == true)
@@ -72,11 +73,15 @@ bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
 
 string Contenedor_Cursos::toString()
 {
-	Nodo<Curso> * paux = listaCursos->begin();
 	stringstream s;
-	while (paux != NULL) {
-		s << paux->getDato()->toString() << endl;
-		paux = paux->getNext();
+	if (listaCursos->empty())
+		s << "La lista esta vacia..." << endl;
+	else {
+		Nodo<Curso>  *paux = listaCursos->begin();
+		while (paux != NULL) {
+			s << paux->getDato()->toString() << endl;
+			paux = paux->getNext();
+		}
 	}
 	return s.str();
 }
@@ -86,15 +91,9 @@ int Contenedor_Cursos::getProfesores(string codigo, int pos) {
 }
 
 Contenedor_Cursos::~Contenedor_Cursos()
-{/*
+{
 	cout << "Eliminando Contenedor de Cursos" << endl;
-
-	while (pinicio != NULL)
-	{
-		paux = pinicio;
-		pinicio = pinicio->getNext();
-		delete paux;
-	}*/
+	listaCursos->wipe();
 }
 
 ostream & operator<<(ostream &o, Contenedor_Cursos &ConC) {

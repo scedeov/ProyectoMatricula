@@ -51,7 +51,8 @@ char Interfaz_Escuelas::vAjustesEscuelas()
 void Interfaz_Escuelas::vIngresaEscuela(Universidad* U)
 {
 	string nombre;
-	cout << "Ingrese el nombre de la escuela -> "; getline(cin, nombre); cout << endl;
+	cout << "Ingresando Escuela..." << endl;
+	cout << "Ingrese la asignatura de la escuela -> "; getline(cin, nombre); cout << endl;
 
 	cout << "Escuela de : " << "\"" << nombre << "\" "; cout << "| es esta informacion correcta? (El nombre no se puede cambiar una vez confirmado)";
 
@@ -62,13 +63,14 @@ void Interfaz_Escuelas::vIngresaEscuela(Universidad* U)
 		cout << "Nombre Invalido. Intente de nuevo -> ";
 		Sleep(800);
 		system("cls");
-		cout << "Ingrese el nombre de la escuela  -> "; std::getline(std::cin, nombre); cout << endl << endl;
+		cout << "Ingresando Escuela..." << endl;
+		cout << "Ingrese la asignatura de la escuela  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 	}
 
 	Escuela* escu = new Escuela(nombre);
 
 	U->getContenedorEscuelas()->insertarInicio(escu);
-
+	Interfaz_Principal::msjPerfecto();
 	system("cls");
 }
 
