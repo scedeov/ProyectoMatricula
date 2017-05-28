@@ -23,7 +23,7 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 	codigoCurso = siglaEscuela + to_string(variableCodigoCursos);
 	variableCodigoCursos++;
 
-	grupoEstu->setCapacidad(MAXGRUPOSESTUDIANTES);
+	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
 	for (int i = 0; i < grupoEstu->getCapacidad(); i++)
 		grupoEstu->push(new GrupoEstudiantes());
 
