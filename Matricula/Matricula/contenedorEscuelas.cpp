@@ -65,11 +65,5 @@ string Contenedor_Escuelas::toString(char op) // debido a este char no puedo hac
 Contenedor_Escuelas::~Contenedor_Escuelas()
 {
 	cout << "Eliminando Contenedor de Escuelas" << endl;
-
-	while (pinicio != NULL)
-	{
-		paux = pinicio;
-		pinicio = pinicio->getNext();
-		delete paux;
-	}
+	listaEscuelas->wipe();
 }
