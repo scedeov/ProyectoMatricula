@@ -44,9 +44,9 @@ public:
 template<class T>
 inline Vector<T>::Vector(int xCapacidad)
 {
+	vector = new T*[xCapacidad];
 	this->cantidad = -1;
-	capacidad = xCapacidad;
-	vector = new T*[capacidad];
+	this->capacidad = xCapacidad;
 	for (int i = 0; i < capacidad; i++)
 		vector[i] = NULL;
 }
