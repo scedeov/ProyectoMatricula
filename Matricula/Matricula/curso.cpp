@@ -10,9 +10,9 @@ Curso::Curso()
 	codigoCurso = "Undefined";
 	nombreCurso = "Undefined";
 
-	grupoEstu.reserve(5);
-	for (int i = 0; i < grupoEstu.capacity(); i++)
-		grupoEstu.push_back(new GrupoEstudiantes());
+	grupoEstu->setCapacidad(MAXGRUPOSESTUDIANTES);
+	for (int i = 0; i < grupoEstu->getCapacidad(); i++)
+		grupoEstu->push(new GrupoEstudiantes());
 
 	grupoProfes = new GrupoProfesores();
 }
@@ -23,9 +23,9 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 	codigoCurso = siglaEscuela + to_string(variableCodigoCursos);
 	variableCodigoCursos++;
 
-	grupoEstu.reserve(5);
-	for (int i = 0; i < grupoEstu.capacity(); i++)
-		grupoEstu.push_back(new GrupoEstudiantes());
+	grupoEstu->setCapacidad(MAXGRUPOSESTUDIANTES);
+	for (int i = 0; i < grupoEstu->getCapacidad(); i++)
+		grupoEstu->push(new GrupoEstudiantes());
 
 	grupoProfes = new GrupoProfesores();
 }
@@ -33,6 +33,8 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 Curso::~Curso()
 {
 	cout << "Eliminando curso..." << endl;
+	delete grupoEstu;
+	delete grupoProfes;
 }
 
 void Curso::setNombre(string unNombre)
@@ -52,7 +54,11 @@ void Curso::setCantidadCreditos(int cantidadCreditos)
 
 GrupoEstudiantes* Curso::getGrupoEstudiantes(int pos)
 {
-	return grupoEstu[pos];
+	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
+	it.first();
+	for (int i = 0; i < pos; i++)
+		it.next();
+		return it.getCurItem();
 }
 
 GrupoProfesores* Curso::getGrupoProfesores() {
@@ -74,7 +80,7 @@ int Curso::getCantidadCreditos()
 	return cantidadCreditos;
 }
 
-std::string Curso::imprimeEstudiantesMatriculados()
+string Curso::imprimeEstudiantesMatriculados()
 {
 	stringstream s;
 	for (int i = 0; i < grupoEstu.size(); i++)

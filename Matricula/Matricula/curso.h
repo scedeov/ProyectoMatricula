@@ -1,14 +1,18 @@
 #ifndef CURSO
 #define CURSO
 
+
+#include "vector.h"
+#include <vector> // no tengo idea porque si elimino esto se caen cosas en .cpp, ni siquiera estan relacionadas
+
 class GrupoEstudiantes;
 class GrupoProfesores;
-#include <vector>
 
-class Curso
-{
+const int MAXGRUPOSESTUDIANTES = 5;
+
+class Curso {
 private:
-	std::vector<GrupoEstudiantes*> grupoEstu;
+	Vector<GrupoEstudiantes> *grupoEstu;
 	GrupoProfesores* grupoProfes;
 	std::string nombreCurso;
 	std::string codigoCurso;
