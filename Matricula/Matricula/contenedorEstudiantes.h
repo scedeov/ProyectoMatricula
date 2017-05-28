@@ -3,12 +3,12 @@
 
 #include "estudianteExtranjero.h"
 #include "estudianteNacional.h"
-#include <list>
+#include "lista.h"
 
 class Contenedor_Estudiantes
 {
 private:
-	std::list<Estudiante*> estudiantes;
+	Lista<Estudiante> *estudiantes;
 	friend std::ostream& operator << (std::ostream&, Contenedor_Estudiantes&);
 public:
 	Contenedor_Estudiantes();
