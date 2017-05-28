@@ -14,8 +14,12 @@ public:
 	int getCantidad();
 	int getCapacidad();
 	void setCapacidad(int);
+	T* first();
+	T* last();
+	T* operator [] (int);
 	void push(T*);
-	T* pop();
+	void eliminaEspecifico(int);
+	T* eliminaUltimo();
 
 	class Iterador;
 	friend class Iterador;
@@ -29,6 +33,9 @@ public:
 		}
 		void first() {
 			this->cursor = 0;
+		}
+		int getPosActual(){
+			return cursor;
 		}
 		void next() {
 			this->cursor++;
@@ -63,7 +70,7 @@ inline Vector<T>::~Vector()
 template<class T>
 inline int Vector<T>::getCantidad()
 {
-	return cantidad;
+	return cantidad + 1;
 }
 
 template<class T>
@@ -79,6 +86,24 @@ inline void Vector<T>::setCapacidad(int x)
 }
 
 template<class T>
+inline T * Vector<T>::first()
+{
+	return vector[0];
+}
+
+template<class T>
+inline T * Vector<T>::last()
+{
+	return vector[cantidad];
+}
+
+template<class T>
+inline T * Vector<T>::operator[](int pos)
+{
+	return vector[pos];
+}
+
+template<class T>
 inline void Vector<T>::push(T *dato)
 {
 	if (cantidad < capacidad)
@@ -86,7 +111,15 @@ inline void Vector<T>::push(T *dato)
 }
 
 template<class T>
-inline T* Vector<T>::pop()
+inline void Vector<T>::eliminaEspecifico(int pos)
+{
+	for (int i = pos; i < cantidad - 1; i++)
+		vector[i] = vector[i + 1];
+	cantidad--;
+}
+
+template<class T>
+inline T* Vector<T>::eliminaUltimo()
 {
 	T* aux;
 	if (vector[cantidad] != NULL) {

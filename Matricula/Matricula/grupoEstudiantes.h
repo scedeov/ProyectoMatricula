@@ -3,14 +3,15 @@
 
 class Profesor;
 class Estudiante;
-#include <vector>
+#include "vector.h"
+#include <string>
 
 const int MAXESTU = 5;
 
 class GrupoEstudiantes {
 private:
 	Profesor* profesorEncargado;
-	std::vector<Estudiante*> listaEstudiantes;
+	Vector<Estudiante> *vectorEstudiantes;
 	int cantidadEstudiantes;
 public:
 	GrupoEstudiantes();

@@ -7,12 +7,12 @@ using namespace std;
 GrupoEstudiantes::GrupoEstudiantes()
 {
 	profesorEncargado = nullptr;
-	listaEstudiantes.reserve(MAXESTU);
+	vectorEstudiantes = new Vector<Estudiante>(MAXESTU);
 }
 
 int GrupoEstudiantes::getCantidad()
 {
-	return (int) listaEstudiantes.size();
+	return vectorEstudiantes->getCantidad();
 }
 
 void GrupoEstudiantes::setProfesorEncargado(Profesor *P)
@@ -27,25 +27,33 @@ Profesor * GrupoEstudiantes::getProfesorEncargado()
 
 void GrupoEstudiantes::agregarEstudiante(Estudiante *E)
 {
-	listaEstudiantes.push_back(E);
+	vectorEstudiantes->push(E);
 }
 
 bool GrupoEstudiantes::eliminarEstudiante(int cedula)
 {
-	if (listaEstudiantes.size() < listaEstudiantes.capacity())
-		for (int i = 0; i < listaEstudiantes.size(); i++)
-			if (listaEstudiantes[i]->getNumCedula() == cedula) {
-				listaEstudiantes.erase(listaEstudiantes.begin() + (i - 1));
-				return true;
-			}
+	Vector<Estudiante>::Iterador it(vectorEstudiantes);
+	it.first();
+	while (it.getPosActual() < vectorEstudiantes->getCantidad()) {
+		if (it.getCurItem()->getNumCedula() == cedula) { // si es el primero
+			vectorEstudiantes->eliminaEspecifico(it.getPosActual());
+			return true;
+		}
+		else
+			it.next();
+	}
 	return false;
 }
 
 string GrupoEstudiantes::toString()
 {
 	stringstream s;
-	for (int i = 0; i < listaEstudiantes.size(); i++)
-		s << listaEstudiantes[i]->getNombreCompleto() << endl;
+	Vector<Estudiante>::Iterador it(vectorEstudiantes);
+	it.first();
+	for (int i = 0; i < vectorEstudiantes->getCantidad(); i++) {
+		s << it.getCurItem()->getNombreCompleto() << endl;
+		it.next();
+	}
 	return s.str();
 }
 
