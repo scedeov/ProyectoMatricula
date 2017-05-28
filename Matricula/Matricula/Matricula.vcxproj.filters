@@ -90,13 +90,7 @@
     <ClInclude Include="curso.h">
       <Filter>Header Files\Cursos</Filter>
     </ClInclude>
-    <ClInclude Include="nodoCursos.h">
-      <Filter>Header Files\Cursos</Filter>
-    </ClInclude>
     <ClInclude Include="escuela.h">
-      <Filter>Header Files\Escuelas</Filter>
-    </ClInclude>
-    <ClInclude Include="nodoEscuelas.h">
       <Filter>Header Files\Escuelas</Filter>
     </ClInclude>
     <ClInclude Include="contenedorEscuelas.h">

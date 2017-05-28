@@ -6,32 +6,21 @@ using namespace std;
 
 Contenedor_Escuelas::Contenedor_Escuelas()
 {
-	pinicio = NULL;
-	paux = NULL;
+	listaEscuelas = new Lista<Escuela>();
 }
 
 void Contenedor_Escuelas::insertarInicio(Escuela* unEscuela)
 {
-	paux = new Nodo_Escuelas(unEscuela, NULL);
-
-	if (pinicio == NULL)
-	{
-		pinicio = paux;
-	}
-	else
-	{
-		paux->setNext(pinicio);
-		pinicio = paux;
-	}
+	listaEscuelas->push_front(unEscuela);
 }
 
 Escuela * Contenedor_Escuelas::retornaEscuela(string sigla)
 {
-	paux = pinicio;
+	Nodo<Escuela> *paux = listaEscuelas->begin();
 	while (paux != NULL)
 	{
-		if (encuentraEscuela(paux->getEscuela(), sigla) == true)
-			return paux->getEscuela();
+		if (encuentraEscuela(paux->getDato(), sigla) == true)
+			return paux->getDato();
 		else
 			paux = paux->getNext();
 	}
@@ -40,10 +29,10 @@ Escuela * Contenedor_Escuelas::retornaEscuela(string sigla)
 
 Profesor * Contenedor_Escuelas::retornaProfesor(int cedula)
 {
-	paux = pinicio;
+	Nodo<Escuela> *paux = listaEscuelas->begin();
 	while (paux != NULL) {
-		if (paux->getEscuela()->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
-			return paux->getEscuela()->getContenedorProfesores()->retornaProfesor(cedula);
+		if (paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
+			return paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula);
 		else
 			paux = paux->getNext();
 	}
@@ -61,11 +50,14 @@ bool Contenedor_Escuelas::encuentraEscuela(Escuela* e, string sigla)
 string Contenedor_Escuelas::toString(char op) // debido a este char no puedo hacer sobrecarga
 {
 	stringstream s;
-	paux = pinicio;
-	while (paux != NULL)
-	{
-		s << paux->toStringNodo(op);
-		paux = paux->getNext();
+	if (listaEscuelas->empty())
+		s << "La lista esta vacia..." << endl;
+	else {
+		Nodo<Escuela>  *paux = listaEscuelas->begin();
+		while (paux != NULL) {
+			s << paux->getDato()->toStringEscuela(op) << endl;
+			paux = paux->getNext();
+		}
 	}
 	return s.str();
 }

@@ -1,16 +1,15 @@
 #ifndef CONTENEDOR_ESCUELAS
 #define CONTENEDOR_ESCUELAS
 
-#include "nodoEscuelas.h"
+#include "escuela.h"
+#include "lista.h"
 
 class Profesor;
-
 
 class Contenedor_Escuelas
 {
 private:
-	Nodo_Escuelas* pinicio;
-	Nodo_Escuelas* paux;
+	Lista<Escuela> *listaEscuelas;
 public:
 	Contenedor_Escuelas();
 	void insertarInicio(Escuela*);

@@ -133,8 +133,6 @@
     <ClInclude Include="interfazUniversidad.h" />
     <ClInclude Include="lista.h" />
     <ClInclude Include="nodo.h" />
-    <ClInclude Include="nodoCursos.h" />
-    <ClInclude Include="nodoEscuelas.h" />
     <ClInclude Include="nodoProfesores.h" />
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />

@@ -3,6 +3,7 @@
 
 #include "curso.h"
 #include "lista.h"
+
 class Contenedor_Cursos
 {
 private:
