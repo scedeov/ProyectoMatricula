@@ -54,8 +54,8 @@ inline Vector<T>::Vector(int xCapacidad)
 template<class T>
 inline Vector<T>::~Vector()
 {
-	for (cursor; cursor != -1; cursor--) {
-		delete vector[cursor];
+	for (cantidad; cantidad != -1; cantidad--) {
+		delete vector[cantidad];
 	}
 	delete[]vector;
 }
@@ -75,7 +75,7 @@ inline int Vector<T>::getCapacidad()
 template<class T>
 inline void Vector<T>::setCapacidad(int x)
 {
-	this->capacidad = x;
+	capacidad = x;
 }
 
 template<class T>

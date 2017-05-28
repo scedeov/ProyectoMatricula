@@ -72,7 +72,7 @@ string Escuela::toStringEscuela(char op)
 {
 	stringstream s;
 	s << "Nombre de la Escuela: " << nombreEscuela;
-	s << "| Codigo: " << siglaEscuela << endl;
+	s << "| Sigla: " << siglaEscuela << endl;
 
 	if (op == '2') {
 		s << "Cursos Impartidos: " << endl;
