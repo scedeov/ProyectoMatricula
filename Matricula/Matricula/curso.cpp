@@ -9,9 +9,9 @@ Curso::Curso()
 {
 	codigoCurso = "Undefined";
 	nombreCurso = "Undefined";
-
-	grupoEstu->setCapacidad(MAXGRUPOSESTUDIANTES);
-	for (int i = 0; i < grupoEstu->getCapacidad(); i++)
+	
+	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
+	for (int i = 0; i < MAXGRUPOSESTUDIANTES; i++)
 		grupoEstu->push(new GrupoEstudiantes());
 
 	grupoProfes = new GrupoProfesores();
