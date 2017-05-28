@@ -170,7 +170,7 @@ void Interfaz_Profesores::vAsignarProfesorCurso(Universidad *U)
 			Curso *C = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
 			C->getGrupoProfesores()->agregarProfesor(P);
 			C->getGrupoEstudiantes(0)->setProfesorEncargado(P); // hay que poner el grupo en el que va a dar clases
-			P->setCursosImpartidos(codigo);
+			P->agregaNuevoCursoImpartido(codigo);
 			Interfaz_Principal::msjPerfecto();
 		}
 	}

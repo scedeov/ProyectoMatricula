@@ -2,13 +2,14 @@
 #define PROFESOR
 
 #include "persona.h"
+#include "vector.h"
 
 const int MAXCURSOS = 10;
-
+class Curso;
 class Profesor: public Persona
 {
 private:
-	std::string cursosImpartidos[MAXCURSOS];
+	Vector<Curso> *cursosImpartidos;
 	int cantidadCursos;
 	bool esDirector;
 	std::string escuela;
@@ -16,7 +17,7 @@ private:
 public:
 	Profesor();
 	Profesor(std::string, std::string, std::string, int);
-	void setCursosImpartidos(std::string);
+	void agregaNuevoCursoImpartido(Curso*);
 	void setEscuela(std::string);
 	std::string getEscuela();
 	int getCantidadCursos();

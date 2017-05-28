@@ -1,12 +1,15 @@
-#include "profesor.h"
+#include "profesor.h"]
+#include "curso.h"
 #include <sstream>
 #include <iostream>
 using namespace std;
 
 Profesor::Profesor()
 {
+	
+	cursosImpartidos = new Vector<Curso>(MAXCURSOS);
 	for (int i = 0; i < MAXCURSOS; i++)
-		cursosImpartidos[i] = "Undefined";
+		cursosImpartidos->push (new Curso());
 	cantidadCursos = 0;
 	esDirector = false;
 }
@@ -18,17 +21,12 @@ Profesor::Profesor(string nombre, string primerApellido, string segundoApellido,
 	setNumCedula(numCedula);
 
 	esDirector = false;
-
-	for (int i = 0; i < MAXCURSOS; i++)
-		cursosImpartidos[i] = "Undefined";
+	cursosImpartidos = new Vector<Curso>(MAXCURSOS);
 	cantidadCursos = 0;
 }
 
-void Profesor::setCursosImpartidos(string cursoNuevo) {
-	if (cantidadCursos < MAXCURSOS) {
-		cursosImpartidos[cantidadCursos] = cursoNuevo;
-		cantidadCursos++;
-	}
+void Profesor::agregaNuevoCursoImpartido(Curso* cursoNuevo) {
+	cursosImpartidos->push(cursoNuevo);
 }
 
 void Profesor::setEscuela(string escuela)
@@ -43,30 +41,38 @@ string Profesor::getEscuela()
 
 int Profesor::getCantidadCursos()
 {
-	return cantidadCursos;
+	return cursosImpartidos->getCantidad();
 }
 
 int Profesor::getMaxCursos()
 {
-	return MAXCURSOS;
+	return cursosImpartidos->getCapacidad();
 }
 
 string Profesor::getCursosImpartidos() {
 	stringstream s;
-	for (int i = 0; i < cantidadCursos; i++)
-		s << cursosImpartidos[i] << " ";
+	Vector<Curso>::Iterador it(cursosImpartidos);
+	it.first();
+	while (it.getPosActual() < cursosImpartidos->getCantidad()) {
+		s << it.getCurItem()->getCodigoCurso() << " ";
+		it.next();
+	}
+		
 	return s.str();
 }
 
 bool Profesor::eliminarCursoImpartido(string codigo)
 {
-	for (int i = 0; i < cantidadCursos; i++) 
-		if (cursosImpartidos[i] == codigo) {
-			for (int x = i; x < cantidadCursos; x++)
-				cursosImpartidos[x] = cursosImpartidos[i + 1];
-			cantidadCursos--;
+	Vector<Curso>::Iterador it(cursosImpartidos);
+	it.first();
+	while (it.getPosActual() < cursosImpartidos->getCantidad()) {
+		if (it.getCurItem()->getCodigoCurso() == codigo) { 
+			cursosImpartidos->eliminaEspecifico(it.getPosActual());
 			return true;
 		}
+		else
+			it.next();
+	}
 	return false;
 }
 
@@ -87,6 +93,7 @@ string Profesor::toString()
 Profesor::~Profesor()
 {
 	cout << "Eliminando Profesor... " << endl;
+	delete cursosImpartidos;
 }
 
 ostream & operator<<(ostream &o, Profesor &P) {

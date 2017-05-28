@@ -61,6 +61,7 @@ inline Vector<T>::Vector(int xCapacidad)
 template<class T>
 inline Vector<T>::~Vector()
 {
+	cout << "Eliminando Vector..." << endl;
 	for (cantidad; cantidad != -1; cantidad--) {
 		delete vector[cantidad];
 	}
