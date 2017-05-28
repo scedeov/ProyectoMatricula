@@ -139,6 +139,7 @@
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />
     <ClInclude Include="universidad.h" />
+    <ClInclude Include="vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aranceles.cpp" />
