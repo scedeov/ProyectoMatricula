@@ -3,7 +3,7 @@
 
 
 #include "vector.h"
-#include <vector> // no tengo idea porque si elimino esto se caen cosas en .cpp, ni siquiera estan relacionadas
+#include <string>
 
 class GrupoEstudiantes;
 class GrupoProfesores;

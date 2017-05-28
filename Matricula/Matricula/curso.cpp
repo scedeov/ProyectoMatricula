@@ -83,8 +83,12 @@ int Curso::getCantidadCreditos()
 string Curso::imprimeEstudiantesMatriculados()
 {
 	stringstream s;
-	for (int i = 0; i < grupoEstu.size(); i++)
-		s << grupoEstu[i]->toString() << endl;
+	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
+	it.first();
+	for (int i = 0; i < grupoEstu->getCantidad(); i++) {
+		s << it.getCurItem()->toString() << endl;
+		it.next();
+	}
 	return s.str();
 }
 
