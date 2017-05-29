@@ -27,20 +27,20 @@ Profesor * GrupoEstudiantes::getProfesorEncargado()
 
 void GrupoEstudiantes::agregarEstudiante(Estudiante *E)
 {
-	vectorEstudiantes->push(E);
+	vectorEstudiantes->agregar(E);
 }
 
 bool GrupoEstudiantes::eliminarEstudiante(int cedula)
 {
 	Vector<Estudiante>::Iterador it(vectorEstudiantes);
-	it.first();
-	while (it.getPosActual() < vectorEstudiantes->getCantidad()) {
-		if (it.getCurItem()->getNumCedula() == cedula) { // si es el primero
-			vectorEstudiantes->eliminaEspecifico(it.getPosActual());
+	it.posicionaPrimerObjeto();
+	while (it.getPosicionActual() < vectorEstudiantes->getCantidad()) {
+		if (it.getObjetoActual()->getNumCedula() == cedula) { // si es el primero
+			vectorEstudiantes->eliminaEspecifico(it.getPosicionActual());
 			return true;
 		}
 		else
-			it.next();
+			it.posicionaSiguiente();
 	}
 	return false;
 }
@@ -49,10 +49,10 @@ string GrupoEstudiantes::toString()
 {
 	stringstream s;
 	Vector<Estudiante>::Iterador it(vectorEstudiantes);
-	it.first();
+	it.posicionaPrimerObjeto();
 	for (int i = 0; i < vectorEstudiantes->getCantidad(); i++) {
-		s << it.getCurItem()->getNombreCompleto() << endl;
-		it.next();
+		s << it.getObjetoActual()->getNombreCompleto() << endl;
+		it.posicionaSiguiente();
 	}
 	return s.str();
 }

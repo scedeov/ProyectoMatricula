@@ -3,23 +3,23 @@
 
 
 template <class T>
-class Vector {
+class Vector: public T {
 private:
 	T** vector;
 	int cantidad;
 	int capacidad;
 public:
 	Vector(int);
-	~Vector();
-	int getCantidad();
-	int getCapacidad();
-	void setCapacidad(int);
-	T* first();
-	T* last();
+	virtual ~Vector();
+	virtual int getCantidad();
+	virtual int getCapacidad();
+	virtual void setCapacidad(int);
+	virtual T* getPrimerObjeto();
+	virtual T* getUltimoObjeto();
 	T* operator [] (int);
-	void push(T*);
-	void eliminaEspecifico(int);
-	T* eliminaUltimo();
+	virtual void agregar(T*);
+	virtual void eliminaEspecifico(int);
+	virtual T* eliminaUltimo();
 
 	class Iterador;
 	friend class Iterador;
@@ -31,19 +31,18 @@ public:
 		Iterador(Vector* ptr) {
 			this->ptr = ptr;
 		}
-		void first() {
+		void posicionaPrimerObjeto() {
 			this->cursor = 0;
 		}
-		int getPosActual(){
+		int getPosicionActual(){
 			return cursor;
 		}
-		void next() {
+		void posicionaSiguiente() {
 			this->cursor++;
 		}
 		T* getCurItem() {
 			return ptr->vector[cursor];
 		}
-		//No estoy seguro sobre el destructor
 	};
 };
 #endif // !VECTOR
@@ -87,13 +86,13 @@ inline void Vector<T>::setCapacidad(int x)
 }
 
 template<class T>
-inline T * Vector<T>::first()
+inline T * Vector<T>::getPrimerObjeto()
 {
 	return vector[0];
 }
 
 template<class T>
-inline T * Vector<T>::last()
+inline T * Vector<T>::getUltimoObjeto()
 {
 	return vector[cantidad];
 }
@@ -105,7 +104,7 @@ inline T * Vector<T>::operator[](int pos)
 }
 
 template<class T>
-inline void Vector<T>::push(T *dato)
+inline void Vector<T>::agregar(T *dato)
 {
 	if (cantidad < capacidad)
 		this->vector[++cantidad] = dato;

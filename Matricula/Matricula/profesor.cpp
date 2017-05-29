@@ -9,7 +9,7 @@ Profesor::Profesor()
 	
 	cursosImpartidos = new Vector<Curso>(MAXCURSOS);
 	for (int i = 0; i < MAXCURSOS; i++)
-		cursosImpartidos->push (new Curso());
+		cursosImpartidos->agregar (new Curso());
 	cantidadCursos = 0;
 	esDirector = false;
 }
@@ -26,7 +26,7 @@ Profesor::Profesor(string nombre, string primerApellido, string segundoApellido,
 }
 
 void Profesor::agregaNuevoCursoImpartido(Curso* cursoNuevo) {
-	cursosImpartidos->push(cursoNuevo);
+	cursosImpartidos->agregar(cursoNuevo);
 }
 
 void Profesor::setEscuela(string escuela)
@@ -52,10 +52,10 @@ int Profesor::getMaxCursos()
 string Profesor::getCursosImpartidos() {
 	stringstream s;
 	Vector<Curso>::Iterador it(cursosImpartidos);
-	it.first();
-	while (it.getPosActual() < cursosImpartidos->getCantidad()) {
-		s << it.getCurItem()->getCodigoCurso() << " ";
-		it.next();
+	it.posicionaPrimerObjeto();
+	while (it.getPosicionActual() < cursosImpartidos->getCantidad()) {
+		s << it.getObjetoActual()->getCodigoCurso() << " ";
+		it.posicionaSiguiente();
 	}
 		
 	return s.str();
@@ -64,14 +64,14 @@ string Profesor::getCursosImpartidos() {
 bool Profesor::eliminarCursoImpartido(string codigo)
 {
 	Vector<Curso>::Iterador it(cursosImpartidos);
-	it.first();
-	while (it.getPosActual() < cursosImpartidos->getCantidad()) {
-		if (it.getCurItem()->getCodigoCurso() == codigo) { 
-			cursosImpartidos->eliminaEspecifico(it.getPosActual());
+	it.posicionaPrimerObjeto();
+	while (it.getPosicionActual() < cursosImpartidos->getCantidad()) {
+		if (it.getObjetoActual()->getCodigoCurso() == codigo) { 
+			cursosImpartidos->eliminaEspecifico(it.getPosicionActual());
 			return true;
 		}
 		else
-			it.next();
+			it.posicionaSiguiente();
 	}
 	return false;
 }

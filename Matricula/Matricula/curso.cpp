@@ -12,7 +12,7 @@ Curso::Curso()
 	
 	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
 	for (int i = 0; i < MAXGRUPOSESTUDIANTES; i++)
-		grupoEstu->push(new GrupoEstudiantes());
+		grupoEstu->agregar(new GrupoEstudiantes());
 
 	grupoProfes = new GrupoProfesores();
 }
@@ -25,7 +25,7 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 
 	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
 	for (int i = 0; i < grupoEstu->getCapacidad(); i++)
-		grupoEstu->push(new GrupoEstudiantes());
+		grupoEstu->agregar(new GrupoEstudiantes());
 
 	grupoProfes = new GrupoProfesores();
 }
@@ -55,10 +55,10 @@ void Curso::setCantidadCreditos(int cantidadCreditos)
 GrupoEstudiantes* Curso::getGrupoEstudiantes(int pos)
 {
 	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
-	it.first();
+	it.posicionaPrimerObjeto();
 	for (int i = 0; i < pos; i++)
-		it.next();
-		return it.getCurItem();
+		it.posicionaSiguiente();
+		return it.getObjetoActual();
 }
 
 GrupoProfesores* Curso::getGrupoProfesores() {
@@ -84,10 +84,10 @@ string Curso::imprimeEstudiantesMatriculados()
 {
 	stringstream s;
 	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
-	it.first();
+	it.posicionaPrimerObjeto();
 	for (int i = 0; i < grupoEstu->getCantidad(); i++) {
-		s << it.getCurItem()->toString() << endl;
-		it.next();
+		s << it.getObjetoActual()->toString() << endl;
+		it.posicionaSiguiente();
 	}
 	return s.str();
 }
