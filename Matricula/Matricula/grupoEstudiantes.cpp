@@ -60,4 +60,5 @@ string GrupoEstudiantes::toString()
 GrupoEstudiantes::~GrupoEstudiantes()
 {
 	std::cout << "Eliminando grupo Estudiantes..." << std::endl;
+	delete vectorEstudiantes;
 }
