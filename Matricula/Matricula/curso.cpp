@@ -86,7 +86,7 @@ string Curso::imprimeEstudiantesMatriculados()
 	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
 	it.posicionaPrimerObjeto();
 	for (int i = 0; i < grupoEstu->getCantidad(); i++) {
-		s << it.getObjetoActual()->toString() << endl;
+		s << it.getObjectoCursorActual()->toString() << endl;
 		it.posicionaSiguiente();
 	}
 	return s.str();

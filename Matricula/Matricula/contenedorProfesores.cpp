@@ -5,26 +5,18 @@ using namespace std;
 
 Contenedor_Profesores::Contenedor_Profesores()
 {
-	pinicio = NULL;
-	paux = NULL;
+	listaProfesores = new Lista<Profesor>();
 }
 
 void Contenedor_Profesores::insertaInicio(Profesor *P) {
-	paux = new Nodo_Profesores(P, NULL);
-	if (pinicio == NULL)
-		pinicio = paux;
-	else {
-		paux->setNext(pinicio);
-		pinicio = paux;
-	}
+	listaProfesores->push_front(P);
 }
 
 Profesor * Contenedor_Profesores::retornaProfesor(int cedula) {
-	paux = pinicio;
-	while (paux != NULL)
-	{
-		if (encuentraProfesor(paux->getProfesor(), cedula) == true)
-			return paux->getProfesor();
+	Nodo<Profesor> *paux = listaProfesores->begin();
+	while (paux != NULL) {
+		if (encuentraProfesor(paux->getDato(), cedula) == true)
+			return paux->getDato();
 		else
 			paux = paux->getNext();
 	}
@@ -39,34 +31,27 @@ bool Contenedor_Profesores::encuentraProfesor(Profesor *P, int cedula) {
 }
 
 int Contenedor_Profesores::contadorProfesores() {
-	paux = pinicio;
-	int contador = 0;
-	while (!paux) {
-		contador++;
-		paux = paux->getNext();
-	}
-	return contador;
+	listaProfesores->size();
 }
 
 string Contenedor_Profesores::toString()
 {
 	stringstream s;
-	paux = pinicio;
-	while (paux != NULL) {
-		s << *paux;
-		paux = paux->getNext();
+	if (listaProfesores->empty())
+		s << "La lista esta vacia..." << endl;
+	else {
+		Nodo<Profesor>  *paux = listaProfesores->begin();
+		while (paux != NULL) {
+			s << paux->getDato()->toString() << endl;
+			paux = paux->getNext();
+		}
 	}
 	return s.str();
 }
 
 Contenedor_Profesores::~Contenedor_Profesores() {
 	cout << "Eliminando Contenedor de Profesores" << endl;
-
-	while (pinicio != NULL) {
-		paux = pinicio;
-		pinicio = pinicio->getNext();
-		delete paux;
-	}
+	listaProfesores->wipe();
 }
 
 ostream & operator<<(ostream &o, Contenedor_Profesores &ContP) {
