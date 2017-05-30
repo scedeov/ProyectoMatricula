@@ -2,7 +2,7 @@
 #define ESTUDIANTE
 
 #include "persona.h"
-#include <vector>
+#include "vector.h"
 
 class Curso;
 
@@ -11,7 +11,7 @@ private:
 	std::string carnet;
 	int porcentajeBeca;
 	bool esExtranjero;
-	Vector<Curso*> listaCursos;
+	Vector<Curso> *vectorCursos;
 public:
 	Estudiante();
 	Estudiante(std::string, std::string, std::string, int, int);

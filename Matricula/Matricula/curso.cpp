@@ -58,7 +58,7 @@ GrupoEstudiantes* Curso::getGrupoEstudiantes(int pos)
 	it.posicionaPrimerObjeto();
 	for (int i = 0; i < pos; i++)
 		it.posicionaSiguiente();
-		return it.getObjetoActual();
+		return it.getObjectoCursorActual();
 }
 
 GrupoProfesores* Curso::getGrupoProfesores() {

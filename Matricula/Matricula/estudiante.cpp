@@ -11,6 +11,7 @@ Estudiante::Estudiante()
 	porcentajeBeca = 0;
 	esExtranjero = false;
 	generaCarnet();
+	vectorCursos = new Vector<Curso>(12);
 }
 
 Estudiante::Estudiante(string nombre, string pApellido, string sApellido, int cedula, int porcentaje)
@@ -21,6 +22,7 @@ Estudiante::Estudiante(string nombre, string pApellido, string sApellido, int ce
 	setNumCedula(cedula);
 	generaCarnet();
 	porcentajeBeca = porcentaje;
+	vectorCursos = new Vector<Curso>(12);
 }
 
 string Estudiante::getCarnet()
@@ -30,25 +32,32 @@ string Estudiante::getCarnet()
 
 void Estudiante::agregaCurso(Curso* curso)
 {
-	listaCursos.push_back(curso);
+	vectorCursos->agregar(curso);
 }
 
 string Estudiante::imprimeCursos() {
 	stringstream s;
-	for (size_t i = 0; i < listaCursos.capacity(); i++)
-		s << listaCursos[i]->getCodigoCurso() << " - ";
-	s << endl;
+	Vector<Curso>::Iterador it(vectorCursos);
+	it.posicionaPrimerObjeto();
+	for (int i = 0; i < vectorCursos->getCantidad(); i++) {
+		s << it.getObjectoCursorActual()->toString() << endl;
+		it.posicionaSiguiente();
+	}
 	return s.str();
 }
 
 int Estudiante::getCantidadCursosMatriculados()
 {
-	return (int) listaCursos.size();
+	return vectorCursos->getCantidad();
 }
 
 Curso * Estudiante::getCursoMatriculado(int pos)
 {
-	return listaCursos[pos];
+	Vector<Curso>::Iterador it(vectorCursos);
+	it.posicionaPrimerObjeto();
+	for (int i = 0; i < pos; i++)
+		it.posicionaSiguiente();
+	return it.getObjectoCursorActual();
 }
 
 void Estudiante::setEsExtranjero(bool esExtranjero)

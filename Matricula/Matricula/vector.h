@@ -3,7 +3,7 @@
 
 
 template <class T>
-class Vector: public T {
+class Vector: {
 private:
 	T** vector;
 	int cantidad;
@@ -40,7 +40,7 @@ public:
 		void posicionaSiguiente() {
 			this->cursor++;
 		}
-		T* getCurItem() {
+		T* getObjectoCursorActual() {
 			return ptr->vector[cursor];
 		}
 	};
