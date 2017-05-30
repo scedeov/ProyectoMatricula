@@ -3,7 +3,8 @@
 
 class Profesor;
 class Estudiante;
-#include "vector.h"
+
+//#include "vector.h"
 #include <string>
 
 const int MAXESTU = 5;

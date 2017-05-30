@@ -2,8 +2,7 @@
 #define CONTENEDOR_ESCUELAS
 
 #include "escuela.h"
-#include "lista.h"
-
+//#include "lista.h"
 class Profesor;
 
 class Contenedor_Escuelas

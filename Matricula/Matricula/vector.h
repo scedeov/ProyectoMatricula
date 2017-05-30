@@ -3,7 +3,7 @@
 
 
 template <class T>
-class Vector: {
+class Vector {
 private:
 	T** vector;
 	int cantidad;

@@ -81,9 +81,6 @@
     <ClInclude Include="grupoProfesores.h">
       <Filter>Header Files\Profesores</Filter>
     </ClInclude>
-    <ClInclude Include="nodoProfesores.h">
-      <Filter>Header Files\Profesores</Filter>
-    </ClInclude>
     <ClInclude Include="contenedorCursos.h">
       <Filter>Header Files\Cursos</Filter>
     </ClInclude>

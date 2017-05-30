@@ -61,7 +61,6 @@ inline Lista<TipoDato>& Lista<TipoDato>::operator = (const Lista &l)
 			cursor = cursor->getNext();
 		}
 	}
-
 	return *this;
 }
 

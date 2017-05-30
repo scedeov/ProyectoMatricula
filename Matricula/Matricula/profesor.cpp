@@ -1,4 +1,4 @@
-#include "profesor.h"]
+#include "profesor.h"
 #include "curso.h"
 #include <sstream>
 #include <iostream>
@@ -6,7 +6,6 @@ using namespace std;
 
 Profesor::Profesor()
 {
-	
 	cursosImpartidos = new Vector<Curso>(MAXCURSOS);
 	for (int i = 0; i < MAXCURSOS; i++)
 		cursosImpartidos->agregar (new Curso());
@@ -54,10 +53,9 @@ string Profesor::getCursosImpartidos() {
 	Vector<Curso>::Iterador it(cursosImpartidos);
 	it.posicionaPrimerObjeto();
 	while (it.getPosicionActual() < cursosImpartidos->getCantidad()) {
-		s << it.getObjetoActual()->getCodigoCurso() << " ";
+		s << it.getObjectoCursorActual()->getCodigoCurso() << " ";
 		it.posicionaSiguiente();
 	}
-		
 	return s.str();
 }
 
@@ -66,7 +64,7 @@ bool Profesor::eliminarCursoImpartido(string codigo)
 	Vector<Curso>::Iterador it(cursosImpartidos);
 	it.posicionaPrimerObjeto();
 	while (it.getPosicionActual() < cursosImpartidos->getCantidad()) {
-		if (it.getObjetoActual()->getCodigoCurso() == codigo) { 
+		if (it.getObjectoCursorActual()->getCodigoCurso() == codigo) { 
 			cursosImpartidos->eliminaEspecifico(it.getPosicionActual());
 			return true;
 		}
