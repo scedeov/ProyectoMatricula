@@ -11,7 +11,7 @@ private:
 	std::string carnet;
 	int porcentajeBeca;
 	bool esExtranjero;
-	std::vector<Curso*> listaCursos;
+	Vector<Curso*> listaCursos;
 public:
 	Estudiante();
 	Estudiante(std::string, std::string, std::string, int, int);

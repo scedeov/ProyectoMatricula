@@ -17,8 +17,7 @@ void Contenedor_Escuelas::insertarInicio(Escuela* unEscuela)
 Escuela * Contenedor_Escuelas::retornaEscuela(string sigla)
 {
 	Nodo<Escuela> *paux = listaEscuelas->begin();
-	while (paux != NULL)
-	{
+	while (paux != NULL) {
 		if (encuentraEscuela(paux->getDato(), sigla) == true)
 			return paux->getDato();
 		else

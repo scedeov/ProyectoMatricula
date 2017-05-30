@@ -14,7 +14,6 @@ public:
 	Lista();
 	Lista(const Lista&);
 	virtual Lista& operator = (const Lista&);
-	//virtual Nodo<TipoDato>& operator [] (const int);
 	virtual  Nodo<TipoDato>* begin();
 	virtual TipoDato* front();
 	virtual TipoDato* back();
@@ -65,16 +64,6 @@ inline Lista<TipoDato>& Lista<TipoDato>::operator = (const Lista &l)
 
 	return *this;
 }
-
-//template<class TipoDato>
-////inline Nodo<TipoDato>& Lista<TipoDato>::operator [] (const int index)
-////{
-////	Nodo<TipoDato>* aux = pinicio;
-////	while (aux != NULL)
-////		for (int i = 0; i <= index; i++)
-////			aux = aux->getNext();
-////	return aux;
-////}
 
 template<class TipoDato>
 inline Nodo<TipoDato>* Lista<TipoDato>::begin()

@@ -53,8 +53,7 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 Curso* Contenedor_Cursos::retornaCursoEspecifico(string codigo)
 {
 	Nodo<Curso> *paux = listaCursos->begin();
-	while (paux != NULL)
-	{
+	while (paux != NULL) {
 		if (encuentraCurso(paux->getDato(), codigo) == true)
 			return paux->getDato();
 		else
