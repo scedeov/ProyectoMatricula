@@ -9,34 +9,34 @@ Contenedor_Estudiantes::Contenedor_Estudiantes()
 }
 
 int Contenedor_Estudiantes::getCantidadEstudiantes() {
-	return estudiantes->size();
+	return estudiantes->getCantidad();
 }
 
 void Contenedor_Estudiantes::insertaInicio(Estudiante *unEstudiante)
 {
-	estudiantes->push_front(unEstudiante);
+	estudiantes->agregarInicio(unEstudiante);
 }
 
 Estudiante * Contenedor_Estudiantes::retornaEstudiante(int cedula)
 {
-	for (int i = 0; i < estudiantes->size(); i++)
-		if ((estudiantes->front() + i)->getNumCedula() == cedula)
-			return estudiantes->front() + i;
+	for (int i = 0; i < estudiantes->getCantidad(); i++)
+		if ((estudiantes->getPrimerDato() + i)->getNumCedula() == cedula)
+			return estudiantes->getPrimerDato() + i;
 	return nullptr;
 }
 
 string Contenedor_Estudiantes::toString()
 {
 	stringstream s;
-	for (int i = 0; i < estudiantes->size(); i++)
-		s << (estudiantes->front() + 1)->toString() << endl;
+	for (int i = 0; i < estudiantes->getCantidad(); i++)
+		s << (estudiantes->getPrimerDato() + 1)->toString() << endl;
 	return s.str();
 }
 
 Contenedor_Estudiantes::~Contenedor_Estudiantes()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;
-	estudiantes->wipe();
+	estudiantes->limpiar();
 }
 
 ostream & operator<<(ostream &o, Contenedor_Estudiantes &CEs) {

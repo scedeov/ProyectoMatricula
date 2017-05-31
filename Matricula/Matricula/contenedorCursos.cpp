@@ -11,7 +11,7 @@ Contenedor_Cursos::Contenedor_Cursos()
 
 int Contenedor_Cursos::getCantidad()
 {	
-	return listaCursos->size();
+	return listaCursos->getCantidad();
 }
 
 Curso* Contenedor_Cursos::getCursoporPos(int pos)
@@ -21,20 +21,20 @@ Curso* Contenedor_Cursos::getCursoporPos(int pos)
 
 void Contenedor_Cursos::insertaInicio(Curso *unCurso)
 {
-	listaCursos->push_front(unCurso);
+	listaCursos->agregarInicio(unCurso);
 }
 
-bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
+bool Contenedor_Cursos::eliminarEspecifico(string codigo)
 {
-	if (listaCursos->empty())
+	if (listaCursos->estaVacia())
 		return false;
 
-	if (listaCursos->front()->getCodigoCurso() == codigo)
-		listaCursos->pop_front();
+	if (listaCursos->getPrimerDato()->getCodigoCurso() == codigo)
+		listaCursos->eliminarInicio();
 
-	Nodo<Curso> *paux = listaCursos->begin();
-	Nodo<Curso> *anterior = listaCursos->begin();
-	while (paux != NULL && listaCursos->front()->getCodigoCurso() != codigo) {
+	Nodo *paux = listaCursos->getPrimerNodo();
+	Nodo *anterior = listaCursos->getPrimerNodo();
+	while (paux != NULL && listaCursos->getPrimerDato()->getCodigoCurso() != codigo) {
 		anterior = paux;
 		paux = paux->getNext();
 	}
@@ -52,7 +52,7 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 
 Curso* Contenedor_Cursos::retornaCursoEspecifico(string codigo)
 {
-	Nodo<Curso> *paux = listaCursos->begin();
+	Nodo<Curso> *paux = listaCursos->getPrimerNodo();
 	while (paux != NULL) {
 		if (encuentraCurso(paux->getDato(), codigo) == true)
 			return paux->getDato();
@@ -73,10 +73,10 @@ bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
 string Contenedor_Cursos::toString()
 {
 	stringstream s;
-	if (listaCursos->empty())
+	if (listaCursos->estaVacia())
 		s << "La lista esta vacia..." << endl;
 	else {
-		Nodo<Curso>  *paux = listaCursos->begin();
+		Nodo<Curso>  *paux = listaCursos->getPrimerNodo();
 		while (paux != NULL) {
 			s << paux->getDato()->toString() << endl;
 			paux = paux->getNext();
@@ -92,7 +92,7 @@ int Contenedor_Cursos::getProfesores(string codigo, int pos) {
 Contenedor_Cursos::~Contenedor_Cursos()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;
-	listaCursos->wipe();
+	listaCursos->limpiar();
 }
 
 ostream & operator<<(ostream &o, Contenedor_Cursos &ConC) {

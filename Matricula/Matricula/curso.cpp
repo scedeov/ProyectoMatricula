@@ -12,7 +12,7 @@ Curso::Curso()
 	
 	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
 	for (int i = 0; i < MAXGRUPOSESTUDIANTES; i++)
-		grupoEstu->agregar(new GrupoEstudiantes());
+		grupoEstu->agregarInicio(new GrupoEstudiantes());
 
 	grupoProfes = new GrupoProfesores();
 }
@@ -25,7 +25,7 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 
 	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
 	for (int i = 0; i < grupoEstu->getCapacidad(); i++)
-		grupoEstu->agregar(new GrupoEstudiantes());
+		grupoEstu->agregarInicio(new GrupoEstudiantes());
 
 	grupoProfes = new GrupoProfesores();
 }

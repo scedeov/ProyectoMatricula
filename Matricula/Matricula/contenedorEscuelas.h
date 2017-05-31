@@ -1,17 +1,17 @@
 #ifndef CONTENEDOR_ESCUELAS
 #define CONTENEDOR_ESCUELAS
 
-#include "escuela.h"
-//#include "lista.h"
+#include "contenedores.h"
+
+class Escuela;
 class Profesor;
 
-class Contenedor_Escuelas
-{
+class Contenedor_Escuelas: public adaptadorBase {
 private:
-	Lista<Escuela> *listaEscuelas;
+	Lista *listaEscuelas;
 public:
 	Contenedor_Escuelas();
-	void insertarInicio(Escuela*);
+	void agregarInicio(Escuela*);
 	Escuela* retornaEscuela(std::string);
 	bool encuentraEscuela(Escuela*, std::string);
 	Profesor* retornaProfesor(int);

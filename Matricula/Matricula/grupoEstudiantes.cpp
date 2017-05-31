@@ -27,7 +27,7 @@ Profesor * GrupoEstudiantes::getProfesorEncargado()
 
 void GrupoEstudiantes::agregarEstudiante(Estudiante *E)
 {
-	vectorEstudiantes->agregar(E);
+	vectorEstudiantes->agregarInicio(E);
 }
 
 bool GrupoEstudiantes::eliminarEstudiante(int cedula)

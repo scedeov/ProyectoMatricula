@@ -129,6 +129,15 @@
     <ClInclude Include="vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="contenedor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="objetoBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contenedores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -211,6 +220,9 @@
     </ClCompile>
     <ClCompile Include="universidad.cpp">
       <Filter>Source Files\Universidad</Filter>
+    </ClCompile>
+    <ClCompile Include="objetoBase.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

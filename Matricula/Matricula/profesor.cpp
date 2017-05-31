@@ -8,7 +8,7 @@ Profesor::Profesor()
 {
 	cursosImpartidos = new Vector<Curso>(MAXCURSOS);
 	for (int i = 0; i < MAXCURSOS; i++)
-		cursosImpartidos->agregar (new Curso());
+		cursosImpartidos->agregarInicio (new Curso());
 	cantidadCursos = 0;
 	esDirector = false;
 }
@@ -25,7 +25,7 @@ Profesor::Profesor(string nombre, string primerApellido, string segundoApellido,
 }
 
 void Profesor::agregaNuevoCursoImpartido(Curso* cursoNuevo) {
-	cursosImpartidos->agregar(cursoNuevo);
+	cursosImpartidos->agregarInicio(cursoNuevo);
 }
 
 void Profesor::setEscuela(string escuela)

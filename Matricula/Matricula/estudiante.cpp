@@ -32,7 +32,7 @@ string Estudiante::getCarnet()
 
 void Estudiante::agregaCurso(Curso* curso)
 {
-	vectorCursos->agregar(curso);
+	vectorCursos->agregarInicio(curso);
 }
 
 string Estudiante::imprimeCursos() {

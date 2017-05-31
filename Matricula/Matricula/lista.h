@@ -1,98 +1,84 @@
 #ifndef LISTA
 #define LISTA
 
+#include "contenedor.h"
 #include "nodo.h"
 #include <string>
 #include <sstream>
 
-template <class TipoDato>
-class Lista {
+class Lista: public Contenedor {
 private:
-	Nodo<TipoDato> *pinicio;
-	Nodo<TipoDato> *paux;
+	Nodo *pinicio;
+	Nodo *paux;
 public:
 	Lista();
 	Lista(const Lista&);
 	virtual Lista& operator = (const Lista&);
-	virtual  Nodo<TipoDato>* begin();
-	virtual TipoDato* front();
-	virtual TipoDato* back();
-	virtual Nodo<TipoDato>* end();
-	virtual TipoDato* at(int);
-	virtual void push_front(TipoDato*);
-	virtual void push_back(TipoDato*);
-	virtual TipoDato* pop_front();
-	virtual bool empty();
-	virtual int size();
-	virtual void wipe();
-	virtual std::string toString();
-	~Lista();
+	virtual  Nodo* getPrimerNodo();
+	virtual objetoBase* getPrimerDato();
+	virtual objetoBase* getUltimoDato();
+	virtual Nodo* end();
+	virtual objetoBase* at(int);
+	virtual void agregarInicio(objetoBase*);
+	virtual void agregarFinal(objetoBase*);
+	virtual objetoBase* eliminarInicio();
+	virtual bool estaVacia();
+	virtual int getCantidad();
+	virtual void limpiar();
+	virtual std::string toString() const;
+	virtual ~Lista();
 };
 #endif // !LISTA
 
-
-template<class TipoDato>
-inline Lista<TipoDato>::Lista() {
+inline Lista::Lista() {
 	pinicio = NULL;
 	paux = NULL;
 }
 
-template<class TipoDato>
-inline Lista<TipoDato>::Lista(const Lista &l) {
+inline Lista::Lista(const Lista &l) {
 	paux = pinicio;
-	Nodo<TipoDato>* cursor = l.paux;
+	Nodo* cursor = l.paux;
 	while (cursor != NULL) {
-		push_front(cursor->getDato());
-		cursor = cursor->getNext()
+		agregarInicio(cursor->getDato());
+		cursor = cursor->getNext();
 	}
 }
 
-template<class TipoDato>
-inline Lista<TipoDato>& Lista<TipoDato>::operator = (const Lista &l)
-{
+inline Lista& Lista::operator = (const Lista &l) {
 	if (this != &l) {
 		if (pinicio != NULL) {
-			wipe();
+			limpiar();
 		}
 		pinicio = NULL;
-		Nodo<TipoDato>* cursor = l.pinicio;
+		Nodo* cursor = l.pinicio;
 		while (cursor != NULL) {
-			push_front((cursor->getDato()));
+			agregarInicio((cursor->getDato()));
 			cursor = cursor->getNext();
 		}
 	}
 	return *this;
 }
 
-template<class TipoDato>
-inline Nodo<TipoDato>* Lista<TipoDato>::begin()
-{
+inline Nodo* Lista::getPrimerNodo() {
 	return pinicio;
 }
 
-template<class TipoDato>
-inline TipoDato* Lista<TipoDato>::front()
-{
-	return begin()->getDato();
+inline objetoBase* Lista::getPrimerDato() {
+	return getPrimerNodo()->getDato();
 }
 
-template<class TipoDato>
-inline TipoDato* Lista<TipoDato>::back()
-{
+inline objetoBase* Lista::getUltimoDato() {
 	return end()->getDato();
 }
 
-template<class TipoDato>
-inline Nodo<TipoDato>* Lista<TipoDato>::end() {
+inline Nodo* Lista::end() {
 	paux = pinicio;
 	while (paux->getNext() != NULL)
 		paux = paux->getNext();
 	return paux;
 }
 
-template<class TipoDato>
-inline TipoDato * Lista<TipoDato>::at(int index)
-{
+inline objetoBase* Lista::at(int index) {
 	paux = pinicio;
 	while (paux != NULL) {
 		if (index == 0)
@@ -103,27 +89,22 @@ inline TipoDato * Lista<TipoDato>::at(int index)
 	return paux->getDato();
 }
 
-template<class TipoDato>
-inline void Lista<TipoDato>::push_front(TipoDato *unDato) {
-	TipoDato* dato = new TipoDato(*unDato);
-	pinicio = new Nodo<TipoDato>(*dato, pinicio);
+inline void Lista::agregarInicio(objetoBase *unDato) {
+	pinicio = new Nodo(*unDato, pinicio);
 }
 
-template<class TipoDato>
-inline void Lista<TipoDato>::push_back(TipoDato *unDato)
-{
-	TipoDato* dato = new TipoDato(*unDato);
-	if (empty())
-		pinicio = new Nodo<TipoDato>(*dato, pinicio);
+inline void Lista::agregarFinal(objetoBase *unDato) {
+	if (estaVacia())
+		pinicio = new Nodo(*unDato, pinicio);
 	else
-		end()->setNext(new Nodo<TipoDato>(*unDato, NULL));
+		end()->setNext(new Nodo(*unDato, NULL));
 }
 
-template<class TipoDato>
-inline TipoDato * Lista<TipoDato>::pop_front() {
-	if (!empty()) {
-		Nodo<TipoDato>* actual = this->pinicio;
-		TipoDato* dato = new TipoDato(*(pinicio->getDato()));
+inline objetoBase * Lista::eliminarInicio() {
+	if (!estaVacia()) {
+		Nodo* actual = this->pinicio;
+		objetoBase *dato = NULL;
+		dato = pinicio->getDato();
 		pinicio = pinicio->getNext();
 		delete actual;
 		return dato;
@@ -131,16 +112,14 @@ inline TipoDato * Lista<TipoDato>::pop_front() {
 	return NULL;
 }
 
-template<class TipoDato>
-inline bool Lista<TipoDato>::empty()
+inline bool Lista::estaVacia()
 {
 	if (pinicio == NULL)
 		return true;
 	return false;
 }
 
-template<class TipoDato>
-inline int Lista<TipoDato>::size() {
+inline int Lista::getCantidad() {
 	int contador = 0;
 	paux = pinicio;
 	while (paux != NULL) {
@@ -150,29 +129,27 @@ inline int Lista<TipoDato>::size() {
 	return contador;
 }
 
-template<class TipoDato>
-inline void Lista<TipoDato>::wipe() {
-	TipoDato* ptr;
-	while (ptr = pop_front())
+inline void Lista::limpiar() {
+	objetoBase* ptr;
+	while (ptr = eliminarInicio())
 		delete ptr;
 	pinicio = NULL;
 }
 
-template<class TipoDato>
-inline std::string Lista<TipoDato>::toString() {
+inline std::string Lista::toString() const {
 	std::stringstream s;
+	Nodo* aux = pinicio;
 	if (pinicio != NULL) {
-		paux = pinicio;
+		aux = pinicio;
 		while (paux != NULL) {
 			s << *(paux->getDato()) << endl;
-			paux = paux->getNext();
+			aux = paux->getNext();
 		}
 	}
 	return s.str();
 }
 
-template<class TipoDato>
-inline Lista<TipoDato>::~Lista() {
-	cout << "Eliminando Template..." << endl;
-	wipe();
+inline Lista::~Lista() {
+	cout << "Eliminando Lista..." << endl;
+	limpiar();
 }

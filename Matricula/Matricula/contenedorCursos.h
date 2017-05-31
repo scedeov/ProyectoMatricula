@@ -1,19 +1,19 @@
 #ifndef CONTENEDOR_CURSOS
 #define CONTENEDOR_CURSOS	
 
-#include "curso.h"
+
 #include "lista.h"
 
-class Contenedor_Cursos
-{
+class Curso;
+class Contenedor_Cursos {
 private:
-	Lista<Curso> *listaCursos;
+	Lista *listaCursos;
 public:
 	Contenedor_Cursos();
 	int getCantidad();
 	Curso* getCursoporPos(int);
 	void insertaInicio(Curso*);
-	bool eliminaCursoEspecifico(std::string);
+	bool eliminarEspecifico(std::string);
 	Curso* retornaCursoEspecifico(std::string);
 	bool encuentraCurso(Curso*, std::string);
 	std::string toString();

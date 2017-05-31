@@ -1,4 +1,5 @@
 #include "contenedorEscuelas.h"
+#include "escuela.h"
 #include "contenedorProfesores.h"
 #include <sstream>
 #include <iostream>
@@ -6,20 +7,20 @@ using namespace std;
 
 Contenedor_Escuelas::Contenedor_Escuelas()
 {
-	listaEscuelas = new Lista<Escuela>();
+	listaEscuelas = new Lista();
 }
 
-void Contenedor_Escuelas::insertarInicio(Escuela* unEscuela)
+void Contenedor_Escuelas::agregarInicio(Escuela* unEscuela)
 {
-	listaEscuelas->push_front(unEscuela);
+	listaEscuelas->agregarInicio(unEscuela);
 }
 
 Escuela * Contenedor_Escuelas::retornaEscuela(string sigla)
 {
-	Nodo<Escuela> *paux = listaEscuelas->begin();
+	Nodo*paux = listaEscuelas->getPrimerNodo();
 	while (paux != NULL) {
-		if (encuentraEscuela(paux->getDato(), sigla) == true)
-			return paux->getDato();
+		if (encuentraEscuela(dynamic_cast<Escuela*>(paux->getDato()), sigla) == true)
+			return dynamic_cast<Escuela*>(paux->getDato());
 		else
 			paux = paux->getNext();
 	}
@@ -28,10 +29,10 @@ Escuela * Contenedor_Escuelas::retornaEscuela(string sigla)
 
 Profesor * Contenedor_Escuelas::retornaProfesor(int cedula)
 {
-	Nodo<Escuela> *paux = listaEscuelas->begin();
+	Nodo *paux = listaEscuelas->getPrimerNodo();
 	while (paux != NULL) {
-		if (paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
-			return paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula);
+		if (dynamic_cast<Escuela*>(paux->getDato())->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
+			return dynamic_cast<Escuela*>(paux->getDato())->getContenedorProfesores()->retornaProfesor(cedula);
 		else
 			paux = paux->getNext();
 	}
@@ -49,12 +50,12 @@ bool Contenedor_Escuelas::encuentraEscuela(Escuela* e, string sigla)
 string Contenedor_Escuelas::toString(char op) // debido a este char no puedo hacer sobrecarga
 {
 	stringstream s;
-	if (listaEscuelas->empty())
+	if (listaEscuelas->estaVacia())
 		s << "La lista esta vacia..." << endl;
 	else {
-		Nodo<Escuela>  *paux = listaEscuelas->begin();
+		Nodo *paux = listaEscuelas->getPrimerNodo();
 		while (paux != NULL) {
-			s << paux->getDato()->toStringEscuela(op) << endl;
+			s << dynamic_cast<Escuela*>(paux->getDato())->toString(op) << endl;
 			paux = paux->getNext();
 		}
 	}
@@ -64,5 +65,5 @@ string Contenedor_Escuelas::toString(char op) // debido a este char no puedo hac
 Contenedor_Escuelas::~Contenedor_Escuelas()
 {
 	cout << "Eliminando Contenedor de Escuelas" << endl;
-	listaEscuelas->wipe();
+	listaEscuelas->limpiar();
 }

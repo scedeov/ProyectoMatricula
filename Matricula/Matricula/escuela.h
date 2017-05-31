@@ -6,7 +6,7 @@
 class Contenedor_Cursos;
 class Contenedor_Profesores;
 
-class Escuela
+class Escuela: public adaptadorBase
 {
 private:
 	std::string nombreEscuela;
@@ -23,7 +23,7 @@ public:
 	std::string generaSigla(std::string);
 	Contenedor_Cursos* getContenedorCursos();
 	Contenedor_Profesores* getContenedorProfesores();
-	std::string toStringEscuela(char);
+	std::string toString(char);
 };
 #endif // !ESCUELA
 

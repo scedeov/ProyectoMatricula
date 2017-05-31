@@ -30,7 +30,7 @@ Nodo_Escuelas * Nodo_Escuelas::getNext()
 
 string Nodo_Escuelas::toStringNodo(char op)
 {
-	return e->toStringEscuela(op);
+	return e->toString(op);
 }
 
 Nodo_Escuelas::~Nodo_Escuelas()

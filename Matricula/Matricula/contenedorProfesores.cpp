@@ -9,11 +9,11 @@ Contenedor_Profesores::Contenedor_Profesores()
 }
 
 void Contenedor_Profesores::insertaInicio(Profesor *P) {
-	listaProfesores->push_front(P);
+	listaProfesores->agregarInicio(P);
 }
 
 Profesor * Contenedor_Profesores::retornaProfesor(int cedula) {
-	Nodo<Profesor> *paux = listaProfesores->begin();
+	Nodo<Profesor> *paux = listaProfesores->getPrimerNodo();
 	while (paux != NULL) {
 		if (encuentraProfesor(paux->getDato(), cedula) == true)
 			return paux->getDato();
@@ -31,16 +31,16 @@ bool Contenedor_Profesores::encuentraProfesor(Profesor *P, int cedula) {
 }
 
 int Contenedor_Profesores::contadorProfesores() {
-	listaProfesores->size();
+	listaProfesores->getCantidad();
 }
 
 string Contenedor_Profesores::toString()
 {
 	stringstream s;
-	if (listaProfesores->empty())
+	if (listaProfesores->estaVacia())
 		s << "La lista esta vacia..." << endl;
 	else {
-		Nodo<Profesor>  *paux = listaProfesores->begin();
+		Nodo<Profesor>  *paux = listaProfesores->getPrimerNodo();
 		while (paux != NULL) {
 			s << paux->getDato()->toString() << endl;
 			paux = paux->getNext();
@@ -51,7 +51,7 @@ string Contenedor_Profesores::toString()
 
 Contenedor_Profesores::~Contenedor_Profesores() {
 	cout << "Eliminando Contenedor de Profesores" << endl;
-	listaProfesores->wipe();
+	listaProfesores->limpiar();
 }
 
 ostream & operator<<(ostream &o, Contenedor_Profesores &ContP) {

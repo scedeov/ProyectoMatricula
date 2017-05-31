@@ -141,7 +141,7 @@ void Interfaz_Cursos::vEliminaCurso(Universidad *U) //debe implementarse mejor
 	try {
 		Escuela *Esc = U->getContenedorEscuelas()->retornaEscuela(sigla);
 		if (Esc == nullptr) throw 1;
-		if (Esc->getContenedorCursos()->eliminaCursoEspecifico(codigo))
+		if (Esc->getContenedorCursos()->eliminarEspecifico(codigo))
 			cout << "Curso eliminado con exito" << endl;
 		else
 			cout << "No se ha podido eliminar el curso." << endl;

@@ -69,7 +69,7 @@ void Interfaz_Escuelas::vIngresaEscuela(Universidad* U)
 
 	Escuela* escu = new Escuela(nombre);
 
-	U->getContenedorEscuelas()->insertarInicio(escu);
+	U->getContenedorEscuelas()->agregarInicio(escu);
 	Interfaz_Principal::msjPerfecto();
 	system("cls");
 }

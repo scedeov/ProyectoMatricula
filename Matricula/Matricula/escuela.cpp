@@ -68,7 +68,7 @@ Contenedor_Profesores * Escuela::getContenedorProfesores() {
 	return ContP;
 }
 
-string Escuela::toStringEscuela(char op)
+string Escuela::toString(char op)
 {
 	stringstream s;
 	s << "Nombre de la Escuela: " << nombreEscuela;

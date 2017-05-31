@@ -1,53 +1,48 @@
 #ifndef NODO
 #define NODO
 
-template <class TipoDato>
+#include "objetoBase.h"
 
 class Nodo {
 private:
-	TipoDato* dato;
+	objetoBase* dato;
 	Nodo* next;
 public:
-	Nodo(TipoDato&, Nodo*);
+	Nodo(objetoBase&, Nodo*);
 	virtual void setNext(Nodo*);
 	virtual Nodo* getNext() const;
-	virtual void setDato(TipoDato*);
+	virtual void setDato(objetoBase*);
 	virtual void linkNext(Nodo*);
-	virtual TipoDato* getDato() const;
+	virtual objetoBase* getDato() const;
 	virtual ~Nodo();
 };
 #endif // !NODO
 
-template<class TipoDato>
-Nodo<TipoDato>::Nodo(TipoDato& dato, Nodo* next) : next(next), dato(&dato) {}
+inline Nodo::Nodo(objetoBase& dato, Nodo* next) : next(next), dato(&dato) {
+}
 
-template<class TipoDato>
-void Nodo<TipoDato>::setNext(Nodo* unNext) {
+inline void Nodo::setNext(Nodo* unNext) {
 	next = unNext;
 }
 
-template<class TipoDato>
-Nodo<TipoDato>* Nodo<TipoDato>::getNext() const {
+inline Nodo* Nodo::getNext() const {
 	return next;
 }
 
-template<class TipoDato>
-void Nodo<TipoDato>::setDato(TipoDato* unDato) {
+inline void Nodo::setDato(objetoBase* unDato) {
 	dato = unDato;
 }
 
-template<class TipoDato>
-inline void Nodo<TipoDato>::linkNext (Nodo *n)
+inline void Nodo::linkNext (Nodo *n)
 {
 	this->next = n->getNext();
 }
 
-template<class TipoDato>
-TipoDato* Nodo<TipoDato>::getDato() const {
+objetoBase* Nodo::getDato() const {
 	return dato;
 }
 
-template<class TipoDato>
-Nodo<TipoDato>::~Nodo()
+inline Nodo::~Nodo()
 {
+	cout << "Eliminando Nodo..." << endl;
 }
