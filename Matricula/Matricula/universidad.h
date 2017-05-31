@@ -16,7 +16,6 @@ private:
 	std::string direccion;
 	friend std::ostream& operator << (std::ostream&, Universidad&);
 public:
-	Universidad();
 	Universidad(std::string, std::string, std::string);
 	~Universidad();
 	void setTelefono(std::string);

@@ -4,21 +4,11 @@
 #include <iostream>
 #include <sstream>
 
-Universidad::Universidad()
-{
-	nombre = "Undefined";
-	numeroTelefono = "Undefined";
-	direccion = "Undefined";
-
-	ContE = new Contenedor_Escuelas();
-	ContEst = new Contenedor_Estudiantes();
-}
-
-Universidad::Universidad(std::string unNombre, std::string xNumero, std::string unDireccion)
-{
-	nombre = unNombre;
-	numeroTelefono = xNumero;
-	direccion = unDireccion;
+Universidad::Universidad(
+	std::string unNombre = "Undefined", 
+	std::string xNumero = "Undefined", 
+	std::string unDireccion = "Undefined") :
+	nombre(unNombre), numeroTelefono(xNumero), direccion(unDireccion) { 
 
 	ContE = new Contenedor_Escuelas();
 	ContEst = new Contenedor_Estudiantes();
