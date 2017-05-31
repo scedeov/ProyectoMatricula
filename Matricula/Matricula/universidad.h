@@ -6,8 +6,7 @@ class Contenedor_Escuelas;
 class Contenedor_Estudiantes;
 
 
-class Universidad
-{
+class Universidad {
 private:
 	Contenedor_Escuelas* ContE;
 	Contenedor_Estudiantes* ContEst;
