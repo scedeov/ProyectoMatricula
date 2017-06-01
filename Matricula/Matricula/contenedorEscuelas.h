@@ -5,9 +5,8 @@ class Escuela;
 class Profesor;
 
 #include "lista.h"
-#include "contenedor.h"
 
-class contenedorEscuelas: public Contenedor {
+class contenedorEscuelas {
 private:
 	Lista<Escuela> *listaEscuelas;
 public:

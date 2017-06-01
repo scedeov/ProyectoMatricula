@@ -111,9 +111,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="addBehavior.h" />
     <ClInclude Include="aranceles.h" />
-    <ClInclude Include="contenedor.h" />
     <ClInclude Include="contenedorCursos.h" />
     <ClInclude Include="contenedorEscuelas.h" />
     <ClInclude Include="contenedorEstudiantes.h" />
@@ -142,7 +140,6 @@
     <ClInclude Include="vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="addBehavior.cpp" />
     <ClCompile Include="aranceles.cpp" />
     <ClCompile Include="contenedorCursos.cpp" />
     <ClCompile Include="contenedorEscuelas.cpp" />

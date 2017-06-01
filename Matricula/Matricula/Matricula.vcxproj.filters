@@ -123,9 +123,6 @@
     <ClInclude Include="vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="contenedor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="contenedorGrupoCurso.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -134,9 +131,6 @@
     </ClInclude>
     <ClInclude Include="estudianteNacional.h">
       <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
-    <ClInclude Include="addBehavior.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -223,9 +217,6 @@
     </ClCompile>
     <ClCompile Include="grupoCurso.cpp">
       <Filter>Source Files\Cursos</Filter>
-    </ClCompile>
-    <ClCompile Include="addBehavior.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

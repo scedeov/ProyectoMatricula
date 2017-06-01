@@ -35,8 +35,7 @@ int ContenedorProfesores::contadorProfesores() {
 	listaProfesores->getCantidad();
 }
 
-string ContenedorProfesores::toString()
-{
+string ContenedorProfesores::toString() {
 	stringstream s;
 	if (listaProfesores->estaVacia())
 		s << "La lista esta vacia..." << endl;
