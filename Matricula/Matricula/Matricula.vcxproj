@@ -117,6 +117,7 @@
     <ClInclude Include="contenedores.h" />
     <ClInclude Include="contenedorEscuelas.h" />
     <ClInclude Include="contenedorEstudiantes.h" />
+    <ClInclude Include="contenedorGrupoCurso.h" />
     <ClInclude Include="contenedorProfesores.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="curso.h" />
@@ -124,7 +125,7 @@
     <ClInclude Include="estudiante.h" />
     <ClInclude Include="estudianteExtranjero.h" />
     <ClInclude Include="estudianteNacional.h" />
-    <ClInclude Include="grupoEstudiantes.h" />
+    <ClInclude Include="grupoCurso.h" />
     <ClInclude Include="grupoProfesores.h" />
     <ClInclude Include="interfazCursos.h" />
     <ClInclude Include="interfazEscuelas.h" />
@@ -135,7 +136,6 @@
     <ClInclude Include="interfazUniversidad.h" />
     <ClInclude Include="lista.h" />
     <ClInclude Include="nodo.h" />
-    <ClInclude Include="objetoBase.h" />
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />
     <ClInclude Include="universidad.h" />
@@ -146,6 +146,7 @@
     <ClCompile Include="contenedorCursos.cpp" />
     <ClCompile Include="contenedorEscuelas.cpp" />
     <ClCompile Include="contenedorEstudiantes.cpp" />
+    <ClCompile Include="contenedorGrupoCurso.cpp" />
     <ClCompile Include="contenedorProfesores.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="curso.cpp" />
@@ -153,7 +154,7 @@
     <ClCompile Include="estudiante.cpp" />
     <ClCompile Include="estudianteExtranjero.cpp" />
     <ClCompile Include="estudianteNacional.cpp" />
-    <ClCompile Include="grupoEstudiantes.cpp" />
+    <ClCompile Include="grupoCurso.cpp" />
     <ClCompile Include="grupoProfesores.cpp" />
     <ClCompile Include="interfazCursos.cpp" />
     <ClCompile Include="interfazEstudiantes.cpp" />
@@ -166,7 +167,6 @@
     <ClCompile Include="nodoCursos.cpp" />
     <ClCompile Include="nodoEscuelas.cpp" />
     <ClCompile Include="nodoProfesores.cpp" />
-    <ClCompile Include="objetoBase.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="profesor.cpp" />
     <ClCompile Include="universidad.cpp" />

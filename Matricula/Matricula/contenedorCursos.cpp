@@ -1,26 +1,23 @@
 #include "contenedorCursos.h"
 #include "grupoProfesores.h"
+#include "curso.h"
 #include <sstream>
 #include <iostream>
 using namespace std;
 
-Contenedor_Cursos::Contenedor_Cursos()
-{
+Contenedor_Cursos::Contenedor_Cursos() {
 	listaCursos = new Lista<Curso>();
 }
 
-int Contenedor_Cursos::getCantidad()
-{	
+int Contenedor_Cursos::getCantidad() {	
 	return listaCursos->getCantidad();
 }
 
-Curso* Contenedor_Cursos::getCursoporPos(int pos)
-{
+Curso* Contenedor_Cursos::getCurso(int pos) {
 	return listaCursos->at(pos);
 }
 
-void Contenedor_Cursos::insertaInicio(Curso *unCurso)
-{
+void Contenedor_Cursos::agregarInicio(Curso *unCurso) {
 	listaCursos->agregarInicio(unCurso);
 }
 
@@ -32,8 +29,8 @@ bool Contenedor_Cursos::eliminarEspecifico(string codigo)
 	if (listaCursos->getPrimerDato()->getCodigoCurso() == codigo)
 		listaCursos->eliminarInicio();
 
-	Nodo *paux = listaCursos->getPrimerNodo();
-	Nodo *anterior = listaCursos->getPrimerNodo();
+	Nodo<Curso> *paux = listaCursos->getPrimerNodo();
+	Nodo<Curso> *anterior = listaCursos->getPrimerNodo();
 	while (paux != NULL && listaCursos->getPrimerDato()->getCodigoCurso() != codigo) {
 		anterior = paux;
 		paux = paux->getNext();
@@ -50,7 +47,7 @@ bool Contenedor_Cursos::eliminarEspecifico(string codigo)
 	return false;
 }
 
-Curso* Contenedor_Cursos::retornaCursoEspecifico(string codigo)
+Curso* Contenedor_Cursos::getCursoEspecifico(string codigo)
 {
 	Nodo<Curso> *paux = listaCursos->getPrimerNodo();
 	while (paux != NULL) {
@@ -86,7 +83,7 @@ string Contenedor_Cursos::toString()
 }
 
 int Contenedor_Cursos::getProfesores(string codigo, int pos) {
-	return retornaCursoEspecifico(codigo)->getGrupoProfesores()->getProfesor(pos)->getNumCedula();
+	return getCursoEspecifico(codigo)->getGrupoProfesores()->getProfesor(pos)->getNumCedula();
 }
 
 Contenedor_Cursos::~Contenedor_Cursos()

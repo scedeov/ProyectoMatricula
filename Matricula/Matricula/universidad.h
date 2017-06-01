@@ -2,21 +2,24 @@
 #define UNIVERSIDAD
 
 #include <string>
-class Contenedor_Escuelas;
-class Contenedor_Estudiantes;
+class contenedorEscuelas;
+class contenedorEstudiantes;
+class contenedorProfesores;
 
 
 class Universidad {
 private:
-	Contenedor_Escuelas* ContE;
-	Contenedor_Estudiantes* ContEst;
+	contenedorEscuelas* escuelas;
+	contenedorEstudiantes* estudiantes;
+	contenedorProfesores* profesores;
+	//---------------------------------------
 	std::string nombre;
 	std::string numeroTelefono;
 	std::string direccion;
+	//---------------------------------------
 	friend std::ostream& operator << (std::ostream&, Universidad&);
 public:
 	Universidad(std::string, std::string, std::string);
-	~Universidad();
 	void setTelefono(std::string);
 	void setDireccion(std::string);
 	void setNombre(std::string);
@@ -24,8 +27,10 @@ public:
 	std::string getNumero();
 	std::string getDireccion();
 	std::string toString();
-	Contenedor_Escuelas* getContenedorEscuelas();
-	Contenedor_Estudiantes* getContenedorEstudiantes();
+	contenedorEscuelas* getContenedorEscuelas();
+	contenedorEstudiantes* getContenedorEstudiantes();
+	contenedorProfesores* getContenedorProfesores();
+	~Universidad();
 };
 #endif // !UNIVERSIDAD
 

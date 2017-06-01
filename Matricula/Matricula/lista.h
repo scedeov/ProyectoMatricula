@@ -1,27 +1,29 @@
 #ifndef LISTA
 #define LISTA
 
-#include "contenedor.h"
 #include "nodo.h"
 #include <string>
 #include <sstream>
 
-class Lista: public Contenedor {
+template<class T>
+class Lista {
 private:
-	Nodo *pinicio;
-	Nodo *paux;
+	Nodo<T> *pinicio;
+	Nodo<T> *paux;
 public:
 	Lista();
 	Lista(const Lista&);
 	virtual Lista& operator = (const Lista&);
-	virtual  Nodo* getPrimerNodo();
-	virtual objetoBase* getPrimerDato();
-	virtual objetoBase* getUltimoDato();
-	virtual Nodo* end();
-	virtual objetoBase* at(int);
-	virtual void agregarInicio(objetoBase*);
-	virtual void agregarFinal(objetoBase*);
-	virtual objetoBase* eliminarInicio();
+	virtual  Nodo<T>* getPrimerNodo();
+	virtual T* getPrimerDato();
+	virtual T* getUltimoDato();
+	virtual Nodo<T>* getUltimoNodo();
+	virtual T* at(int);
+	virtual void agregarInicio(const T*);
+	virtual bool eliminaEspecifico(string);
+	virtual bool eliminaEspecifico(int);
+	virtual void agregarFinal(T*);
+	virtual T* eliminarInicio();
 	virtual bool estaVacia();
 	virtual int getCantidad();
 	virtual void limpiar();
@@ -30,27 +32,27 @@ public:
 };
 #endif // !LISTA
 
-inline Lista::Lista() {
+inline Lista<T>::Lista() {
 	pinicio = NULL;
 	paux = NULL;
 }
 
-inline Lista::Lista(const Lista &l) {
+inline Lista<T>::Lista(const Lista &l) {
 	paux = pinicio;
-	Nodo* cursor = l.paux;
+	Nodo<T>* cursor = l.paux;
 	while (cursor != NULL) {
 		agregarInicio(cursor->getDato());
 		cursor = cursor->getNext();
 	}
 }
 
-inline Lista& Lista::operator = (const Lista &l) {
+inline Lista<T>& Lista<T>::operator = (const Lista &l) {
 	if (this != &l) {
 		if (pinicio != NULL) {
 			limpiar();
 		}
 		pinicio = NULL;
-		Nodo* cursor = l.pinicio;
+		Nodo<T>* cursor = l.pinicio;
 		while (cursor != NULL) {
 			agregarInicio((cursor->getDato()));
 			cursor = cursor->getNext();
@@ -59,26 +61,26 @@ inline Lista& Lista::operator = (const Lista &l) {
 	return *this;
 }
 
-inline Nodo* Lista::getPrimerNodo() {
+inline Nodo<T>* Lista<T>::getPrimerNodo() {
 	return pinicio;
 }
 
-inline objetoBase* Lista::getPrimerDato() {
+inline T* Lista<T>::getPrimerDato() {
 	return getPrimerNodo()->getDato();
 }
 
-inline objetoBase* Lista::getUltimoDato() {
-	return end()->getDato();
+inline T* Lista<T>::getUltimoDato() {
+	return getUltimoNodo()->getDato();
 }
 
-inline Nodo* Lista::end() {
+inline Nodo<T>* Lista<T>::getUltimoNodo() {
 	paux = pinicio;
 	while (paux->getNext() != NULL)
 		paux = paux->getNext();
 	return paux;
 }
 
-inline objetoBase* Lista::at(int index) {
+inline T* Lista<T>::at(int index) {
 	paux = pinicio;
 	while (paux != NULL) {
 		if (index == 0)
@@ -89,21 +91,31 @@ inline objetoBase* Lista::at(int index) {
 	return paux->getDato();
 }
 
-inline void Lista::agregarInicio(objetoBase *unDato) {
-	pinicio = new Nodo(*unDato, pinicio);
+inline void Lista<T>::agregarInicio(const T *unDato) {
+	pinicio = new Nodo<T>(*unDato, pinicio);
 }
 
-inline void Lista::agregarFinal(objetoBase *unDato) {
+inline bool Lista<T>::eliminaEspecifico(string s)
+{
+	return false;
+}
+
+inline bool Lista<T>::eliminaEspecifico(int)
+{
+	return false;
+}
+
+inline void Lista<T>::agregarFinal(T *unDato) {
 	if (estaVacia())
-		pinicio = new Nodo(*unDato, pinicio);
+		pinicio = new Nodo<T>(*unDato, pinicio);
 	else
-		end()->setNext(new Nodo(*unDato, NULL));
+		getUltimoNodo()->setNext(new Nodo<T>(*unDato, NULL));
 }
 
-inline objetoBase * Lista::eliminarInicio() {
+inline T * Lista<T>::eliminarInicio() {
 	if (!estaVacia()) {
-		Nodo* actual = this->pinicio;
-		objetoBase *dato = NULL;
+		Nodo<T>* actual = this->pinicio;
+		T *dato = NULL;
 		dato = pinicio->getDato();
 		pinicio = pinicio->getNext();
 		delete actual;
@@ -112,14 +124,14 @@ inline objetoBase * Lista::eliminarInicio() {
 	return NULL;
 }
 
-inline bool Lista::estaVacia()
+inline bool Lista<T>::estaVacia()
 {
 	if (pinicio == NULL)
 		return true;
 	return false;
 }
 
-inline int Lista::getCantidad() {
+inline int Lista<T>::getCantidad() {
 	int contador = 0;
 	paux = pinicio;
 	while (paux != NULL) {
@@ -129,16 +141,16 @@ inline int Lista::getCantidad() {
 	return contador;
 }
 
-inline void Lista::limpiar() {
-	objetoBase* ptr;
+inline void Lista<T>::limpiar() {
+	T* ptr;
 	while (ptr = eliminarInicio())
 		delete ptr;
 	pinicio = NULL;
 }
 
-inline std::string Lista::toString() const {
+inline std::string Lista<T>::toString() const {
 	std::stringstream s;
-	Nodo* aux = pinicio;
+	Nodo<T>* aux = pinicio;
 	if (pinicio != NULL) {
 		aux = pinicio;
 		while (paux != NULL) {
@@ -149,7 +161,7 @@ inline std::string Lista::toString() const {
 	return s.str();
 }
 
-inline Lista::~Lista() {
+inline Lista<T>::~Lista() {
 	cout << "Eliminando Lista..." << endl;
 	limpiar();
 }

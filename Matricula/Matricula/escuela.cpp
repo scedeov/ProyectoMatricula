@@ -14,7 +14,7 @@ Escuela::Escuela(string unNombre = "Undefined") :
 	if (nombreEscuela != "Undefined")
 		nombreEscuela = "Escuela de " + nombreEscuela;
 
-	ContP = new Contenedor_Profesores();
+	ContP = new contenedorProfesores();
 	ConC = new Contenedor_Cursos();
 
 }
@@ -64,7 +64,7 @@ Contenedor_Cursos * Escuela::getContenedorCursos()
 	return ConC;
 }
 
-Contenedor_Profesores * Escuela::getContenedorProfesores() {
+contenedorProfesores * Escuela::getContenedorProfesores() {
 	return ContP;
 }
 

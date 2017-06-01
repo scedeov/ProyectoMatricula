@@ -1,21 +1,31 @@
 #include "objetoBase.h"
 #include "contenedorCursos.h"
+#include "contenedorEscuelas.h"
+using namespace std;
 
-adaptadorCursos::adaptadorCursos(Contenedor_Cursos *C) {
-	this->C = C;
+T::~T() {
 }
 
-void adaptadorCursos::eliminaEspecifico()
-{
-	C->eliminarEspecifico(string);
+adaptadorCursos::adaptadorCursos(Contenedor_Cursos *C = NULL) :
+	Cc(C) {
 }
 
-std::string adaptadorCursos::toString()
-{
+bool adaptadorCursos::eliminaEspecifico(string s) {
+	Cc->eliminarEspecifico(s);
+}
+
+std::string adaptadorCursos::toString() {
 	return std::string();
 }
 
-std::ostream & operator<<(std::ostream &o, const objetoBase &ob)
-{
+std::ostream & operator<<(std::ostream &o, const T &ob) {
 	return o << ob.toString() << std::endl;
+}
+
+adaptadorEscuelas::adaptadorEscuelas(contenedorEscuelas *cE = NULL):
+	Ce(cE) {
+}
+
+bool adaptadorEscuelas::eliminaEspecifico(string s) {
+	Ce->eliminaEspecifico(s);
 }

@@ -1,6 +1,7 @@
 #include "universidad.h"
 #include "contenedorEscuelas.h"
 #include "contenedorEstudiantes.h"
+#include "contenedorProfesores.h"
 #include <iostream>
 #include <sstream>
 
@@ -10,14 +11,17 @@ Universidad::Universidad (
 	std::string unDireccion = "Undefined") :
 	nombre(unNombre), numeroTelefono(xNumero), direccion(unDireccion) { 
 
-	ContE = new Contenedor_Escuelas();
-	ContEst = new Contenedor_Estudiantes();
+	//Se crean los componentes de la Universidad (Composicion)
+	escuelas = new contenedorEscuelas();
+	profesores = new contenedorProfesores();
+	estudiantes = new contenedorEstudiantes();
 }
 
 Universidad::~Universidad() {
 	std::cout << "Eliminando Universidad..." << std::endl;
-	delete ContE;
-	delete ContEst;
+	delete escuelas;
+	delete profesores;
+	delete estudiantes;
 }
 
 void Universidad::setTelefono(std::string unTelefono) {
@@ -52,12 +56,16 @@ std::string Universidad::toString() {
 	return s.str();
 }
 
-Contenedor_Escuelas* Universidad::getContenedorEscuelas() {
-	return ContE;
+contenedorEscuelas* Universidad::getContenedorEscuelas() {
+	return escuelas;
 }
 
-Contenedor_Estudiantes * Universidad::getContenedorEstudiantes() {
-	return ContEst;
+contenedorEstudiantes * Universidad::getContenedorEstudiantes() {
+	return estudiantes;
+}
+
+contenedorProfesores * Universidad::getContenedorProfesores() {
+	return profesores;
 }
 
 std::ostream& operator << (std::ostream &o, Universidad& U) {

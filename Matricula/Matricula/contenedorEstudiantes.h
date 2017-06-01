@@ -3,20 +3,20 @@
 
 #include "estudianteExtranjero.h"
 #include "estudianteNacional.h"
-#include "lista.h"
+#include "contenedores.h"
 
-class Contenedor_Estudiantes
+class contenedorEstudiantes
 {
 private:
 	Lista<Estudiante> *estudiantes;
-	friend std::ostream& operator << (std::ostream&, Contenedor_Estudiantes&);
+	friend std::ostream& operator << (std::ostream&, contenedorEstudiantes&);
 public:
-	Contenedor_Estudiantes();
+	contenedorEstudiantes();
 	int getCantidadEstudiantes();
-	void insertaInicio(Estudiante*);
+	void agregarInicio(Estudiante*);
 	Estudiante* retornaEstudiante(int);
 	std::string toString();
-	~Contenedor_Estudiantes();
+	~contenedorEstudiantes();
 };
 #endif // !CONTENEDOR_ESTUDIANTES
 

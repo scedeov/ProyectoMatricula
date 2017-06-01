@@ -46,12 +46,12 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 		cout << U->getContenedorEscuelas()->toString('2');
 		cout << "Digite el codigo del curso en el cual desea matricular a " << EST->getNombreCompleto() << endl;
 		cout << "-> "; string codigo; cin >> codigo; codigo = Interfaz_Principal::convierteMayuscula(codigo); cin.ignore();
-		Curso* C = U->getContenedorEscuelas()->retornaEscuela(codigo.substr(0, 3))->getContenedorCursos()->retornaCursoEspecifico(codigo);
+		Curso* C = U->getContenedorEscuelas()->retornaEscuela(codigo.substr(0, 3))->getContenedorCursos()->getCursoEspecifico(codigo);
 		if (C == nullptr) throw 2;
 
 		for (int i = 0; i < 5; i++) {
 			if (C->getGrupoEstudiantes(i)->getCantidad() < MAXESTU) {
-				C->getGrupoEstudiantes(i)->agregarEstudiante(EST);
+				C->getGrupoEstudiantes(i)->matricularEstudiante(EST);
 				EST->agregaCurso(C);
 				Interfaz_Principal::msjPerfecto();
 				return true;
@@ -102,7 +102,7 @@ void Interfaz_Matricula::vMatriculaListaEstudiantesCursos(Universidad *U) {
 		cout << "Digite el codigo del curso a consultar la lista de Estudiantes Matriculados" << endl;
 		cout << "-> "; string codigo; cin >> codigo; codigo = Interfaz_Principal::convierteMayuscula(codigo); cin.ignore();
 		string sigla = codigo.substr(0, 3);
-		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo)->imprimeEstudiantesMatriculados();
+		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->getCursoEspecifico(codigo)->imprimeEstudiantesMatriculados();
 	}
 	catch (...) {
 		cout << "Error..." << endl;

@@ -4,18 +4,18 @@
 #include "profesor.h"
 #include "lista.h"
 
-class Contenedor_Profesores
+class contenedorProfesores
 {
 private:
 	Lista<Profesor> *listaProfesores;
-	friend std::ostream& operator << (std::ostream&, Contenedor_Profesores&);
+	friend std::ostream& operator << (std::ostream&, contenedorProfesores&);
 public:
-	Contenedor_Profesores();
-	void insertaInicio(Profesor*);
+	contenedorProfesores();
+	void agregarInicio(Profesor*);
 	Profesor* retornaProfesor(int);
 	bool encuentraProfesor(Profesor*, int);
 	int contadorProfesores();
 	std::string toString();
-	~Contenedor_Profesores();
+	~contenedorProfesores();
 };
 #endif // !CONTENEDOR_PROFESORES

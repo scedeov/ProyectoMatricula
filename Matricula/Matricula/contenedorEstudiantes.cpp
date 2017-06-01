@@ -3,21 +3,21 @@
 #include <sstream>
 using namespace std;
 
-Contenedor_Estudiantes::Contenedor_Estudiantes()
+contenedorEstudiantes::contenedorEstudiantes()
 {
 	estudiantes = new Lista<Estudiante>();
 }
 
-int Contenedor_Estudiantes::getCantidadEstudiantes() {
+int contenedorEstudiantes::getCantidadEstudiantes() {
 	return estudiantes->getCantidad();
 }
 
-void Contenedor_Estudiantes::insertaInicio(Estudiante *unEstudiante)
+void contenedorEstudiantes::agregarInicio(Estudiante *unEstudiante)
 {
 	estudiantes->agregarInicio(unEstudiante);
 }
 
-Estudiante * Contenedor_Estudiantes::retornaEstudiante(int cedula)
+Estudiante * contenedorEstudiantes::retornaEstudiante(int cedula)
 {
 	for (int i = 0; i < estudiantes->getCantidad(); i++)
 		if ((estudiantes->getPrimerDato() + i)->getNumCedula() == cedula)
@@ -25,7 +25,7 @@ Estudiante * Contenedor_Estudiantes::retornaEstudiante(int cedula)
 	return nullptr;
 }
 
-string Contenedor_Estudiantes::toString()
+string contenedorEstudiantes::toString()
 {
 	stringstream s;
 	for (int i = 0; i < estudiantes->getCantidad(); i++)
@@ -33,12 +33,12 @@ string Contenedor_Estudiantes::toString()
 	return s.str();
 }
 
-Contenedor_Estudiantes::~Contenedor_Estudiantes()
+contenedorEstudiantes::~contenedorEstudiantes()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;
 	estudiantes->limpiar();
 }
 
-ostream & operator<<(ostream &o, Contenedor_Estudiantes &CEs) {
+ostream & operator<<(ostream &o, contenedorEstudiantes &CEs) {
 	return o << CEs.toString();
 }

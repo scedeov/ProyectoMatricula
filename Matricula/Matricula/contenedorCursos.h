@@ -2,21 +2,21 @@
 #define CONTENEDOR_CURSOS	
 
 
-#include "lista.h"
+#include "contenedores.h"
 
 class Curso;
 class Contenedor_Cursos {
 private:
-	Lista *listaCursos;
+	Lista<Curso> *listaCursos;
 public:
 	Contenedor_Cursos();
 	int getCantidad();
-	Curso* getCursoporPos(int);
-	void insertaInicio(Curso*);
-	bool eliminarEspecifico(std::string);
-	Curso* retornaCursoEspecifico(std::string);
+	Curso* getCurso(int);
+	virtual void agregarInicio(Curso*);
+	virtual bool eliminarEspecifico(std::string);
+	Curso* getCursoEspecifico(std::string);
 	bool encuentraCurso(Curso*, std::string);
-	std::string toString();
+	virtual std::string toString();
 	int getProfesores(std::string, int);
 	friend std::ostream& operator << (std::ostream&, Contenedor_Cursos&);
 	~Contenedor_Cursos();

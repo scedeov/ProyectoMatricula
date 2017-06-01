@@ -3,9 +3,9 @@
 
 #include "objetoBase.h"
 
-class Contenedor: public objetoBase {
+class Contenedor: public T {
 public:
-	virtual void agregarInicio(objetoBase*) = 0;
+	virtual void agregarInicio(T*) = 0;
 	virtual std::string toString() const = 0;
 	virtual ~Contenedor() = 0;
 };

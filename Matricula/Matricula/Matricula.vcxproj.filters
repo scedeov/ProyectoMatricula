@@ -66,12 +66,6 @@
     <ClInclude Include="estudianteExtranjero.h">
       <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
-    <ClInclude Include="estudianteNacional.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
-    <ClInclude Include="grupoEstudiantes.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
     <ClInclude Include="contenedorProfesores.h">
       <Filter>Header Files\Profesores</Filter>
     </ClInclude>
@@ -132,11 +126,17 @@
     <ClInclude Include="contenedor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="objetoBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="contenedores.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contenedorGrupoCurso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grupoCurso.h">
+      <Filter>Header Files\Cursos</Filter>
+    </ClInclude>
+    <ClInclude Include="estudianteNacional.h">
+      <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -156,9 +156,6 @@
       <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
     <ClCompile Include="estudianteNacional.cpp">
-      <Filter>Source Files\Estudiantes</Filter>
-    </ClCompile>
-    <ClCompile Include="grupoEstudiantes.cpp">
       <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
     <ClCompile Include="contenedorEstudiantes.cpp">
@@ -221,8 +218,11 @@
     <ClCompile Include="universidad.cpp">
       <Filter>Source Files\Universidad</Filter>
     </ClCompile>
-    <ClCompile Include="objetoBase.cpp">
+    <ClCompile Include="contenedorGrupoCurso.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grupoCurso.cpp">
+      <Filter>Source Files\Cursos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

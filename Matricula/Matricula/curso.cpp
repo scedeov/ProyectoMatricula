@@ -1,40 +1,28 @@
 #include "curso.h"
-#include "grupoEstudiantes.h"
+#include "contenedorGrupoCurso.h"
 #include "grupoProfesores.h"
 #include <sstream>
 #include <iostream>
 using namespace std;
 
-Curso::Curso()
-{
-	codigoCurso = "Undefined";
-	nombreCurso = "Undefined";
-	
-	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
-	for (int i = 0; i < MAXGRUPOSESTUDIANTES; i++)
-		grupoEstu->agregarInicio(new GrupoEstudiantes());
-
-	grupoProfes = new GrupoProfesores();
-}
-
-Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso se crea, se debe agregar ya la sigla de la Escuela.
+Curso::Curso (
+	string unNombre = "Undefined", 
+	string siglaEscuela = "Undefined") :
+	nombreCurso(unNombre), codigoCurso(siglaEscuela)
 {
 	nombreCurso = unNombre;
 	codigoCurso = siglaEscuela + to_string(variableCodigoCursos);
 	variableCodigoCursos++;
 
-	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
-	for (int i = 0; i < grupoEstu->getCapacidad(); i++)
-		grupoEstu->agregarInicio(new GrupoEstudiantes());
-
-	grupoProfes = new GrupoProfesores();
+	grupoProfesores = new GrupoProfesores();
+	contenedorGrupoCurso = new ContenedorGrupoCurso();
 }
 
 Curso::~Curso()
 {
 	cout << "Eliminando curso..." << endl;
-	delete grupoEstu;
-	delete grupoProfes;
+	delete contenedorGrupoCurso;
+	delete grupoProfesores;
 }
 
 void Curso::setNombre(string unNombre)
@@ -52,17 +40,13 @@ void Curso::setCantidadCreditos(int cantidadCreditos)
 	this->cantidadCreditos = cantidadCreditos;
 }
 
-GrupoEstudiantes* Curso::getGrupoEstudiantes(int pos)
+ContenedorGrupoCurso* Curso::getContenedorGrupoCurso()
 {
-	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
-	it.posicionaPrimerObjeto();
-	for (int i = 0; i < pos; i++)
-		it.posicionaSiguiente();
-		return it.getObjectoCursorActual();
+	return contenedorGrupoCurso;
 }
 
 GrupoProfesores* Curso::getGrupoProfesores() {
-	return grupoProfes;
+	return grupoProfesores;
 }
 
 string Curso::getNombre()
@@ -83,7 +67,7 @@ int Curso::getCantidadCreditos()
 string Curso::imprimeEstudiantesMatriculados()
 {
 	stringstream s;
-	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
+	Vector<GrupoCurso>::Iterador it(grupoEstu);
 	it.posicionaPrimerObjeto();
 	for (int i = 0; i < grupoEstu->getCantidad(); i++) {
 		s << it.getObjectoCursorActual()->toString() << endl;

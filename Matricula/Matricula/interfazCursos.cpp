@@ -81,7 +81,7 @@ void Interfaz_Cursos::vIngresaCurso(Universidad* U)
 
 		Curso* cur = new Curso(nombre, sigla);
 
-		U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->insertaInicio(cur);
+		U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->agregarInicio(cur);
 
 		Interfaz_Principal::msjPerfecto();
 	}
@@ -102,7 +102,7 @@ void Interfaz_Cursos::vEditarCurso(Universidad *U)
 	if (U->getContenedorEscuelas() == nullptr || U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos() == nullptr)
 		cout << "No existe ningun curso con esa sigla..." << endl;
 	else
-		if (!U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo))
+		if (!U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->getCursoEspecifico(codigo))
 			cout << "El curso no ha sido encontrado..." << endl;
 		else {
 			string nombre;
@@ -120,7 +120,7 @@ void Interfaz_Cursos::vEditarCurso(Universidad *U)
 			}
 
 			U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->
-				retornaCursoEspecifico(codigo)->setNombre(nombre);
+				getCursoEspecifico(codigo)->setNombre(nombre);
 
 			Interfaz_Principal::msjPerfecto();
 		}
@@ -167,10 +167,10 @@ void Interfaz_Cursos::vInfoCurso(Universidad *U) //necesita ser optimizado
 	if (U->getContenedorEscuelas()->retornaEscuela(sigla) == nullptr)
 		cout << "No existe ningun curso perteneciente a esa sigla..." << endl;
 	else
-		if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo) == NULL)
+		if (U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->getCursoEspecifico(codigo) == NULL)
 			cout << "El curso no ha sido encontrado..." << endl;
 		else
-			cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo)) << endl;
+			cout << *(U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->getCursoEspecifico(codigo)) << endl;
 
 	Interfaz_Principal::msjPausa();
 	system("cls");
@@ -190,10 +190,10 @@ void Interfaz_Cursos::vListaCursosEscuelaParticular(Universidad *U) {
 			cout << "No existen cursos aun en esta Escuela..." << endl;
 		else
 			for (int i = 0; i < EE->getContenedorCursos()->getCantidad(); i++) {  //algoritmo mortal xxxxxx
-				cout << "Curso: " << EE->getContenedorCursos()->getCursoporPos(i)->getNombre() << endl;
+				cout << "Curso: " << EE->getContenedorCursos()->getCurso(i)->getNombre() << endl;
 				cout << "Profesores:" << endl;
-				for (int x = 0; x < EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getCantidadProfesores(); x++) {
-					int cedulaProfe = EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getProfesor(x)->getNumCedula();
+				for (int x = 0; x < EE->getContenedorCursos()->getCurso(i)->getGrupoProfesores()->getCantidadProfesores(); x++) {
+					int cedulaProfe = EE->getContenedorCursos()->getCurso(i)->getGrupoProfesores()->getProfesor(x)->getNumCedula();
 					cout << U->getContenedorEscuelas()->retornaProfesor(cedulaProfe)->getNombreCompleto() << endl;
 				}
 			}

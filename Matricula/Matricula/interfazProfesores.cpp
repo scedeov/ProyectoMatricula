@@ -73,7 +73,7 @@ void Interfaz_Profesores::vAgregarProfesor(Universidad* U) {
 		sigla = Interfaz_Principal::convierteMayuscula(sigla);
 	}
 	P->setEscuela(materia);
-	U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->insertaInicio(P);
+	U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->agregarInicio(P);
 	Interfaz_Principal::msjPerfecto();
 }
 
@@ -126,7 +126,7 @@ void Interfaz_Profesores::vConsultarProfesCurso(Universidad *U) {
 	sigla = codigo.substr(0, 3);
 
 	Escuela* e = U->getContenedorEscuelas()->retornaEscuela(sigla);
-	Curso* c = e->getContenedorCursos()->retornaCursoEspecifico(codigo);
+	Curso* c = e->getContenedorCursos()->getCursoEspecifico(codigo);
 	int contador = c->getGrupoProfesores()->getCantidadProfesores();
 	if (!e)
 		cout << "La escuela no ha sido encontrada..." << endl;
@@ -167,7 +167,7 @@ void Interfaz_Profesores::vAsignarProfesorCurso(Universidad *U)
 			string codigo; cin >> codigo; cin.ignore();
 			codigo = Interfaz_Principal::convierteMayuscula(codigo);
 
-			Curso *C = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
+			Curso *C = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->getCursoEspecifico(codigo);
 			C->getGrupoProfesores()->agregarProfesor(P);
 			C->getGrupoEstudiantes(0)->setProfesorEncargado(P); // hay que poner el grupo en el que va a dar clases
 			P->agregaNuevoCursoImpartido(codigo);
@@ -195,7 +195,7 @@ void Interfaz_Profesores::vDeasignarProfesorCurso(Universidad *U)
 		string sigla = codigo.substr(0, 3);
 
 		if (P->eliminarCursoImpartido(codigo)) {
-			Curso * C = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
+			Curso * C = U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->getCursoEspecifico(codigo);
 			C->getGrupoProfesores()->eliminarProfesor(P->getNumCedula());
 			Interfaz_Principal::msjPerfecto();
 		}

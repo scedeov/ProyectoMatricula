@@ -1,41 +1,37 @@
 #include "grupoProfesores.h"
+#include "profesor.h"
+#include <string>
 #include <iostream>
 
 GrupoProfesores::GrupoProfesores()
 {
-	for (int i = 0; i < MAXPROF; i++)
-		profesores[i] = new Profesor();
-	cantidadProfesores = 0;
+	profesores = new Vector<Profesor>(MAXPROF);
 }
 
 void GrupoProfesores::agregarProfesor(Profesor *profenuevo)
 {
-	if (cantidadProfesores < MAXPROF) {
-		profesores[cantidadProfesores] = profenuevo;
-		cantidadProfesores++;
-	}
+	profesores->agregarInicio(profenuevo);
 }
 
 Profesor* GrupoProfesores::getProfesor(int pos)
 {
-	return profesores[pos];
+	Vector<Profesor>::Iterador it(profesores);
+	it.posicionaPrimerObjeto();
+	for (int i = 0; i < pos; i++)
+		it.posicionaSiguiente();
+	return it.getObjectoCursorActual();
 }
 
 bool GrupoProfesores::eliminarProfesor(int cedula)
 {
-	for (int i = 0; i < cantidadProfesores; i++)
-		if (profesores[i]->getNumCedula() == cedula) {
-			for (int x = i; x < cantidadProfesores; x++)
-				profesores[x] = profesores[i + 1];
-			cantidadProfesores--;
-			return true;
-		}
+	if (profesores->eliminaEspecifico(cedula))
+		return true;
 	return false;
 }
 
-int GrupoProfesores::getCantidadProfesores()
+int GrupoProfesores::getCantidad()
 {
-	return cantidadProfesores;
+	return profesores->getCantidad();
 }
 
 GrupoProfesores::~GrupoProfesores()

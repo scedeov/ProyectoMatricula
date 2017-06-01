@@ -27,7 +27,7 @@ void Control::MenuPrincipal()
 		Interfaz_Universidad::vIngresarDireccion(U);
 	}
 
-	bool end = false;
+	bool getUltimoNodo = false;
 
 	do
 	{
@@ -67,18 +67,18 @@ void Control::MenuPrincipal()
 		case '7':
 		{
 			delete U;
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default:
 			break;
 		}
 
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::MenuUniversidad() {
-	bool end = false;
+	bool getUltimoNodo = false;
 	do {
 		char ans = Interfaz_Universidad::vMenuUniversidad();
 
@@ -92,18 +92,18 @@ void Control::MenuUniversidad() {
 			break;
 		}
 		case '3': {
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default: break;
 		}
 
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::AjustesUniversidad() {
 
-	bool end = false;
+	bool getUltimoNodo = false;
 
 	do {
 		char opcion = Interfaz_Universidad::vAjustesUniversidad(U);
@@ -123,7 +123,7 @@ void Control::AjustesUniversidad() {
 				break;
 			}
 			case '4': {
-				end = true;
+				getUltimoNodo = true;
 				break;
 			}
 			default: break;
@@ -141,19 +141,19 @@ void Control::AjustesUniversidad() {
 				break;
 			}
 			case '3': {
-				end = true;
+				getUltimoNodo = true;
 				break;
 			}
 			default: break;
 			}
 		}
 
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::MenuEscuelas()
 {
-	bool end = false;
+	bool getUltimoNodo = false;
 
 	do
 	{
@@ -178,19 +178,19 @@ void Control::MenuEscuelas()
 		}
 		case '4': // Salir
 		{
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default:
 			break;
 		}
 
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::AjustesEscuelas() {
 
-	bool end = false;
+	bool getUltimoNodo = false;
 
 	do {
 		char opcion = Interfaz_Escuelas::vAjustesEscuelas();
@@ -203,17 +203,17 @@ void Control::AjustesEscuelas() {
 		}
 		case '2':
 		{
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default: break;
 		}
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::MenuCursos()
 {
-	bool end = false;
+	bool getUltimoNodo = false;
 
 	do
 	{
@@ -237,18 +237,18 @@ void Control::MenuCursos()
 			break;
 		}
 		case '4': {
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default: break;
 		}
 
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::AjustesCursos() {
 
-	bool end = false;
+	bool getUltimoNodo = false;
 
 	do {
 
@@ -272,19 +272,19 @@ void Control::AjustesCursos() {
 		}
 		case '4': 
 		{
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default: break;
 		}
 
-	} while (end == false);
+	} while (getUltimoNodo == false);
 
 }
 
 void Control::MenuProfesores()
 {
-	bool end = false;
+	bool getUltimoNodo = false;
 
 	do {
 		char opcion = Interfaz_Profesores::vMenuProfesores();
@@ -311,16 +311,16 @@ void Control::MenuProfesores()
 			break;
 		}
 		case '6': {
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default: break;
 		}
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::AjustesProfesores() {
-	bool end = false;
+	bool getUltimoNodo = false;
 	do {
 		char opcion = Interfaz_Profesores::vAjustesProfesores();
 		switch (opcion) {
@@ -337,16 +337,16 @@ void Control::AjustesProfesores() {
 			break;
 		}
 		case '4': {
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default: break;
 		}
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::MenuEstudiantes() {
-	bool end = false;
+	bool getUltimoNodo = false;
 	do {
 		char opcion = Interfaz_Estudiantes::vMenuEstudiantes();
 		switch (opcion) {
@@ -359,15 +359,15 @@ void Control::MenuEstudiantes() {
 			break;
 		}
 		case '3': {
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		}
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::AjustesEstudiantes() {
-	bool end = false;
+	bool getUltimoNodo = false;
 	do {
 		char opcion = Interfaz_Estudiantes::vAjustesEstudiantes();
 		switch (opcion) {
@@ -380,15 +380,15 @@ void Control::AjustesEstudiantes() {
 			break;
 		}
 		case '3': {
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		}
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::MenuMatricula() {
-	bool end = false;
+	bool getUltimoNodo = false;
 	do {
 		char opcion = Interfaz_Matricula::vMenuMatricula();
 		switch (opcion) {
@@ -413,12 +413,12 @@ void Control::MenuMatricula() {
 			break;
 		}
 		case '6': {
-			end = true;
+			getUltimoNodo = true;
 			break;
 		}
 		default: break;
 		}
-	} while (end == false);
+	} while (getUltimoNodo == false);
 }
 
 void Control::AjustesMatricula()

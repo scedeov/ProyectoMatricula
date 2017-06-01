@@ -3,7 +3,7 @@
 
 #include <string>
 
-class Persona
+class Persona: public T
 {
 private:
 	std::string nombre;

@@ -60,7 +60,7 @@ void Interfaz_Estudiantes::vIngresarEstudiante(Universidad *U) {
 	else
 		E = new Estudiante_Extranjero(nombre, primerApellido, segundoApellido, cedula);
 
-	U->getContenedorEstudiantes()->insertaInicio(E);
+	U->getContenedorEstudiantes()->agregarInicio(E);
 	Interfaz_Principal::msjPerfecto();
 }
 

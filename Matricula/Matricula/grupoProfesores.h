@@ -1,20 +1,18 @@
 #ifndef GRUPOPROFESORES
 #define GRUPOPROFESORES
 
-#include "profesor.h"
-
+class Profesor;
 const int MAXPROF = 5;
 
 class GrupoProfesores {
 private:
-	int cantidadProfesores;
-	Profesor* profesores[MAXPROF];
+	Vector<Profesor> *profesores;
 public:
 	GrupoProfesores();
 	void agregarProfesor(Profesor*);
 	Profesor* getProfesor(int);
 	bool eliminarProfesor(int);
-	int getCantidadProfesores();
+	int getCantidad();
 	~GrupoProfesores();
 };
 #endif // !GRUPO

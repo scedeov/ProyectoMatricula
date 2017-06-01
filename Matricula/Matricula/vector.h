@@ -1,12 +1,10 @@
 #ifndef VECTOR
 #define VECTOR
 
-#include "contenedor.h"
-#include "objetoBase.h"
-
-class Vector {
+template<class T>
+class Vector{
 private:
-	objetoBase** vector;
+	T** vector;
 	int cantidad;
 	int capacidad;
 public:
@@ -15,12 +13,14 @@ public:
 	int getCantidad();
 	int getCapacidad();
 	void setCapacidad(int);
-	objetoBase* getPrimerDato();
-	objetoBase* getUltimoDato();
-	objetoBase* operator [] (int);
-	void agregarInicio(objetoBase*);
-	void eliminaEspecifico(int);
-	 objetoBase* eliminaUltimo();
+	T* getPrimerDato();
+	T* getUltimoDato();
+	T* operator [] (int);
+	virtual void agregarInicio(T*);
+	virtual bool eliminaPosicion(int);
+	virtual bool eliminaEspecifico(int);
+	virtual bool eliminaEspecifico(string);
+	 T* eliminaUltimo();
 	 void limpiar();
 
 	class Iterador;
@@ -42,72 +42,98 @@ public:
 		void posicionaSiguiente() {
 			this->cursor++;
 		}
-		objetoBase* getObjectoCursorActual() {
+		T* getObjectoCursorActual() {
 			return ptr->vector[cursor];
 		}
 	};
 };
 #endif // !VECTOR
 
-inline Vector::Vector(int xCapacidad)
+template<class T>
+inline Vector<T>::Vector(int xCapacidad)
 {
-	vector = new objetoBase*[xCapacidad];
+	vector = new T*[xCapacidad];
 	this->cantidad = -1;
 	this->capacidad = xCapacidad;
 	for (int i = 0; i < capacidad; i++)
 		vector[i] = nullptr;
 }
 
-inline Vector::~Vector()
+template<class T>
+inline Vector<T>::~Vector()
 {
 	std::cout << "Eliminando Vector..." << std::endl;
 	limpiar();
 }
 
-inline int Vector::getCantidad()
+template<class T>
+inline int Vector<T>::getCantidad()
 {
 	return cantidad + 1;
 }
 
-inline int Vector::getCapacidad()
+template<class T>
+inline int Vector<T>::getCapacidad()
 {
 	return capacidad;
 }
 
-inline void Vector::setCapacidad(int x) {
+template<class T>
+inline void Vector<T>::setCapacidad(int x) {
 	capacidad = x;
 }
 
-inline objetoBase * Vector::getPrimerDato()
+template<class T>
+inline T * Vector<T>::getPrimerDato()
 {
 	return vector[0];
 }
 
-inline objetoBase * Vector::getUltimoDato()
+template<class T>
+inline T * Vector<T>::getUltimoDato()
 {
 	return vector[cantidad];
 }
 
-inline objetoBase * Vector::operator[](int pos)
+template<class T>
+inline T * Vector<T>::operator[](int pos)
 {
 	return vector[pos];
 }
 
-inline void Vector::agregarInicio(objetoBase *dato)
-{
+template<class T>
+inline void Vector<T>::agregarInicio(const T *dato) {
 	if (cantidad < capacidad)
 		this->vector[++cantidad] = dato;
 }
 
-inline void Vector::eliminaEspecifico(int pos)
+template<class T>
+inline bool Vector<T>::eliminaPosicion(int pos)
 {
 	for (int i = pos; i < cantidad - 1; i++)
 		vector[i] = vector[i + 1];
 	cantidad--;
 }
 
-inline objetoBase* Vector::eliminaUltimo() {
-	objetoBase* aux;
+template<class T>
+inline bool Vector<T>::eliminaEspecifico(int cedula, Vector *ptr)
+{
+	for (int i = 0; i < cantidad; i++)
+		if (dynamic_cast<typeidT*>(ptr->)-> == cedula) {
+			for (int x = i; x < cantidadProfesores; x++)
+				profesores[x] = profesores[i + 1];
+			cantidadProfesores--;
+}
+
+template<class T>
+inline bool Vector<T>::eliminaEspecifico(string)
+{
+	return false;
+}
+
+template<class T>
+inline T* Vector<T>::eliminaUltimo() {
+	T* aux;
 	if (vector[cantidad] != NULL) {
 		aux = vector[cantidad];
 		vector[cantidad] = NULL;
@@ -118,7 +144,8 @@ inline objetoBase* Vector::eliminaUltimo() {
 		return NULL;
 }
 
-inline void Vector::limpiar() {
+template<class T>
+inline void Vector<T>::limpiar() {
 	for (cantidad; cantidad != -1; cantidad--) {
 		delete vector[cantidad];
 	}

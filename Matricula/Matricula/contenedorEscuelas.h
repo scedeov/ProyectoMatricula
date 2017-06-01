@@ -4,19 +4,19 @@
 #include "contenedores.h"
 
 class Escuela;
-class Profesor;
+//class Profesor;
 
-class Contenedor_Escuelas: public adaptadorBase {
+class contenedorEscuelas/*: public adaptadorEscuelas*/ {
 private:
-	Lista *listaEscuelas;
+	Lista<Escuela> *listaEscuelas;
 public:
-	Contenedor_Escuelas();
-	void agregarInicio(Escuela*);
-	Escuela* retornaEscuela(std::string);
-	bool encuentraEscuela(Escuela*, std::string);
-	Profesor* retornaProfesor(int);
-	std::string toString(char);
-	~Contenedor_Escuelas();
+	contenedorEscuelas();
+	void agregarInicio( const Escuela*);
+	Escuela* retornaEscuela(std::string) const ;
+	bool encuentraEscuela(Escuela*, std::string) const ;
+	/*Profesor* retornaProfesor(int);*/
+	std::string toString(char) const;
+	~contenedorEscuelas();
 };
 
 #endif // !CONTENEDOR_ESCUELAS
