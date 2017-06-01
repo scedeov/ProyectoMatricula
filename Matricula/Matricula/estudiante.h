@@ -2,7 +2,6 @@
 #define ESTUDIANTE
 
 #include "persona.h"
-#include "vector.h"
 
 class Curso;
 

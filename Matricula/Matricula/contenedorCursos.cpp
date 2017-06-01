@@ -5,23 +5,23 @@
 #include <iostream>
 using namespace std;
 
-Contenedor_Cursos::Contenedor_Cursos() {
+ContenedorCursos::ContenedorCursos() {
 	listaCursos = new Lista<Curso>();
 }
 
-int Contenedor_Cursos::getCantidad() {	
+int ContenedorCursos::getCantidad() {	
 	return listaCursos->getCantidad();
 }
 
-Curso* Contenedor_Cursos::getCurso(int pos) {
+Curso* ContenedorCursos::getCurso(int pos) {
 	return listaCursos->at(pos);
 }
 
-void Contenedor_Cursos::agregarInicio(Curso *unCurso) {
+void ContenedorCursos::agregarInicio(Curso *unCurso) {
 	listaCursos->agregarInicio(unCurso);
 }
 
-bool Contenedor_Cursos::eliminarEspecifico(string codigo)
+bool ContenedorCursos::eliminarEspecifico(string codigo)
 {
 	if (listaCursos->estaVacia())
 		return false;
@@ -47,7 +47,7 @@ bool Contenedor_Cursos::eliminarEspecifico(string codigo)
 	return false;
 }
 
-Curso* Contenedor_Cursos::getCursoEspecifico(string codigo)
+Curso* ContenedorCursos::getCursoEspecifico(string codigo)
 {
 	Nodo<Curso> *paux = listaCursos->getPrimerNodo();
 	while (paux != NULL) {
@@ -59,7 +59,7 @@ Curso* Contenedor_Cursos::getCursoEspecifico(string codigo)
 	return nullptr;
 }
 
-bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
+bool ContenedorCursos::encuentraCurso(Curso* C, string codigo)
 {
 	if (C->getCodigoCurso() == codigo)
 		return true;
@@ -67,7 +67,7 @@ bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
 		return false;
 }
 
-string Contenedor_Cursos::toString()
+string ContenedorCursos::toString()
 {
 	stringstream s;
 	if (listaCursos->estaVacia())
@@ -82,16 +82,16 @@ string Contenedor_Cursos::toString()
 	return s.str();
 }
 
-int Contenedor_Cursos::getProfesores(string codigo, int pos) {
+int ContenedorCursos::getProfesores(string codigo, int pos) {
 	return getCursoEspecifico(codigo)->getGrupoProfesores()->getProfesor(pos)->getNumCedula();
 }
 
-Contenedor_Cursos::~Contenedor_Cursos()
+ContenedorCursos::~ContenedorCursos()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;
 	listaCursos->limpiar();
 }
 
-ostream & operator<<(ostream &o, Contenedor_Cursos &ConC) {
+ostream & operator<<(ostream &o, ContenedorCursos &ConC) {
 	return o << ConC.toString();
 }

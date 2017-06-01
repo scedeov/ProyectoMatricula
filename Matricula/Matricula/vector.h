@@ -16,10 +16,10 @@ public:
 	T* getPrimerDato();
 	T* getUltimoDato();
 	T* operator [] (int);
-	virtual void agregarInicio(T*);
+	virtual void agregarInicio(const T*);
 	virtual bool eliminaPosicion(int);
 	virtual bool eliminaEspecifico(int);
-	virtual bool eliminaEspecifico(string);
+	virtual bool eliminaEspecifico(std::string);
 	 T* eliminaUltimo();
 	 void limpiar();
 
@@ -116,17 +116,18 @@ inline bool Vector<T>::eliminaPosicion(int pos)
 }
 
 template<class T>
-inline bool Vector<T>::eliminaEspecifico(int cedula, Vector *ptr)
-{
+inline bool Vector<T>::eliminaEspecifico(int cedula)
+{/*
 	for (int i = 0; i < cantidad; i++)
 		if (dynamic_cast<typeidT*>(ptr->)-> == cedula) {
 			for (int x = i; x < cantidadProfesores; x++)
 				profesores[x] = profesores[i + 1];
-			cantidadProfesores--;
+			cantidadProfesores--;*/
+	return false;
 }
 
 template<class T>
-inline bool Vector<T>::eliminaEspecifico(string)
+inline bool Vector<T>::eliminaEspecifico(std::string s)
 {
 	return false;
 }

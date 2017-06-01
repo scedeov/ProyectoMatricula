@@ -19,8 +19,8 @@ public:
 	virtual T* getUltimoDato();
 	virtual Nodo<T>* getUltimoNodo();
 	virtual T* at(int);
-	virtual void agregarInicio(const T*);
-	virtual bool eliminaEspecifico(string);
+	virtual void agregarInicio(T*);
+	virtual bool eliminaEspecifico(std::string);
 	virtual bool eliminaEspecifico(int);
 	virtual void agregarFinal(T*);
 	virtual T* eliminarInicio();
@@ -32,11 +32,13 @@ public:
 };
 #endif // !LISTA
 
+template<class T>
 inline Lista<T>::Lista() {
 	pinicio = NULL;
 	paux = NULL;
 }
 
+template<class T>
 inline Lista<T>::Lista(const Lista &l) {
 	paux = pinicio;
 	Nodo<T>* cursor = l.paux;
@@ -46,6 +48,7 @@ inline Lista<T>::Lista(const Lista &l) {
 	}
 }
 
+template<class T>
 inline Lista<T>& Lista<T>::operator = (const Lista &l) {
 	if (this != &l) {
 		if (pinicio != NULL) {
@@ -61,18 +64,22 @@ inline Lista<T>& Lista<T>::operator = (const Lista &l) {
 	return *this;
 }
 
+template<class T>
 inline Nodo<T>* Lista<T>::getPrimerNodo() {
 	return pinicio;
 }
 
+template<class T>
 inline T* Lista<T>::getPrimerDato() {
 	return getPrimerNodo()->getDato();
 }
 
+template<class T>
 inline T* Lista<T>::getUltimoDato() {
 	return getUltimoNodo()->getDato();
 }
 
+template<class T>
 inline Nodo<T>* Lista<T>::getUltimoNodo() {
 	paux = pinicio;
 	while (paux->getNext() != NULL)
@@ -80,6 +87,7 @@ inline Nodo<T>* Lista<T>::getUltimoNodo() {
 	return paux;
 }
 
+template<class T>
 inline T* Lista<T>::at(int index) {
 	paux = pinicio;
 	while (paux != NULL) {
@@ -91,20 +99,24 @@ inline T* Lista<T>::at(int index) {
 	return paux->getDato();
 }
 
-inline void Lista<T>::agregarInicio(const T *unDato) {
+template<class T>
+inline void Lista<T>::agregarInicio(T *unDato) {
 	pinicio = new Nodo<T>(*unDato, pinicio);
 }
 
-inline bool Lista<T>::eliminaEspecifico(string s)
+template<class T>
+inline bool Lista<T>::eliminaEspecifico(std::string s)
 {
 	return false;
 }
 
+template<class T>
 inline bool Lista<T>::eliminaEspecifico(int)
 {
 	return false;
 }
 
+template<class T>
 inline void Lista<T>::agregarFinal(T *unDato) {
 	if (estaVacia())
 		pinicio = new Nodo<T>(*unDato, pinicio);
@@ -112,6 +124,7 @@ inline void Lista<T>::agregarFinal(T *unDato) {
 		getUltimoNodo()->setNext(new Nodo<T>(*unDato, NULL));
 }
 
+template<class T>
 inline T * Lista<T>::eliminarInicio() {
 	if (!estaVacia()) {
 		Nodo<T>* actual = this->pinicio;
@@ -124,6 +137,7 @@ inline T * Lista<T>::eliminarInicio() {
 	return NULL;
 }
 
+template<class T>
 inline bool Lista<T>::estaVacia()
 {
 	if (pinicio == NULL)
@@ -131,6 +145,7 @@ inline bool Lista<T>::estaVacia()
 	return false;
 }
 
+template<class T>
 inline int Lista<T>::getCantidad() {
 	int contador = 0;
 	paux = pinicio;
@@ -141,6 +156,7 @@ inline int Lista<T>::getCantidad() {
 	return contador;
 }
 
+template<class T>
 inline void Lista<T>::limpiar() {
 	T* ptr;
 	while (ptr = eliminarInicio())
@@ -148,6 +164,7 @@ inline void Lista<T>::limpiar() {
 	pinicio = NULL;
 }
 
+template<class T>
 inline std::string Lista<T>::toString() const {
 	std::stringstream s;
 	Nodo<T>* aux = pinicio;
@@ -161,6 +178,7 @@ inline std::string Lista<T>::toString() const {
 	return s.str();
 }
 
+template<class T>
 inline Lista<T>::~Lista() {
 	cout << "Eliminando Lista..." << endl;
 	limpiar();

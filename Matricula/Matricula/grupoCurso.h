@@ -5,7 +5,6 @@ class Profesor;
 class Estudiante;
 class Curso;
 
-#include "contenedores.h"
 #include <string>
 
 const int MAXESTU = 30;

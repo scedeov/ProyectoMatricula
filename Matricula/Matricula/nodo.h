@@ -5,24 +5,24 @@ template<class T>
 class Nodo {
 private:
 	T* dato;
-	Nodo<T>* next;
+	Nodo* next;
 public:
 	Nodo(T&, Nodo*);
-	virtual void setNext(Nodo<T>*);
-	virtual Nodo<T>* getNext() const;
+	virtual void setNext(Nodo*);
+	virtual Nodo* getNext() const;
 	virtual void setDato(T*);
-	virtual void linkNext(Nodo<T>*);
+	virtual void linkNext(Nodo*);
 	virtual T* getDato() const;
 	virtual ~Nodo();
 };
 #endif // !NODO
 
 template<class T>
-inline Nodo<T>::Nodo(T& dato, Nodo<T>* next) : next(next), dato(&dato) {
+inline Nodo<T>::Nodo(T& dato, Nodo* next) : next(next), dato(&dato) {
 }
 
 template<class T>
-inline void Nodo<T>::setNext(Nodo<T>* unNext) {
+inline void Nodo<T>::setNext(Nodo* unNext) {
 	next = unNext;
 }
 
@@ -37,7 +37,7 @@ inline void Nodo<T>::setDato(T* unDato) {
 }
 
 template<class T>
-inline void Nodo<T>::linkNext (Nodo<T> *n)
+inline void Nodo<T>::linkNext (Nodo *n)
 {
 	this->next = n->getNext();
 }

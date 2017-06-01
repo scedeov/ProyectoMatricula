@@ -1,7 +1,8 @@
 #ifndef CONTENEDOR_GRUPOCURSO
 #define CONTENEDOR_GRUPOCURSO
 
-#include "contenedores.h"
+#include "vector.h"
+#include "lista.h"
 
 const int MAXGRUPOSESTUDIANTES = 5;
 

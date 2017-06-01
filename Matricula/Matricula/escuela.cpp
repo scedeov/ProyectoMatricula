@@ -14,8 +14,8 @@ Escuela::Escuela(string unNombre = "Undefined") :
 	if (nombreEscuela != "Undefined")
 		nombreEscuela = "Escuela de " + nombreEscuela;
 
-	ContP = new contenedorProfesores();
-	ConC = new Contenedor_Cursos();
+	ContP = new ContenedorProfesores();
+	ConC = new ContenedorCursos();
 
 }
 
@@ -59,12 +59,12 @@ string Escuela::generaSigla(string unNombre)
 	return siglaEscuela;
 }
 
-Contenedor_Cursos * Escuela::getContenedorCursos()
+ContenedorCursos * Escuela::getContenedorCursos()
 {
 	return ConC;
 }
 
-contenedorProfesores * Escuela::getContenedorProfesores() {
+ContenedorProfesores * Escuela::getContenedorProfesores() {
 	return ContP;
 }
 

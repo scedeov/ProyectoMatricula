@@ -3,18 +3,15 @@
 
 #include <string>
 
-#include "objetoBase.h"
+class ContenedorCursos;
+class ContenedorProfesores;
 
-class Contenedor_Cursos;
-class contenedorProfesores;
-
-class Escuela/*: public objetoBase*/
-{
+class Escuela {
 private:
 	std::string nombreEscuela;
 	std::string siglaEscuela;
-	Contenedor_Cursos* ConC;
-	contenedorProfesores* ContP;
+	ContenedorCursos* ConC;
+	ContenedorProfesores* ContP;
 public:
 	Escuela(std::string);
 	~Escuela();
@@ -23,8 +20,8 @@ public:
 	void setSiglaEscuela(std::string);
 	std::string getSiglaEscuela();
 	std::string generaSigla(std::string);
-	Contenedor_Cursos* getContenedorCursos();
-	contenedorProfesores* getContenedorProfesores();
+	ContenedorCursos* getContenedorCursos();
+	ContenedorProfesores* getContenedorProfesores();
 	std::string toString(char);
 };
 #endif // !ESCUELA

@@ -13,7 +13,7 @@ Universidad::Universidad (
 
 	//Se crean los componentes de la Universidad (Composicion)
 	escuelas = new contenedorEscuelas();
-	profesores = new contenedorProfesores();
+	profesores = new ContenedorProfesores();
 	estudiantes = new contenedorEstudiantes();
 }
 
@@ -64,7 +64,7 @@ contenedorEstudiantes * Universidad::getContenedorEstudiantes() {
 	return estudiantes;
 }
 
-contenedorProfesores * Universidad::getContenedorProfesores() {
+ContenedorProfesores * Universidad::getContenedorProfesores() {
 	return profesores;
 }
 

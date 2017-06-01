@@ -23,12 +23,12 @@ public:
 	virtual bool eliminaEspecifico(std::string);
 };
 //---------------------------------------------------
-class Contenedor_Cursos;
+class ContenedorCursos;
 class adaptadorCursos: public T {
 protected:
-	Contenedor_Cursos *Cc;
+	ContenedorCursos *Cc;
 public:
-	adaptadorCursos(Contenedor_Cursos*);
+	adaptadorCursos(ContenedorCursos*);
 	virtual bool eliminaEspecifico(std::string);
 	virtual std::string toString();
 };

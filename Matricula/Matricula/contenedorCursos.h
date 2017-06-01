@@ -1,15 +1,15 @@
 #ifndef CONTENEDOR_CURSOS
 #define CONTENEDOR_CURSOS	
 
-
-#include "contenedores.h"
+#include "lista.h"
+#include "vector.h"
 
 class Curso;
-class Contenedor_Cursos {
+class ContenedorCursos {
 private:
 	Lista<Curso> *listaCursos;
 public:
-	Contenedor_Cursos();
+	ContenedorCursos();
 	int getCantidad();
 	Curso* getCurso(int);
 	virtual void agregarInicio(Curso*);
@@ -18,8 +18,8 @@ public:
 	bool encuentraCurso(Curso*, std::string);
 	virtual std::string toString();
 	int getProfesores(std::string, int);
-	friend std::ostream& operator << (std::ostream&, Contenedor_Cursos&);
-	~Contenedor_Cursos();
+	friend std::ostream& operator << (std::ostream&, ContenedorCursos&);
+	~ContenedorCursos();
 };
 #endif // !CONTENEDOR_CURSOS
 

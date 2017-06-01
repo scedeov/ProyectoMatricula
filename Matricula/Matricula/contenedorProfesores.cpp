@@ -3,16 +3,16 @@
 #include <iostream>
 using namespace std;
 
-contenedorProfesores::contenedorProfesores()
+ContenedorProfesores::ContenedorProfesores()
 {
 	listaProfesores = new Lista<Profesor>();
 }
 
-void contenedorProfesores::agregarInicio(Profesor *P) {
+void ContenedorProfesores::agregarInicio(Profesor *P) {
 	listaProfesores->agregarInicio(P);
 }
 
-Profesor * contenedorProfesores::retornaProfesor(int cedula) {
+Profesor * ContenedorProfesores::retornaProfesor(int cedula) {
 	Nodo<Profesor> *paux = listaProfesores->getPrimerNodo();
 	while (paux != NULL) {
 		if (encuentraProfesor(paux->getDato(), cedula) == true)
@@ -23,18 +23,18 @@ Profesor * contenedorProfesores::retornaProfesor(int cedula) {
 	return nullptr;
 }
 
-bool contenedorProfesores::encuentraProfesor(Profesor *P, int cedula) {
+bool ContenedorProfesores::encuentraProfesor(Profesor *P, int cedula) {
 	if (P->getNumCedula() == cedula)
 		return true;
 	else
 		return false;
 }
 
-int contenedorProfesores::contadorProfesores() {
+int ContenedorProfesores::contadorProfesores() {
 	listaProfesores->getCantidad();
 }
 
-string contenedorProfesores::toString()
+string ContenedorProfesores::toString()
 {
 	stringstream s;
 	if (listaProfesores->estaVacia())
@@ -49,11 +49,11 @@ string contenedorProfesores::toString()
 	return s.str();
 }
 
-contenedorProfesores::~contenedorProfesores() {
+ContenedorProfesores::~ContenedorProfesores() {
 	cout << "Eliminando Contenedor de Profesores" << endl;
 	listaProfesores->limpiar();
 }
 
-ostream & operator<<(ostream &o, contenedorProfesores &ContP) {
+ostream & operator<<(ostream &o, ContenedorProfesores &ContP) {
 	return o << ContP.toString();
 }

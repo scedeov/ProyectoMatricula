@@ -114,7 +114,6 @@
     <ClInclude Include="aranceles.h" />
     <ClInclude Include="contenedor.h" />
     <ClInclude Include="contenedorCursos.h" />
-    <ClInclude Include="contenedores.h" />
     <ClInclude Include="contenedorEscuelas.h" />
     <ClInclude Include="contenedorEstudiantes.h" />
     <ClInclude Include="contenedorGrupoCurso.h" />

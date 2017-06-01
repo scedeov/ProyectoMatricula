@@ -126,9 +126,6 @@
     <ClInclude Include="contenedor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="contenedores.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="contenedorGrupoCurso.h">
       <Filter>Header Files</Filter>
     </ClInclude>

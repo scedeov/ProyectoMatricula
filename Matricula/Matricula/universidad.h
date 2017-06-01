@@ -4,14 +4,14 @@
 #include <string>
 class contenedorEscuelas;
 class contenedorEstudiantes;
-class contenedorProfesores;
+class ContenedorProfesores;
 
 
 class Universidad {
 private:
 	contenedorEscuelas* escuelas;
 	contenedorEstudiantes* estudiantes;
-	contenedorProfesores* profesores;
+	ContenedorProfesores* profesores;
 	//---------------------------------------
 	std::string nombre;
 	std::string numeroTelefono;
@@ -29,7 +29,7 @@ public:
 	std::string toString();
 	contenedorEscuelas* getContenedorEscuelas();
 	contenedorEstudiantes* getContenedorEstudiantes();
-	contenedorProfesores* getContenedorProfesores();
+	ContenedorProfesores* getContenedorProfesores();
 	~Universidad();
 };
 #endif // !UNIVERSIDAD

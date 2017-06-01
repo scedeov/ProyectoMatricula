@@ -2,7 +2,6 @@
 #define PROFESOR
 
 #include "persona.h"
-#include "vector.h"
 
 const int MAXCURSOS = 10;
 class Curso;

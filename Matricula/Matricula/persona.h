@@ -3,7 +3,10 @@
 
 #include <string>
 
-class Persona: public T
+#include "vector.h"
+#include "lista.h"
+
+class Persona
 {
 private:
 	std::string nombre;

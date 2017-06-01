@@ -4,6 +4,7 @@
 class Profesor;
 const int MAXPROF = 5;
 
+#include "vector.h"
 class GrupoProfesores {
 private:
 	Vector<Profesor> *profesores;

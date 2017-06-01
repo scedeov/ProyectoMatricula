@@ -2,20 +2,19 @@
 #define CONTENEDOR_PROFESORES
 
 #include "profesor.h"
-#include "lista.h"
 
-class contenedorProfesores
+class ContenedorProfesores
 {
 private:
 	Lista<Profesor> *listaProfesores;
-	friend std::ostream& operator << (std::ostream&, contenedorProfesores&);
+	friend std::ostream& operator << (std::ostream&, ContenedorProfesores&);
 public:
-	contenedorProfesores();
+	ContenedorProfesores();
 	void agregarInicio(Profesor*);
 	Profesor* retornaProfesor(int);
 	bool encuentraProfesor(Profesor*, int);
 	int contadorProfesores();
 	std::string toString();
-	~contenedorProfesores();
+	~ContenedorProfesores();
 };
 #endif // !CONTENEDOR_PROFESORES
