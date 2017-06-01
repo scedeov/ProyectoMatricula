@@ -1,5 +1,6 @@
 #include "contenedorCursos.h"
 #include "grupoProfesores.h"
+#include "addBehavior.h"
 #include "curso.h"
 #include <sstream>
 #include <iostream>

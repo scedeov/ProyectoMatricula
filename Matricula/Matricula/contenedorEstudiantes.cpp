@@ -3,8 +3,7 @@
 #include <sstream>
 using namespace std;
 
-contenedorEstudiantes::contenedorEstudiantes()
-{
+contenedorEstudiantes::contenedorEstudiantes() {
 	estudiantes = new Lista<Estudiante>();
 }
 
@@ -12,24 +11,21 @@ int contenedorEstudiantes::getCantidadEstudiantes() {
 	return estudiantes->getCantidad();
 }
 
-void contenedorEstudiantes::agregarInicio(Estudiante *unEstudiante)
-{
+void contenedorEstudiantes::agregarInicio(Estudiante *unEstudiante) {
 	estudiantes->agregarInicio(unEstudiante);
 }
 
-Estudiante * contenedorEstudiantes::retornaEstudiante(int cedula)
-{
+Estudiante * contenedorEstudiantes::retornaEstudiante(int cedula) {
 	for (int i = 0; i < estudiantes->getCantidad(); i++)
-		if ((estudiantes->getPrimerDato() + i)->getNumCedula() == cedula)
-			return estudiantes->getPrimerDato() + i;
+		if ((estudiantes->at(i)->getNumCedula() == cedula))
+			return estudiantes->at(i);
 	return nullptr;
 }
 
-string contenedorEstudiantes::toString()
-{
+string contenedorEstudiantes::toString() {
 	stringstream s;
 	for (int i = 0; i < estudiantes->getCantidad(); i++)
-		s << (estudiantes->getPrimerDato() + 1)->toString() << endl;
+		s << estudiantes->at(i)->toString() << endl;
 	return s.str();
 }
 

@@ -1,10 +1,11 @@
 #ifndef CONTENEDOR_PROFESORES
 #define CONTENEDOR_PROFESORES
 
-#include "profesor.h"
 
-class ContenedorProfesores
-{
+#include "contenedor.h"
+
+class Profesor;
+class ContenedorProfesores: public Contenedor {
 private:
 	Lista<Profesor> *listaProfesores;
 	friend std::ostream& operator << (std::ostream&, ContenedorProfesores&);

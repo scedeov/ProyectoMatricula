@@ -2,10 +2,10 @@
 #define CONTENEDOR_CURSOS	
 
 #include "lista.h"
-#include "vector.h"
+#include "contenedor.h"
 
 class Curso;
-class ContenedorCursos {
+class ContenedorCursos: public Contenedor {
 private:
 	Lista<Curso> *listaCursos;
 public:

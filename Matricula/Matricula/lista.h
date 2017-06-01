@@ -107,7 +107,7 @@ inline void Lista<T>::agregarInicio(T *unDato) {
 template<class T>
 inline bool Lista<T>::eliminaEspecifico(std::string s)
 {
-	return false;
+
 }
 
 template<class T>
