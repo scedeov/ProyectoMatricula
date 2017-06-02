@@ -2,10 +2,12 @@
 #define UNIVERSIDAD
 
 #include <string>
+#include "lista.h"
+#include "vector.h"
+
 class contenedorEscuelas;
 class contenedorEstudiantes;
 class ContenedorProfesores;
-
 
 class Universidad {
 private:

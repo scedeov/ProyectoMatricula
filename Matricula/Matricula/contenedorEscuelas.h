@@ -4,8 +4,6 @@
 class Escuela;
 class Profesor;
 
-#include "lista.h"
-
 class contenedorEscuelas {
 private:
 	Lista<Escuela> *listaEscuelas;

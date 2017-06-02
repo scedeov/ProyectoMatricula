@@ -119,6 +119,7 @@
     <ClInclude Include="contenedorProfesores.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="curso.h" />
+    <ClInclude Include="director.h" />
     <ClInclude Include="escuela.h" />
     <ClInclude Include="estudiante.h" />
     <ClInclude Include="estudianteExtranjero.h" />
@@ -148,6 +149,7 @@
     <ClCompile Include="contenedorProfesores.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="curso.cpp" />
+    <ClCompile Include="director.cpp" />
     <ClCompile Include="escuela.cpp" />
     <ClCompile Include="estudiante.cpp" />
     <ClCompile Include="estudianteExtranjero.cpp" />

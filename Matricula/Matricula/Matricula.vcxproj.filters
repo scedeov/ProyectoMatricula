@@ -132,6 +132,9 @@
     <ClInclude Include="estudianteNacional.h">
       <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
+    <ClInclude Include="director.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -217,6 +220,9 @@
     </ClCompile>
     <ClCompile Include="grupoCurso.cpp">
       <Filter>Source Files\Cursos</Filter>
+    </ClCompile>
+    <ClCompile Include="director.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

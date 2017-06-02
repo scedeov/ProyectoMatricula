@@ -16,7 +16,7 @@ private:
 	ContenedorGrupoCurso *contenedorGrupoCurso;
 	GrupoProfesores* grupoProfesores;
 public:
-	Curso(std::string, std::string);
+	Curso(std::string, std::string, int);
 	void setNombre(std::string);
 	void setCodigoCurso(std::string);
 	void setCantidadCreditos(int);

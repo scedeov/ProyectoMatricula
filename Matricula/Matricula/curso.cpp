@@ -7,11 +7,11 @@ using namespace std;
 
 Curso::Curso (
 	string unNombre = "Undefined", 
-	string siglaEscuela = "Undefined") :
-	nombreCurso(unNombre), codigoCurso(siglaEscuela)
+	string siglaEscuela = "Undefined",
+	int xCantidadCreditos = 0) :
+	nombreCurso(unNombre), codigoCurso(siglaEscuela), cantidadCreditos(xCantidadCreditos)
 {
-	nombreCurso = unNombre;
-	codigoCurso = siglaEscuela + to_string(variableCodigoCursos);
+	setCodigoCurso;
 	variableCodigoCursos++;
 
 	grupoProfesores = new GrupoProfesores();
@@ -30,9 +30,9 @@ void Curso::setNombre(string unNombre)
 	nombreCurso = unNombre;
 }
 
-void Curso::setCodigoCurso(string unCodigoCurso)
+void Curso::setCodigoCurso(string siglaEscuela)
 {
-	codigoCurso = unCodigoCurso;
+	codigoCurso = codigoCurso + to_string(variableCodigoCursos);
 }
 
 void Curso::setCantidadCreditos(int cantidadCreditos)

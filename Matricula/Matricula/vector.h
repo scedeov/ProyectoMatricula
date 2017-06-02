@@ -16,7 +16,7 @@ public:
 	T* getPrimerDato();
 	T* getUltimoDato();
 	T* operator [] (int);
-	virtual void agregarInicio(const T*);
+	virtual void agregarInicio(T*);
 	virtual bool eliminaPosicion(int);
 	virtual bool eliminaEspecifico(int);
 	virtual bool eliminaEspecifico(std::string);
@@ -102,7 +102,7 @@ inline T * Vector<T>::operator[](int pos)
 }
 
 template<class T>
-inline void Vector<T>::agregarInicio(const T *dato) {
+inline void Vector<T>::agregarInicio(T *dato) {
 	if (cantidad < capacidad)
 		this->vector[++cantidad] = dato;
 }

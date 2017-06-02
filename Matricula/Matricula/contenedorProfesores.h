@@ -2,10 +2,9 @@
 #define CONTENEDOR_PROFESORES
 
 
-#include "contenedor.h"
 
 class Profesor;
-class ContenedorProfesores: public Contenedor {
+class ContenedorProfesores {
 private:
 	Lista<Profesor> *listaProfesores;
 	friend std::ostream& operator << (std::ostream&, ContenedorProfesores&);

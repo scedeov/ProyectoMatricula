@@ -2,19 +2,16 @@
 #define PERSONA
 
 #include <string>
+//#include "vector.h"
+//#include "lista.h"
 
-#include "vector.h"
-#include "lista.h"
-
-class Persona
-{
+class Persona {
 private:
 	std::string nombre;
 	std::string primerApellido;
 	std::string segundoApellido;
 	std::string nombreCompleto;
 	int numCedula;
-	friend std::ostream& operator << (std::ostream&, Persona&);
 public:
 	Persona();
 	virtual ~Persona();
@@ -28,5 +25,6 @@ public:
 	virtual void setNumCedula(int);
 	virtual int getNumCedula();
 	virtual std::string toString();
+	friend std::ostream& operator << (std::ostream&, Persona&);
 };
 #endif // !PERSONA
