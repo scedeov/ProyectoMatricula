@@ -14,8 +14,8 @@ public:
 	Curso* getCurso();
 	void setNext(Nodo_Cursos*);
 	Nodo_Cursos* getNext();
-	string toStringNodo();
-	friend ostream& operator<<(ostream&, Nodo_Cursos&);
+	std::string toStringNodo();
+	friend std::ostream& operator <<(std::ostream&, Nodo_Cursos&);
 	~Nodo_Cursos();
 };
 

@@ -1,4 +1,6 @@
 #include "nodoEscuelas.h"
+#include <iostream>
+using namespace std;
 
 Nodo_Escuelas::Nodo_Escuelas(Escuela* unEscuela, Nodo_Escuelas* unNext)
 {

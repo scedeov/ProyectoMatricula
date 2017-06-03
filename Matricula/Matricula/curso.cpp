@@ -1,9 +1,20 @@
 #include "curso.h"
+#include "grupoEstudiantes.h"
+#include "grupoProfesores.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Curso::Curso()
 {
 	codigoCurso = "Undefined";
 	nombreCurso = "Undefined";
+	
+	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
+	for (int i = 0; i < MAXGRUPOSESTUDIANTES; i++)
+		grupoEstu->push(new GrupoEstudiantes());
+
+	grupoProfes = new GrupoProfesores();
 }
 
 Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso se crea, se debe agregar ya la sigla de la Escuela.
@@ -12,14 +23,18 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 	codigoCurso = siglaEscuela + to_string(variableCodigoCursos);
 	variableCodigoCursos++;
 
-	for (int i = 0; i < MAXPROF; i++)
-		profesores[i] = 0;
-	cantidadProfesores = 0;
+	grupoEstu = new Vector<GrupoEstudiantes>(MAXGRUPOSESTUDIANTES);
+	for (int i = 0; i < grupoEstu->getCapacidad(); i++)
+		grupoEstu->push(new GrupoEstudiantes());
+
+	grupoProfes = new GrupoProfesores();
 }
 
 Curso::~Curso()
 {
 	cout << "Eliminando curso..." << endl;
+	delete grupoEstu;
+	delete grupoProfes;
 }
 
 void Curso::setNombre(string unNombre)
@@ -37,15 +52,17 @@ void Curso::setCantidadCreditos(int cantidadCreditos)
 	this->cantidadCreditos = cantidadCreditos;
 }
 
-void Curso::setProfesores(int profenuevo) {
-	if (cantidadProfesores < MAXPROF) {
-		profesores[cantidadProfesores] = profenuevo;
-		cantidadProfesores++;
-	}
+GrupoEstudiantes* Curso::getGrupoEstudiantes(int pos)
+{
+	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
+	it.first();
+	for (int i = 0; i < pos; i++)
+		it.next();
+		return it.getCurItem();
 }
 
-int Curso::getProfesores(int pos) {
-	return profesores[pos];
+GrupoProfesores* Curso::getGrupoProfesores() {
+	return grupoProfes;
 }
 
 string Curso::getNombre()
@@ -63,9 +80,16 @@ int Curso::getCantidadCreditos()
 	return cantidadCreditos;
 }
 
-int Curso::getCantidadProfesores()
+string Curso::imprimeEstudiantesMatriculados()
 {
-	return cantidadProfesores;
+	stringstream s;
+	Vector<GrupoEstudiantes>::Iterador it(grupoEstu);
+	it.first();
+	for (int i = 0; i < grupoEstu->getCantidad(); i++) {
+		s << it.getCurItem()->toString() << endl;
+		it.next();
+	}
+	return s.str();
 }
 
 string Curso::toString()

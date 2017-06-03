@@ -1,4 +1,6 @@
 #include "nodoProfesores.h"
+#include <iostream>
+using namespace std;
 
 Nodo_Profesores::Nodo_Profesores(Profesor *unP, Nodo_Profesores *unNext)
 {

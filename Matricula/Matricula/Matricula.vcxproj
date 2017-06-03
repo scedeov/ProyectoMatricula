@@ -81,6 +81,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,14 +120,26 @@
     <ClInclude Include="curso.h" />
     <ClInclude Include="escuela.h" />
     <ClInclude Include="estudiante.h" />
-    <ClInclude Include="interfaz.h" />
+    <ClInclude Include="estudianteExtranjero.h" />
+    <ClInclude Include="estudianteNacional.h" />
+    <ClInclude Include="grupoEstudiantes.h" />
+    <ClInclude Include="grupoProfesores.h" />
+    <ClInclude Include="interfazCursos.h" />
+    <ClInclude Include="interfazEscuelas.h" />
+    <ClInclude Include="interfazEstudiantes.h" />
+    <ClInclude Include="interfazMatricula.h" />
+    <ClInclude Include="interfazPrincipal.h" />
+    <ClInclude Include="interfazProfesores.h" />
+    <ClInclude Include="interfazUniversidad.h" />
+    <ClInclude Include="lista.h" />
+    <ClInclude Include="nodo.h" />
     <ClInclude Include="nodoCursos.h" />
     <ClInclude Include="nodoEscuelas.h" />
-    <ClInclude Include="nodoEstudiantes.h" />
     <ClInclude Include="nodoProfesores.h" />
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />
     <ClInclude Include="universidad.h" />
+    <ClInclude Include="vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aranceles.cpp" />
@@ -138,11 +151,20 @@
     <ClCompile Include="curso.cpp" />
     <ClCompile Include="escuela.cpp" />
     <ClCompile Include="estudiante.cpp" />
-    <ClCompile Include="interfaz.cpp" />
+    <ClCompile Include="estudianteExtranjero.cpp" />
+    <ClCompile Include="estudianteNacional.cpp" />
+    <ClCompile Include="grupoEstudiantes.cpp" />
+    <ClCompile Include="grupoProfesores.cpp" />
+    <ClCompile Include="interfazCursos.cpp" />
+    <ClCompile Include="interfazEstudiantes.cpp" />
+    <ClCompile Include="interfazMatricula.cpp" />
+    <ClCompile Include="interfazPrincipal.cpp" />
+    <ClCompile Include="interfazEscuelas.cpp" />
+    <ClCompile Include="interfazProfesores.cpp" />
+    <ClCompile Include="interfazUniversidad.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoCursos.cpp" />
     <ClCompile Include="nodoEscuelas.cpp" />
-    <ClCompile Include="nodoEstudiantes.cpp" />
     <ClCompile Include="nodoProfesores.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="profesor.cpp" />

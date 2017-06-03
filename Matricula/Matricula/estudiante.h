@@ -1,29 +1,32 @@
 #ifndef ESTUDIANTE
 #define ESTUDIANTE
 
-#include <iostream>
-#include <sstream>
-
-using namespace std;
-
 #include "persona.h"
+#include <vector>
 
-class Estudiante: private Persona
-{
+class Curso;
+
+class Estudiante: public Persona {
 private:
-	string carnet;
-	bool esExtranjero;
+	std::string carnet;
 	int porcentajeBeca;
+	bool esExtranjero;
+	std::vector<Curso*> listaCursos;
 public:
 	Estudiante();
-	void setCarnet(string);
-	string getCarnet();
-	void setNacionalidad(bool);
-	bool getNacionalidad();
-	void setPorcentajeBeca(int);
-	int getPorcentajeBeca();
-	string toString();
-	friend ostream& operator << (ostream&, Estudiante&);
-	~Estudiante();
+	Estudiante(std::string, std::string, std::string, int, int);
+	virtual std::string getCarnet();
+	virtual void agregaCurso(Curso*);
+	virtual std::string imprimeCursos();
+	virtual int getCantidadCursosMatriculados();
+	virtual Curso* getCursoMatriculado(int pos);
+	virtual void setEsExtranjero(bool);
+	virtual bool getEsExtranjero();
+	virtual void setPorcentajeBeca(int);
+	virtual int getPorcentajeBeca();
+	virtual void generaCarnet();
+	virtual std::string toString();
+	friend std::ostream& operator << (std::ostream&, Estudiante&);
+	virtual ~Estudiante();
 };
 #endif // !ESTUDIANTE

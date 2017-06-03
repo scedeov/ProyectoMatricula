@@ -1,70 +1,62 @@
 #include "contenedorCursos.h"
+#include "grupoProfesores.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Contenedor_Cursos::Contenedor_Cursos()
 {
-	pinicio = NULL;
-	paux = NULL;
+	listaCursos = new Lista<Curso>();
+}
+
+int Contenedor_Cursos::getCantidad()
+{	
+	return listaCursos->size();
+}
+
+Curso* Contenedor_Cursos::getCursoporPos(int pos)
+{
+	return listaCursos->at(pos);
 }
 
 void Contenedor_Cursos::insertaInicio(Curso *unCurso)
 {
-	paux = new Nodo_Cursos(unCurso, NULL);
-
-	if (pinicio == NULL)
-	{
-		pinicio = paux;
-	}
-	else
-	{
-		paux->setNext(pinicio);
-		pinicio = paux;
-	}
+	listaCursos->push_front(unCurso);
 }
 
 bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 {
-	Nodo_Cursos* anterior = NULL;
-	paux = pinicio;
-
-	if (paux == NULL)
-	{
+	if (listaCursos->empty())
 		return false;
-	}
 
-	if (paux->getCurso()->getCodigoCurso() == codigo)
-	{
-		paux = paux->getNext();
-		delete pinicio;
-		pinicio = paux;
-		return true;
-	}
+	if (listaCursos->front()->getCodigoCurso() == codigo)
+		listaCursos->pop_front();
 
-	while (paux != NULL &&   paux->getCurso()->getCodigoCurso() != codigo) {
+	Nodo<Curso> *paux = listaCursos->begin();
+	Nodo<Curso> *anterior = listaCursos->begin();
+	while (paux != NULL && listaCursos->front()->getCodigoCurso() != codigo) {
 		anterior = paux;
 		paux = paux->getNext();
 	}
 
 	if (paux == NULL)
-	{
 		return false;
-	}
 
-	else
-	{
+	else {
 		anterior->setNext(paux->getNext());
 		delete paux;
 		return true;
 	}
-
+	return false;
 }
 
-Curso * Contenedor_Cursos::retornaCurso(string codigo)
+Curso* Contenedor_Cursos::retornaCursoEspecifico(string codigo)
 {
-	paux = pinicio;
+	Nodo<Curso> *paux = listaCursos->begin();
 	while (paux != NULL)
 	{
-		if (encuentraCurso(paux->getCurso(), codigo) == true)
-			return paux->getCurso();
+		if (encuentraCurso(paux->getDato(), codigo) == true)
+			return paux->getDato();
 		else
 			paux = paux->getNext();
 	}
@@ -81,29 +73,27 @@ bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
 
 string Contenedor_Cursos::toString()
 {
-	paux = pinicio;
 	stringstream s;
-	while (paux != NULL) {
-		s << paux->toStringNodo() << endl;
-		paux = paux->getNext();
+	if (listaCursos->empty())
+		s << "La lista esta vacia..." << endl;
+	else {
+		Nodo<Curso>  *paux = listaCursos->begin();
+		while (paux != NULL) {
+			s << paux->getDato()->toString() << endl;
+			paux = paux->getNext();
+		}
 	}
 	return s.str();
 }
 
 int Contenedor_Cursos::getProfesores(string codigo, int pos) {
-	return retornaCurso(codigo)->getProfesores(pos);
+	return retornaCursoEspecifico(codigo)->getGrupoProfesores()->getProfesor(pos)->getNumCedula();
 }
 
 Contenedor_Cursos::~Contenedor_Cursos()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;
-
-	while (pinicio != NULL)
-	{
-		paux = pinicio;
-		pinicio = pinicio->getNext();
-		delete paux;
-	}
+	listaCursos->wipe();
 }
 
 ostream & operator<<(ostream &o, Contenedor_Cursos &ConC) {

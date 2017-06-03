@@ -1,21 +1,21 @@
 #ifndef CONTENEDOR_ESTUDIANTES
 #define CONTENEDOR_ESTUDIANTES	
 
-#include "nodoEstudiantes.h"
-
-#include <iostream>
-using namespace std;
+#include "estudianteExtranjero.h"
+#include "estudianteNacional.h"
+#include <list>
 
 class Contenedor_Estudiantes
 {
 private:
-	Nodo_Estudiantes *pinicio;
-	Nodo_Estudiantes *paux;
-	friend ostream& operator << (ostream&, Contenedor_Estudiantes&);
+	std::list<Estudiante*> estudiantes;
+	friend std::ostream& operator << (std::ostream&, Contenedor_Estudiantes&);
 public:
 	Contenedor_Estudiantes();
+	int getCantidadEstudiantes();
 	void insertaInicio(Estudiante*);
-	string toString();
+	Estudiante* retornaEstudiante(int);
+	std::string toString();
 	~Contenedor_Estudiantes();
 };
 #endif // !CONTENEDOR_ESTUDIANTES

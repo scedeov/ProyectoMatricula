@@ -1,4 +1,7 @@
 #include "contenedorProfesores.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Contenedor_Profesores::Contenedor_Profesores()
 {
@@ -44,6 +47,7 @@ int Contenedor_Profesores::contadorProfesores() {
 	}
 	return contador;
 }
+
 string Contenedor_Profesores::toString()
 {
 	stringstream s;
