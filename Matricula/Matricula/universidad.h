@@ -5,15 +5,13 @@
 #include "lista.h"
 #include "vector.h"
 
-class contenedorEscuelas;
-class contenedorEstudiantes;
-class ContenedorProfesores;
+class ContenedorEscuelas;
+class ContenedorPersonas;
 
 class Universidad {
 private:
-	contenedorEscuelas* escuelas;
-	contenedorEstudiantes* estudiantes;
-	ContenedorProfesores* profesores;
+	ContenedorEscuelas* escuelas;
+	ContenedorPersonas* personas;
 	//---------------------------------------
 	std::string nombre;
 	std::string numeroTelefono;
@@ -29,9 +27,8 @@ public:
 	std::string getNumero();
 	std::string getDireccion();
 	std::string toString();
-	contenedorEscuelas* getContenedorEscuelas();
-	contenedorEstudiantes* getContenedorEstudiantes();
-	ContenedorProfesores* getContenedorProfesores();
+	ContenedorEscuelas* getContenedorEscuelas();
+	ContenedorPersonas* getContenedorPersonas();
 	~Universidad();
 };
 #endif // !UNIVERSIDAD

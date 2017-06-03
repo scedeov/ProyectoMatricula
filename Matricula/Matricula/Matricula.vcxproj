@@ -112,11 +112,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="aranceles.h" />
+    <ClInclude Include="contenedor.h" />
     <ClInclude Include="contenedorCursos.h" />
     <ClInclude Include="contenedorEscuelas.h" />
-    <ClInclude Include="contenedorEstudiantes.h" />
+    <ClInclude Include="contenedorPersonas.h" />
     <ClInclude Include="contenedorGrupoCurso.h" />
-    <ClInclude Include="contenedorProfesores.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="curso.h" />
     <ClInclude Include="director.h" />
@@ -142,11 +142,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aranceles.cpp" />
+    <ClCompile Include="contenedor.cpp" />
     <ClCompile Include="contenedorCursos.cpp" />
     <ClCompile Include="contenedorEscuelas.cpp" />
-    <ClCompile Include="contenedorEstudiantes.cpp" />
+    <ClCompile Include="contenedorPersonas.cpp" />
     <ClCompile Include="contenedorGrupoCurso.cpp" />
-    <ClCompile Include="contenedorProfesores.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="curso.cpp" />
     <ClCompile Include="director.cpp" />

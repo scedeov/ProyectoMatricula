@@ -5,15 +5,15 @@
 #include <iostream>
 using namespace std;
 
-contenedorEscuelas::contenedorEscuelas() {
+ContenedorEscuelas::ContenedorEscuelas() {
 	listaEscuelas = new Lista<Escuela>();
 }
 
-void contenedorEscuelas::agregarInicio(Escuela* unEscuela) {
+void ContenedorEscuelas::agregarInicio(Escuela* unEscuela) {
 	listaEscuelas->agregarInicio(unEscuela);
 }
 
-Escuela * contenedorEscuelas::retornaEscuela(string sigla) const {
+Escuela * ContenedorEscuelas::retornaEscuela(string sigla) const {
 	Nodo<Escuela> *paux = listaEscuelas->getPrimerNodo();
 	while (paux != NULL) {
 		if (encuentraEscuela(paux->getDato(), sigla) == true)
@@ -24,7 +24,7 @@ Escuela * contenedorEscuelas::retornaEscuela(string sigla) const {
 	return nullptr;
 }
 
-Profesor * contenedorEscuelas::retornaProfesor(int cedula) {
+Profesor * ContenedorEscuelas::retornaProfesor(int cedula) {
 	Nodo<Escuela> *paux = listaEscuelas->getPrimerNodo();
 	while (paux != NULL) {
 		if (dynamic_cast<Escuela*>(paux->getDato())->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
@@ -35,14 +35,14 @@ Profesor * contenedorEscuelas::retornaProfesor(int cedula) {
 	return nullptr;
 }
 
-bool contenedorEscuelas::encuentraEscuela(Escuela* e, string sigla) const {
+bool ContenedorEscuelas::encuentraEscuela(Escuela* e, string sigla) const {
 	if (e->getSiglaEscuela() == sigla)
 		return true;
 	else
 		return false;
 }
 
-string contenedorEscuelas::toString(char op) const {
+string ContenedorEscuelas::toString(char op) const {
 	stringstream s;
 	if (listaEscuelas->estaVacia())
 		s << "La lista esta vacia..." << endl;
@@ -56,7 +56,7 @@ string contenedorEscuelas::toString(char op) const {
 	return s.str();
 }
 
-contenedorEscuelas::~contenedorEscuelas() {
+ContenedorEscuelas::~ContenedorEscuelas() {
 	cout << "Eliminando Contenedor de Escuelas" << endl;
 	listaEscuelas->limpiar();
 }

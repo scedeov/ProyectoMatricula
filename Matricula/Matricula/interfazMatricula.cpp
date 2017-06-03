@@ -36,11 +36,11 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 
 
 	try {
-		if (U->getContenedorEstudiantes()->getCantidadEstudiantes() == 0)
+		if (U->getContenedorPersonas()->getCantidad() == 0)
 			throw 0;
 		cout << "Digite el numero de cedula del estudiante que desea matricular un curso..." << endl;
 		int cedula; cin >> cedula; cin.ignore();
-		Estudiante* EST = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
+		Estudiante* EST = U->getContenedorPersonas()->getPersona(cedula);
 		if (EST == nullptr) throw 1;
 
 		cout << U->getContenedorEscuelas()->toString('2');
@@ -78,15 +78,15 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 }
 
 void Interfaz_Matricula::vMatriculaListaCursosEstudiante(Universidad *U) {
-	if (U->getContenedorEstudiantes()->getCantidadEstudiantes() == 0)
+	if (U->getContenedorPersonas()->getCantidad() == 0)
 		throw 0;
 	cout << "Digite el numero de cedula del Estudiante a consultar lista de Cursos Matriculados..." << endl;
 	cout << "-> "; int cedula; cin >> cedula; cin.ignore();
-	Estudiante *E = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
+	Estudiante *E = U->getContenedorPersonas()->getPersona(cedula);
 	try {
 		if (E == nullptr) throw 1;
 
-		cout << U->getContenedorEstudiantes()->retornaEstudiante(cedula)->imprimeCursos();
+		cout << U->getContenedorPersonas()->getPersona(cedula)->imprimeCursos();
 	}
 	catch (int e) {
 		if (e == 0) cout << "No hay estudiantes matriculados aun..." << endl << endl;
@@ -116,7 +116,7 @@ void Interfaz_Matricula::vCobroMatricula(Universidad *U)
 	cout << "Calculando cobro..." << endl;
 	try {
 		cout << "Ingrese el numero de cedula del Estudiante a consultar -> "; int cedula; cin >> cedula; cin.ignore();
-		Estudiante *E = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
+		Estudiante *E = U->getContenedorPersonas()->getPersona(cedula);
 		if (E == nullptr) throw 1;
 		double cobro = 0.0;
 		for (int i = 0; i < E->getCantidadCursosMatriculados(); i++)

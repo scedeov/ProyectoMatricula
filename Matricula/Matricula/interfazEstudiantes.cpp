@@ -1,6 +1,6 @@
 #include "interfazEstudiantes.h"
 #include "interfazPrincipal.h"
-#include "contenedorEstudiantes.h"
+#include "contenedorPersonas.h"
 #include "estudianteExtranjero.h"
 #include "estudianteNacional.h"
 
@@ -60,7 +60,7 @@ void Interfaz_Estudiantes::vIngresarEstudiante(Universidad *U) {
 	else
 		E = new Estudiante_Extranjero(nombre, primerApellido, segundoApellido, cedula);
 
-	U->getContenedorEstudiantes()->agregarInicio(E);
+	U->getContenedorPersonas()->agregarInicio(E);
 	Interfaz_Principal::msjPerfecto();
 }
 
@@ -68,10 +68,10 @@ void Interfaz_Estudiantes::vConsultaEstudiante(Universidad *U)
 {
 	cout << "Digite la cedula del estudiante a consultar -> "; int cedula; cin >> cedula; cin.ignore();
 
-	if (U->getContenedorEstudiantes()->retornaEstudiante(cedula) == NULL)
+	if (U->getContenedorPersonas()->getPersona(cedula) == NULL)
 		cout << "El Estudiante no ha sido encontrado..." << endl;
 	else
-		cout << *(U->getContenedorEstudiantes()->retornaEstudiante(cedula)) << endl;
+		cout << *(U->getContenedorPersonas()->getPersona(cedula)) << endl;
 
 	Interfaz_Principal::msjPausa();
 	system("cls");
@@ -83,8 +83,8 @@ void Interfaz_Estudiantes::vEditarEstudiante(Universidad *U) {
 	string primerApellido, segundoApellido, nombre;
 	cout << "Digite el numero de cedula del Estudiante -> ";
 	int cedula; cin >> cedula; cin.ignore();
-	if (U->getContenedorEstudiantes()->retornaEstudiante(cedula)) {
-		Estudiante *E = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
+	if (U->getContenedorPersonas()->getPersona(cedula)) {
+		Estudiante *E = U->getContenedorPersonas()->getPersona(cedula);
 		cout << "Ingrese el primer apellido: "; cin >> primerApellido; cin.ignore(); cout << endl;
 		cout << "Ingrese el segundo apellido: "; cin >> segundoApellido; cin.ignore(); cout << endl;
 		cout << "Ingrese el nombre del Estudiante: "; getline(cin, nombre); cout << endl;

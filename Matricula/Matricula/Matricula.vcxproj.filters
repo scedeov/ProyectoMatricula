@@ -57,17 +57,11 @@
     <ClInclude Include="persona.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="contenedorEstudiantes.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
     <ClInclude Include="estudiante.h">
       <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
     <ClInclude Include="estudianteExtranjero.h">
       <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
-    <ClInclude Include="contenedorProfesores.h">
-      <Filter>Header Files\Profesores</Filter>
     </ClInclude>
     <ClInclude Include="profesor.h">
       <Filter>Header Files\Profesores</Filter>
@@ -135,6 +129,12 @@
     <ClInclude Include="director.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="contenedor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contenedorPersonas.h">
+      <Filter>Header Files\Estudiantes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -155,9 +155,6 @@
     <ClCompile Include="estudianteNacional.cpp">
       <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
-    <ClCompile Include="contenedorEstudiantes.cpp">
-      <Filter>Source Files\Estudiantes</Filter>
-    </ClCompile>
     <ClCompile Include="contenedorCursos.cpp">
       <Filter>Source Files\Cursos</Filter>
     </ClCompile>
@@ -174,9 +171,6 @@
       <Filter>Source Files\Profesores</Filter>
     </ClCompile>
     <ClCompile Include="grupoProfesores.cpp">
-      <Filter>Source Files\Profesores</Filter>
-    </ClCompile>
-    <ClCompile Include="contenedorProfesores.cpp">
       <Filter>Source Files\Profesores</Filter>
     </ClCompile>
     <ClCompile Include="nodoEscuelas.cpp">
@@ -223,6 +217,12 @@
     </ClCompile>
     <ClCompile Include="director.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contenedor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contenedorPersonas.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

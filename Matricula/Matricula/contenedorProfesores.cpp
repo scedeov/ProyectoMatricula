@@ -31,7 +31,7 @@ bool ContenedorProfesores::encuentraProfesor(Profesor *P, int cedula) {
 		return false;
 }
 
-int ContenedorProfesores::contadorProfesores() {
+int ContenedorProfesores::getCantidad() {
 	listaProfesores->getCantidad();
 }
 

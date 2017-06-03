@@ -12,16 +12,16 @@ Universidad::Universidad (
 	nombre(unNombre), numeroTelefono(xNumero), direccion(unDireccion) { 
 
 	//Se crean los componentes de la Universidad (Composicion)
-	escuelas = new contenedorEscuelas();
+	escuelas = new ContenedorEscuelas();
 	profesores = new ContenedorProfesores();
-	estudiantes = new contenedorEstudiantes();
+	personas = new ContenedorPersonas();
 }
 
 Universidad::~Universidad() {
 	std::cout << "Eliminando Universidad..." << std::endl;
 	delete escuelas;
 	delete profesores;
-	delete estudiantes;
+	delete personas;
 }
 
 void Universidad::setTelefono(std::string unTelefono) {
@@ -56,12 +56,12 @@ std::string Universidad::toString() {
 	return s.str();
 }
 
-contenedorEscuelas* Universidad::getContenedorEscuelas() {
+ContenedorEscuelas* Universidad::getContenedorEscuelas() {
 	return escuelas;
 }
 
-contenedorEstudiantes * Universidad::getContenedorEstudiantes() {
-	return estudiantes;
+ContenedorPersonas * Universidad::getContenedorPersonas() {
+	return personas;
 }
 
 ContenedorProfesores * Universidad::getContenedorProfesores() {

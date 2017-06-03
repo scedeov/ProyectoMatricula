@@ -1,20 +1,21 @@
 #ifndef CONTENEDOR_PROFESORES
 #define CONTENEDOR_PROFESORES
 
-
+#include "contenedor.h"
+#include "lista.h"
 
 class Profesor;
-class ContenedorProfesores {
+class ContenedorProfesores: public Contenedor {
 private:
 	Lista<Profesor> *listaProfesores;
-	friend std::ostream& operator << (std::ostream&, ContenedorProfesores&);
 public:
 	ContenedorProfesores();
 	void agregarInicio(Profesor*);
 	Profesor* retornaProfesor(int);
 	bool encuentraProfesor(Profesor*, int);
-	int contadorProfesores();
+	int getCantidad();
 	std::string toString();
 	~ContenedorProfesores();
+	friend std::ostream& operator << (std::ostream&, ContenedorProfesores&);
 };
 #endif // !CONTENEDOR_PROFESORES
