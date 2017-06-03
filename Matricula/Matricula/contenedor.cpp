@@ -11,8 +11,17 @@ Escuela * adaptadorContenedorEscuelas::getDato(std::string sigla) {
 	return contenedorEscuelas->retornaEscuela(sigla);
 }
 
+Escuela * adaptadorContenedorEscuelas::getDato(int)
+{
+	return nullptr;
+}
+
 void adaptadorContenedorEscuelas::agregarInicio(Escuela *escuela) {
 	contenedorEscuelas->agregarInicio(escuela);
+}
+
+std::string adaptadorContenedorEscuelas::toString() {
+	return contenedorEscuelas->toString();
 }
 
 adaptadorContenedorCursos::adaptadorContenedorCursos(ContenedorCursos *contenedorCursos) {

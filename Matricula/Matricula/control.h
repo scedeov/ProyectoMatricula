@@ -1,12 +1,13 @@
 #ifndef CONTROL
 #define CONTROL
 
-#include "universidad.h"
-
+class Universidad;
+class Contenedor;
 class Control
 {
 private:
-	Universidad* U;
+	Universidad *universidad;
+	Contenedor *contenedor;
 public:
 	void Inicializador();
 	void MenuPrincipal();

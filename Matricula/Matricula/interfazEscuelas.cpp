@@ -1,6 +1,7 @@
 #include "interfazEscuelas.h"
 #include "interfazPrincipal.h"
 #include "escuela.h"
+#include "contenedor.h"
 #include "contenedorEscuelas.h"
 #include <iostream>
 #include <conio.h>
@@ -48,8 +49,9 @@ char Interfaz_Escuelas::vAjustesEscuelas()
 	return ans;
 }
 
-void Interfaz_Escuelas::vIngresaEscuela(Universidad* U)
+void Interfaz_Escuelas::vIngresaEscuela(Contenedor<Escuela>* c)
 {
+	adaptadorContenedorEscuelas* contenedor = new adaptadorContenedorEscuelas(c);
 	string nombre;
 	cout << "Ingresando Escuela..." << endl;
 	cout << "Ingrese la asignatura de la escuela -> "; getline(cin, nombre); cout << endl;
@@ -69,19 +71,21 @@ void Interfaz_Escuelas::vIngresaEscuela(Universidad* U)
 
 	Escuela* escu = new Escuela(nombre);
 
-	U->getContenedorEscuelas()->agregarInicio(escu);
+	
+	contenedor->agregarInicio(escu);
 	Interfaz_Principal::msjPerfecto();
 	system("cls");
 }
 
-void Interfaz_Escuelas::vInfoEscuelas(Universidad* U, char op)
+void Interfaz_Escuelas::vInfoEscuelas(Contenedor<Escuela>* c/*, char op*/)
 {
-	if (U->getNombre() == "Undefined")
+	adaptadorContenedorEscuelas* contenedor = new adaptadorContenedorEscuelas(c);
+	if (contenedor->getNombre() == "Undefined")
 		cout << "No se ha ingresado el nombre de la Universidad. Vaya a Ajustes." << endl;
 	else
 	{
-		cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
-		cout << U->getContenedorEscuelas()->toString(op) << endl;
+		cout << "Nombre de la Universidad: " << universidad->getNombre() << endl << endl;
+		cout << universidad->getContenedorEscuelas()->toString(op) << endl;
 	}
 	Interfaz_Principal::msjPausa();
 	system("cls");

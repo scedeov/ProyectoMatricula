@@ -13,7 +13,7 @@ public:
 	void agregarInicio (Escuela*);
 	Escuela* retornaEscuela(std::string) const ;
 	bool encuentraEscuela(Escuela*, std::string) const ;
-	std::string toString(char) const;
+	std::string toString(/*char*/)/* const*/;
 	~ContenedorEscuelas();
 };
 

@@ -26,18 +26,18 @@ char Interfaz_Universidad::vMenuUniversidad()
 	return ans;
 }
 
-char Interfaz_Universidad::vAjustesUniversidad(Universidad *U) {
+char Interfaz_Universidad::vAjustesUniversidad(Universidad *universidad) {
 	char ans;
 
 	cout << "**************AJUSTES UNIVERSIDAD*************************" << endl;
-	if (U->getNombre() == "Undefined") {
+	if (universidad->getNombre() == "Undefined") {
 		cout << "-(1)-Ingresar nombre de la Universidad" << endl;
 
-		if (U->getNumero() == "Undefined")
+		if (universidad->getNumero() == "Undefined")
 			cout << "-(2)-Ingresar Numero de Telefono de la Universidad" << endl;
 		else
 			cout << "-(2)-Cambiar Numero de Telefono de la Universidad" << endl;
-		if (U->getDireccion() == "Undefined")
+		if (universidad->getDireccion() == "Undefined")
 			cout << "-(3)-Ingresar Direccion de la Universidad" << endl;
 		else
 			cout << "-(3)-Cambiar Direccion de la Universidad" << endl;
@@ -54,11 +54,11 @@ char Interfaz_Universidad::vAjustesUniversidad(Universidad *U) {
 		}
 	}
 	else {
-		if (U->getNumero() == "Undefined")
+		if (universidad->getNumero() == "Undefined")
 			cout << "-(1)-Ingresar Numero de Telefono de la Universidad" << endl;
 		else
 			cout << "-(1)-Cambiar Numero de Telefono de la Universidad" << endl;
-		if (U->getDireccion() == "Undefined")
+		if (universidad->getDireccion() == "Undefined")
 			cout << "-(2)-Ingresar Direccion de la Universidad" << endl;
 		else
 			cout << "-(2)-Cambiar Direccion de la Universidad" << endl;
@@ -76,7 +76,7 @@ char Interfaz_Universidad::vAjustesUniversidad(Universidad *U) {
 	return ans;
 }
 
-void Interfaz_Universidad::vIngresarNumero(Universidad* U)
+void Interfaz_Universidad::vIngresarNumero(Universidad* universidad)
 {
 	char ans;
 
@@ -102,14 +102,14 @@ void Interfaz_Universidad::vIngresarNumero(Universidad* U)
 
 		if (ans == 'S')
 		{
-			U->setTelefono(numero);
+			universidad->setTelefono(numero);
 			Interfaz_Principal::msjPerfecto();
 		}
 
 	} while (ans == 'N');
 }
 
-void Interfaz_Universidad::vIngresarDireccion(Universidad* U)
+void Interfaz_Universidad::vIngresarDireccion(Universidad* universidad)
 {
 	char ans;
 
@@ -123,14 +123,14 @@ void Interfaz_Universidad::vIngresarDireccion(Universidad* U)
 
 		if (ans == 'S')
 		{
-			U->setDireccion(direccion);
+			universidad->setDireccion(direccion);
 			Interfaz_Principal::msjPerfecto();
 		}
 
 	} while (ans == 'N');
 }
 
-void Interfaz_Universidad::vIngresarNombre(Universidad* U)
+void Interfaz_Universidad::vIngresarNombre(Universidad* universidad)
 {
 	char ans;
 	do //Pide los datos al usuario y le da la opcion de cambiarlos las veces que quiera mientras no confirme su opcion
@@ -154,19 +154,19 @@ void Interfaz_Universidad::vIngresarNombre(Universidad* U)
 
 		if (ans == 'S') //Solo ingresa al nombre si el usuario confirma
 		{
-			U->setNombre(nombre);
+			universidad->setNombre(nombre);
 			Interfaz_Principal::msjPerfecto();
 		}
 
 	} while (ans == 'N');
 }
 
-void Interfaz_Universidad::vInfoUniversidad(Universidad* U) //Modificar para que sirva de informacion actual del sistema de matricula
+void Interfaz_Universidad::vInfoUniversidad(Universidad* universidad) //Modificar para que sirva de informacion actual del sistema de matricula
 {
-	if (U->getNombre() == "Undefined" && U->getNumero() == "Undefined")
+	if (universidad->getNombre() == "Undefined" && universidad->getNumero() == "Undefined")
 		cout << "Ups... parece que no se han ingresado todos los datos de la Universidad. Ve a Ajustes para agregarlos." << endl;
 	else
-		cout << *U << endl;
+		cout << *universidad << endl;
 
 	Interfaz_Principal::msjPausa();
 	system("cls");

@@ -46,7 +46,7 @@ char Interfaz_Estudiantes::vAjustesEstudiantes() {
 	return ans;
 }
 
-void Interfaz_Estudiantes::vIngresarEstudiante(Universidad *U) {
+void Interfaz_Estudiantes::vIngresarEstudiante(Universidad *universidad) {
 	cout << "Agregando estudiante..." << endl; int porcentaje = 0;
 	cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
@@ -60,31 +60,31 @@ void Interfaz_Estudiantes::vIngresarEstudiante(Universidad *U) {
 	else
 		E = new Estudiante_Extranjero(nombre, primerApellido, segundoApellido, cedula);
 
-	U->getContenedorPersonas()->agregarInicio(E);
+	universidad->getContenedorPersonas()->agregarInicio(E);
 	Interfaz_Principal::msjPerfecto();
 }
 
-void Interfaz_Estudiantes::vConsultaEstudiante(Universidad *U)
+void Interfaz_Estudiantes::vConsultaEstudiante(Universidad *universidad)
 {
 	cout << "Digite la cedula del estudiante a consultar -> "; int cedula; cin >> cedula; cin.ignore();
 
-	if (U->getContenedorPersonas()->getPersona(cedula) == NULL)
+	if (universidad->getContenedorPersonas()->getPersona(cedula) == NULL)
 		cout << "El Estudiante no ha sido encontrado..." << endl;
 	else
-		cout << *(U->getContenedorPersonas()->getPersona(cedula)) << endl;
+		cout << *(universidad->getContenedorPersonas()->getPersona(cedula)) << endl;
 
 	Interfaz_Principal::msjPausa();
 	system("cls");
 }
 
-void Interfaz_Estudiantes::vEditarEstudiante(Universidad *U) {
+void Interfaz_Estudiantes::vEditarEstudiante(Universidad *universidad) {
 
 
 	string primerApellido, segundoApellido, nombre;
 	cout << "Digite el numero de cedula del Estudiante -> ";
 	int cedula; cin >> cedula; cin.ignore();
-	if (U->getContenedorPersonas()->getPersona(cedula)) {
-		Estudiante *E = U->getContenedorPersonas()->getPersona(cedula);
+	if (universidad->getContenedorPersonas()->getPersona(cedula)) {
+		Estudiante *E = universidad->getContenedorPersonas()->getPersona(cedula);
 		cout << "Ingrese el primer apellido: "; cin >> primerApellido; cin.ignore(); cout << endl;
 		cout << "Ingrese el segundo apellido: "; cin >> segundoApellido; cin.ignore(); cout << endl;
 		cout << "Ingrese el nombre del Estudiante: "; getline(cin, nombre); cout << endl;

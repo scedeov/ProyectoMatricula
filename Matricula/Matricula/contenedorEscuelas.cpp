@@ -42,7 +42,7 @@ bool ContenedorEscuelas::encuentraEscuela(Escuela* e, string sigla) const {
 		return false;
 }
 
-string ContenedorEscuelas::toString(char op) const {
+string ContenedorEscuelas::toString(/*char op*/) /*const */{
 	stringstream s;
 	if (listaEscuelas->estaVacia())
 		s << "La lista esta vacia..." << endl;

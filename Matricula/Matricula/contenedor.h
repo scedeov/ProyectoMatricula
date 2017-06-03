@@ -10,8 +10,8 @@ class Contenedor {
 	virtual T* getDato(std::string) = 0;
 	virtual T* getDato(int) = 0;
 	virtual void agregarInicio(T*) = 0;
-	virtual int getCantidad() = 0;
 	virtual std::string toString() = 0;
+	virtual ~Contenedor() = 0;
 };
 
 class ContenedorEscuelas;
@@ -21,11 +21,10 @@ private:
 	ContenedorEscuelas* contenedorEscuelas;
 public:
 	adaptadorContenedorEscuelas(ContenedorEscuelas*);
-	virtual Escuela* getDato(std::string);
-	virtual void agregarInicio(Escuela*);
-	virtual int getCantidad() = 0;
-	virtual std::string toString() = 0;
-	virtual ~adaptadorContenedorEscuelas() = 0;
+	Escuela* getDato(std::string);
+	Escuela* getDato(int);
+	void agregarInicio(Escuela*);
+	std::string toString();
 };
 
 class ContenedorCursos;
@@ -37,9 +36,6 @@ public:
 	adaptadorContenedorCursos(ContenedorCursos*);
 	virtual Curso* getDato(std::string);
 	virtual void agregarInicio(Curso*);
-	virtual int getCantidad() = 0;
-	virtual std::string toString() = 0;
-	virtual ~adaptadorContenedorCursos() = 0;
 };
 
 class ContenedorPersonas;

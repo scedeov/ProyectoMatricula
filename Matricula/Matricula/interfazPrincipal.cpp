@@ -37,9 +37,9 @@ char Interfaz_Principal::vMenuPrincipal()
 	return ans;
 }
 
-char Interfaz_Principal::vDatosPrimeraVez(Universidad* U)
+char Interfaz_Principal::vDatosPrimeraVez(Universidad* universidad)
 {
-	if (U->getNombre() == "Undefined")
+	if (universidad->getNombre() == "Undefined")
 	{
 		cout << "!Hola!" << endl;
 		cout << "Parece que es la primera vez que ingresas al sistema." << endl;

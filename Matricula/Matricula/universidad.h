@@ -2,22 +2,12 @@
 #define UNIVERSIDAD
 
 #include <string>
-#include "lista.h"
-#include "vector.h"
-
-class ContenedorEscuelas;
-class ContenedorPersonas;
 
 class Universidad {
 private:
-	ContenedorEscuelas* escuelas;
-	ContenedorPersonas* personas;
-	//---------------------------------------
 	std::string nombre;
 	std::string numeroTelefono;
 	std::string direccion;
-	//---------------------------------------
-	friend std::ostream& operator << (std::ostream&, Universidad&);
 public:
 	Universidad(std::string, std::string, std::string);
 	void setTelefono(std::string);
@@ -27,8 +17,7 @@ public:
 	std::string getNumero();
 	std::string getDireccion();
 	std::string toString();
-	ContenedorEscuelas* getContenedorEscuelas();
-	ContenedorPersonas* getContenedorPersonas();
+	friend std::ostream& operator << (std::ostream&, Universidad&);
 	~Universidad();
 };
 #endif // !UNIVERSIDAD

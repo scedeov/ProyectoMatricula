@@ -56,18 +56,6 @@ std::string Universidad::toString() {
 	return s.str();
 }
 
-ContenedorEscuelas* Universidad::getContenedorEscuelas() {
-	return escuelas;
-}
-
-ContenedorPersonas * Universidad::getContenedorPersonas() {
-	return personas;
-}
-
-ContenedorProfesores * Universidad::getContenedorProfesores() {
-	return profesores;
-}
-
-std::ostream& operator << (std::ostream &o, Universidad& U) {
-	return o << U.toString();
+std::ostream& operator << (std::ostream &o, Universidad& universidad) {
+	return o << universidad.toString();
 }

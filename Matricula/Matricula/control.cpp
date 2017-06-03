@@ -12,7 +12,7 @@ int Curso::variableCodigoCursos = 0; // variable que controla el codigo del curs
 
 void Control::Inicializador()
 {
-	U = new Universidad("Universidad de Costa Rica", "22334455", "San Pedro");
+	universidad = new Universidad("Universidad de Costa Rica", "22334455", "San Pedro");
 	MenuPrincipal();
 }
 
@@ -20,14 +20,14 @@ void Control::MenuPrincipal()
 {
 	Interfaz_Principal::vBienvenida();
 
-	if (Interfaz_Principal::vDatosPrimeraVez(U) == 'S')
+	if (Interfaz_Principal::vDatosPrimeraVez(universidad) == 'S')
 	{
-		Interfaz_Universidad::vIngresarNombre(U);
-		Interfaz_Universidad::vIngresarNumero(U);
-		Interfaz_Universidad::vIngresarDireccion(U);
+		Interfaz_Universidad::vIngresarNombre(universidad);
+		Interfaz_Universidad::vIngresarNumero(universidad);
+		Interfaz_Universidad::vIngresarDireccion(universidad);
 	}
 
-	bool getUltimoNodo = false;
+	bool end = false;
 
 	do
 	{
@@ -66,25 +66,25 @@ void Control::MenuPrincipal()
 		}
 		case '7':
 		{
-			delete U;
-			getUltimoNodo = true;
+			delete universidad;
+			end = true;
 			break;
 		}
 		default:
 			break;
 		}
 
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::MenuUniversidad() {
-	bool getUltimoNodo = false;
+	bool end= false;
 	do {
 		char ans = Interfaz_Universidad::vMenuUniversidad();
 
 		switch (ans) {
 		case '1': {
-			Interfaz_Universidad::vInfoUniversidad(U);
+			Interfaz_Universidad::vInfoUniversidad(universidad);
 			break;
 		}
 		case '2': {
@@ -92,38 +92,38 @@ void Control::MenuUniversidad() {
 			break;
 		}
 		case '3': {
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		default: break;
 		}
 
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::AjustesUniversidad() {
 
-	bool getUltimoNodo = false;
+	bool end = false;
 
 	do {
-		char opcion = Interfaz_Universidad::vAjustesUniversidad(U);
+		char opcion = Interfaz_Universidad::vAjustesUniversidad(universidad);
 
-		if (U->getNombre() == "Undefined") {
+		if (universidad->getNombre() == "Undefined") {
 			switch (opcion) {
 			case '1': {
-				Interfaz_Universidad::vIngresarNombre(U);
+				Interfaz_Universidad::vIngresarNombre(universidad);
 				break;
 			}
 			case '2': {
-				Interfaz_Universidad::vIngresarNumero(U);
+				Interfaz_Universidad::vIngresarNumero(universidad);
 				break;
 			}
 			case '3': {
-				Interfaz_Universidad::vIngresarDireccion(U);
+				Interfaz_Universidad::vIngresarDireccion(universidad);
 				break;
 			}
 			case '4': {
-				getUltimoNodo = true;
+				end = true;
 				break;
 			}
 			default: break;
@@ -133,27 +133,27 @@ void Control::AjustesUniversidad() {
 
 			switch (opcion) {
 			case '1': {
-				Interfaz_Universidad::vIngresarNumero(U);
+				Interfaz_Universidad::vIngresarNumero(universidad);
 				break;
 			}
 			case '2': {
-				Interfaz_Universidad::vIngresarDireccion(U);
+				Interfaz_Universidad::vIngresarDireccion(universidad);
 				break;
 			}
 			case '3': {
-				getUltimoNodo = true;
+				end = true;
 				break;
 			}
 			default: break;
 			}
 		}
 
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::MenuEscuelas()
 {
-	bool getUltimoNodo = false;
+	bool end = false;
 
 	do
 	{
@@ -163,12 +163,12 @@ void Control::MenuEscuelas()
 		{
 		case '1':
 		{
-			Interfaz_Escuelas::vInfoEscuelas(U, '1'); //Imprime solamente escuelas
+			Interfaz_Escuelas::vInfoEscuelas(contenedor, '1'); //Imprime solamente escuelas
 			break;
 		}
 		case '2':
 		{
-			Interfaz_Escuelas::vInfoEscuelas(U, '2'); //Imprime escuelas con los cursos
+			Interfaz_Escuelas::vInfoEscuelas(contenedor, '2'); //Imprime escuelas con los cursos
 			break;
 		}
 		case '3':
@@ -176,21 +176,21 @@ void Control::MenuEscuelas()
 			AjustesEscuelas();
 			break;
 		}
-		case '4': // Salir
+		case '4':
 		{
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		default:
 			break;
 		}
 
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::AjustesEscuelas() {
 
-	bool getUltimoNodo = false;
+	bool end = false;
 
 	do {
 		char opcion = Interfaz_Escuelas::vAjustesEscuelas();
@@ -198,22 +198,22 @@ void Control::AjustesEscuelas() {
 		switch (opcion) {
 		case '1':
 		{
-			Interfaz_Escuelas::vIngresaEscuela(U);
+			Interfaz_Escuelas::vIngresaEscuela(universidad);
 			break;
 		}
 		case '2':
 		{
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		default: break;
 		}
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::MenuCursos()
 {
-	bool getUltimoNodo = false;
+	bool end = false;
 
 	do
 	{
@@ -223,12 +223,12 @@ void Control::MenuCursos()
 		{
 		case '1':
 		{
-			Interfaz_Cursos::vInfoCurso(U);
+			Interfaz_Cursos::vInfoCurso(universidad);
 			break;
 		}
 		case '2':
 		{
-			Interfaz_Cursos::vListaCursosEscuelaParticular(U);
+			Interfaz_Cursos::vListaCursosEscuelaParticular(universidad);
 			break;
 		}
 		case '3': //Salir
@@ -237,18 +237,18 @@ void Control::MenuCursos()
 			break;
 		}
 		case '4': {
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		default: break;
 		}
 
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::AjustesCursos() {
 
-	bool getUltimoNodo = false;
+	bool end = false;
 
 	do {
 
@@ -257,52 +257,52 @@ void Control::AjustesCursos() {
 		switch (opcion) {
 		case '1':
 		{
-			Interfaz_Cursos::vIngresaCurso(U);
+			Interfaz_Cursos::vIngresaCurso(universidad);
 			break;
 		}
 		case '2':
 		{
-			Interfaz_Cursos::vEditarCurso(U);
+			Interfaz_Cursos::vEditarCurso(universidad);
 			break;
 		}
 		case '3':
 		{
-			Interfaz_Cursos::vEliminaCurso(U);
+			Interfaz_Cursos::vEliminaCurso(universidad);
 			break;
 		}
 		case '4': 
 		{
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		default: break;
 		}
 
-	} while (getUltimoNodo == false);
+	} while (end == false);
 
 }
 
 void Control::MenuProfesores()
 {
-	bool getUltimoNodo = false;
+	bool end = false;
 
 	do {
 		char opcion = Interfaz_Profesores::vMenuProfesores();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Profesores::vConsultarProfesEscuela(U);
+			Interfaz_Profesores::vConsultarProfesEscuela(universidad);
 			break;
 		}
 		case'2': {
-			Interfaz_Profesores::vConsultarProfesCurso(U);
+			Interfaz_Profesores::vConsultarProfesCurso(universidad);
 			break;
 		}
 		case '3': {
-			Interfaz_Profesores::vConsultarProfeCedula(U);
+			Interfaz_Profesores::vConsultarProfeCedula(universidad);
 			break;
 		}
 		case '4': {
-			Interfaz_Profesores::vConsultaCursosAsignadosProfesor(U);
+			Interfaz_Profesores::vConsultaCursosAsignadosProfesor(universidad);
 			break;
 
 		}
@@ -311,47 +311,47 @@ void Control::MenuProfesores()
 			break;
 		}
 		case '6': {
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		default: break;
 		}
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::AjustesProfesores() {
-	bool getUltimoNodo = false;
+	bool end = false;
 	do {
 		char opcion = Interfaz_Profesores::vAjustesProfesores();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Profesores::vAgregarProfesor(U);
+			Interfaz_Profesores::vAgregarProfesor(universidad);
 			break;
 		}
 		case '2': {
-			Interfaz_Profesores::vEditarProfesor(U);
+			Interfaz_Profesores::vEditarProfesor(universidad);
 			break;
 		}
 		case '3': {
-			Interfaz_Profesores::vAsignarProfesorCurso(U);
+			Interfaz_Profesores::vAsignarProfesorCurso(universidad);
 			break;
 		}
 		case '4': {
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		default: break;
 		}
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::MenuEstudiantes() {
-	bool getUltimoNodo = false;
+	bool end = false;
 	do {
 		char opcion = Interfaz_Estudiantes::vMenuEstudiantes();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Estudiantes::vConsultaEstudiante(U);
+			Interfaz_Estudiantes::vConsultaEstudiante(universidad);
 			break;
 		}
 		case '2': {
@@ -359,53 +359,53 @@ void Control::MenuEstudiantes() {
 			break;
 		}
 		case '3': {
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		}
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::AjustesEstudiantes() {
-	bool getUltimoNodo = false;
+	bool end = false;
 	do {
 		char opcion = Interfaz_Estudiantes::vAjustesEstudiantes();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Estudiantes::vIngresarEstudiante(U);
+			Interfaz_Estudiantes::vIngresarEstudiante(universidad);
 			break;
 		}
 		case '2': {
-			Interfaz_Estudiantes::vEditarEstudiante(U);
+			Interfaz_Estudiantes::vEditarEstudiante(universidad);
 			break;
 		}
 		case '3': {
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		}
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::MenuMatricula() {
-	bool getUltimoNodo = false;
+	bool end = false;
 	do {
 		char opcion = Interfaz_Matricula::vMenuMatricula();
 		switch (opcion) {
 		case '1': {
-			Interfaz_Matricula::vMatriculaEstudianteCurso(U);
+			Interfaz_Matricula::vMatriculaEstudianteCurso(universidad);
 			break;
 		}
 		case '2': {
-			Interfaz_Matricula::vMatriculaListaEstudiantesCursos(U);
+			Interfaz_Matricula::vMatriculaListaEstudiantesCursos(universidad);
 			break;
 		}
 		case '3': {
-			Interfaz_Matricula::vMatriculaListaCursosEstudiante(U);
+			Interfaz_Matricula::vMatriculaListaCursosEstudiante(universidad);
 			break;
 		}
 		case '4': {
-			Interfaz_Matricula::vCobroMatricula(U);
+			Interfaz_Matricula::vCobroMatricula(universidad);
 			break;
 		}
 		case '5': {
@@ -413,12 +413,12 @@ void Control::MenuMatricula() {
 			break;
 		}
 		case '6': {
-			getUltimoNodo = true;
+			end = true;
 			break;
 		}
 		default: break;
 		}
-	} while (getUltimoNodo == false);
+	} while (end == false);
 }
 
 void Control::AjustesMatricula()
