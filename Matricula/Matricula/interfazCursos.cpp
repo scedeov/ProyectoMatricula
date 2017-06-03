@@ -79,8 +79,9 @@ void Interfaz_Cursos::vIngresaCurso(Universidad* U)
 			cout << "Ingrese el nombre del curso  -> "; std::getline(std::cin, nombre); cout << endl << endl;
 		}
 
+		cout << "Ingrese la cantidad de creditos del Curso -> (1 - 5) -> "; int creditos; cin >> creditos; cin.ignore();
 		Curso* cur = new Curso(nombre, sigla);
-
+		cur->setCantidadCreditos(creditos);
 		U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->insertaInicio(cur);
 
 		Interfaz_Principal::msjPerfecto();
