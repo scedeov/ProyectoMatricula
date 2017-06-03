@@ -123,6 +123,10 @@ void Interfaz_Cursos::vEditarCurso(Universidad *U)
 			U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->
 				retornaCursoEspecifico(codigo)->setNombre(nombre);
 
+			cout << "Ingrese la cantidad de creditos del Curso -> (1 - 5) -> "; int creditos; cin >> creditos; cin.ignore();
+
+			U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->
+				retornaCursoEspecifico(codigo)->setCantidadCreditos(creditos);
 			Interfaz_Principal::msjPerfecto();
 		}
 
