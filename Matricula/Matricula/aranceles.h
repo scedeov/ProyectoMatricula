@@ -1,13 +1,12 @@
 #ifndef ARANCELES
 #define ARANCELES
 
-#include "curso.h"
-#include "estudiante.h"
+
 
 const int costoCredito = 10000;
 const int cargosAdministrativos = 15000;
 const double recargoExtranjeros = 0.40;
-
+class Curso;
 class Aranceles
 {
 public:

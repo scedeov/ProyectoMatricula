@@ -1,7 +1,7 @@
 #ifndef CONTENEDOR_CURSOS
 #define CONTENEDOR_CURSOS	
 
-#include "lista.h"
+#include "contenedor.h"
 
 class Curso;
 class ContenedorCursos {

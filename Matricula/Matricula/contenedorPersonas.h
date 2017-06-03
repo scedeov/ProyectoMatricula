@@ -5,7 +5,7 @@
 #include "lista.h"
 
 class Persona;
-class ContenedorPersonas: public adaptadorContenedorPersonas {
+class ContenedorPersonas {
 private:
 	Lista<Persona> *personas;
 public:

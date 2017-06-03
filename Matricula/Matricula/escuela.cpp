@@ -14,15 +14,15 @@ Escuela::Escuela(string unNombre = "Undefined") :
 	if (nombreEscuela != "Undefined")
 		nombreEscuela = "Escuela de " + nombreEscuela;
 
-	ContP = new ContenedorProfesores();
-	ConC = new ContenedorCursos();
+	/*ContP = new ContenedorProfesores();
+	ConC = new ContenedorCursos();*/
 
 }
 
 Escuela::~Escuela()
 {
 	cout << "Eliminando Escuela" << endl;
-	delete ConC;
+	/*delete ConC;*/
 }
 
 void Escuela::setNombre(string unNombre)
@@ -58,25 +58,25 @@ string Escuela::generaSigla(string unNombre)
 
 	return siglaEscuela;
 }
+//
+//ContenedorCursos * Escuela::getContenedorCursos()
+//{
+//	return ConC;
+//}
+//
+//ContenedorProfesores * Escuela::getContenedorProfesores() {
+//	return ContP;
+//}
 
-ContenedorCursos * Escuela::getContenedorCursos()
-{
-	return ConC;
-}
-
-ContenedorProfesores * Escuela::getContenedorProfesores() {
-	return ContP;
-}
-
-string Escuela::toString(char op)
+string Escuela::toString()
 {
 	stringstream s;
 	s << "Nombre de la Escuela: " << nombreEscuela;
 	s << "| Sigla: " << siglaEscuela << endl;
 
-	if (op == '2') {
+	/*if (op == '2') {
 		s << "Cursos Impartidos: " << endl;
 		s << *ConC << endl;
-	}
+	}*/
 	return s.str();
 }

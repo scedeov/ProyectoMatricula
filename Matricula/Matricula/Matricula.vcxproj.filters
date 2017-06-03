@@ -13,18 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Estudiantes">
-      <UniqueIdentifier>{ffe77c7c-4607-4ca6-be9e-209c3ee5aea1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Profesores">
-      <UniqueIdentifier>{7cb6bcf1-a11a-45e0-ab0f-8eb4c06ec917}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Cursos">
-      <UniqueIdentifier>{5361f1cc-540a-4c37-9564-d01ce356452a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Escuelas">
-      <UniqueIdentifier>{c3721ff0-30b7-4140-b504-508f3113d716}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Estudiantes">
       <UniqueIdentifier>{97fbc67e-b461-40f1-a4ee-98075d0e4986}</UniqueIdentifier>
     </Filter>
@@ -36,12 +24,6 @@
     </Filter>
     <Filter Include="Source Files\Escuelas">
       <UniqueIdentifier>{15280a7f-c87b-49df-9f2a-28d15e517326}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Universidad">
-      <UniqueIdentifier>{ea6518df-6d78-4598-bb06-1b9b3ae6ec18}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Matricula">
-      <UniqueIdentifier>{5113fe47-656a-4c20-bca0-08a64179767d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Matricula">
       <UniqueIdentifier>{bdb923a4-08b7-4c14-8b8e-2a8ae3ddc645}</UniqueIdentifier>
@@ -57,56 +39,8 @@
     <ClInclude Include="persona.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="estudiante.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
-    <ClInclude Include="estudianteExtranjero.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
-    <ClInclude Include="profesor.h">
-      <Filter>Header Files\Profesores</Filter>
-    </ClInclude>
-    <ClInclude Include="grupoProfesores.h">
-      <Filter>Header Files\Profesores</Filter>
-    </ClInclude>
-    <ClInclude Include="contenedorCursos.h">
-      <Filter>Header Files\Cursos</Filter>
-    </ClInclude>
-    <ClInclude Include="curso.h">
-      <Filter>Header Files\Cursos</Filter>
-    </ClInclude>
-    <ClInclude Include="escuela.h">
-      <Filter>Header Files\Escuelas</Filter>
-    </ClInclude>
-    <ClInclude Include="contenedorEscuelas.h">
-      <Filter>Header Files\Escuelas</Filter>
-    </ClInclude>
     <ClInclude Include="interfazPrincipal.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazEscuelas.h">
-      <Filter>Header Files\Escuelas</Filter>
-    </ClInclude>
-    <ClInclude Include="universidad.h">
-      <Filter>Header Files\Universidad</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazUniversidad.h">
-      <Filter>Header Files\Universidad</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazCursos.h">
-      <Filter>Header Files\Cursos</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazEstudiantes.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazProfesores.h">
-      <Filter>Header Files\Profesores</Filter>
-    </ClInclude>
-    <ClInclude Include="aranceles.h">
-      <Filter>Header Files\Matricula</Filter>
-    </ClInclude>
-    <ClInclude Include="interfazMatricula.h">
-      <Filter>Header Files\Matricula</Filter>
     </ClInclude>
     <ClInclude Include="nodo.h">
       <Filter>Header Files</Filter>
@@ -120,20 +54,71 @@
     <ClInclude Include="contenedorGrupoCurso.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="grupoCurso.h">
-      <Filter>Header Files\Cursos</Filter>
-    </ClInclude>
-    <ClInclude Include="estudianteNacional.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
     <ClInclude Include="director.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="contenedor.h">
+    <ClInclude Include="interfazCursos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grupoCurso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="curso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contenedorCursos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contenedorEscuelas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="escuela.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazEscuelas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="contenedorPersonas.h">
-      <Filter>Header Files\Estudiantes</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="estudiante.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="estudianteExtranjero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="estudianteNacional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazEstudiantes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grupoProfesores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazProfesores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="profesor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aranceles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazMatricula.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazUniversidad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="universidad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="relacionCursoEscuela.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contenedorRelacionCursoEscuela.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +208,12 @@
     </ClCompile>
     <ClCompile Include="contenedorPersonas.cpp">
       <Filter>Source Files\Estudiantes</Filter>
+    </ClCompile>
+    <ClCompile Include="relacionCursoEscuela.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contenedorRelacionCursoEscuela.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,8 @@
 #include "control.h"
+#include "curso.h"
+#include "contenedorCursos.h"
+#include "contenedorEscuelas.h"
+#include "contenedorPersonas.h"
 #include "interfazPrincipal.h"
 #include "interfazCursos.h"
 #include "interfazEscuelas.h"
@@ -10,18 +14,18 @@
 
 int Curso::variableCodigoCursos = 0; // variable que controla el codigo del curso
 
-void Control::Inicializador()
-{
+void Control::Inicializador() {
 	universidad = new Universidad("Universidad de Costa Rica", "22334455", "San Pedro");
+	contenedorCursos = new ContenedorCursos();
+	contenedorEscuelas = new ContenedorEscuelas();
+	contenedorPersonas = new ContenedorPersonas();
 	MenuPrincipal();
 }
 
-void Control::MenuPrincipal()
-{
+void Control::MenuPrincipal() {
 	Interfaz_Principal::vBienvenida();
 
-	if (Interfaz_Principal::vDatosPrimeraVez(universidad) == 'S')
-	{
+	if (Interfaz_Principal::vDatosPrimeraVez(universidad) == 'S') {
 		Interfaz_Universidad::vIngresarNombre(universidad);
 		Interfaz_Universidad::vIngresarNumero(universidad);
 		Interfaz_Universidad::vIngresarDireccion(universidad);
@@ -67,6 +71,9 @@ void Control::MenuPrincipal()
 		case '7':
 		{
 			delete universidad;
+			delete contenedorCursos;
+			delete contenedorEscuelas;
+			delete contenedorPersonas;
 			end = true;
 			break;
 		}
@@ -163,12 +170,12 @@ void Control::MenuEscuelas()
 		{
 		case '1':
 		{
-			Interfaz_Escuelas::vInfoEscuelas(contenedor, '1'); //Imprime solamente escuelas
+			Interfaz_Escuelas::vInfoEscuelas(universidad, contenedorEscuelas); //Imprime solamente escuelas
 			break;
 		}
 		case '2':
 		{
-			Interfaz_Escuelas::vInfoEscuelas(contenedor, '2'); //Imprime escuelas con los cursos
+			Interfaz_Escuelas::vInfoEscuelas(universidad, contenedorEscuelas); //Imprime escuelas con los cursos
 			break;
 		}
 		case '3':
@@ -198,7 +205,7 @@ void Control::AjustesEscuelas() {
 		switch (opcion) {
 		case '1':
 		{
-			Interfaz_Escuelas::vIngresaEscuela(universidad);
+			Interfaz_Escuelas::vIngresaEscuela(contenedorEscuelas);
 			break;
 		}
 		case '2':

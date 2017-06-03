@@ -1,8 +1,9 @@
 #ifndef INTERFAZ_CURSOS
 #define INTERFAZ_CURSOS
 
-#include "universidad.h"
-
+class Universidad;
+class ContenedorRelacionCursoEscuela;
+class ContenedorEscuelas;
 class Interfaz_Cursos {
 public:
 	static char vMenuCursos();
@@ -11,7 +12,9 @@ public:
 	static void vEditarCurso(Universidad*);
 	static void vEliminaCurso(Universidad*);
 	static void vInfoCurso(Universidad*);
-	static void vListaCursosEscuelaParticular(Universidad*);
+	static void vListaCursosEscuelaParticular(
+		ContenedorRelacionCursoEscuela*,
+		ContenedorEscuelas*);
 };
 #endif // !INTERFAZ_CURSOS
 

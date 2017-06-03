@@ -11,7 +11,6 @@ class Contenedor {
 	virtual T* getDato(int) = 0;
 	virtual void agregarInicio(T*) = 0;
 	virtual std::string toString() = 0;
-	virtual ~Contenedor() = 0;
 };
 
 class ContenedorEscuelas;
@@ -20,6 +19,7 @@ class adaptadorContenedorEscuelas : public Contenedor<Escuela> {
 private:
 	ContenedorEscuelas* contenedorEscuelas;
 public:
+	adaptadorContenedorEscuelas();
 	adaptadorContenedorEscuelas(ContenedorEscuelas*);
 	Escuela* getDato(std::string);
 	Escuela* getDato(int);
@@ -33,6 +33,7 @@ class adaptadorContenedorCursos : public Contenedor<Curso> {
 private:
 	ContenedorCursos* contenedorCursos;
 public:
+	adaptadorContenedorCursos();
 	adaptadorContenedorCursos(ContenedorCursos*);
 	virtual Curso* getDato(std::string);
 	virtual void agregarInicio(Curso*);
@@ -44,11 +45,22 @@ class adaptadorContenedorPersonas : public Contenedor<Persona> {
 private:
 	ContenedorPersonas* contenedorPersonas;
 public:
+	adaptadorContenedorPersonas();
 	adaptadorContenedorPersonas(ContenedorPersonas*);
 	virtual Persona* getDato(int);
 	virtual void agregarInicio(Persona*);
 	virtual int getCantidad() = 0;
 	virtual std::string toString() = 0;
-	virtual ~adaptadorContenedorPersonas() = 0;
+};
+
+class GrupoCurso;
+class ContenedorGrupoCurso;
+class adaptadorContenedorGrupoCurso : public Contenedor<GrupoCurso> {
+private:
+	ContenedorGrupoCurso* contenedorGrupoCurso;
+public:
+	adaptadorContenedorGrupoCurso();
+	adaptadorContenedorGrupoCurso(ContenedorGrupoCurso*);
+	virtual GrupoCurso* getDato(int);
 };
 #endif

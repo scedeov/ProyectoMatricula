@@ -112,11 +112,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="aranceles.h" />
-    <ClInclude Include="contenedor.h" />
     <ClInclude Include="contenedorCursos.h" />
     <ClInclude Include="contenedorEscuelas.h" />
     <ClInclude Include="contenedorPersonas.h" />
     <ClInclude Include="contenedorGrupoCurso.h" />
+    <ClInclude Include="contenedorRelacionCursoEscuela.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="curso.h" />
     <ClInclude Include="director.h" />
@@ -137,6 +137,7 @@
     <ClInclude Include="nodo.h" />
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />
+    <ClInclude Include="relacionCursoEscuela.h" />
     <ClInclude Include="universidad.h" />
     <ClInclude Include="vector.h" />
   </ItemGroup>
@@ -147,6 +148,7 @@
     <ClCompile Include="contenedorEscuelas.cpp" />
     <ClCompile Include="contenedorPersonas.cpp" />
     <ClCompile Include="contenedorGrupoCurso.cpp" />
+    <ClCompile Include="contenedorRelacionCursoEscuela.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="curso.cpp" />
     <ClCompile Include="director.cpp" />
@@ -169,6 +171,7 @@
     <ClCompile Include="nodoProfesores.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="profesor.cpp" />
+    <ClCompile Include="relacionCursoEscuela.cpp" />
     <ClCompile Include="universidad.cpp" />
   </ItemGroup>
   <ItemGroup>

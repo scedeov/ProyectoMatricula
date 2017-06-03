@@ -15,7 +15,6 @@ private:
 	//ContenedorProfesores* ContP;
 public:
 	Escuela(std::string);
-	~Escuela();
 	void setNombre(std::string);
 	std::string getNombre();
 	void setSiglaEscuela(std::string);
@@ -23,7 +22,8 @@ public:
 	std::string generaSigla(std::string);
 	//ContenedorCursos* getContenedorCursos();
 	//ContenedorProfesores* getContenedorProfesores();
-	std::string toString(char);
+	std::string toString();
+	~Escuela();
 };
 #endif // !ESCUELA
 

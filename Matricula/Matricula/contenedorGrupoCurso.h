@@ -6,7 +6,7 @@
 const int MAXGRUPOSESTUDIANTES = 5;
 
 class GrupoCurso;
-class ContenedorGrupoCurso: public Contenedor {
+class ContenedorGrupoCurso {
 private:
 	Vector<GrupoCurso> *contenedorGrupoCurso;
 public:

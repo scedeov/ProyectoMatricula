@@ -9,6 +9,11 @@ ContenedorEscuelas::ContenedorEscuelas() {
 	listaEscuelas = new Lista<Escuela>();
 }
 
+int ContenedorEscuelas::getCantidad()
+{
+	return listaEscuelas->getCantidad();
+}
+
 void ContenedorEscuelas::agregarInicio(Escuela* unEscuela) {
 	listaEscuelas->agregarInicio(unEscuela);
 }
@@ -24,16 +29,16 @@ Escuela * ContenedorEscuelas::retornaEscuela(string sigla) const {
 	return nullptr;
 }
 
-Profesor * ContenedorEscuelas::retornaProfesor(int cedula) {
-	Nodo<Escuela> *paux = listaEscuelas->getPrimerNodo();
-	while (paux != NULL) {
-		if (dynamic_cast<Escuela*>(paux->getDato())->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
-			return dynamic_cast<Escuela*>(paux->getDato())->getContenedorProfesores()->retornaProfesor(cedula);
-		else
-			paux = paux->getNext();
-	}
-	return nullptr;
-}
+//Profesor * ContenedorEscuelas::retornaProfesor(int cedula) {
+//	Nodo<Escuela> *paux = listaEscuelas->getPrimerNodo();
+//	while (paux != NULL) {
+//		if (dynamic_cast<Escuela*>(paux->getDato())->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
+//			return dynamic_cast<Escuela*>(paux->getDato())->getContenedorProfesores()->retornaProfesor(cedula);
+//		else
+//			paux = paux->getNext();
+//	}
+//	return nullptr;
+//}
 
 bool ContenedorEscuelas::encuentraEscuela(Escuela* e, string sigla) const {
 	if (e->getSiglaEscuela() == sigla)
@@ -49,7 +54,7 @@ string ContenedorEscuelas::toString(/*char op*/) /*const */{
 	else {
 		Nodo<Escuela> *paux = listaEscuelas->getPrimerNodo();
 		while (paux != NULL) {
-			s << paux->getDato()->toString(op) << endl;
+			s << paux->getDato()->toString() << endl;
 			paux = paux->getNext();
 		}
 	}

@@ -30,8 +30,7 @@ string ContenedorPersonas::toString() {
 	return s.str();
 }
 
-ContenedorPersonas::~ContenedorPersonas()
-{
+ContenedorPersonas::~ContenedorPersonas() {
 	cout << "Eliminando Contenedor de Cursos" << endl;
 	personas->limpiar();
 }
