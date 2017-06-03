@@ -6,6 +6,8 @@ double Aranceles::cobroMatricula(Curso *C, Estudiante *E)
 	resultado =  C->getCantidadCreditos() * costoCredito;
 	resultado = resultado + cargosAdministrativos;
 	if (E->getEsExtranjero())
-		resultado =  resultado + (resultado * recargoExtranjeros);
+		resultado = resultado + (resultado * recargoExtranjeros);
+	else
+		resultado = resultado - (resultado*(E->getPorcentajeBeca() / 100));
 	return resultado;
 }
