@@ -1,4 +1,8 @@
 #include "universidad.h"
+#include "contenedorEscuelas.h"
+#include "contenedorEstudiantes.h"
+#include <iostream>
+#include <sstream>
 
 Universidad::Universidad()
 {
@@ -7,59 +11,62 @@ Universidad::Universidad()
 	direccion = "Undefined";
 
 	ContE = new Contenedor_Escuelas();
+	ContEst = new Contenedor_Estudiantes();
 }
 
-Universidad::Universidad(string unNombre, string xNumero, string unDireccion)
+Universidad::Universidad(std::string unNombre, std::string xNumero, std::string unDireccion)
 {
 	nombre = unNombre;
 	numeroTelefono = xNumero;
 	direccion = unDireccion;
 
 	ContE = new Contenedor_Escuelas();
+	ContEst = new Contenedor_Estudiantes();
 }
 
 Universidad::~Universidad()
 {
-	cout << "Eliminando Universidad..." << endl;
+	std::cout << "Eliminando Universidad..." << std::endl;
 	delete ContE;
+	delete ContEst;
 }
 
-void Universidad::setTelefono(string unTelefono)
+void Universidad::setTelefono(std::string unTelefono)
 {
 	numeroTelefono = unTelefono;
 }
 
-void Universidad::setDireccion(string unDireccion)
+void Universidad::setDireccion(std::string unDireccion)
 {
 	direccion = unDireccion;
 }
 
-void Universidad::setNombre(string unNombre)
+void Universidad::setNombre(std::string unNombre)
 {
 	nombre = unNombre;
 }
 
-string Universidad::getNombre()
+std::string Universidad::getNombre()
 {
 	return nombre;
 }
 
-string Universidad::getNumero()
+std::string Universidad::getNumero()
 {
 	return numeroTelefono;
 }
 
-string Universidad::getDireccion()
+std::string Universidad::getDireccion()
 {
 	return direccion;
 }
 
-string Universidad::toString()
+std::string Universidad::toString()
 {
-	stringstream s;
-	s << "Nombre Universidad: " << nombre << endl
-		<< "Numero de Telefono: " << numeroTelefono << endl
-		<< "Direccion: " << direccion << endl;
+	std::stringstream s;
+	s << "Nombre Universidad: " << nombre << std::endl
+		<< "Numero de Telefono: " << numeroTelefono << std::endl
+		<< "Direccion: " << direccion << std::endl;
 
 	return s.str();
 }
@@ -68,7 +75,12 @@ Contenedor_Escuelas* Universidad::getContenedorEscuelas() {
 	return ContE;
 }
 
-ostream& operator << (ostream &o, Universidad& U)
+Contenedor_Estudiantes * Universidad::getContenedorEstudiantes()
+{
+	return ContEst;
+}
+
+std::ostream& operator << (std::ostream &o, Universidad& U)
 {
 	return o << U.toString();
 }

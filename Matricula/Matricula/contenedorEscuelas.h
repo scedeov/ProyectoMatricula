@@ -1,7 +1,10 @@
 #ifndef CONTENEDOR_ESCUELAS
 #define CONTENEDOR_ESCUELAS
 
-#include "nodoEscuelas.h" 
+#include "nodoEscuelas.h"
+
+class Profesor;
+
 
 class Contenedor_Escuelas
 {
@@ -11,10 +14,10 @@ private:
 public:
 	Contenedor_Escuelas();
 	void insertarInicio(Escuela*);
-	Escuela* retornaEscuela(string);
-	bool encuentraEscuela(Escuela*, string);
+	Escuela* retornaEscuela(std::string);
+	bool encuentraEscuela(Escuela*, std::string);
 	Profesor* retornaProfesor(int);
-	string toString(char);
+	std::string toString(char);
 	~Contenedor_Escuelas();
 };
 

@@ -1,4 +1,6 @@
 #include "nodoEstudiantes.h"
+#include <iostream>
+using namespace std;
 
 Nodo_Estudiantes::Nodo_Estudiantes(Estudiante* unEstudiante, Nodo_Estudiantes* unNext)
 {
@@ -26,14 +28,14 @@ Nodo_Estudiantes * Nodo_Estudiantes::getNext()
 	return Next;
 }
 
-string Nodo_Estudiantes::toStringNodo()
+std::string Nodo_Estudiantes::toStringNodo()
 {
 	return E->toString();
 }
 
 Nodo_Estudiantes::~Nodo_Estudiantes()
 {
-	cout << "Eliminando Nodo de Escuelas" << endl;
+	cout << "Eliminando Nodo de Escuelas" << std::endl;
 	delete E;
 }
 

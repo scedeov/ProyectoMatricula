@@ -13,114 +13,213 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Estudiantes">
+      <UniqueIdentifier>{ffe77c7c-4607-4ca6-be9e-209c3ee5aea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Profesores">
+      <UniqueIdentifier>{7cb6bcf1-a11a-45e0-ab0f-8eb4c06ec917}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cursos">
+      <UniqueIdentifier>{5361f1cc-540a-4c37-9564-d01ce356452a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Escuelas">
+      <UniqueIdentifier>{c3721ff0-30b7-4140-b504-508f3113d716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Estudiantes">
+      <UniqueIdentifier>{97fbc67e-b461-40f1-a4ee-98075d0e4986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cursos">
+      <UniqueIdentifier>{243a19ea-5baa-4f09-a084-2e791615f5ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Profesores">
+      <UniqueIdentifier>{44cc42e3-5fe2-4ba3-a9f8-09a51d4be01b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Escuelas">
+      <UniqueIdentifier>{15280a7f-c87b-49df-9f2a-28d15e517326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Universidad">
+      <UniqueIdentifier>{ea6518df-6d78-4598-bb06-1b9b3ae6ec18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Matricula">
+      <UniqueIdentifier>{5113fe47-656a-4c20-bca0-08a64179767d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Matricula">
+      <UniqueIdentifier>{bdb923a4-08b7-4c14-8b8e-2a8ae3ddc645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Universidad">
+      <UniqueIdentifier>{1d27c921-fdc4-4526-80b8-3f761e58ddf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="universidad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="control.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="escuela.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="interfaz.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="contenedorEscuelas.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="nodoEscuelas.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="curso.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="contenedorCursos.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="nodoCursos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="persona.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="profesor.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="contenedorEstudiantes.h">
+      <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
     <ClInclude Include="estudiante.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Estudiantes</Filter>
+    </ClInclude>
+    <ClInclude Include="estudianteExtranjero.h">
+      <Filter>Header Files\Estudiantes</Filter>
+    </ClInclude>
+    <ClInclude Include="estudianteNacional.h">
+      <Filter>Header Files\Estudiantes</Filter>
+    </ClInclude>
+    <ClInclude Include="grupoEstudiantes.h">
+      <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
     <ClInclude Include="contenedorProfesores.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Profesores</Filter>
+    </ClInclude>
+    <ClInclude Include="profesor.h">
+      <Filter>Header Files\Profesores</Filter>
+    </ClInclude>
+    <ClInclude Include="grupoProfesores.h">
+      <Filter>Header Files\Profesores</Filter>
     </ClInclude>
     <ClInclude Include="nodoProfesores.h">
+      <Filter>Header Files\Profesores</Filter>
+    </ClInclude>
+    <ClInclude Include="contenedorCursos.h">
+      <Filter>Header Files\Cursos</Filter>
+    </ClInclude>
+    <ClInclude Include="curso.h">
+      <Filter>Header Files\Cursos</Filter>
+    </ClInclude>
+    <ClInclude Include="nodoCursos.h">
+      <Filter>Header Files\Cursos</Filter>
+    </ClInclude>
+    <ClInclude Include="escuela.h">
+      <Filter>Header Files\Escuelas</Filter>
+    </ClInclude>
+    <ClInclude Include="nodoEscuelas.h">
+      <Filter>Header Files\Escuelas</Filter>
+    </ClInclude>
+    <ClInclude Include="contenedorEscuelas.h">
+      <Filter>Header Files\Escuelas</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazPrincipal.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazEscuelas.h">
+      <Filter>Header Files\Escuelas</Filter>
+    </ClInclude>
+    <ClInclude Include="universidad.h">
+      <Filter>Header Files\Universidad</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazUniversidad.h">
+      <Filter>Header Files\Universidad</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazCursos.h">
+      <Filter>Header Files\Cursos</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazEstudiantes.h">
+      <Filter>Header Files\Estudiantes</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazProfesores.h">
+      <Filter>Header Files\Profesores</Filter>
     </ClInclude>
     <ClInclude Include="aranceles.h">
+      <Filter>Header Files\Matricula</Filter>
+    </ClInclude>
+    <ClInclude Include="interfazMatricula.h">
+      <Filter>Header Files\Matricula</Filter>
+    </ClInclude>
+    <ClInclude Include="nodo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="contenedorEstudiantes.h">
+    <ClInclude Include="lista.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="nodoEstudiantes.h">
+    <ClInclude Include="vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="universidad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="control.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="escuela.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="interfaz.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="contenedorEscuelas.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="nodoEscuelas.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="curso.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="nodoCursos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="contenedorCursos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="persona.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="profesor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="estudiante.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
-    <ClCompile Include="nodoProfesores.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="estudianteExtranjero.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
-    <ClCompile Include="contenedorProfesores.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="estudianteNacional.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
-    <ClCompile Include="aranceles.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="grupoEstudiantes.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
     <ClCompile Include="contenedorEstudiantes.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
+    </ClCompile>
+    <ClCompile Include="contenedorCursos.cpp">
+      <Filter>Source Files\Cursos</Filter>
+    </ClCompile>
+    <ClCompile Include="curso.cpp">
+      <Filter>Source Files\Cursos</Filter>
+    </ClCompile>
+    <ClCompile Include="nodoCursos.cpp">
+      <Filter>Source Files\Cursos</Filter>
+    </ClCompile>
+    <ClCompile Include="nodoProfesores.cpp">
+      <Filter>Source Files\Profesores</Filter>
+    </ClCompile>
+    <ClCompile Include="profesor.cpp">
+      <Filter>Source Files\Profesores</Filter>
+    </ClCompile>
+    <ClCompile Include="grupoProfesores.cpp">
+      <Filter>Source Files\Profesores</Filter>
+    </ClCompile>
+    <ClCompile Include="contenedorProfesores.cpp">
+      <Filter>Source Files\Profesores</Filter>
+    </ClCompile>
+    <ClCompile Include="nodoEscuelas.cpp">
+      <Filter>Source Files\Escuelas</Filter>
+    </ClCompile>
+    <ClCompile Include="escuela.cpp">
+      <Filter>Source Files\Escuelas</Filter>
+    </ClCompile>
+    <ClCompile Include="contenedorEscuelas.cpp">
+      <Filter>Source Files\Escuelas</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazPrincipal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="nodoEstudiantes.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="interfazEscuelas.cpp">
+      <Filter>Source Files\Escuelas</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazProfesores.cpp">
+      <Filter>Source Files\Profesores</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazCursos.cpp">
+      <Filter>Source Files\Cursos</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazEstudiantes.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazMatricula.cpp">
+      <Filter>Source Files\Matricula</Filter>
+    </ClCompile>
+    <ClCompile Include="aranceles.cpp">
+      <Filter>Source Files\Matricula</Filter>
+    </ClCompile>
+    <ClCompile Include="interfazUniversidad.cpp">
+      <Filter>Source Files\Universidad</Filter>
+    </ClCompile>
+    <ClCompile Include="universidad.cpp">
+      <Filter>Source Files\Universidad</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

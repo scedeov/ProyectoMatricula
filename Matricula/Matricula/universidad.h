@@ -1,31 +1,33 @@
 #ifndef UNIVERSIDAD
 #define UNIVERSIDAD
 
-#include <iostream>
-#include <sstream>
-#include "contenedorEscuelas.h"
-using namespace std;
+#include <string>
+class Contenedor_Escuelas;
+class Contenedor_Estudiantes;
+
 
 class Universidad
 {
 private:
 	Contenedor_Escuelas* ContE;
-	string nombre;
-	string numeroTelefono;
-	string direccion;
-	friend ostream& operator << (ostream&, Universidad&);
+	Contenedor_Estudiantes* ContEst;
+	std::string nombre;
+	std::string numeroTelefono;
+	std::string direccion;
+	friend std::ostream& operator << (std::ostream&, Universidad&);
 public:
 	Universidad();
-	Universidad(string, string, string);
+	Universidad(std::string, std::string, std::string);
 	~Universidad();
-	void setTelefono(string);
-	void setDireccion(string);
-	void setNombre(string);
-	string getNombre();
-	string getNumero();
-	string getDireccion();
-	string toString();
+	void setTelefono(std::string);
+	void setDireccion(std::string);
+	void setNombre(std::string);
+	std::string getNombre();
+	std::string getNumero();
+	std::string getDireccion();
+	std::string toString();
 	Contenedor_Escuelas* getContenedorEscuelas();
+	Contenedor_Estudiantes* getContenedorEstudiantes();
 };
 #endif // !UNIVERSIDAD
 

@@ -1,13 +1,14 @@
 #include "profesor.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
-int Profesor::getNumCedula()
+Profesor::Profesor()
 {
-	return Persona::getNumCedula();
-}
-
-string Profesor::getNombreCompleto()
-{
-	return Persona::getNombreCompleto();
+	for (int i = 0; i < MAXCURSOS; i++)
+		cursosImpartidos[i] = "Undefined";
+	cantidadCursos = 0;
+	esDirector = false;
 }
 
 Profesor::Profesor(string nombre, string primerApellido, string segundoApellido, int numCedula) {
@@ -15,7 +16,7 @@ Profesor::Profesor(string nombre, string primerApellido, string segundoApellido,
 	setPrimerApellido(primerApellido);
 	setSegundoApellido(segundoApellido);
 	setNumCedula(numCedula);
-	
+
 	esDirector = false;
 
 	for (int i = 0; i < MAXCURSOS; i++)
@@ -30,6 +31,26 @@ void Profesor::setCursosImpartidos(string cursoNuevo) {
 	}
 }
 
+void Profesor::setEscuela(string escuela)
+{
+	this->escuela = ((char)toupper(escuela[0])) + escuela.substr(1, escuela.length() - 1);
+}
+
+string Profesor::getEscuela()
+{
+	return escuela;
+}
+
+int Profesor::getCantidadCursos()
+{
+	return cantidadCursos;
+}
+
+int Profesor::getMaxCursos()
+{
+	return MAXCURSOS;
+}
+
 string Profesor::getCursosImpartidos() {
 	stringstream s;
 	for (int i = 0; i < cantidadCursos; i++)
@@ -37,20 +58,22 @@ string Profesor::getCursosImpartidos() {
 	return s.str();
 }
 
+bool Profesor::eliminarCursoImpartido(string codigo)
+{
+	for (int i = 0; i < cantidadCursos; i++) 
+		if (cursosImpartidos[i] == codigo) {
+			for (int x = i; x < cantidadCursos; x++)
+				cursosImpartidos[x] = cursosImpartidos[i + 1];
+			cantidadCursos--;
+			return true;
+		}
+	return false;
+}
+
 bool Profesor::getEsDirector()
 {
 	return esDirector;
 }
-
-//void Profesor::generaCodigoProfesor() {
-//	string primera, segunda, tercera;
-//	primera = getNombre()[0];
-//	segunda = getPrimerApellido()[0];
-//	tercera = getSegundoApellido()[0];
-//	codigoProfesor = primera + segunda + tercera;
-//	codigoProfesor = codigoProfesor + to_string(cantidadCursos);
-//}
-
 
 string Profesor::toString()
 {

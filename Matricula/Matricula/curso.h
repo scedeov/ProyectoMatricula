@@ -1,35 +1,37 @@
 #ifndef CURSO
 #define CURSO
 
-#include <iostream>
-#include <sstream>
 
-const int MAXPROF = 10;
-using namespace std;
+#include "vector.h"
+#include <string>
 
-class Curso
-{
+class GrupoEstudiantes;
+class GrupoProfesores;
+
+const int MAXGRUPOSESTUDIANTES = 5;
+
+class Curso {
 private:
-	string nombreCurso;
-	string codigoCurso;
+	Vector<GrupoEstudiantes> *grupoEstu;
+	GrupoProfesores* grupoProfes;
+	std::string nombreCurso;
+	std::string codigoCurso;
 	static int variableCodigoCursos;
 	int cantidadCreditos;
-	int cantidadProfesores;
-	int profesores[MAXPROF];
 public:
 	Curso();
-	Curso(string, string);
-	void setNombre(string);
-	void setCodigoCurso(string);
+	Curso(std::string, std::string);
+	void setNombre(std::string);
+	void setCodigoCurso(std::string);
 	void setCantidadCreditos(int);
-	void setProfesores(int);
-	int getProfesores(int);
-	string getNombre();
-	string getCodigoCurso();
+	GrupoEstudiantes* getGrupoEstudiantes(int);
+	GrupoProfesores* getGrupoProfesores();
+	std::string getNombre();
+	std::string getCodigoCurso();
 	int getCantidadCreditos();
-	int getCantidadProfesores();
-	string toString();
-	friend ostream& operator << (ostream&, Curso&);
+	std::string imprimeEstudiantesMatriculados();
+	std::string toString();
+	friend std::ostream& operator << (std::ostream&, Curso&);
 	bool operator == (const Curso&) const;
 	~Curso();
 };
