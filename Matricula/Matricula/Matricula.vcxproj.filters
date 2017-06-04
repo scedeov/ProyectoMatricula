@@ -99,9 +99,6 @@
     <ClInclude Include="nodoEscuelas.h">
       <Filter>Header Files\Escuelas</Filter>
     </ClInclude>
-    <ClInclude Include="contenedorEscuelas.h">
-      <Filter>Header Files\Escuelas</Filter>
-    </ClInclude>
     <ClInclude Include="interfazPrincipal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -137,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="vector.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controladorEscuelas.h">
+      <Filter>Header Files\Escuelas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -191,9 +191,6 @@
     <ClCompile Include="escuela.cpp">
       <Filter>Source Files\Escuelas</Filter>
     </ClCompile>
-    <ClCompile Include="contenedorEscuelas.cpp">
-      <Filter>Source Files\Escuelas</Filter>
-    </ClCompile>
     <ClCompile Include="interfazPrincipal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -220,6 +217,9 @@
     </ClCompile>
     <ClCompile Include="universidad.cpp">
       <Filter>Source Files\Universidad</Filter>
+    </ClCompile>
+    <ClCompile Include="controladorEscuelas.cpp">
+      <Filter>Source Files\Escuelas</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

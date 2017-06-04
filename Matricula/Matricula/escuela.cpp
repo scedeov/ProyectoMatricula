@@ -68,15 +68,19 @@ Contenedor_Profesores * Escuela::getContenedorProfesores() {
 	return ContP;
 }
 
-string Escuela::toStringEscuela(char op)
-{
+string Escuela::toStringEscuela() {
 	stringstream s;
 	s << "Nombre de la Escuela: " << nombreEscuela;
 	s << "| Sigla: " << siglaEscuela << endl;
-
-	if (op == '2') {
-		s << "Cursos Impartidos: " << endl;
-		s << *ConC << endl;
-	}
 	return s.str();
+}
+
+std::string Escuela::toStringConCursos() {
+	stringstream s;
+	s << "Nombre de la Escuela: " << nombreEscuela;
+	s << "| Sigla: " << siglaEscuela << endl;
+	s << "Cursos Impartidos: " << endl;
+	s << *ConC << endl;
+}
+
 }

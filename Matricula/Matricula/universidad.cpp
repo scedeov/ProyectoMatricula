@@ -10,7 +10,7 @@ Universidad::Universidad()
 	numeroTelefono = "Undefined";
 	direccion = "Undefined";
 
-	ContE = new Contenedor_Escuelas();
+	ContE = new ControladorEscuelas();
 	ContEst = new Contenedor_Estudiantes();
 }
 
@@ -20,7 +20,7 @@ Universidad::Universidad(std::string unNombre, std::string xNumero, std::string 
 	numeroTelefono = xNumero;
 	direccion = unDireccion;
 
-	ContE = new Contenedor_Escuelas();
+	ContE = new ControladorEscuelas();
 	ContEst = new Contenedor_Estudiantes();
 }
 
@@ -71,7 +71,7 @@ std::string Universidad::toString()
 	return s.str();
 }
 
-Contenedor_Escuelas* Universidad::getContenedorEscuelas() {
+ControladorEscuelas* Universidad::getContenedorEscuelas() {
 	return ContE;
 }
 

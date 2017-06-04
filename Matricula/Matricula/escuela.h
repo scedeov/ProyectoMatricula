@@ -23,7 +23,8 @@ public:
 	std::string generaSigla(std::string);
 	Contenedor_Cursos* getContenedorCursos();
 	Contenedor_Profesores* getContenedorProfesores();
-	std::string toStringEscuela(char);
+	std::string toStringEscuela();
+	std::string toStringConCursos();
 };
 #endif // !ESCUELA
 

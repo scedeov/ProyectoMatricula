@@ -113,7 +113,7 @@
   <ItemGroup>
     <ClInclude Include="aranceles.h" />
     <ClInclude Include="contenedorCursos.h" />
-    <ClInclude Include="contenedorEscuelas.h" />
+    <ClInclude Include="controladorEscuelas.h" />
     <ClInclude Include="contenedorEstudiantes.h" />
     <ClInclude Include="contenedorProfesores.h" />
     <ClInclude Include="control.h" />
@@ -144,7 +144,7 @@
   <ItemGroup>
     <ClCompile Include="aranceles.cpp" />
     <ClCompile Include="contenedorCursos.cpp" />
-    <ClCompile Include="contenedorEscuelas.cpp" />
+    <ClCompile Include="controladorEscuelas.cpp" />
     <ClCompile Include="contenedorEstudiantes.cpp" />
     <ClCompile Include="contenedorProfesores.cpp" />
     <ClCompile Include="control.cpp" />

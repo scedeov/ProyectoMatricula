@@ -2,15 +2,16 @@
 #define UNIVERSIDAD
 
 #include <string>
-class Contenedor_Escuelas;
-class Contenedor_Estudiantes;
-
+//class ControladorEscuelas;
+//class Contenedor_Estudiantes;
+//
+#include "lista.h"
 
 class Universidad
 {
 private:
-	Contenedor_Escuelas* ContE;
-	Contenedor_Estudiantes* ContEst;
+	Lista<Escuela> *ContE;
+	Lista<Estudiante> *ContEst;
 	std::string nombre;
 	std::string numeroTelefono;
 	std::string direccion;
@@ -26,7 +27,7 @@ public:
 	std::string getNumero();
 	std::string getDireccion();
 	std::string toString();
-	Contenedor_Escuelas* getContenedorEscuelas();
+	ControladorEscuelas* getContenedorEscuelas();
 	Contenedor_Estudiantes* getContenedorEstudiantes();
 };
 #endif // !UNIVERSIDAD
