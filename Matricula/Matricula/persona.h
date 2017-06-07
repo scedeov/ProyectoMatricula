@@ -9,7 +9,7 @@
 using namespace std;
 
 class Persona: public objetoBase {
-private:
+protected:
 	std::string nombre;
 	std::string primerApellido;
 	std::string segundoApellido;

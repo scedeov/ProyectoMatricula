@@ -6,7 +6,7 @@ Persona::Persona() {
 	primerApellido = "";
 	segundoApellido = "";
 	id = "";
-	nombreCompleto = getNombreCompleto();
+	nombreCompleto = "";
 	cedula = "";
 }
 
