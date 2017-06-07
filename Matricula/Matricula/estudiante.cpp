@@ -1,16 +1,8 @@
 #include "estudiante.h"
 
-Estudiante::Estudiante()
-{
+Estudiante::Estudiante() : Persona() {
 	porcentajeBeca = 0;
 	carnet = "";
-}
-
-Estudiante::Estudiante(int porcentajeBeca, string carnet) :
-	Persona() {
-	this->porcentajeBeca = porcentajeBeca;
-	this->carnet = carnet;
-	generaCarnet();
 }
 
 string Estudiante::getCarnet()

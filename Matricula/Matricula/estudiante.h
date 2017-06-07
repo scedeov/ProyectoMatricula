@@ -15,7 +15,6 @@ private:
 	int porcentajeBeca;
 public:
 	Estudiante();
-	Estudiante(int, string);
 	virtual std::string getCarnet();
 	virtual void setPorcentajeBeca(int);
 	virtual int getPorcentajeBeca();

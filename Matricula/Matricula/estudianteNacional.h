@@ -2,9 +2,6 @@
 #define ESTUDIANTE_NACIONAL
 
 #include "estudiante.h"
-#include <string>
-#include <iostream>
-using namespace std;
 
 class Estudiante_Nacional : public Estudiante {
 private:

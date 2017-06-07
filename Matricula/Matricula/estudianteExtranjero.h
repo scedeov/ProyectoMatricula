@@ -5,8 +5,9 @@
 
 class Estudiante_Extranjero: public Estudiante {
 private:
+	Estudiante* estudiante;
 public:
-	Estudiante_Extranjero(std::string, std::string, std::string, int);
+	Estudiante_Extranjero(Estudiante*);
 	~Estudiante_Extranjero();
 };
 #endif // !ESTUDIANTE_EXTRANJERO
