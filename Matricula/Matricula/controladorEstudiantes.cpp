@@ -20,7 +20,14 @@ void ControladorEstudiantes::insertaInicio(Estudiante *unEstudiante)
 
 Estudiante * ControladorEstudiantes::retornaEstudiante(string cedula)
 {
-	listaEstudiantes->encontrarPorId(cedula);
+	Nodo<Estudiante> *paux = listaEstudiantes->begin();
+	while (paux != NULL) {
+		if (paux->getDato()->getID() == cedula)
+			return paux->getDato();
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
 }
 
 string ControladorEstudiantes::toString()

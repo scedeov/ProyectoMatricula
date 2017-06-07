@@ -20,7 +20,6 @@ public:
 	virtual TipoDato* back();
 	virtual Nodo<TipoDato>* end();
 	virtual TipoDato* at(int);
-	virtual TipoDato* encontrarPorId(std::string);
 	virtual void push_front(TipoDato*);
 	virtual void push_back(TipoDato*);
 	virtual TipoDato* pop_front();

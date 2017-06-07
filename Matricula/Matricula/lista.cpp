@@ -82,19 +82,6 @@ inline TipoDato * Lista<TipoDato>::at(int index)
 }
 
 template<class TipoDato>
-inline TipoDato * Lista<TipoDato>::encontrarPorId(std::string id)
-{
-	paux = pinicio;
-	while (paux != NULL) {
-		if (paux->getDato()->getID() == id)
-			return paux->getDato();
-		else
-			paux = paux->getNext();
-	}
-	return nullptr;
-}
-
-template<class TipoDato>
 inline void Lista<TipoDato>::push_front(TipoDato *unDato) {
 	TipoDato* dato = new TipoDato(*unDato);
 	pinicio = new Nodo<TipoDato>(*dato, pinicio);
