@@ -12,6 +12,7 @@ public:
 	Vector(int);
 	~Vector();
 	T* getDato(int);
+	void eliminarPosicion(int);
 	int getCantidad();
 	int getCapacidad();
 	void setCapacidad(int);

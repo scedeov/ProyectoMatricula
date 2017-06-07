@@ -30,10 +30,10 @@ void Grupo::agregarEstudiante(Estudiante *E)
 
 bool Grupo::eliminarEstudiante(string cedula)
 {
-	if (listaEstudiantes.size() < listaEstudiantes.capacity())
-		for (int i = 0; i < listaEstudiantes.size(); i++)
+	if (listaEstudiantes->getCantidad() < listaEstudiantes->getCapacidad())
+		for (int i = 0; i < listaEstudiantes->getCantidad(); i++)
 			if (listaEstudiantes->getDato(i)->getID() == cedula) {
-				listaEstudiantes.erase(listaEstudiantes->begin() + (i - 1));
+				listaEstudiantes->eliminarPosicion(i);
 				return true;
 			}
 	return false;

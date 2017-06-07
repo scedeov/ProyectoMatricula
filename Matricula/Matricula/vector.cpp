@@ -26,6 +26,14 @@ inline T * Vector<T>::getDato(int pos)
 }
 
 template<class T>
+void Vector<T>::eliminarPosicion(int)
+{
+	for (int i = pos; i < cantidad - 1; i++)
+		vector[i] = vector[i + 1];
+	cantidad--;
+}
+
+template<class T>
 inline int Vector<T>::getCantidad()
 {
 	return cantidad;
