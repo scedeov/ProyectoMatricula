@@ -15,7 +15,7 @@ private:
 public:
 	ControladorProfesores();
 	void insertaInicio(Profesor*);
-	Profesor* retornaProfesor(int);
+	Profesor* retornaProfesor(string);
 	int contadorProfesores();
 	std::string toString();
 	friend std::ostream& operator << (std::ostream&, ControladorProfesores&);

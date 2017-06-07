@@ -13,7 +13,7 @@ void ControladorProfesores::insertaInicio(Profesor *P) {
 Profesor * ControladorProfesores::retornaProfesor(string cedula) {
 	Nodo<Profesor> *paux = listaProfesores->begin();
 	while (paux != NULL) {
-		if (paux->getDato()->getNumCedula() == cedula)
+		if (paux->getDato()->getID() == cedula)
 			return paux->getDato();
 		else
 			paux = paux->getNext();

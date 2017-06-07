@@ -6,7 +6,7 @@ double Aranceles::cobroMatricula(Curso *C, Estudiante *E)
 	double reduccionBeca = 0;
 	resultado =  C->getCantidadCreditos() * costoCredito;
 	resultado = resultado + cargosAdministrativos;
-	if (E->getEsExtranjero())
+	if (dynamic_cast<Estudiante_Extranjero*>(E))
 		resultado = resultado + (resultado * recargoExtranjeros);
 	else {
 		reduccionBeca = (double) E->getPorcentajeBeca() / 100;

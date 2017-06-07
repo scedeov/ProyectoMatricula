@@ -2,7 +2,7 @@
 #define ARANCELES
 
 #include "curso.h"
-#include "estudiante.h"
+#include "estudianteExtranjero.h"
 
 const int costoCredito = 10000;
 const int cargosAdministrativos = 15000;

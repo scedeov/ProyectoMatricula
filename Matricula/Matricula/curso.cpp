@@ -6,10 +6,6 @@ Curso::Curso()
 	nombreCurso = "Undefined";
 	
 	grupo = new Vector<Grupo>(MAXGRUPOSESTUDIANTES);
-	for (int i = 0; i < MAXGRUPOSESTUDIANTES; i++)
-		grupo->push(new Grupo());
-
-	grupoProfes = new GrupoProfesores();
 }
 
 Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso se crea, se debe agregar ya la sigla de la Escuela.
@@ -19,17 +15,12 @@ Curso::Curso(string unNombre, string siglaEscuela) // en el momento que el curso
 	variableCodigoCursos++;
 
 	grupo = new Vector<Grupo>(MAXGRUPOSESTUDIANTES);
-	for (int i = 0; i < grupo->getCapacidad(); i++)
-		grupo->push(new Grupo());
-
-	grupoProfes = new GrupoProfesores();
 }
 
 Curso::~Curso()
 {
 	cout << "Eliminando curso..." << endl;
 	delete grupo;
-	delete grupoProfes;
 }
 
 void Curso::setNombre(string unNombre)
@@ -56,9 +47,6 @@ Grupo* Curso::getGrupoEstudiantes(int pos)
 		return it.getCurItem();
 }
 
-GrupoProfesores* Curso::getGrupoProfesores() {
-	return grupoProfes;
-}
 
 string Curso::getNombre()
 {

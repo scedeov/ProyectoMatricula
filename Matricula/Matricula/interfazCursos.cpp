@@ -199,7 +199,7 @@ void Interfaz_Cursos::vListaCursosEscuelaParticular(Universidad *U) {
 				cout << "Profesores:" << endl;
 				for (int x = 0; x < EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getCantidadProfesores(); x++) {
 					int cedulaProfe = EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getProfesor(x)->getNumCedula();
-					cout << U->getControladorEscuelas()->retornaProfesor(cedulaProfe)->getNombreCompleto() << endl;
+					cout << EE->getContenedorProfesores()->getNombreCompleto() << endl;
 				}
 			}
 	}
