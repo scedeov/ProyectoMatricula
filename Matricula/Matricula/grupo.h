@@ -22,7 +22,7 @@ public:
 	void setProfesorEncargado(Profesor*);
 	Profesor* getProfesorEncargado();
 	void agregarEstudiante(Estudiante*);
-	bool eliminarEstudiante(int);
+	bool eliminarEstudiante(string);
 	std::string toString();
 	~Grupo();
 };

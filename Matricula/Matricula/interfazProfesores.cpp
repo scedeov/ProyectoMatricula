@@ -60,25 +60,24 @@ void Interfaz_Profesores::vAgregarProfesor(Universidad* U) {
 	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el nombre del profesor: "; string nombre; getline(cin, nombre); cout << endl;
 	cout << "Ingrese el numero de cedula: "; string cedula; cin >> cedula; cin.ignore(); cout << endl;
-	Persona *P = new Profesor();
+	Profesor *P = new Profesor();
 	P->setPrimerApellido(primerApellido);
 	P->setSegundoApellido(segundoApellido);
 	P->setNombre(nombre);
 	P->setID(cedula);
-	cout << U->getControladorEscuelas()->toStringEscuelas() << endl;
-	cout << "Ingrese la materia de la escuela a la cual desea asignar al nuevo profesor: "; string materia, sigla; cin >> materia; cin.ignore();
+	/*cout << U->getControladorEscuelas()->toStringEscuelas() << endl;*/
+	//cout << "Ingrese la materia de la escuela a la cual desea asignar al nuevo profesor: "; string materia, sigla; cin >> materia; cin.ignore();
 
+	//sigla = Interfaz_Principal::convierteMayuscula(materia).substr(0, 3);
+	//while (!U->getControladorEscuelas()->retornaEscuela(sigla)) {
+	//	cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
+	//	cout << "-> ";
+	//	cin >> sigla; cin.ignore();
+	//	sigla = Interfaz_Principal::convierteMayuscula(sigla);
+	//}
+	//P->setEscuela(materia);
 
-	sigla = Interfaz_Principal::convierteMayuscula(materia).substr(0, 3);
-
-	while (!U->getControladorEscuelas()->retornaEscuela(sigla)) {
-		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
-		cout << "-> ";
-		cin >> sigla; cin.ignore();
-		sigla = Interfaz_Principal::convierteMayuscula(sigla);
-	}
-	P->setEscuela(materia);
-	U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->insertaInicio(P);
+	//U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->insertaInicio(P);
 	Interfaz_Principal::msjPerfecto();
 }
 

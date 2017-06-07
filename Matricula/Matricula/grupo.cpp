@@ -28,15 +28,15 @@ void Grupo::agregarEstudiante(Estudiante *E)
 	listaEstudiantes->push(E);
 }
 
-bool Grupo::eliminarEstudiante(int cedula)
+bool Grupo::eliminarEstudiante(string cedula)
 {
-	/*if (listaEstudiantes.size() < listaEstudiantes.capacity())
+	if (listaEstudiantes.size() < listaEstudiantes.capacity())
 		for (int i = 0; i < listaEstudiantes.size(); i++)
-			if (listaEstudiantes[i]->getNumCedula() == cedula) {
-				listaEstudiantes.erase(listaEstudiantes.begin() + (i - 1));
+			if (listaEstudiantes->getDato(i)->getID() == cedula) {
+				listaEstudiantes.erase(listaEstudiantes->begin() + (i - 1));
 				return true;
 			}
-	return false;*/
+	return false;
 }
 
 string Grupo::toString() {
