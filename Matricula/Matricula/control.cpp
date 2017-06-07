@@ -1,11 +1,5 @@
 #include "control.h"
-#include "interfazPrincipal.h"
-#include "interfazCursos.h"
-#include "interfazEscuelas.h"
-#include "interfazEstudiantes.h"
-#include "interfazProfesores.h"
-#include "interfazUniversidad.h"
-#include "interfazMatricula.h"
+
 
 
 int Curso::variableCodigoCursos = 0; // variable que controla el codigo del curso

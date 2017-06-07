@@ -2,7 +2,11 @@
 #define ESTUDIANTE
 
 #include "persona.h"
-#include <vector>
+//#include "vector.h"
+//#include "curso.h"
+#include <time.h>
+#include <sstream>
+#include <iostream>
 
 class Curso;
 
@@ -10,18 +14,17 @@ class Estudiante: public Persona {
 private:
 	std::string carnet;
 	int porcentajeBeca;
-	bool esExtranjero;
-	std::vector<Curso*> listaCursos;
+	////bool esExtranjero;
+	//Vector<Curso> *listaCursos;
 public:
-	Estudiante();
-	Estudiante(std::string, std::string, std::string, int, int);
+	Estudiante(int);
 	virtual std::string getCarnet();
-	virtual void agregaCurso(Curso*);
-	virtual std::string imprimeCursos();
-	virtual int getCantidadCursosMatriculados();
-	virtual Curso* getCursoMatriculado(int pos);
-	virtual void setEsExtranjero(bool);
-	virtual bool getEsExtranjero();
+	//virtual void agregaCurso(Curso*);
+	//virtual std::string imprimeCursos();
+	//virtual int getCantidadCursosMatriculados();
+	//virtual Curso* getCursoMatriculado(int pos);
+	//virtual void setEsExtranjero(bool);
+	//virtual bool getEsExtranjero();
 	virtual void setPorcentajeBeca(int);
 	virtual int getPorcentajeBeca();
 	virtual void generaCarnet();

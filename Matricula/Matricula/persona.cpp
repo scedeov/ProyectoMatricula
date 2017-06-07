@@ -1,13 +1,13 @@
 #include "persona.h"
-#include <sstream>
-#include <iostream>
 
-using namespace std;
 
 Persona::Persona() {
 	nombre = "";
 	primerApellido = "";
-	numCedula = 0;
+	segundoApellido = "";
+	id = "";
+	nombreCompleto = getNombreCompleto();
+	cedula = "";
 }
 
 Persona::~Persona()
@@ -49,14 +49,12 @@ string Persona::getSegundoApellido() {
 	return segundoApellido;
 }
 
-void Persona::setNumCedula(int numCedula)
-{
-	this->numCedula = numCedula;
+void Persona::setNumCedula(string id) {
+	this->id = id;
 }
 
-int Persona::getNumCedula()
-{
-	return numCedula;
+string Persona::getNumCedula() {
+	return id;
 }
 
 string Persona::toString()

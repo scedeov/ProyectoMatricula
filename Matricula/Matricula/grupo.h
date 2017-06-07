@@ -1,25 +1,29 @@
 #ifndef GRUPOESTUDIANTES
 #define GRUPOESTUDIANTES
 
-class Profesor;
-class Estudiante;
-#include <vector>
 
-const int MAXESTU = 5;
+#include <iostream>
+#include <sstream>
+//class Profesor;
+//class Estudiante;
+#include "vector.h"
+#include "estudiante.h"
+#include "profesor.h"
 
-class GrupoEstudiantes {
+const int CUPOMAXIMO = 30;
+
+class Grupo {
 private:
 	Profesor* profesorEncargado;
-	std::vector<Estudiante*> listaEstudiantes;
-	int cantidadEstudiantes;
+	Vector<Estudiante> *listaEstudiantes;
 public:
-	GrupoEstudiantes();
+	Grupo();
 	int getCantidad();
 	void setProfesorEncargado(Profesor*);
 	Profesor* getProfesorEncargado();
 	void agregarEstudiante(Estudiante*);
 	bool eliminarEstudiante(int);
 	std::string toString();
-	~GrupoEstudiantes();
+	~Grupo();
 };
 #endif // !GRUPO

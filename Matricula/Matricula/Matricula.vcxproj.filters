@@ -57,9 +57,6 @@
     <ClInclude Include="persona.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="contenedorEstudiantes.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
     <ClInclude Include="estudiante.h">
       <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
@@ -69,23 +66,8 @@
     <ClInclude Include="estudianteNacional.h">
       <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
-    <ClInclude Include="grupoEstudiantes.h">
-      <Filter>Header Files\Estudiantes</Filter>
-    </ClInclude>
-    <ClInclude Include="contenedorProfesores.h">
-      <Filter>Header Files\Profesores</Filter>
-    </ClInclude>
     <ClInclude Include="profesor.h">
       <Filter>Header Files\Profesores</Filter>
-    </ClInclude>
-    <ClInclude Include="grupoProfesores.h">
-      <Filter>Header Files\Profesores</Filter>
-    </ClInclude>
-    <ClInclude Include="nodoProfesores.h">
-      <Filter>Header Files\Profesores</Filter>
-    </ClInclude>
-    <ClInclude Include="contenedorCursos.h">
-      <Filter>Header Files\Cursos</Filter>
     </ClInclude>
     <ClInclude Include="curso.h">
       <Filter>Header Files\Cursos</Filter>
@@ -138,6 +120,21 @@
     <ClInclude Include="controladorEscuelas.h">
       <Filter>Header Files\Escuelas</Filter>
     </ClInclude>
+    <ClInclude Include="controladorEstudiantes.h">
+      <Filter>Header Files\Estudiantes</Filter>
+    </ClInclude>
+    <ClInclude Include="controladorCursos.h">
+      <Filter>Header Files\Cursos</Filter>
+    </ClInclude>
+    <ClInclude Include="controladorProfesores.h">
+      <Filter>Header Files\Profesores</Filter>
+    </ClInclude>
+    <ClInclude Include="objetoBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grupo.h">
+      <Filter>Header Files\Estudiantes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -158,19 +155,7 @@
     <ClCompile Include="estudianteNacional.cpp">
       <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
-    <ClCompile Include="grupoEstudiantes.cpp">
-      <Filter>Source Files\Estudiantes</Filter>
-    </ClCompile>
-    <ClCompile Include="contenedorEstudiantes.cpp">
-      <Filter>Source Files\Estudiantes</Filter>
-    </ClCompile>
-    <ClCompile Include="contenedorCursos.cpp">
-      <Filter>Source Files\Cursos</Filter>
-    </ClCompile>
     <ClCompile Include="curso.cpp">
-      <Filter>Source Files\Cursos</Filter>
-    </ClCompile>
-    <ClCompile Include="nodoCursos.cpp">
       <Filter>Source Files\Cursos</Filter>
     </ClCompile>
     <ClCompile Include="nodoProfesores.cpp">
@@ -178,15 +163,6 @@
     </ClCompile>
     <ClCompile Include="profesor.cpp">
       <Filter>Source Files\Profesores</Filter>
-    </ClCompile>
-    <ClCompile Include="grupoProfesores.cpp">
-      <Filter>Source Files\Profesores</Filter>
-    </ClCompile>
-    <ClCompile Include="contenedorProfesores.cpp">
-      <Filter>Source Files\Profesores</Filter>
-    </ClCompile>
-    <ClCompile Include="nodoEscuelas.cpp">
-      <Filter>Source Files\Escuelas</Filter>
     </ClCompile>
     <ClCompile Include="escuela.cpp">
       <Filter>Source Files\Escuelas</Filter>
@@ -220,6 +196,27 @@
     </ClCompile>
     <ClCompile Include="controladorEscuelas.cpp">
       <Filter>Source Files\Escuelas</Filter>
+    </ClCompile>
+    <ClCompile Include="controladorEstudiantes.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
+    </ClCompile>
+    <ClCompile Include="controladorCursos.cpp">
+      <Filter>Source Files\Cursos</Filter>
+    </ClCompile>
+    <ClCompile Include="controladorProfesores.cpp">
+      <Filter>Source Files\Profesores</Filter>
+    </ClCompile>
+    <ClCompile Include="objetoBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grupo.cpp">
+      <Filter>Source Files\Estudiantes</Filter>
+    </ClCompile>
+    <ClCompile Include="lista.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

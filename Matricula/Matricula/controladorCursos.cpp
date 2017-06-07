@@ -1,31 +1,27 @@
-#include "contenedorCursos.h"
-#include "grupoProfesores.h"
-#include <sstream>
-#include <iostream>
-using namespace std;
+#include "controladorCursos.h"
 
-Contenedor_Cursos::Contenedor_Cursos()
+
+ControladorCursos::ControladorCursos()
 {
 	listaCursos = new Lista<Curso>();
 }
 
-int Contenedor_Cursos::getCantidad()
+int ControladorCursos::getCantidad()
 {	
 	return listaCursos->size();
 }
 
-Curso* Contenedor_Cursos::getCursoporPos(int pos)
+Curso* ControladorCursos::getCursoporPos(int pos)
 {
 	return listaCursos->at(pos);
 }
 
-void Contenedor_Cursos::insertaInicio(Curso *unCurso)
+void ControladorCursos::insertaInicio(Curso *unCurso) 
 {
 	listaCursos->push_front(unCurso);
 }
 
-bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
-{
+bool ControladorCursos::eliminaCursoEspecifico(string codigo) {
 	if (listaCursos->empty())
 		return false;
 
@@ -50,28 +46,11 @@ bool Contenedor_Cursos::eliminaCursoEspecifico(string codigo)
 	return false;
 }
 
-Curso* Contenedor_Cursos::retornaCursoEspecifico(string codigo)
-{
-	Nodo<Curso> *paux = listaCursos->begin();
-	while (paux != NULL)
-	{
-		if (encuentraCurso(paux->getDato(), codigo) == true)
-			return paux->getDato();
-		else
-			paux = paux->getNext();
-	}
-	return nullptr;
+Curso* ControladorCursos::retornaCursoEspecifico(string codigo) {
+	listaCursos->encontrarPorId(codigo);
 }
 
-bool Contenedor_Cursos::encuentraCurso(Curso* C, string codigo)
-{
-	if (C->getCodigoCurso() == codigo)
-		return true;
-	else
-		return false;
-}
-
-string Contenedor_Cursos::toString()
+string ControladorCursos::toString()
 {
 	stringstream s;
 	if (listaCursos->empty())
@@ -86,16 +65,16 @@ string Contenedor_Cursos::toString()
 	return s.str();
 }
 
-int Contenedor_Cursos::getProfesores(string codigo, int pos) {
+int ControladorCursos::getProfesores(string codigo, int pos) {
 	return retornaCursoEspecifico(codigo)->getGrupoProfesores()->getProfesor(pos)->getNumCedula();
 }
 
-Contenedor_Cursos::~Contenedor_Cursos()
+ControladorCursos::~ControladorCursos()
 {
 	cout << "Eliminando Contenedor de Cursos" << endl;
 	listaCursos->wipe();
 }
 
-ostream & operator<<(ostream &o, Contenedor_Cursos &ConC) {
+ostream & operator<<(ostream &o, ControladorCursos &ConC) {
 	return o << ConC.toString();
 }

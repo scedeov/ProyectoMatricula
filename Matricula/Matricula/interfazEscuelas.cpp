@@ -1,11 +1,4 @@
 #include "interfazEscuelas.h"
-#include "interfazPrincipal.h"
-#include "escuela.h"
-#include "contenedorEscuelas.h"
-#include <iostream>
-#include <conio.h>
-#include <Windows.h>
-using namespace std;
 
 char Interfaz_Escuelas::vMenuEscuelas()
 {
@@ -69,7 +62,7 @@ void Interfaz_Escuelas::vIngresaEscuela(Universidad* U)
 
 	Escuela* escu = new Escuela(nombre);
 
-	U->getContenedorEscuelas()->insertarInicio(escu);
+	U->getControladorEscuelas()->insertarInicio(escu);
 	Interfaz_Principal::msjPerfecto();
 	system("cls");
 }
@@ -81,7 +74,7 @@ void Interfaz_Escuelas::vInfoEscuelas(Universidad* U, char op)
 	else
 	{
 		cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
-		cout << U->getContenedorEscuelas()->toString(op) << endl;
+		cout << U->getControladorEscuelas()->toString(op) << endl;
 	}
 	Interfaz_Principal::msjPausa();
 	system("cls");

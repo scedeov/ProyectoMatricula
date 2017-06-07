@@ -1,25 +1,16 @@
 #include "estudiante.h"
-#include "curso.h"
-#include <time.h>
-#include <sstream>
-#include <iostream>
 using namespace std;
 
-Estudiante::Estudiante()
-{
-	carnet = "Undefined";
-	porcentajeBeca = 0;
-	esExtranjero = false;
-	generaCarnet();
-}
+//Estudiante::Estudiante()
+//{
+//	carnet = "Undefined";
+//	porcentajeBeca = 0;
+//	/*esExtranjero = false;*/
+//	generaCarnet();
+//}
 
-Estudiante::Estudiante(string nombre, string pApellido, string sApellido, int cedula, int porcentaje)
+Estudiante::Estudiante(int porcentaje = 0): Persona(), porcentajeBeca(porcentaje)
 {
-	setNombre(nombre);
-	setPrimerApellido(pApellido);
-	setSegundoApellido(sApellido);
-	setNumCedula(cedula);
-	generaCarnet();
 	porcentajeBeca = porcentaje;
 }
 
@@ -28,38 +19,38 @@ string Estudiante::getCarnet()
 	return carnet;
 }
 
-void Estudiante::agregaCurso(Curso* curso)
-{
-	listaCursos.push_back(curso);
-}
+//void Estudiante::agregaCurso(Curso* curso)
+//{
+//	listaCursos->push(curso);
+//}
 
-string Estudiante::imprimeCursos() {
-	stringstream s;
-	for (size_t i = 0; i < listaCursos.capacity(); i++)
-		s << listaCursos[i]->getCodigoCurso() << " - ";
-	s << endl;
-	return s.str();
-}
+//string Estudiante::imprimeCursos() {
+//	stringstream s;
+//	for (size_t i = 0; i < listaCursos->getCantidad(); i++)
+//		s << listaCursos->getDato(i)->getCodigoCurso() << " - ";
+//	s << endl;
+//	return s.str();
+//}
 
-int Estudiante::getCantidadCursosMatriculados()
-{
-	return (int) listaCursos.size();
-}
+//int Estudiante::getCantidadCursosMatriculados()
+//{
+//	return listaCursos->getCantidad();
+//}
+//
+//Curso * Estudiante::getCursoMatriculado(int pos)
+//{
+//	return listaCursos->getDato(pos);
+//}
 
-Curso * Estudiante::getCursoMatriculado(int pos)
-{
-	return listaCursos[pos];
-}
+//void Estudiante::setEsExtranjero(bool esExtranjero)
+//{
+//	this->esExtranjero = esExtranjero;
+//}
 
-void Estudiante::setEsExtranjero(bool esExtranjero)
-{
-	this->esExtranjero = esExtranjero;
-}
-
-bool Estudiante::getEsExtranjero()
-{
-	return esExtranjero;
-}
+//bool Estudiante::getEsExtranjero()
+//{
+//	return esExtranjero;
+//}
 
 void Estudiante::setPorcentajeBeca(int porcentajeBeca) {
 	this->porcentajeBeca = porcentajeBeca;
@@ -80,10 +71,10 @@ string Estudiante::toString() {
 	s << Persona::toString() << endl;
 	s << "Numero de Carnet: " << carnet << endl;
 	s << "Nacionalidad: "; 
-	if (esExtranjero)
-		s << "Extranjera" << endl;
-	else
-		s << "Nacional" << endl;
+	//if (esExtranjero)
+	//	s << "Extranjera" << endl;
+	//else
+	//	s << "Nacional" << endl;
 	s << "Porcentaje Beca: " << porcentajeBeca << endl;
 	return s.str();
 }

@@ -3,15 +3,9 @@
 #include <iostream>
 using namespace std;
 
-Estudiante_Nacional::Estudiante_Nacional(string nombre, string primerApellido, string segundoApellido, int cedula, int porcentajeBeca)
+Estudiante_Nacional::Estudiante_Nacional(int porcentajeBeca = 0) : Estudiante(), porcentajeBeca(porcentajeBeca)
 {
-	setNombre(nombre);
-	setPrimerApellido(primerApellido);
-	setSegundoApellido(segundoApellido);
-	generaCarnet();
-	setNumCedula(cedula);
-	setPorcentajeBeca(porcentajeBeca);
-	setEsExtranjero(false);
+	
 }
 
 Estudiante_Nacional::~Estudiante_Nacional()

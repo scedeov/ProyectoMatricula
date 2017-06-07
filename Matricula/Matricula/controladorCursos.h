@@ -1,24 +1,28 @@
-#ifndef CONTENEDOR_CURSOS
-#define CONTENEDOR_CURSOS	
+#ifndef CONTROLADORCURSOS
+#define CONTROLADORCURSOS
 
 #include "curso.h"
+#include <sstream>
+#include <iostream>
 #include "lista.h"
-class Contenedor_Cursos
+using namespace std;
+
+class Curso;
+class ControladorCursos
 {
 private:
 	Lista<Curso> *listaCursos;
 public:
-	Contenedor_Cursos();
+	ControladorCursos();
 	int getCantidad();
 	Curso* getCursoporPos(int);
 	void insertaInicio(Curso*);
 	bool eliminaCursoEspecifico(std::string);
 	Curso* retornaCursoEspecifico(std::string);
-	bool encuentraCurso(Curso*, std::string);
 	std::string toString();
 	int getProfesores(std::string, int);
-	friend std::ostream& operator << (std::ostream&, Contenedor_Cursos&);
-	~Contenedor_Cursos();
+	friend std::ostream& operator << (std::ostream&, ControladorCursos&);
+	~ControladorCursos();
 };
 #endif // !CONTENEDOR_CURSOS
 

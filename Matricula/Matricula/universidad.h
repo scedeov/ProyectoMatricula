@@ -1,17 +1,17 @@
 #ifndef UNIVERSIDAD
 #define UNIVERSIDAD
-
+#include <iostream>
+#include <sstream>
 #include <string>
-//class ControladorEscuelas;
-//class Contenedor_Estudiantes;
-//
-#include "lista.h"
 
-class Universidad
-{
+#include "controladorEscuelas.h"
+#include "controladorEstudiantes.h"
+//class ControladorEscuelas;
+//class ControladorEstudiantes;
+class Universidad {
 private:
-	Lista<Escuela> *ContE;
-	Lista<Estudiante> *ContEst;
+	ControladorEscuelas *controladorEscuelas;
+	ControladorEstudiantes *controladorEstudiantes;
 	std::string nombre;
 	std::string numeroTelefono;
 	std::string direccion;
@@ -27,8 +27,8 @@ public:
 	std::string getNumero();
 	std::string getDireccion();
 	std::string toString();
-	ControladorEscuelas* getContenedorEscuelas();
-	Contenedor_Estudiantes* getContenedorEstudiantes();
+	ControladorEscuelas* getControladorEscuelas();
+	ControladorEstudiantes* getContenedorEstudiantes();
 };
 #endif // !UNIVERSIDAD
 

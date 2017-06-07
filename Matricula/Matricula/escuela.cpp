@@ -1,10 +1,5 @@
 #include "escuela.h"
-#include "contenedorProfesores.h"
-#include "contenedorCursos.h"
-#include <sstream>
-#include <string>
-#include <iostream>
-using namespace std;
+
 
 Escuela::Escuela(string unNombre = "Undefined") :
 	nombreEscuela(unNombre)
@@ -14,8 +9,8 @@ Escuela::Escuela(string unNombre = "Undefined") :
 	if (nombreEscuela != "Undefined")
 		nombreEscuela = "Escuela de " + nombreEscuela;
 
-	ContP = new Contenedor_Profesores();
-	ConC = new Contenedor_Cursos();
+	ContP = new ControladorProfesores();
+	ConC = new ControladorCursos();
 
 }
 
@@ -59,12 +54,12 @@ string Escuela::generaSigla(string unNombre)
 	return siglaEscuela;
 }
 
-Contenedor_Cursos * Escuela::getContenedorCursos()
+ControladorCursos * Escuela::getContenedorCursos()
 {
 	return ConC;
 }
 
-Contenedor_Profesores * Escuela::getContenedorProfesores() {
+ControladorProfesores * Escuela::getContenedorProfesores() {
 	return ContP;
 }
 

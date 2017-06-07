@@ -1,17 +1,18 @@
 #ifndef CONTENEDOR_ESCUELAS
 #define CONTENEDOR_ESCUELAS
 
-#include "lista.h"
-//class Profesor;
 
+#include <sstream>
+#include <iostream>
+#include "lista.h"
+#include "escuela.h"
+using namespace std;
 
 class Escuela;
 class ControladorEscuelas
 {
 private:
 	Lista<Escuela> *listaEscuelas;
-	/*Nodo_Escuelas* pinicio;
-	Nodo_Escuelas* paux;*/
 public:
 	ControladorEscuelas();
 	void insertarInicio(Escuela*);

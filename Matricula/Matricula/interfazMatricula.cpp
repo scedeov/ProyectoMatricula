@@ -1,12 +1,5 @@
 #include "interfazMatricula.h"
-#include "interfazPrincipal.h"
-#include "contenedorEstudiantes.h"
-#include "contenedorEscuelas.h"
-#include "contenedorCursos.h"
-#include "grupoEstudiantes.h"
-#include <conio.h>
-#include <iostream>
-using namespace std;
+
 
 char Interfaz_Matricula::vMenuMatricula()
 {
@@ -43,14 +36,14 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 		Estudiante* EST = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
 		if (EST == nullptr) throw 1;
 
-		cout << U->getContenedorEscuelas()->toString('2');
+		cout << U->getControladorEscuelas()->toString('2');
 		cout << "Digite el codigo del curso en el cual desea matricular a " << EST->getNombreCompleto() << endl;
 		cout << "-> "; string codigo; cin >> codigo; codigo = Interfaz_Principal::convierteMayuscula(codigo); cin.ignore();
-		Curso* C = U->getContenedorEscuelas()->retornaEscuela(codigo.substr(0, 3))->getContenedorCursos()->retornaCursoEspecifico(codigo);
+		Curso* C = U->getControladorEscuelas()->retornaEscuela(codigo.substr(0, 3))->getContenedorCursos()->retornaCursoEspecifico(codigo);
 		if (C == nullptr) throw 2;
 
 		for (int i = 0; i < 5; i++) {
-			if (C->getGrupoEstudiantes(i)->getCantidad() < MAXESTU) {
+			if (C->getGrupoEstudiantes(i)->getCantidad() < CUPOMAXIMO) {
 				C->getGrupoEstudiantes(i)->agregarEstudiante(EST);
 				EST->agregaCurso(C);
 				Interfaz_Principal::msjPerfecto();
@@ -97,12 +90,12 @@ void Interfaz_Matricula::vMatriculaListaCursosEstudiante(Universidad *U) {
 }
 
 void Interfaz_Matricula::vMatriculaListaEstudiantesCursos(Universidad *U) {
-	cout << U->getContenedorEscuelas()->toString('2');
+	cout << U->getControladorEscuelas()->toString('2');
 	try {
 		cout << "Digite el codigo del curso a consultar la lista de Estudiantes Matriculados" << endl;
 		cout << "-> "; string codigo; cin >> codigo; codigo = Interfaz_Principal::convierteMayuscula(codigo); cin.ignore();
 		string sigla = codigo.substr(0, 3);
-		cout << U->getContenedorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo)->imprimeEstudiantesMatriculados();
+		cout << U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo)->imprimeEstudiantesMatriculados();
 	}
 	catch (...) {
 		cout << "Error..." << endl;

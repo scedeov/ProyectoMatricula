@@ -1,7 +1,16 @@
 #ifndef CONTROL
 #define CONTROL
 
+#include "interfazPrincipal.h"
+#include "interfazCursos.h"
+#include "interfazEscuelas.h"
+#include "interfazEstudiantes.h"
+#include "interfazProfesores.h"
+#include "interfazUniversidad.h"
+#include "interfazMatricula.h"
 #include "universidad.h"
+#include "lista.h"
+#include "vector.h"
 
 class Control
 {

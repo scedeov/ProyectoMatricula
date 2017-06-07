@@ -1,9 +1,7 @@
 #include "controladorEscuelas.h"
 //#include "contenedorProfesores.h"
-#include "escuela.h"
-#include <sstream>
-#include <iostream>
-using namespace std;
+
+
 
 ControladorEscuelas::ControladorEscuelas()
 {

@@ -112,18 +112,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="aranceles.h" />
-    <ClInclude Include="contenedorCursos.h" />
+    <ClInclude Include="controladorCursos.h" />
     <ClInclude Include="controladorEscuelas.h" />
-    <ClInclude Include="contenedorEstudiantes.h" />
-    <ClInclude Include="contenedorProfesores.h" />
+    <ClInclude Include="controladorEstudiantes.h" />
+    <ClInclude Include="controladorProfesores.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="curso.h" />
     <ClInclude Include="escuela.h" />
     <ClInclude Include="estudiante.h" />
     <ClInclude Include="estudianteExtranjero.h" />
     <ClInclude Include="estudianteNacional.h" />
-    <ClInclude Include="grupoEstudiantes.h" />
-    <ClInclude Include="grupoProfesores.h" />
+    <ClInclude Include="grupo.h" />
     <ClInclude Include="interfazCursos.h" />
     <ClInclude Include="interfazEscuelas.h" />
     <ClInclude Include="interfazEstudiantes.h" />
@@ -135,7 +134,7 @@
     <ClInclude Include="nodo.h" />
     <ClInclude Include="nodoCursos.h" />
     <ClInclude Include="nodoEscuelas.h" />
-    <ClInclude Include="nodoProfesores.h" />
+    <ClInclude Include="objetoBase.h" />
     <ClInclude Include="persona.h" />
     <ClInclude Include="profesor.h" />
     <ClInclude Include="universidad.h" />
@@ -143,18 +142,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aranceles.cpp" />
-    <ClCompile Include="contenedorCursos.cpp" />
+    <ClCompile Include="controladorCursos.cpp" />
     <ClCompile Include="controladorEscuelas.cpp" />
-    <ClCompile Include="contenedorEstudiantes.cpp" />
-    <ClCompile Include="contenedorProfesores.cpp" />
+    <ClCompile Include="controladorEstudiantes.cpp" />
+    <ClCompile Include="controladorProfesores.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="curso.cpp" />
     <ClCompile Include="escuela.cpp" />
     <ClCompile Include="estudiante.cpp" />
     <ClCompile Include="estudianteExtranjero.cpp" />
     <ClCompile Include="estudianteNacional.cpp" />
-    <ClCompile Include="grupoEstudiantes.cpp" />
-    <ClCompile Include="grupoProfesores.cpp" />
+    <ClCompile Include="grupo.cpp" />
     <ClCompile Include="interfazCursos.cpp" />
     <ClCompile Include="interfazEstudiantes.cpp" />
     <ClCompile Include="interfazMatricula.cpp" />
@@ -162,13 +160,14 @@
     <ClCompile Include="interfazEscuelas.cpp" />
     <ClCompile Include="interfazProfesores.cpp" />
     <ClCompile Include="interfazUniversidad.cpp" />
+    <ClCompile Include="lista.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="nodoCursos.cpp" />
-    <ClCompile Include="nodoEscuelas.cpp" />
     <ClCompile Include="nodoProfesores.cpp" />
+    <ClCompile Include="objetoBase.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="profesor.cpp" />
     <ClCompile Include="universidad.cpp" />
+    <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

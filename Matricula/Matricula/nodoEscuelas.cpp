@@ -28,9 +28,12 @@ Nodo_Escuelas * Nodo_Escuelas::getNext()
 	return Next;
 }
 
-string Nodo_Escuelas::toStringNodo(char op)
-{
-	return e->toStringEscuela(op);
+string Nodo_Escuelas::toStringNodoEscuelas() {
+	return e->toStringEscuela();
+}
+
+string Nodo_Escuelas::toStringNodoConCursos() {
+	return e->toStringConCursos();
 }
 
 Nodo_Escuelas::~Nodo_Escuelas()

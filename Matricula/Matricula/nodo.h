@@ -47,6 +47,7 @@ TipoDato* Nodo<TipoDato>::getDato() const {
 	return dato;
 }
 
+
 template<class TipoDato>
 Nodo<TipoDato>::~Nodo()
 {

@@ -1,16 +1,20 @@
 #ifndef PERSONA
 #define PERSONA
 
-#include <string>
 
-class Persona
-{
+#include "objetoBase.h"
+#include <sstream>
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Persona: public objetoBase {
 private:
 	std::string nombre;
 	std::string primerApellido;
 	std::string segundoApellido;
 	std::string nombreCompleto;
-	int numCedula;
+	std::string cedula;
 	friend std::ostream& operator << (std::ostream&, Persona&);
 public:
 	Persona();
@@ -22,8 +26,8 @@ public:
 	virtual void setSegundoApellido(std::string);
 	virtual std::string getPrimerApellido();
 	virtual std::string getSegundoApellido();
-	virtual void setNumCedula(int);
-	virtual int getNumCedula();
+	virtual void setNumCedula(std::string);
+	virtual std::string getNumCedula();
 	virtual std::string toString();
 };
 #endif // !PERSONA

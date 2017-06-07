@@ -1,18 +1,23 @@
 #ifndef ESCUELA
 #define ESCUELA
 
+#include "controladorProfesores.h"
+#include "controladorCursos.h"
+#include <sstream>
 #include <string>
+#include <iostream>
+using namespace std;
 
-class Contenedor_Cursos;
-class Contenedor_Profesores;
+//class ControladorCursos;
+//class ControladorProfesores;
 
 class Escuela
 {
 private:
+	ControladorCursos* ConC;
+	ControladorProfesores* ContP;
 	std::string nombreEscuela;
 	std::string siglaEscuela;
-	Contenedor_Cursos* ConC;
-	Contenedor_Profesores* ContP;
 public:
 	Escuela(std::string);
 	~Escuela();
@@ -21,10 +26,11 @@ public:
 	void setSiglaEscuela(std::string);
 	std::string getSiglaEscuela();
 	std::string generaSigla(std::string);
-	Contenedor_Cursos* getContenedorCursos();
-	Contenedor_Profesores* getContenedorProfesores();
+	ControladorCursos* getContenedorCursos();
+	ControladorProfesores* getContenedorProfesores();
 	std::string toStringEscuela();
 	std::string toStringConCursos();
+	//tiene que haber un matricular
 };
 #endif // !ESCUELA
 

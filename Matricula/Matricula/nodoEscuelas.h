@@ -14,7 +14,8 @@ public:
 	Escuela* getEscuela();
 	void setNext(Nodo_Escuelas*);
 	Nodo_Escuelas* getNext();
-	std::string toStringNodo(char);
+	std::string toStringNodoEscuelas();
+	std::string toStringNodoConCursos();
 	~Nodo_Escuelas();
 };
 #endif // !NODO_ESCUELAS

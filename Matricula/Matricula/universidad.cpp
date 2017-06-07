@@ -1,8 +1,5 @@
 #include "universidad.h"
-#include "contenedorEscuelas.h"
-#include "contenedorEstudiantes.h"
-#include <iostream>
-#include <sstream>
+
 
 Universidad::Universidad()
 {
@@ -10,8 +7,8 @@ Universidad::Universidad()
 	numeroTelefono = "Undefined";
 	direccion = "Undefined";
 
-	ContE = new ControladorEscuelas();
-	ContEst = new Contenedor_Estudiantes();
+	controladorEscuelas = new ControladorEscuelas();
+	controladorEstudiantes = new ControladorEstudiantes();
 }
 
 Universidad::Universidad(std::string unNombre, std::string xNumero, std::string unDireccion)
@@ -20,15 +17,15 @@ Universidad::Universidad(std::string unNombre, std::string xNumero, std::string 
 	numeroTelefono = xNumero;
 	direccion = unDireccion;
 
-	ContE = new ControladorEscuelas();
-	ContEst = new Contenedor_Estudiantes();
+	controladorEscuelas = new ControladorEscuelas();
+	controladorEstudiantes = new ControladorEstudiantes();
 }
 
 Universidad::~Universidad()
 {
 	std::cout << "Eliminando Universidad..." << std::endl;
-	delete ContE;
-	delete ContEst;
+	delete controladorEscuelas;
+	delete controladorEstudiantes;
 }
 
 void Universidad::setTelefono(std::string unTelefono)
@@ -71,13 +68,13 @@ std::string Universidad::toString()
 	return s.str();
 }
 
-ControladorEscuelas* Universidad::getContenedorEscuelas() {
-	return ContE;
+ControladorEscuelas* Universidad::getControladorEscuelas() {
+	return controladorEscuelas;
 }
 
-Contenedor_Estudiantes * Universidad::getContenedorEstudiantes()
+ControladorEstudiantes * Universidad::getContenedorEstudiantes()
 {
-	return ContEst;
+	return controladorEstudiantes;
 }
 
 std::ostream& operator << (std::ostream &o, Universidad& U)
