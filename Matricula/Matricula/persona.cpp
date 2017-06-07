@@ -7,7 +7,6 @@ Persona::Persona() {
 	segundoApellido = "";
 	id = "";
 	nombreCompleto = "";
-	cedula = "";
 }
 
 Persona::~Persona()
@@ -49,19 +48,11 @@ string Persona::getSegundoApellido() {
 	return segundoApellido;
 }
 
-void Persona::setNumCedula(string id) {
-	this->id = id;
-}
-
-string Persona::getNumCedula() {
-	return id;
-}
-
 string Persona::toString()
 {
 	stringstream s;
 	s << "Nombre: " << getNombre() << " " << getPrimerApellido() << " " << getSegundoApellido() << " | ";
-	s << " Numero de Cedula: " << getNumCedula() << endl;
+	s << " Numero de Cedula: " << getID() << endl;
 	return s.str();
 }
 

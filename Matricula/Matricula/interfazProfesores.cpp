@@ -1,6 +1,7 @@
 #include "interfazProfesores.h"
 #include "interfazPrincipal.h"
 #include "profesor.h"
+#include "persona.h"
 #include "curso.h"
 #include "controladorProfesores.h"
 #include "controladorCursos.h"
@@ -58,8 +59,12 @@ void Interfaz_Profesores::vAgregarProfesor(Universidad* U) {
 	cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el segundo apellido: "; string segundoApellido; cin >> segundoApellido; cin.ignore(); cout << endl;
 	cout << "Ingrese el nombre del profesor: "; string nombre; getline(cin, nombre); cout << endl;
-	cout << "Ingrese el numero de cedula: "; int cedula; cin >> cedula; cin.ignore(); cout << endl;
-	Profesor *P = new Profesor(nombre, primerApellido, segundoApellido, cedula);
+	cout << "Ingrese el numero de cedula: "; string cedula; cin >> cedula; cin.ignore(); cout << endl;
+	Persona *P = new Profesor();
+	P->setPrimerApellido(primerApellido);
+	P->setSegundoApellido(segundoApellido);
+	P->setNombre(nombre);
+	P->setID(cedula);
 	cout << U->getControladorEscuelas()->toStringEscuelas() << endl;
 	cout << "Ingrese la materia de la escuela a la cual desea asignar al nuevo profesor: "; string materia, sigla; cin >> materia; cin.ignore();
 

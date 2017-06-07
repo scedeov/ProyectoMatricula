@@ -14,7 +14,6 @@ protected:
 	std::string primerApellido;
 	std::string segundoApellido;
 	std::string nombreCompleto;
-	std::string cedula;
 	friend std::ostream& operator << (std::ostream&, Persona&);
 public:
 	Persona();
@@ -26,8 +25,6 @@ public:
 	virtual void setSegundoApellido(std::string);
 	virtual std::string getPrimerApellido();
 	virtual std::string getSegundoApellido();
-	virtual void setNumCedula(std::string);
-	virtual std::string getNumCedula();
 	virtual std::string toString();
 };
 #endif // !PERSONA
