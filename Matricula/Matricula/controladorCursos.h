@@ -1,11 +1,7 @@
 #ifndef CONTROLADORCURSOS
 #define CONTROLADORCURSOS
 
-#include "curso.h"
-#include <sstream>
-#include <iostream>
 #include "lista.h"
-using namespace std;
 
 class Curso;
 class ControladorCursos
@@ -20,7 +16,7 @@ public:
 	bool eliminaCursoEspecifico(std::string);
 	Curso* retornaCursoEspecifico(std::string);
 	std::string toString();
-	int getProfesores(std::string, int);
+	std::string getCursosProfesorEspecifico(std::string);
 	friend std::ostream& operator << (std::ostream&, ControladorCursos&);
 	~ControladorCursos();
 };

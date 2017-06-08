@@ -6,7 +6,6 @@
 #include "controladorProfesores.h"
 #include "controladorCursos.h"
 #include "controladorEscuelas.h"
-#include "grupoProfesores.h"
 #include "grupo.h"
 #include <iostream>
 #include <string>
@@ -174,36 +173,36 @@ void Interfaz_Profesores::vAsignarProfesorCurso(Universidad *U)
 void Interfaz_Profesores::vDeasignarProfesorCurso(Universidad *U)
 {
 	cout << "Desasignando profesor de un curso..." << endl;
-	cout << "Digite el numero de identificacion del profesor al cual desea desasignar de un curso -> "; int cedula; cin >> cedula; cin.ignore();
+	cout << "Digite el numero de identificacion del profesor al cual desea desasignar de un curso -> "; string cedula; cin >> cedula; cin.ignore();
 	Profesor *P = U->getControladorEscuelas()->retornaProfesor(cedula);
 	if (!P)
 		cout << "El profesor con el numero de cedula" << cedula << " no existe." << endl;
 	else {
 		cout << "El profesor " << P->getNombreCompleto() << " | " << P->getEscuela() << endl;
 		cout << "Imparte actualmente " << endl;
-		cout << U->getControladorEscuelas()->retornaEscuela(P->getEscuela().substr(0, 3))->getContenedorCursos()->toString() << endl;
+		cout << P->getEscuela()->getContenedorCursos()->getCursosProfesorEspecifico(P->getID()) << endl;
 		cout << "Digite el codigo del Curso al que desea desasignar al Profesor " << P->getSegundoApellido() << " -> ";
 		string codigo; cin >> codigo; cin.ignore();
 		codigo = Interfaz_Principal::convierteMayuscula(codigo);
 		string sigla = codigo.substr(0, 3);
 
-		if (P->eliminarCursoImpartido(codigo)) {
-			Curso * C = U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
-			C->getGrupoProfesores()->eliminarProfesor(P->getNumCedula());
+		Curso* curso = P->getEscuela()->getContenedorCursos()->retornaCursoEspecifico(codigo);
+
+		for (int i = 0; i < curso->getCantidadGrupos(); i++)
+			if (curso->getGrupo(i)->getProfesorEncargado()->getID() == P->getID())
+				curso->getGrupo(i)->setProfesorEncargado(NULL);
+
+
 			Interfaz_Principal::msjPerfecto();
-		}
-		else
-			cout << "Ha ocurrido un error..." << endl;
 	}
 	Interfaz_Principal::msjPausa();
 	system("cls");
-
 }
 
 void Interfaz_Profesores::vEditarProfesor(Universidad *U)
 {
 	cout << "Digite el numero de cedula del profesor -> ";
-	int cedula = 0; cin >> cedula; cin.ignore();
+	string cedula; cin >> cedula; cin.ignore();
 	if (U->getControladorEscuelas()->retornaProfesor(cedula)) {
 		Profesor *P = U->getControladorEscuelas()->retornaProfesor(cedula);
 		cout << "Ingrese el primer apellido: "; string primerApellido; cin >> primerApellido; cin.ignore(); cout << endl;
@@ -222,10 +221,10 @@ void Interfaz_Profesores::vEditarProfesor(Universidad *U)
 
 void Interfaz_Profesores::vConsultaCursosAsignadosProfesor(Universidad *U)
 {
-	cout << "Digite el numero de identificacion del profesor a consultar ->"; int cedula; cin >> cedula; cin.ignore();
+	cout << "Digite el numero de identificacion del profesor a consultar ->"; string cedula; cin >> cedula; cin.ignore();
 	if (U->getControladorEscuelas()->retornaProfesor(cedula)) {
 		cout << "El profesor " << U->getControladorEscuelas()->retornaProfesor(cedula)->getNombreCompleto() << " imparte los cursos: " << endl;
-		cout << U->getControladorEscuelas()->retornaProfesor(cedula)->getCursosImpartidos() << endl;
+		cout << U->getControladorEscuelas()->retornaProfesor(cedula)->getEscuela()->getContenedorCursos()->getCursosProfesorEspecifico(cedula) << endl;
 	}
 	else
 		cout << "El profesor con la cedula " << cedula << " no existe" << endl;

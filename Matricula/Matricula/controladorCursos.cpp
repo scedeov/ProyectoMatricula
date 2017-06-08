@@ -1,5 +1,8 @@
 #include "controladorCursos.h"
-
+#include "curso.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 ControladorCursos::ControladorCursos()
 {
@@ -7,7 +10,7 @@ ControladorCursos::ControladorCursos()
 }
 
 int ControladorCursos::getCantidad()
-{	
+{
 	return listaCursos->size();
 }
 
@@ -16,7 +19,7 @@ Curso* ControladorCursos::getCursoporPos(int pos)
 	return listaCursos->at(pos);
 }
 
-void ControladorCursos::insertaInicio(Curso *unCurso) 
+void ControladorCursos::insertaInicio(Curso *unCurso)
 {
 	listaCursos->push_front(unCurso);
 }
@@ -65,8 +68,19 @@ string ControladorCursos::toString()
 	return s.str();
 }
 
-int ControladorCursos::getProfesores(string codigo, int pos) {
-	return retornaCursoEspecifico(codigo)->getGrupoProfesores()->getProfesor(pos)->getNumCedula();
+string ControladorCursos::getCursosProfesorEspecifico(string cedula) {
+	stringstream s;
+	Nodo<Curso> *paux = listaCursos->begin();
+	while (paux != NULL) {
+		for (int i = 0; i < paux->getDato()->getCantidadGrupos(); i++) {
+			if (paux->getDato()->getGrupo(i)->getProfesorEncargado()->getID() == cedula) {
+				s << paux->getDato()->getNombre() << " | " << paux->getDato()->getCodigoCurso() << endl;
+				paux = paux->getNext();
+				break;
+			}
+		}
+	}
+	return s.str();
 }
 
 ControladorCursos::~ControladorCursos()
