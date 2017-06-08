@@ -38,13 +38,9 @@ void Curso::setCantidadCreditos(int cantidadCreditos)
 	this->cantidadCreditos = cantidadCreditos;
 }
 
-Grupo* Curso::getGrupoEstudiantes(int pos)
+Grupo* Curso::getGrupo(int pos)
 {
-	Vector<Grupo>::Iterador it(grupo);
-	it.first();
-	for (int i = 0; i < pos; i++)
-		it.next();
-		return it.getCurItem();
+	return grupo->getDato(pos);
 }
 
 Profesor * Curso::getProfesorEncargado(int pos)

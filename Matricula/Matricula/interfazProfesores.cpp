@@ -148,31 +148,25 @@ void Interfaz_Profesores::vConsultarProfesCurso(Universidad *U) {
 void Interfaz_Profesores::vAsignarProfesorCurso(Universidad *U)
 {
 	cout << "Asignando profesor a un curso..." << endl;
-	cout << "Digite el numero de identificacion del profesor al cual desea asignar un curso -> "; int cedula; cin >> cedula; cin.ignore();
+	cout << "Digite el numero de identificacion del profesor al cual desea asignar un curso -> "; string cedula; cin >> cedula; cin.ignore();
 	Profesor *P = U->getControladorEscuelas()->retornaProfesor(cedula);
 	if (!P)
 		cout << "El profesor con el numero de cedula" << cedula << " no existe." << endl;
 	else {
-		cout << "El profesor " << P->getNombreCompleto() << " | " << P->getEscuela() << endl;
-		cout << "Imparte actualmente " << P->getCantidadCursos() << " | " << "Max Cursos/Profesor: " << P->getMaxCursos() << endl;
-		if (P->getCantidadCursos() > P->getMaxCursos())
-			cout << "No se pueden asignar mas cursos a este profesor." << endl;
-		else {
-			string sigla = P->getEscuela().substr(0, 3);
-			sigla = Interfaz_Principal::convierteMayuscula(sigla);
+		cout << "El profesor " << P->getNombreCompleto() << " | " << P->getEscuela()->getNombre() << endl;
+		string sigla = P->getEscuela()->getSiglaEscuela();
+		sigla = Interfaz_Principal::convierteMayuscula(sigla);
 
-			cout << U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->toString() << endl;
-			cout << "Digite el codigo del Curso al que desea asignar al Profesor " << P->getSegundoApellido() << " -> ";
-			string codigo; cin >> codigo; cin.ignore();
-			codigo = Interfaz_Principal::convierteMayuscula(codigo);
+		cout << U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->toString() << endl;
+		cout << "Digite el codigo del Curso al que desea asignar al Profesor " << P->getSegundoApellido() << " -> ";
+		string codigo; cin >> codigo; cin.ignore();
+		codigo = Interfaz_Principal::convierteMayuscula(codigo);
 
-			Curso *C = U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
-			C->getGrupoProfesores()->agregarProfesor(P);
-			C->getGrupoEstudiantes(0)->setProfesorEncargado(P); // hay que poner el grupo en el que va a dar clases
-			P->setCursosImpartidos(codigo);
-			Interfaz_Principal::msjPerfecto();
-		}
+		Curso *C = U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorCursos()->retornaCursoEspecifico(codigo);
+		C->getGrupo((C->getCantidadProfesoresEncargados() + 1))->setProfesorEncargado(P); // asignaalprofesoren un grupo
+		Interfaz_Principal::msjPerfecto();
 	}
+
 	Interfaz_Principal::msjPausa();
 	system("cls");
 }

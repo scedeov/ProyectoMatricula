@@ -43,8 +43,8 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 		if (C == nullptr) throw 2;
 
 		for (int i = 0; i < 5; i++) {
-			if (C->getGrupoEstudiantes(i)->getCantidad() < CUPOMAXIMO) {
-				C->getGrupoEstudiantes(i)->agregarEstudiante(EST);
+			if (C->getGrupo(i)->getCantidad() < CUPOMAXIMO) {
+				C->getGrupo(i)->agregarEstudiante(EST);
 				EST->agregaCurso(C);
 				Interfaz_Principal::msjPerfecto();
 				return true;

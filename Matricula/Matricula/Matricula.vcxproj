@@ -131,6 +131,7 @@
     <ClInclude Include="interfazProfesores.h" />
     <ClInclude Include="interfazUniversidad.h" />
     <ClInclude Include="lista.h" />
+    <ClInclude Include="matricula.h" />
     <ClInclude Include="nodo.h" />
     <ClInclude Include="nodoCursos.h" />
     <ClInclude Include="nodoEscuelas.h" />
@@ -162,6 +163,7 @@
     <ClCompile Include="interfazUniversidad.cpp" />
     <ClCompile Include="lista.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="matricula.cpp" />
     <ClCompile Include="nodoProfesores.cpp" />
     <ClCompile Include="objetoBase.cpp" />
     <ClCompile Include="persona.cpp" />

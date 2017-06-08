@@ -26,7 +26,7 @@ public:
 	void setNombre(std::string);
 	void setCodigoCurso(std::string);
 	void setCantidadCreditos(int);
-	Grupo* getGrupoEstudiantes(int);
+	Grupo* getGrupo(int);
 	Profesor* getProfesorEncargado(int); // con una posicion del vector de grupos
 	int getCantidadGrupos();
 	int getCantidadProfesoresEncargados();

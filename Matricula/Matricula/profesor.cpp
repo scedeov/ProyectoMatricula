@@ -1,8 +1,21 @@
 #include "profesor.h"
-
+#include "escuela.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Profesor::Profesor(): Persona() {
 	
+}
+
+void Profesor::setEscuela(Escuela *escuela)
+{
+	this->escuela = escuela;
+}
+
+Escuela * Profesor::getEscuela()
+{
+	return escuela;
 }
 
 //void Profesor::setCursosImpartidos(string cursoNuevo) {
@@ -12,15 +25,7 @@ Profesor::Profesor(): Persona() {
 //	}
 //}
 
-//void Profesor::setEscuela(string escuela)
-//{
-//	this->escuela = ((char)toupper(escuela[0])) + escuela.substr(1, escuela.length() - 1);
-//}
-//
-//string Profesor::getEscuela()
-//{
-//	return escuela;
-//}
+
 //
 //int Profesor::getCantidadCursos()
 //{
