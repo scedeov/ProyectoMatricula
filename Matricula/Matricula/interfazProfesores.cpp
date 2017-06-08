@@ -106,9 +106,8 @@ void Interfaz_Profesores::vConsultarProfesEscuela(Universidad* U) {
 	system("cls");
 }
 
-void Interfaz_Profesores::vConsultarProfeCedula(Universidad *U)
-{
-	cout << "Digite la cedula del profesor a consultar -> "; int cedula; cin >> cedula; cin.ignore();
+void Interfaz_Profesores::vConsultarProfeCedula(Universidad *U) {
+	cout << "Digite la cedula del profesor a consultar -> "; string cedula; cin >> cedula; cin.ignore();
 
 	if (!U->getControladorEscuelas()->retornaProfesor(cedula))
 		cout << "El Profesor no ha sido encontrado..." << endl;
@@ -122,7 +121,7 @@ void Interfaz_Profesores::vConsultarProfeCedula(Universidad *U)
 void Interfaz_Profesores::vConsultarProfesCurso(Universidad *U) {
 	cout << U->getControladorEscuelas()->toStringConCursos(); //Imprime la lista de escuelas con sus respectivos cursos
 	string codigo, sigla;
-	cout << "Ingrese el codigo de la curso del que desea consultar su lista de profesores -> ";
+	cout << "Ingrese el codigo del curso del que desea consultar su lista de profesores -> ";
 	cin >> codigo; cin.ignore();
 
 	codigo = Interfaz_Principal::convierteMayuscula(codigo);
@@ -130,7 +129,8 @@ void Interfaz_Profesores::vConsultarProfesCurso(Universidad *U) {
 
 	Escuela* e = U->getControladorEscuelas()->retornaEscuela(sigla);
 	Curso* c = e->getContenedorCursos()->retornaCursoEspecifico(codigo);
-	int contador = c->getGrupoProfesores()->getCantidadProfesores();
+
+	int contador = c->getCantidadProfesoresEncargados();
 	if (!e)
 		cout << "La escuela no ha sido encontrada..." << endl;
 	else
@@ -138,13 +138,9 @@ void Interfaz_Profesores::vConsultarProfesCurso(Universidad *U) {
 			cout << "El curso no tiene profesores asignados..." << endl;
 		else {
 			cout << "El curso: " << c->getNombre() << " es impartido por los profesores: " << endl;
-			for (int i = 0; i < contador; i++) {
-				if (e->getContenedorProfesores()->retornaProfesor(c->getGrupoProfesores()->getProfesor(i)->getNumCedula()))
-					cout << e->getContenedorProfesores()->retornaProfesor(c->getGrupoProfesores()->getProfesor(i)->getNumCedula())->getNombreCompleto() << endl;;
-
-			}
+			for (int i = 0; i < contador; i++)
+				c->getProfesorEncargado(i)->getNombreCompleto();
 		}
-
 		Interfaz_Principal::msjPausa();
 		system("cls");
 }

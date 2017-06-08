@@ -47,6 +47,26 @@ Grupo* Curso::getGrupoEstudiantes(int pos)
 		return it.getCurItem();
 }
 
+Profesor * Curso::getProfesorEncargado(int pos)
+{
+	for (int i = 0; i < grupo->getCantidad(); i++)
+		return grupo->getDato(pos)->getProfesorEncargado();
+}
+
+int Curso::getCantidadGrupos()
+{
+	return grupo->getCantidad();
+}
+
+int Curso::getCantidadProfesoresEncargados()
+{
+	int contador = 0;
+	for (int i = 0; i < grupo->getCantidad(); i++)
+		if (grupo->getDato(i)->getProfesorEncargado())
+			contador++;
+	return contador;
+}
+
 
 string Curso::getNombre()
 {
