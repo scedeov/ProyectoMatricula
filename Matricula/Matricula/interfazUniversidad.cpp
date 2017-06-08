@@ -6,16 +6,14 @@
 #include <Windows.h>
 using namespace std;
 
-char Interfaz_Universidad::vMenuUniversidad()
-{
-	char ans;
-	cout << "**************MENU UNIVERSIDAD**************" << endl;
+char Interfaz_Universidad::vMenuUniversidad() {
+	cout << "--MENU UNIVERSIDAD" << endl;
 	cout << "(1)--Informacion acerca de la Universidad" << endl;
 	cout << "(2)--Ajustes" << endl;
 	cout << "(3)--Salir" << endl;
-	cout << "********************************************" << endl;
+
 	Interfaz_Principal::msjIngreseOpcion();
-	ans = _getch();
+	char ans = _getch();
 
 	while (ans < '1' || ans > '3') {
 		cout << "Opcion Incorrecta. Intente de nuevo. " << endl;
@@ -28,8 +26,7 @@ char Interfaz_Universidad::vMenuUniversidad()
 
 char Interfaz_Universidad::vAjustesUniversidad(Universidad *U) {
 	char ans;
-
-	cout << "**************AJUSTES UNIVERSIDAD*************************" << endl;
+	cout << "--AJUSTES UNIVERSIDAD" << endl;
 	if (U->getNombre() == "Undefined") {
 		cout << "-(1)-Ingresar nombre de la Universidad" << endl;
 
@@ -47,8 +44,7 @@ char Interfaz_Universidad::vAjustesUniversidad(Universidad *U) {
 		Interfaz_Principal::msjIngreseOpcion();
 		ans = _getch();
 
-		while (ans < '1' || ans > '4')
-		{
+		while (ans < '1' || ans > '4') {
 			cout << "Opcion Incorrecta. Try again " << endl;
 			ans = _getch();
 		}
@@ -76,12 +72,9 @@ char Interfaz_Universidad::vAjustesUniversidad(Universidad *U) {
 	return ans;
 }
 
-void Interfaz_Universidad::vIngresarNumero(Universidad* U)
-{
+void Interfaz_Universidad::vIngresarNumero(Universidad* U){
 	char ans;
-
-	do
-	{
+	do {
 		Sleep(500);
 		cout << "Ingrese el numero de telefono -> "; string numero;
 		cin >> numero; cin.ignore();

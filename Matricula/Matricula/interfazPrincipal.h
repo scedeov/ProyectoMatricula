@@ -1,8 +1,8 @@
 #ifndef INTERFAZ_PRINCIPAL
 #define INTERFAZ_PRINCIPAL
 
-#include <string>
 #include "universidad.h"
+#include <string>
 
 class Interfaz_Principal {
 public:

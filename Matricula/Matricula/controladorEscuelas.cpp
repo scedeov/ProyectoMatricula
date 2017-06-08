@@ -38,17 +38,17 @@ Escuela * ControladorEscuelas::retornaEscuela(string sigla)
 	return nullptr;
 }
 
-//Profesor * ControladorEscuelas::retornaProfesor(int cedula)
-//{
-//	paux = pinicio;
-//	while (paux != NULL) {
-//		if (paux->getEscuela()->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
-//			return paux->getEscuela()->getContenedorProfesores()->retornaProfesor(cedula);
-//		else
-//			paux = paux->getNext();
-//	}
-//	return nullptr;
-//}
+Profesor * ControladorEscuelas::retornaProfesor(string cedula)
+{
+	Nodo<Escuela> *paux = listaEscuelas->begin();
+	while (paux != NULL) {
+		if (paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
+			return paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula);
+		else
+			paux = paux->getNext();
+	}
+	return nullptr;
+}
 
 bool ControladorEscuelas::encuentraEscuela(Escuela* e, string sigla)
 {

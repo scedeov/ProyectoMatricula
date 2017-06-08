@@ -18,7 +18,7 @@ public:
 	void insertarInicio(Escuela*);
 	Escuela* retornaEscuela(std::string);
 	bool encuentraEscuela(Escuela*, std::string);
-	//Profesor* retornaProfesor(int);
+	Profesor* retornaProfesor(std::string);
 	std::string toStringEscuelas();
 	std::string toStringConCursos();
 	~ControladorEscuelas();

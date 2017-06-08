@@ -15,7 +15,7 @@ using namespace std;
 
 char Interfaz_Profesores::vMenuProfesores() {
 	char ans;
-	cout << "**************MENU PROFESORES**************" << endl;
+	cout << "--MENU PROFESORES" << endl;
 	cout << "(1)--Consultar lista de Profesores por Escuela" << endl;
 	cout << "(2)--Consultar lista de Profesores por Curso" << endl;
 	cout << "(3)--Buscar Profesor por Cedula" << endl;
@@ -38,7 +38,7 @@ char Interfaz_Profesores::vMenuProfesores() {
 
 char Interfaz_Profesores::vAjustesProfesores() {
 	char ans;
-	cout << "***************AJUSTES PROFESORES***************" << endl;
+	cout << "--AJUSTES PROFESORES" << endl;
 	cout << "(1)--Agregar Profesor" << endl;
 	cout << "(2)--Editar Profesor" << endl;
 	cout << "(3)--Asignar Profesor a Curso" << endl;
@@ -65,19 +65,18 @@ void Interfaz_Profesores::vAgregarProfesor(Universidad* U) {
 	P->setSegundoApellido(segundoApellido);
 	P->setNombre(nombre);
 	P->setID(cedula);
-	/*cout << U->getControladorEscuelas()->toStringEscuelas() << endl;*/
-	//cout << "Ingrese la materia de la escuela a la cual desea asignar al nuevo profesor: "; string materia, sigla; cin >> materia; cin.ignore();
+	cout << U->getControladorEscuelas()->toStringEscuelas() << endl;
+	cout << "Ingrese la materia de la escuela a la cual desea asignar al nuevo profesor: "; string materia, sigla; cin >> materia; cin.ignore();
+	sigla = Interfaz_Principal::convierteMayuscula(materia).substr(0, 3);
+	while (!U->getControladorEscuelas()->retornaEscuela(sigla)) {
+		cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
+		cout << "-> ";
+		cin >> sigla; cin.ignore();
+		sigla = Interfaz_Principal::convierteMayuscula(sigla);
+	}
 
-	//sigla = Interfaz_Principal::convierteMayuscula(materia).substr(0, 3);
-	//while (!U->getControladorEscuelas()->retornaEscuela(sigla)) {
-	//	cout << "Escuela invalida. Favor digite una de las opciones dadas." << endl;
-	//	cout << "-> ";
-	//	cin >> sigla; cin.ignore();
-	//	sigla = Interfaz_Principal::convierteMayuscula(sigla);
-	//}
 	//P->setEscuela(materia);
-
-	//U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->insertaInicio(P);
+	U->getControladorEscuelas()->retornaEscuela(sigla)->getContenedorProfesores()->insertaInicio(P);
 	Interfaz_Principal::msjPerfecto();
 }
 
