@@ -54,7 +54,7 @@ void Interfaz_Cursos::vIngresaCurso(Universidad* U)
 {
 
 	cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
-	cout << U->getControladorEscuelas()->toString('1') << endl;
+	cout << U->getControladorEscuelas()->toStringEscuelas() << endl;
 
 	cout << "Digite las siglas de la Escuela a la que desea ingresar el curso -> ";
 	string sigla; cin >> sigla; cin.ignore();
@@ -92,7 +92,7 @@ void Interfaz_Cursos::vIngresaCurso(Universidad* U)
 
 void Interfaz_Cursos::vEditarCurso(Universidad *U)
 {
-	cout << U->getControladorEscuelas()->toString('2');
+	cout << U->getControladorEscuelas()->toStringConCursos();
 	cout << "Ingrese el codigo del curso que desea editar -> ";
 	string codigo, sigla;
 
@@ -136,7 +136,7 @@ void Interfaz_Cursos::vEditarCurso(Universidad *U)
 
 void Interfaz_Cursos::vEliminaCurso(Universidad *U) //debe implementarse mejor
 {
-	cout << U->getControladorEscuelas()->toString('2') << endl;
+	cout << U->getControladorEscuelas()->toStringConCursos() << endl;
 	cout << "Ingrese el codigo del curso que desea eliminar -> ";
 	string codigo, sigla, aux;
 	cin >> aux; cin.ignore();
@@ -182,7 +182,7 @@ void Interfaz_Cursos::vInfoCurso(Universidad *U) //necesita ser optimizado
 }
 
 void Interfaz_Cursos::vListaCursosEscuelaParticular(Universidad *U) {
-	cout << U->getControladorEscuelas()->toString('1'); //Imprime lista de Escuelas con sus codigos
+	cout << U->getControladorEscuelas()->toStringEscuelas(); //Imprime lista de Escuelas con sus codigos
 	string sigla;
 	cout << "Ingrese la sigla de la escuela que desea consultar la lista de cursos -> ";
 	cin >> sigla; cin.ignore();
@@ -197,9 +197,9 @@ void Interfaz_Cursos::vListaCursosEscuelaParticular(Universidad *U) {
 			for (int i = 0; i < EE->getContenedorCursos()->getCantidad(); i++) {  //algoritmo mortal xxxxxx
 				cout << "Curso: " << EE->getContenedorCursos()->getCursoporPos(i)->getNombre() << endl;
 				cout << "Profesores:" << endl;
-				for (int x = 0; x < EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getCantidadProfesores(); x++) {
-					int cedulaProfe = EE->getContenedorCursos()->getCursoporPos(i)->getGrupoProfesores()->getProfesor(x)->getNumCedula();
-					cout << EE->getContenedorProfesores()->getNombreCompleto() << endl;
+				for (int x = 0; x < EE->getContenedorCursos()->getCursoporPos(i)->getCantidadGrupos(); x++) {
+					string cedulaProfe = EE->getContenedorCursos()->getCursoporPos(i)->getGrupo(x)->getProfesorEncargado()->getID();
+					cout << EE->getContenedorProfesores()->retornaProfesor(cedulaProfe)->getNombreCompleto() << endl;
 				}
 			}
 	}
