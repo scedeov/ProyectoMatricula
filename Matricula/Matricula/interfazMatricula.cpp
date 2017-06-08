@@ -32,11 +32,11 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 		if (U->getContenedorEstudiantes()->getCantidadEstudiantes() == 0)
 			throw 0;
 		cout << "Digite el numero de cedula del estudiante que desea matricular un curso..." << endl;
-		int cedula; cin >> cedula; cin.ignore();
+		string cedula; cin >> cedula; cin.ignore();
 		Estudiante* EST = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
 		if (EST == nullptr) throw 1;
 
-		cout << U->getControladorEscuelas()->toString('2');
+		cout << U->getControladorEscuelas()->toStringConCursos();
 		cout << "Digite el codigo del curso en el cual desea matricular a " << EST->getNombreCompleto() << endl;
 		cout << "-> "; string codigo; cin >> codigo; codigo = Interfaz_Principal::convierteMayuscula(codigo); cin.ignore();
 		Curso* C = U->getControladorEscuelas()->retornaEscuela(codigo.substr(0, 3))->getContenedorCursos()->retornaCursoEspecifico(codigo);
@@ -45,7 +45,7 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 		for (int i = 0; i < 5; i++) {
 			if (C->getGrupo(i)->getCantidad() < CUPOMAXIMO) {
 				C->getGrupo(i)->agregarEstudiante(EST);
-				EST->agregaCurso(C);
+			/*	EST->agregaCurso(C);*/
 				Interfaz_Principal::msjPerfecto();
 				return true;
 			}
@@ -74,7 +74,7 @@ void Interfaz_Matricula::vMatriculaListaCursosEstudiante(Universidad *U) {
 	if (U->getContenedorEstudiantes()->getCantidadEstudiantes() == 0)
 		throw 0;
 	cout << "Digite el numero de cedula del Estudiante a consultar lista de Cursos Matriculados..." << endl;
-	cout << "-> "; int cedula; cin >> cedula; cin.ignore();
+	cout << "-> "; string cedula; cin >> cedula; cin.ignore();
 	Estudiante *E = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
 	try {
 		if (E == nullptr) throw 1;
@@ -90,7 +90,7 @@ void Interfaz_Matricula::vMatriculaListaCursosEstudiante(Universidad *U) {
 }
 
 void Interfaz_Matricula::vMatriculaListaEstudiantesCursos(Universidad *U) {
-	cout << U->getControladorEscuelas()->toString('2');
+	cout << U->getControladorEscuelas()->toStringConCursos();
 	try {
 		cout << "Digite el codigo del curso a consultar la lista de Estudiantes Matriculados" << endl;
 		cout << "-> "; string codigo; cin >> codigo; codigo = Interfaz_Principal::convierteMayuscula(codigo); cin.ignore();
@@ -108,7 +108,7 @@ void Interfaz_Matricula::vCobroMatricula(Universidad *U)
 {
 	cout << "Calculando cobro..." << endl;
 	try {
-		cout << "Ingrese el numero de cedula del Estudiante a consultar -> "; int cedula; cin >> cedula; cin.ignore();
+		cout << "Ingrese el numero de cedula del Estudiante a consultar -> "; string cedula; cin >> cedula; cin.ignore();
 		Estudiante *E = U->getContenedorEstudiantes()->retornaEstudiante(cedula);
 		if (E == nullptr) throw 1;
 		double cobro = 0.0;

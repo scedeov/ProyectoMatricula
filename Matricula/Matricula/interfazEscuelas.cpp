@@ -67,14 +67,27 @@ void Interfaz_Escuelas::vIngresaEscuela(Universidad* U)
 	system("cls");
 }
 
-void Interfaz_Escuelas::vInfoEscuelas(Universidad* U, char op)
+void Interfaz_Escuelas::vInfoEscuelasSinCursos(Universidad* U)
 {
 	if (U->getNombre() == "Undefined")
 		cout << "No se ha ingresado el nombre de la Universidad. Vaya a Ajustes." << endl;
 	else
 	{
 		cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
-		cout << U->getControladorEscuelas()->toString(op) << endl;
+		cout << U->getControladorEscuelas()->toStringEscuelas() << endl;
+	}
+	Interfaz_Principal::msjPausa();
+	system("cls");
+}
+
+void Interfaz_Escuelas::vInfoEscuelasConCursos(Universidad* U)
+{
+	if (U->getNombre() == "Undefined")
+		cout << "No se ha ingresado el nombre de la Universidad. Vaya a Ajustes." << endl;
+	else
+	{
+		cout << "Nombre de la Universidad: " << U->getNombre() << endl << endl;
+		cout << U->getControladorEscuelas()->toStringConCursos() << endl;
 	}
 	Interfaz_Principal::msjPausa();
 	system("cls");

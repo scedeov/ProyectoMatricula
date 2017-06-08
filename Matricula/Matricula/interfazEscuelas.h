@@ -17,7 +17,8 @@ public:
 	static char vMenuEscuelas();
 	static char vAjustesEscuelas();
 	static void vIngresaEscuela(Universidad*);
-	static void vInfoEscuelas(Universidad*, char); // el char es para ver si imprime cursos o no
+	static void vInfoEscuelasSinCursos(Universidad*); // el char es para ver si imprime cursos o no
+	static void vInfoEscuelasConCursos(Universidad*);
 };
 #endif // !INTERFAZ_ESCUELAS
 
