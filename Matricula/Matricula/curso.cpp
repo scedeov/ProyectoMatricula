@@ -1,10 +1,11 @@
 #include "curso.h"
 
+
 Curso::Curso()
 {
 	codigoCurso = "Undefined";
 	nombreCurso = "Undefined";
-	
+
 	grupo = new Vector<Grupo>(MAXGRUPOSESTUDIANTES);
 }
 
@@ -77,6 +78,17 @@ string Curso::getCodigoCurso()
 int Curso::getCantidadCreditos()
 {
 	return cantidadCreditos;
+}
+
+bool Curso::estaEstudiante(Estudiante *estudiante)
+{
+	for (int i = 0; i < grupo->getCantidad(); i++) {
+		Grupo *grupoaux = grupo->getDato(i);
+		for (int x = 0; x < grupoaux->getCantidad(); x++)
+			if (grupoaux->getEstudiante(x)->getID() == estudiante->getID())
+				return true;
+	}
+	return false;
 }
 
 string Curso::imprimeEstudiantesMatriculados()

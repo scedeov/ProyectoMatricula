@@ -50,7 +50,14 @@ bool ControladorCursos::eliminaCursoEspecifico(string codigo) {
 }
 
 Curso* ControladorCursos::retornaCursoEspecifico(string codigo) {
-	listaCursos->encontrarPorId(codigo);
+	Nodo<Curso> *paux = listaCursos->begin();
+	while (paux != NULL)
+		if (paux->getDato()->getCodigoCurso() == codigo)
+			return paux->getDato();
+		else
+			paux = paux->getNext();
+
+	return nullptr;
 }
 
 string ControladorCursos::toString()

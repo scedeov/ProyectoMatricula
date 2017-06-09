@@ -46,10 +46,10 @@ void Interfaz_Estudiantes::vIngresarEstudiante(Universidad *U) {
 	cout << "Es un estudiante de nacionalidad extranjera?: "; ;
 	if (char ans = Interfaz_Principal::vInfoConfirmacion() == 'N') {
 		cout << "Ingrese el porcentaje de beca (0-100): "; cin >> porcentaje; cin.ignore(); cout << endl;
-		Estudiante *E = new Estudiante_Nacional(E);
+		E = new Estudiante_Nacional(E);
 	}
 	else
-		Estudiante *E = new Estudiante_Extranjero(E);
+		E = new Estudiante_Extranjero(E);
 
 	U->getContenedorEstudiantes()->insertaInicio(E);
 	Interfaz_Principal::msjPerfecto();

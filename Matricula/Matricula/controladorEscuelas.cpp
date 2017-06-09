@@ -1,5 +1,6 @@
 #include "controladorEscuelas.h"
-//#include "contenedorProfesores.h"
+#include "estudiante.h"
+#include "curso.h"
 
 
 
@@ -11,17 +12,6 @@ ControladorEscuelas::ControladorEscuelas()
 void ControladorEscuelas::insertarInicio(Escuela* unEscuela)
 {
 	listaEscuelas->push_front(unEscuela);
-	/*paux = new Nodo_Escuelas(unEscuela, NULL);
-
-	if (pinicio == NULL)
-	{
-		pinicio = paux;
-	}
-	else
-	{
-		paux->setNext(pinicio);
-		pinicio = paux;
-	}*/
 }
 
 Escuela * ControladorEscuelas::retornaEscuela(string sigla)
@@ -50,6 +40,21 @@ Profesor * ControladorEscuelas::retornaProfesor(string cedula)
 	return nullptr;
 }
 
+//int ControladorEscuelas::cantidadCursosMatriculadosEstudiante(Estudiante *estudiante)
+//{
+//	int contador = 0;
+//	Nodo<Escuela> * paux = listaEscuelas->begin();
+//	while (paux != NULL) {
+//		for (int x = 0; x < paux->getDato()->getContenedorCursos()->getCantidad(); x++) {
+//			Curso * curso = paux->getDato()->getContenedorCursos()->getCursoporPos(x);
+//			if (curso->estaEstudiante(estudiante))
+//				contador++;
+//		}
+//		paux = paux->getNext();
+//	}
+//	return contador;
+//}
+
 bool ControladorEscuelas::encuentraEscuela(Escuela* e, string sigla)
 {
 	if (e->getSiglaEscuela() == sigla)
@@ -58,7 +63,7 @@ bool ControladorEscuelas::encuentraEscuela(Escuela* e, string sigla)
 		return false;
 }
 
-string ControladorEscuelas::toStringEscuelas() 
+string ControladorEscuelas::toStringEscuelas()
 {
 	stringstream s;
 	Nodo<Escuela> *paux = listaEscuelas->begin();

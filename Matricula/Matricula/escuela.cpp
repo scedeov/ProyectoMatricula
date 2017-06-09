@@ -77,5 +77,3 @@ std::string Escuela::toStringConCursos() {
 	s << "Cursos Impartidos: " << endl;
 	s << *ConC << endl;
 }
-
-}

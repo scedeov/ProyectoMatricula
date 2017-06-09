@@ -45,7 +45,7 @@ bool Interfaz_Matricula::vMatriculaEstudianteCurso(Universidad *U)
 		for (int i = 0; i < 5; i++) {
 			if (C->getGrupo(i)->getCantidad() < CUPOMAXIMO) {
 				C->getGrupo(i)->agregarEstudiante(EST);
-			/*	EST->agregaCurso(C);*/
+				/*	EST->agregaCurso(C);*/
 				Interfaz_Principal::msjPerfecto();
 				return true;
 			}
@@ -79,7 +79,7 @@ void Interfaz_Matricula::vMatriculaListaCursosEstudiante(Universidad *U) {
 	try {
 		if (E == nullptr) throw 1;
 
-		cout << U->getContenedorEstudiantes()->retornaEstudiante(cedula)->imprimeCursos();
+		cout << E->getCursosMatriculados()->toString() << endl;
 	}
 	catch (int e) {
 		if (e == 0) cout << "No hay estudiantes matriculados aun..." << endl << endl;
@@ -113,7 +113,7 @@ void Interfaz_Matricula::vCobroMatricula(Universidad *U)
 		if (E == nullptr) throw 1;
 		double cobro = 0.0;
 		for (int i = 0; i < E->getCantidadCursosMatriculados(); i++)
-			cobro += Aranceles::cobroMatricula(E->getCursoMatriculado(i), E);
+			cobro += Aranceles::cobroMatricula(E->getCursosMatriculados()->getCursoporPos(i), E);
 		cout << "El costo de la matricula del estudiante es de -> " << cobro << endl;
 	}
 	catch (int e) {

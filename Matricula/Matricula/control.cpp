@@ -157,12 +157,12 @@ void Control::MenuEscuelas()
 		{
 		case '1':
 		{
-			Interfaz_Escuelas::vInfoEscuelas(U, '1'); //Imprime solamente escuelas
+			Interfaz_Escuelas::vInfoEscuelasSinCursos(U); 
 			break;
 		}
 		case '2':
 		{
-			Interfaz_Escuelas::vInfoEscuelas(U, '2'); //Imprime escuelas con los cursos
+			Interfaz_Escuelas::vInfoEscuelasConCursos(U);
 			break;
 		}
 		case '3':

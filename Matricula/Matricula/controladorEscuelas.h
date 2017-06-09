@@ -9,6 +9,7 @@
 using namespace std;
 
 class Escuela;
+class Estudiante;
 class ControladorEscuelas
 {
 private:
@@ -19,6 +20,7 @@ public:
 	Escuela* retornaEscuela(std::string);
 	bool encuentraEscuela(Escuela*, std::string);
 	Profesor* retornaProfesor(std::string);
+	/*int cantidadCursosMatriculadosEstudiante(Estudiante*);*/
 	std::string toStringEscuelas();
 	std::string toStringConCursos();
 	~ControladorEscuelas();

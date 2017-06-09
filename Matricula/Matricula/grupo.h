@@ -21,6 +21,7 @@ public:
 	int getCantidad();
 	void setProfesorEncargado(Profesor*);
 	Profesor* getProfesorEncargado();
+	Estudiante* getEstudiante(int);
 	void agregarEstudiante(Estudiante*);
 	bool eliminarEstudiante(string);
 	std::string toString();

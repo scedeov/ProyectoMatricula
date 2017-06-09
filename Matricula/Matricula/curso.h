@@ -9,8 +9,7 @@
 using namespace std;
 
 #include "grupo.h"
-//class GrupoProfesores;
-
+class Estudiante;
 const int MAXGRUPOSESTUDIANTES = 5;
 
 class Curso {
@@ -33,6 +32,7 @@ public:
 	std::string getNombre();
 	std::string getCodigoCurso();
 	int getCantidadCreditos();
+	bool estaEstudiante(Estudiante*);
 	std::string imprimeEstudiantesMatriculados();
 	std::string toString();
 	friend std::ostream& operator << (std::ostream&, Curso&);

@@ -135,9 +135,6 @@
     <ClInclude Include="grupo.h">
       <Filter>Header Files\Estudiantes</Filter>
     </ClInclude>
-    <ClInclude Include="matricula.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -219,9 +216,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="vector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="matricula.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

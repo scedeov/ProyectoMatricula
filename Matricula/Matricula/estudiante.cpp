@@ -1,8 +1,10 @@
 #include "estudiante.h"
+#include "controladorCursos.h"
 
 Estudiante::Estudiante() : Persona() {
 	porcentajeBeca = 0;
 	carnet = "";
+	cursosMatriculados = new ControladorCursos();
 }
 
 string Estudiante::getCarnet()
@@ -22,6 +24,16 @@ void Estudiante::generaCarnet() {
 	srand((unsigned)time(0));
 	int numeroRandom = 1000 + rand() % 5000;
 	carnet = primerApellido.substr(0, 1) + segundoApellido.substr(0, 1) + nombre.substr(0, 1) + to_string(numeroRandom);
+}
+
+ControladorCursos * Estudiante::getCursosMatriculados()
+{
+	return cursosMatriculados;
+}
+
+int Estudiante::getCantidadCursosMatriculados()
+{
+	return cursosMatriculados->getCantidad();
 }
 
 string Estudiante::toString() {

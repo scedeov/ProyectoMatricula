@@ -23,6 +23,11 @@ Profesor * Grupo::getProfesorEncargado()
 	return profesorEncargado;
 }
 
+Estudiante * Grupo::getEstudiante(int pos)
+{
+	return listaEstudiantes->getDato(pos);
+}
+
 void Grupo::agregarEstudiante(Estudiante *E)
 {
 	listaEstudiantes->push(E);
