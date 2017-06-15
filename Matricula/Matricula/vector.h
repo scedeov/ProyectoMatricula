@@ -8,15 +8,58 @@ private:
 	int cantidad;
 	int capacidad;
 public:
-	Vector(int);
-	~Vector();
-	T* getDato(int);
-	void eliminarPosicion(int);
-	int getCantidad();
-	int getCapacidad();
-	void setCapacidad(int);
-	void push(T*);
-	T* pop();
+	inline Vector(int xCapacidad) {
+		vector = new T*[xCapacidad];
+		this->cantidad = -1;
+		this->capacidad = xCapacidad;
+		for (int i = 0; i < capacidad; i++)
+			vector[i] = nullptr;
+	}
+
+	inline ~Vector() {
+		for (cantidad; cantidad != -1; cantidad--) {
+			delete vector[cantidad];
+		}
+		delete[]vector;
+	}
+
+	inline T* getDato(int pos) {
+		return vector[pos];
+	}
+
+	inline void eliminarPosicion(int pos) {
+		for (int i = pos; i < cantidad - 1; i++)
+			vector[i] = vector[i + 1];
+		cantidad--;
+	}
+
+	inline int getCantidad() {
+		return cantidad;
+	}
+	inline int getCapacidad() {
+		return capacidad;
+	}
+
+	inline void setCapacidad(int x) {
+		this->capacidad = x;
+	}
+
+	inline void push(T* dato) {
+		if (cantidad < capacidad)
+			this->vector[++cantidad] = dato;
+	}
+
+	inline T* pop() {
+		T* aux;
+		if (vector[cantidad] != nullptr) {
+			aux = vec[cantidad];
+			vec[cantidad] = nullptr;
+			cantidad--;
+			return aux;
+		}
+		else
+			return nullptr;
+	}
 
 	class Iterador;
 	friend class Iterador;
@@ -25,16 +68,16 @@ public:
 		Vector *ptr;
 		int cursor;
 	public:
-		Iterador(Vector* ptr) {
+		inline Iterador(Vector* ptr) {
 			this->ptr = ptr;
 		}
-		void first() {
+		inline void first() {
 			this->cursor = 0;
 		}
-		void next() {
+		inline void next() {
 			this->cursor++;
 		}
-		T* getCurItem() {
+		inline T* getCurItem() {
 			return ptr->vector[cursor];
 		}
 	};

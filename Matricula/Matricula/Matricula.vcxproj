@@ -159,14 +159,12 @@
     <ClCompile Include="interfazEscuelas.cpp" />
     <ClCompile Include="interfazProfesores.cpp" />
     <ClCompile Include="interfazUniversidad.cpp" />
-    <ClCompile Include="lista.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoProfesores.cpp" />
     <ClCompile Include="objetoBase.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="profesor.cpp" />
     <ClCompile Include="universidad.cpp" />
-    <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -209,12 +209,6 @@
     <ClCompile Include="grupo.cpp">
       <Filter>Source Files\Estudiantes</Filter>
     </ClCompile>
-    <ClCompile Include="vector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lista.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
