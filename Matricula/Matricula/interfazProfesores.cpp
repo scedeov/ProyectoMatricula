@@ -6,6 +6,7 @@
 #include "controladorProfesores.h"
 #include "controladorCursos.h"
 #include "controladorEscuelas.h"
+#include "escuela.h"
 #include "grupo.h"
 #include <iostream>
 #include <string>

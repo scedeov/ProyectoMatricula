@@ -2,6 +2,7 @@
 #define CONTROLADORCURSOS
 
 #include "lista.h"
+#include <string>
 
 class Curso;
 class ControladorCursos

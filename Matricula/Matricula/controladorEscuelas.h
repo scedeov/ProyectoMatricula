@@ -1,15 +1,12 @@
 #ifndef CONTENEDOR_ESCUELAS
 #define CONTENEDOR_ESCUELAS
 
-
-#include <sstream>
-#include <iostream>
 #include "lista.h"
-#include "escuela.h"
-using namespace std;
+#include <string>
 
 class Escuela;
 class Estudiante;
+class Profesor;
 class ControladorEscuelas
 {
 private:
@@ -20,7 +17,6 @@ public:
 	Escuela* retornaEscuela(std::string);
 	bool encuentraEscuela(Escuela*, std::string);
 	Profesor* retornaProfesor(std::string);
-	/*int cantidadCursosMatriculadosEstudiante(Estudiante*);*/
 	std::string toStringEscuelas();
 	std::string toStringConCursos();
 	~ControladorEscuelas();

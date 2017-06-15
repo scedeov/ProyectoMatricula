@@ -1,7 +1,6 @@
 #ifndef VECTOR
 #define VECTOR
 
-
 template <class T>
 class Vector {
 private:
@@ -38,7 +37,6 @@ public:
 		T* getCurItem() {
 			return ptr->vector[cursor];
 		}
-		//No estoy seguro sobre el destructor
 	};
 };
 #endif // !VECTOR

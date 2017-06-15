@@ -1,8 +1,7 @@
 #include "interfazCursos.h"
 #include "interfazPrincipal.h"
-#include "controladorEscuelas.h"
-#include "grupoProfesores.h"
-#include "controladorCursos.h"
+#include "grupo.h"
+#include "escuela.h"
 #include "curso.h"
 #include <iostream>
 #include <conio.h>

@@ -2,8 +2,6 @@
 #define LISTA
 
 #include "nodo.h"
-#include <string>
-#include <sstream>
 
 template <class TipoDato>
 class Lista {
@@ -26,10 +24,14 @@ public:
 	virtual bool empty();
 	virtual int size();
 	virtual void wipe();
-	virtual std::string toString();
 	~Lista();
 };
-#endif // !LISTA
 
+//class Curso; typedef Lista<Curso> ListaCursos;
+//class Escuela; typedef Lista<Escuela> ListaEscuelas;
+//class Estudiante; typedef Lista<Estudiante> ListaEstudiantes;
+//class Profesor; typedef Lista<Profesor> ListaProfesores;
+
+#endif // !LISTA
 
 

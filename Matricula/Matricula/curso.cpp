@@ -1,5 +1,8 @@
 #include "curso.h"
-
+#include "grupo.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Curso::Curso()
 {
@@ -48,6 +51,7 @@ Profesor * Curso::getProfesorEncargado(int pos)
 {
 	for (int i = 0; i < grupo->getCantidad(); i++)
 		return grupo->getDato(pos)->getProfesorEncargado();
+	return nullptr;
 }
 
 int Curso::getCantidadGrupos()

@@ -1,21 +1,17 @@
 #ifndef CONTENEDOR_PROFESORES
 #define CONTENEDOR_PROFESORES
 
-#include "profesor.h"
-#include <sstream>
-#include <iostream>
 #include "lista.h"
+#include <string>
 
-using namespace std;
-
-class ControladorProfesores
-{
+class Profesor;
+class ControladorProfesores {
 private:
 	Lista<Profesor> *listaProfesores;
 public:
 	ControladorProfesores();
 	void insertaInicio(Profesor*);
-	Profesor* retornaProfesor(string);
+	Profesor* retornaProfesor(std::string);
 	int contadorProfesores();
 	std::string toString();
 	friend std::ostream& operator << (std::ostream&, ControladorProfesores&);

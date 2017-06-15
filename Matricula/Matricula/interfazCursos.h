@@ -1,8 +1,7 @@
 #ifndef INTERFAZ_CURSOS
 #define INTERFAZ_CURSOS
 
-#include "universidad.h"
-
+class Universidad;
 class Interfaz_Cursos {
 public:
 	static char vMenuCursos();

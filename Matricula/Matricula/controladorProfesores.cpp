@@ -1,5 +1,8 @@
 #include "controladorProfesores.h"
-
+#include "profesor.h"
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 ControladorProfesores::ControladorProfesores()
 {
@@ -21,9 +24,8 @@ Profesor * ControladorProfesores::retornaProfesor(string cedula) {
 	return nullptr;
 }
 
-
 int ControladorProfesores::contadorProfesores() {
-	listaProfesores->size();
+	return listaProfesores->size();
 }
 
 string ControladorProfesores::toString()

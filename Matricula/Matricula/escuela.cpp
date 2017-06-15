@@ -76,4 +76,5 @@ std::string Escuela::toStringConCursos() {
 	s << "| Sigla: " << siglaEscuela << endl;
 	s << "Cursos Impartidos: " << endl;
 	s << *ConC << endl;
+	return s.str();
 }

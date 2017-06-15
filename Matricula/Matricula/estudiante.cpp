@@ -1,5 +1,9 @@
 #include "estudiante.h"
 #include "controladorCursos.h"
+#include <time.h>
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 Estudiante::Estudiante() : Persona() {
 	porcentajeBeca = 0;

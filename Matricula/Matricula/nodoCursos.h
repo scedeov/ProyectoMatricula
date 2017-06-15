@@ -1,8 +1,7 @@
 #ifndef NODO_CURSOS
 #define NODO_CURSOS
 
-#include "curso.h"
-
+class Curso;
 class Nodo_Cursos
 {
 private:

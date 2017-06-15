@@ -1,4 +1,7 @@
 #include "interfazMatricula.h"
+#include "escuela.h"
+#include "curso.h"
+
 
 
 char Interfaz_Matricula::vMenuMatricula()

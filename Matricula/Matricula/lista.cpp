@@ -1,13 +1,13 @@
 #include "lista.h"
 
 template<class TipoDato>
-inline Lista<TipoDato>::Lista() {
+Lista<TipoDato>::Lista() {
 	pinicio = NULL;
 	paux = NULL;
 }
 
 template<class TipoDato>
-inline Lista<TipoDato>::Lista(const Lista &l) {
+Lista<TipoDato>::Lista(const Lista &l) {
 	paux = pinicio;
 	Nodo<TipoDato>* cursor = l.paux;
 	while (cursor != NULL) {
@@ -17,7 +17,7 @@ inline Lista<TipoDato>::Lista(const Lista &l) {
 }
 
 template<class TipoDato>
-inline Lista<TipoDato>& Lista<TipoDato>::operator = (const Lista &l) {
+Lista<TipoDato>& Lista<TipoDato>::operator = (const Lista &l) {
 	if (this != &l) {
 		if (pinicio != NULL) {
 			wipe();
@@ -32,36 +32,26 @@ inline Lista<TipoDato>& Lista<TipoDato>::operator = (const Lista &l) {
 	return *this;
 }
 
-//template<class TipoDato>
-////inline Nodo<TipoDato>& Lista<TipoDato>::operator [] (const int index)
-////{
-////	Nodo<TipoDato>* aux = pinicio;
-////	while (aux != NULL)
-////		for (int i = 0; i <= index; i++)
-////			aux = aux->getNext();
-////	return aux;
-////}
-
 template<class TipoDato>
-inline Nodo<TipoDato>* Lista<TipoDato>::begin()
+Nodo<TipoDato>* Lista<TipoDato>::begin()
 {
 	return pinicio;
 }
 
 template<class TipoDato>
-inline TipoDato* Lista<TipoDato>::front()
+TipoDato* Lista<TipoDato>::front()
 {
 	return begin()->getDato();
 }
 
 template<class TipoDato>
-inline TipoDato* Lista<TipoDato>::back()
+TipoDato* Lista<TipoDato>::back()
 {
 	return end()->getDato();
 }
 
 template<class TipoDato>
-inline Nodo<TipoDato>* Lista<TipoDato>::end() {
+Nodo<TipoDato>* Lista<TipoDato>::end() {
 	paux = pinicio;
 	while (paux->getNext() != NULL)
 		paux = paux->getNext();
@@ -69,7 +59,7 @@ inline Nodo<TipoDato>* Lista<TipoDato>::end() {
 }
 
 template<class TipoDato>
-inline TipoDato * Lista<TipoDato>::at(int index)
+TipoDato * Lista<TipoDato>::at(int index)
 {
 	paux = pinicio;
 	while (paux != NULL) {
@@ -82,13 +72,13 @@ inline TipoDato * Lista<TipoDato>::at(int index)
 }
 
 template<class TipoDato>
-inline void Lista<TipoDato>::push_front(TipoDato *unDato) {
+void Lista<TipoDato>::push_front(TipoDato *unDato) {
 	TipoDato* dato = new TipoDato(*unDato);
 	pinicio = new Nodo<TipoDato>(*dato, pinicio);
 }
 
 template<class TipoDato>
-inline void Lista<TipoDato>::push_back(TipoDato *unDato)
+void Lista<TipoDato>::push_back(TipoDato *unDato)
 {
 	TipoDato* dato = new TipoDato(*unDato);
 	if (empty())
@@ -98,7 +88,7 @@ inline void Lista<TipoDato>::push_back(TipoDato *unDato)
 }
 
 template<class TipoDato>
-inline TipoDato * Lista<TipoDato>::pop_front() {
+TipoDato * Lista<TipoDato>::pop_front() {
 	if (!empty()) {
 		Nodo<TipoDato>* actual = this->pinicio;
 		TipoDato* dato = new TipoDato(*(pinicio->getDato()));
@@ -110,7 +100,7 @@ inline TipoDato * Lista<TipoDato>::pop_front() {
 }
 
 template<class TipoDato>
-inline bool Lista<TipoDato>::empty()
+bool Lista<TipoDato>::empty()
 {
 	if (pinicio == NULL)
 		return true;
@@ -118,7 +108,7 @@ inline bool Lista<TipoDato>::empty()
 }
 
 template<class TipoDato>
-inline int Lista<TipoDato>::size() {
+int Lista<TipoDato>::size() {
 	int contador = 0;
 	paux = pinicio;
 	while (paux != NULL) {
@@ -129,7 +119,7 @@ inline int Lista<TipoDato>::size() {
 }
 
 template<class TipoDato>
-inline void Lista<TipoDato>::wipe() {
+void Lista<TipoDato>::wipe() {
 	TipoDato* ptr;
 	while (ptr = pop_front())
 		delete ptr;
@@ -137,20 +127,13 @@ inline void Lista<TipoDato>::wipe() {
 }
 
 template<class TipoDato>
-inline std::string Lista<TipoDato>::toString() {
-	std::stringstream s;
-	if (pinicio != NULL) {
-		paux = pinicio;
-		while (paux != NULL) {
-			s << paux->getDato()->toString() << endl;
-			paux = paux->getNext();
-		}
-	}
-	return s.str();
-}
-
-template<class TipoDato>
-inline Lista<TipoDato>::~Lista() {
+Lista<TipoDato>::~Lista() {
 	cout << "Eliminando Template..." << endl;
 	wipe();
 }
+//// aqui se tienen que especializar las que se vayan a usar
+//template class Lista<Curso>;
+//template class Lista<Escuela>;
+//template class Lista<Estudiante>;
+//template class Lista<Profesor>;
+

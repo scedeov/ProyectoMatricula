@@ -1,4 +1,5 @@
 #include "controladorCursos.h"
+#include "grupo.h"
 #include "curso.h"
 #include <sstream>
 #include <iostream>

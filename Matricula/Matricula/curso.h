@@ -1,17 +1,13 @@
 #ifndef CURSO
 #define CURSO
 
-#include "grupo.h"
-#include <sstream>
-#include <iostream>
 #include "vector.h"
 #include <string>
-using namespace std;
 
-#include "grupo.h"
 class Estudiante;
+class Grupo;
+class Profesor;
 const int MAXGRUPOSESTUDIANTES = 5;
-
 class Curso {
 private:
 	Vector<Grupo> *grupo;

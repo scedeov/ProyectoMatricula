@@ -2,12 +2,7 @@
 #define ESTUDIANTE
 
 #include "persona.h"
-#include <time.h>
-#include <sstream>
-#include <iostream>
-using namespace std;
 
-class Curso;
 class ControladorCursos;
 class Estudiante: public Persona {
 private:

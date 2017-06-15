@@ -1,10 +1,8 @@
 #ifndef CONTENEDOR_ESTUDIANTES
 #define CONTENEDOR_ESTUDIANTES	
 
-//#include "estudianteExtranjero.h"
-//#include "estudianteNacional.h"
-
 #include "lista.h"
+#include <string>
 
 class Estudiante;
 class ControladorEstudiantes {
