@@ -15,7 +15,7 @@ void ControladorProfesores::insertaInicio(Profesor *P) {
 
 Profesor * ControladorProfesores::retornaProfesor(string cedula) {
 	Nodo<Profesor> *paux = listaProfesores->begin();
-	while (paux != NULL) {
+	while (paux != nullptr) {
 		if (paux->getDato()->getID() == cedula)
 			return paux->getDato();
 		else

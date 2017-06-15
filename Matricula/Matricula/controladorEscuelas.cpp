@@ -34,7 +34,7 @@ Profesor * ControladorEscuelas::retornaProfesor(string cedula)
 {
 	Nodo<Escuela> *paux = listaEscuelas->begin();
 	while (paux != NULL) {
-		if (paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula) != NULL)
+		if (paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula) != nullptr)
 			return paux->getDato()->getContenedorProfesores()->retornaProfesor(cedula);
 		else
 			paux = paux->getNext();

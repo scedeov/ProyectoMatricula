@@ -13,7 +13,7 @@ public:
 	virtual Nodo* getNext() const;
 	virtual void setDato(TipoDato*);
 	virtual void linkNext(Nodo*);
-	virtual TipoDato* getDato() const;
+	virtual TipoDato* getDato();
 	virtual ~Nodo();
 };
 #endif // !NODO
@@ -43,7 +43,7 @@ inline void Nodo<TipoDato>::linkNext (Nodo *n)
 }
 
 template<class TipoDato>
-TipoDato* Nodo<TipoDato>::getDato() const {
+TipoDato* Nodo<TipoDato>::getDato() {
 	return dato;
 }
 
