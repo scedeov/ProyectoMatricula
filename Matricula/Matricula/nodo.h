@@ -2,53 +2,35 @@
 #define NODO
 
 template <class TipoDato>
-
 class Nodo {
+public:
+	inline Nodo(TipoDato& unDato, Nodo* unNext): 
+		next(unNext), 
+		dato(&unDato){}
+
+	inline void setNext(Nodo* unNext) {
+		next = unNext;
+	}
+
+	inline Nodo* getNext() {
+		return next;
+	}
+
+	inline void setDato(TipoDato* unDato) {
+		dato = unDato;
+	}
+
+	inline void linkNext(Nodo* n) {
+		this->next = n->getNext();
+	}
+
+	inline TipoDato* getDato() {
+		return dato;
+	}
+	inline ~Nodo() {}
 private:
 	TipoDato* dato;
 	Nodo* next;
-public:
-	Nodo(TipoDato&, Nodo*);
-	virtual void setNext(Nodo*);
-	virtual Nodo* getNext() const;
-	virtual void setDato(TipoDato*);
-	virtual void linkNext(Nodo*);
-	virtual TipoDato* getDato();
-	virtual ~Nodo();
 };
 #endif // !NODO
 
-template<class TipoDato>
-Nodo<TipoDato>::Nodo(TipoDato& dato, Nodo* next) : next(next), dato(&dato) {}
-
-template<class TipoDato>
-void Nodo<TipoDato>::setNext(Nodo* unNext) {
-	next = unNext;
-}
-
-template<class TipoDato>
-Nodo<TipoDato>* Nodo<TipoDato>::getNext() const {
-	return next;
-}
-
-template<class TipoDato>
-void Nodo<TipoDato>::setDato(TipoDato* unDato) {
-	dato = unDato;
-}
-
-template<class TipoDato>
-inline void Nodo<TipoDato>::linkNext (Nodo *n)
-{
-	this->next = n->getNext();
-}
-
-template<class TipoDato>
-TipoDato* Nodo<TipoDato>::getDato() {
-	return dato;
-}
-
-
-template<class TipoDato>
-Nodo<TipoDato>::~Nodo()
-{
-}
